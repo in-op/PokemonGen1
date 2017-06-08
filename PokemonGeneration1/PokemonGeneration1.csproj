@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DE2339A7-78F9-46EA-A025-2B39C2005AB0}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PokemonGeneration1</RootNamespace>
+    <AssemblyName>PokemonGeneration1</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Source\Battles\Battle.cs" />
+    <Compile Include="Source\Battles\BattleEventArgs.cs" />
+    <Compile Include="Source\Battles\Bide.cs" />
+    <Compile Include="Source\Battles\BattleActor.cs" />
+    <Compile Include="Source\Battles\BattlePokemonEventArgs.cs" />
+    <Compile Include="Source\Battles\BattleState.cs" />
+    <Compile Include="Source\Battles\Disable.cs" />
+    <Compile Include="Source\Battles\RandomWildPokemonActor.cs" />
+    <Compile Include="Source\Battles\Selection.cs" />
+    <Compile Include="Source\Battles\Side.cs" />
+    <Compile Include="Source\Battles\Conversion.cs" />
+    <Compile Include="Source\Battles\StatsEnum.cs" />
+    <Compile Include="Source\Battles\Transform.cs" />
+    <Compile Include="Source\ConsoleUI\ConsoleBattleActor.cs" />
+    <Compile Include="Source\ConsoleUI\BattleEventsHandler.cs" />
+    <Compile Include="Source\ConsoleUI\ConsoleBattlePlayer.cs" />
+    <Compile Include="Source\ConsoleUI\Display.cs" />
+    <Compile Include="Source\ConsoleUI\MainMenuState.cs" />
+    <Compile Include="Source\ConsoleUI\SelectPokemon.cs" />
+    <Compile Include="Source\Items\Item.cs" />
+    <Compile Include="Source\Moves\Metronome.cs" />
+    <Compile Include="Source\Moves\Reflexive\Implementations.cs" />
+    <Compile Include="Source\Moves\Transitive\Attack\AttackMove.cs" />
+    <Compile Include="Source\Moves\MoveEventArgs.cs" />
+    <Compile Include="Source\Moves\Transitive\Attack\MultiTurn\Implementations.cs" />
+    <Compile Include="Source\Moves\Transitive\Attack\MultiTurn\MultiTurnAttackMove.cs" />
+    <Compile Include="Source\Moves\Transitive\Attack\OneTurnMultiHit\Implementations.cs" />
+    <Compile Include="Source\Moves\Transitive\Attack\OneTurnMultiHit\OneTurnMultiHitAttackMove.cs" />
+    <Compile Include="Source\Moves\Transitive\Attack\OneTurnOneHit\Implementations.cs" />
+    <Compile Include="Source\Moves\Transitive\Attack\OneTurnOneHit\OneTurnOneHitAttackMove.cs" />
+    <Compile Include="Source\Moves\Reflexive\ReflexiveStatusMove.cs" />
+    <Compile Include="Source\Moves\Transitive\Status\Implementations.cs" />
+    <Compile Include="Source\Moves\Transitive\TransitiveMove.cs" />
+    <Compile Include="Source\Moves\Transitive\Status\TransitiveStatusMove.cs" />
+    <Compile Include="Source\PokemonData\BaseStats.cs" />
+    <Compile Include="Source\Battles\BattlePokemon.cs" />
+    <Compile Include="Source\Battles\Substitute.cs" />
+    <Compile Include="Source\Battles\StatStageModifiers.cs" />
+    <Compile Include="Source\Battles\Category.cs" />
+    <Compile Include="Source\Moves\MoveFactory.cs" />
+    <Compile Include="Source\PokemonData\PokemonEventArgs.cs" />
+    <Compile Include="Source\PokemonData\ExperienceGroup.cs" />
+    <Compile Include="Source\PokemonData\PokemonLearnset.cs" />
+    <Compile Include="Source\PokemonData\PokemonInitialization.cs" />
+    <Compile Include="Source\PokemonData\PrimeCupRentalPokemonFactory.cs" />
+    <Compile Include="Source\PokemonData\StatExp.cs" />
+    <Compile Include="Source\PokemonData\Stats.cs" />
+    <Compile Include="Source\PokemonData\DeterminantValues.cs" />
+    <Compile Include="Source\PokemonData\Status.cs" />
+    <Compile Include="Source\Trainers\Bag.cs" />
+    <Compile Include="Source\Trainers\ItemQuantityTuple.cs" />
+    <Compile Include="Source\Trainers\Party.cs" />
+    <Compile Include="Source\Trainers\Trainer.cs" />
+    <Compile Include="Source\Moves\Move.cs" />
+    <Compile Include="Source\PokemonData\Pokemon.cs" />
+    <Compile Include="Source\Types.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
