@@ -338,7 +338,7 @@ namespace PokemonGeneration1.Source.Battles
             }
 
             OnMimic(moveToCopy, opponent);
-            Move newMove = MoveFactory.CreateMove(moveToCopy.GetIndex());
+            Move newMove = MoveFactory.CreateMove(moveToCopy.Index);
             if (move1 == mimicItself)
             {
                 move1 = newMove;
@@ -1363,7 +1363,7 @@ namespace PokemonGeneration1.Source.Battles
         public void CheckForRageAndUpdateAttackStatStageIfNecessary()
         {
             if (MultiTurnMove != null &&
-                MultiTurnMove.GetIndex() == 99)
+                MultiTurnMove.Index == 99)
             {
                 if (this.StatStageModifiers.CanAttackGoHigher())
                 {

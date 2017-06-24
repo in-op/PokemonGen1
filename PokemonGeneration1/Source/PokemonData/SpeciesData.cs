@@ -2,9 +2,7 @@
 {
     public static class SpeciesData
     {
-        /// <summary>
-        /// The name of each Pokemon species, indexed by Pokemon number.
-        /// </summary>
+
         public static readonly string[] Names = new string[]
         {
             "Null",
@@ -475,7 +473,6 @@
         
 
 
-
         
         public static readonly ExperienceGroup[] ExpGroup = new ExperienceGroup[]
         {
@@ -786,8 +783,8 @@
         };
 
 
-
         
+
         public static readonly BaseStats[] BaseStats = new BaseStats[]
         {   // 0 - No Pokemon
             new BaseStats(0f, 0f, 0f, 0f, 0f),

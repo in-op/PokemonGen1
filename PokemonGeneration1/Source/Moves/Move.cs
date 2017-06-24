@@ -15,7 +15,7 @@ namespace PokemonGeneration1.Source.Moves
      */
     public abstract class Move : IEquatable<Move>
     {
-        public readonly int Index;
+        public int Index { get; }
         public readonly string Name;
         public readonly Type Type;
         public readonly Category Category;
@@ -60,109 +60,109 @@ namespace PokemonGeneration1.Source.Moves
         public event EventHandler<MoveEventArgs> RegainedHealth;
         protected virtual void OnUsed()
         {
-            Used?.Invoke(this, this.EventArgs);
+            Used?.Invoke(this, EventArgs);
         }
         protected virtual void OnMissed()
         {
-            Missed?.Invoke(this, this.EventArgs);
+            Missed?.Invoke(this, EventArgs);
         }
         protected virtual void OnFailed()
         {
-            Failed?.Invoke(this, this.EventArgs);
+            Failed?.Invoke(this, EventArgs);
         }
         protected virtual void OnNoEffect()
         {
-            NoEffect?.Invoke(this, this.EventArgs);
+            NoEffect?.Invoke(this, EventArgs);
         }
         protected virtual void OnSuperEffective()
         {
-            SuperEffective?.Invoke(this, this.EventArgs);
+            SuperEffective?.Invoke(this, EventArgs);
         }
         protected virtual void OnNotVeryEffective()
         {
-            NotVeryEffective?.Invoke(this, this.EventArgs);
+            NotVeryEffective?.Invoke(this, EventArgs);
         }
         protected virtual void OnCriticalHit()
         {
-            CriticalHit?.Invoke(this, this.EventArgs);
+            CriticalHit?.Invoke(this, EventArgs);
         }
         protected virtual void OnOneHitKO()
         {
-            OneHitKO?.Invoke(this, this.EventArgs);
+            OneHitKO?.Invoke(this, EventArgs);
         }
         protected virtual void OnPayDayTriggered()
         {
-            PayDayTriggered?.Invoke(this, this.EventArgs);
+            PayDayTriggered?.Invoke(this, EventArgs);
         }
         protected virtual void OnSolarBeamFirstTurn()
         {
-            SolarBeamFirstTurn?.Invoke(this, this.EventArgs);
+            SolarBeamFirstTurn?.Invoke(this, EventArgs);
         }
         protected virtual void OnRazorWindFirstTurn()
         {
-            RazorWindFirstTurn?.Invoke(this, this.EventArgs);
+            RazorWindFirstTurn?.Invoke(this, EventArgs);
         }
         protected virtual void OnBidingTime()
         {
-            BidingTime?.Invoke(this, this.EventArgs);
+            BidingTime?.Invoke(this, EventArgs);
         }
         protected virtual void OnBideUnleased()
         {
-            BideUnleased?.Invoke(this, this.EventArgs);
+            BideUnleased?.Invoke(this, EventArgs);
         }
         protected virtual void OnFlyFirstTurn()
         {
-            FlyFirstTurn?.Invoke(this, this.EventArgs);
+            FlyFirstTurn?.Invoke(this, EventArgs);
         }
         protected virtual void OnAttackContinues()
         {
-            AttackContinues?.Invoke(this, this.EventArgs);
+            AttackContinues?.Invoke(this, EventArgs);
         }
         protected virtual void OnCrashDamage()
         {
-            CrashDamage?.Invoke(this, this.EventArgs);
+            CrashDamage?.Invoke(this, EventArgs);
         }
         protected virtual void OnHurtByRecoilDamage()
         {
-            HurtByRecoilDamage?.Invoke(this, this.EventArgs);
+            HurtByRecoilDamage?.Invoke(this, EventArgs);
         }
         protected virtual void OnThrashingAbout()
         {
-            ThrashingAbout?.Invoke(this, this.EventArgs);
+            ThrashingAbout?.Invoke(this, EventArgs);
         }
         protected virtual void OnHyperBeamRecharging()
         {
-            HyperBeamRecharging?.Invoke(this, this.EventArgs);
+            HyperBeamRecharging?.Invoke(this, EventArgs);
         }
         protected virtual void OnSuckedHealth()
         {
-            SuckedHealth?.Invoke(this, this.EventArgs);
+            SuckedHealth?.Invoke(this, EventArgs);
         }
         protected virtual void OnDugAHole()
         {
-            DugAHole?.Invoke(this, this.EventArgs);
+            DugAHole?.Invoke(this, EventArgs);
         }
         protected virtual void OnSkullBashFirstTurn()
         {
-            SkullBashFirstTurn?.Invoke(this, this.EventArgs);
+            SkullBashFirstTurn?.Invoke(this, EventArgs);
         }
         protected virtual void OnSkyAttackFirstTurn()
         {
-            SkyAttackFirstTurn?.Invoke(this, this.EventArgs);
+            SkyAttackFirstTurn?.Invoke(this, EventArgs);
         }
         protected virtual void OnRegainedHealth()
         {
-            RegainedHealth?.Invoke(this, this.EventArgs);
+            RegainedHealth?.Invoke(this, EventArgs);
         }
 
 
 
-        public int GetIndex() { return this.Index; }
-        public string GetName() { return this.Name; }
-        public Type GetMoveType() { return this.Type; }
-        public int GetCurrentPP() { return this.CurrentPP; }
-        public int GetMaxPP() { return this.MaxPP; }
-        public int GetPriority() { return this.Priority; }
+        public int GetIndex() { return Index; }
+        public string GetName() { return Name; }
+        public Type GetMoveType() { return Type; }
+        public int GetCurrentPP() { return CurrentPP; }
+        public int GetMaxPP() { return MaxPP; }
+        public int GetPriority() { return Priority; }
 
 
 
@@ -170,10 +170,10 @@ namespace PokemonGeneration1.Source.Moves
         
         public void SubtractPP(int amount)
         {
-            this.CurrentPP -= amount;
-            if (this.CurrentPP < 0)
+            CurrentPP -= amount;
+            if (CurrentPP < 0)
             {
-                this.CurrentPP = 0;
+                CurrentPP = 0;
             }
         }
 
@@ -181,16 +181,16 @@ namespace PokemonGeneration1.Source.Moves
 
         protected Move(int index, string name, Type type, int startingPP, int absoluteMaxPP, int priority, Category category)
         {
-            this.Index = index;
-            this.Name = name;
-            this.Type = type;
-            this.CurrentPP = startingPP;
-            this.MaxPP = startingPP;
-            this.AbsoluteMaxPP = absoluteMaxPP;
-            this.Priority = priority;
-            this.Category = category;
-            this.EventArgs = new MoveEventArgs();
-            this.EventArgs.move = this;
+            Index = index;
+            Name = name;
+            Type = type;
+            CurrentPP = startingPP;
+            MaxPP = startingPP;
+            AbsoluteMaxPP = absoluteMaxPP;
+            Priority = priority;
+            Category = category;
+            EventArgs = new MoveEventArgs();
+            EventArgs.move = this;
         }
 
 

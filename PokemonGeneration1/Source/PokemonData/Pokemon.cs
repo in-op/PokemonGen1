@@ -5,7 +5,7 @@ using PokemonGeneration1.Source.Moves;
 namespace PokemonGeneration1.Source.PokemonData
 {
     /// <summary>
-    /// Represents a Pokemon with all core data.
+    /// Represents a Pokemon with all core data and legal tranformation functions.
     /// </summary>
     public sealed class Pokemon
     {
@@ -245,10 +245,10 @@ namespace PokemonGeneration1.Source.PokemonData
 
         private bool AlreadyKnowsMove(int moveIndex)
         {
-            return (Move1?.GetIndex() == moveIndex) ||
-                   (Move2?.GetIndex() == moveIndex) ||
-                   (Move3?.GetIndex() == moveIndex) ||
-                   (Move4?.GetIndex() == moveIndex);
+            return (Move1?.Index == moveIndex) ||
+                   (Move2?.Index == moveIndex) ||
+                   (Move3?.Index == moveIndex) ||
+                   (Move4?.Index == moveIndex);
         }
         
         

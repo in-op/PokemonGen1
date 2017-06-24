@@ -1220,7 +1220,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.OneTurnOneHit
             OnUsed();
             if (user.GetDamageForCounter() > 0f &&
                 defender.GetLastMoveUsed()?.Category != Category.STATUS &&
-                defender.GetLastMoveUsed()?.GetIndex() != 68 &&
+                defender.GetLastMoveUsed()?.Index != 68 &&
                 !fromMetronome)
             {
                 defender.Damage(2f * user.GetDamageForCounter(), this.Type);
