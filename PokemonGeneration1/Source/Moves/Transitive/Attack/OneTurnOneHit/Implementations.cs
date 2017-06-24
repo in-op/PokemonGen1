@@ -643,7 +643,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.OneTurnOneHit
             {
                 UpdateEffectivenessUpdateCritFlagAndDoDamage(user, defender);
                 if (!defender.IsFainted() &&
-                    defender.Status == PokemonData.Status.NONE &&
+                    defender.Status == PokemonData.Status.Null &&
                     defender.GetType1() != Type.Normal &&
                     defender.GetType2() != Type.Normal &&
                     new Random().Next(0,100) < 30)
@@ -979,7 +979,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.OneTurnOneHit
             {
                 UpdateEffectivenessUpdateCritFlagAndDoDamage(user, defender);
                 if (!defender.IsFainted() &&
-                    defender.Status == PokemonData.Status.NONE &&
+                    defender.Status == PokemonData.Status.Null &&
                     new Random().Next(0, 100) < 10)
                 {
                     defender.FreezeAsSecondaryEffect();
@@ -1006,7 +1006,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.OneTurnOneHit
             {
                 UpdateEffectivenessUpdateCritFlagAndDoDamage(user, defender);
                 if (!defender.IsFainted() &&
-                    defender.Status == PokemonData.Status.NONE &&
+                    defender.Status == PokemonData.Status.Null &&
                     new Random().Next(0, 100) < 10)
                 {
                     defender.FreezeAsSecondaryEffect();
@@ -1397,7 +1397,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.OneTurnOneHit
             else
             {
                 UpdateEffectivenessUpdateCritFlagAndDoDamage(user, defender);
-                if (defender.Status == PokemonData.Status.NONE &&
+                if (defender.Status == PokemonData.Status.Null &&
                     defender.GetType1() != Type.Electric &&
                     defender.GetType2() != Type.Electric &&
                     new Random().Next(0, 100) < 10)
@@ -1430,7 +1430,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.OneTurnOneHit
             {
                 UpdateEffectivenessUpdateCritFlagAndDoDamage(user, defender);
                 if (!defender.IsFainted() &&
-                    defender.Status == PokemonData.Status.NONE &&
+                    defender.Status == PokemonData.Status.Null &&
                     defender.GetType1() != Type.Electric &&
                     defender.GetType2() != Type.Electric &&
                     new Random().Next(0, 100) < 10)
@@ -1463,7 +1463,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.OneTurnOneHit
             {
                 UpdateEffectivenessUpdateCritFlagAndDoDamage(user, defender);
                 if (!defender.IsFainted() &&
-                    defender.Status == PokemonData.Status.NONE &&
+                    defender.Status == PokemonData.Status.Null &&
                     defender.GetType1() != Type.Electric &&
                     defender.GetType2() != Type.Electric &&
                     new Random().Next(0, 100) < 10)
@@ -1739,7 +1739,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.OneTurnOneHit
             {
                 UpdateEffectivenessUpdateCritFlagAndDoDamage(user, defender);
                 if (!defender.IsFainted() &&
-                    defender.Status == PokemonData.Status.NONE &&
+                    defender.Status == PokemonData.Status.Null &&
                     defender.GetType1() != Type.Ghost &&
                     defender.GetType2() != Type.Ghost &&
                     new Random().Next(0,100) < 30)

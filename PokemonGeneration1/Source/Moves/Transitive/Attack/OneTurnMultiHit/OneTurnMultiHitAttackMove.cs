@@ -15,7 +15,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.OneTurnMultiHit
             for (int i = 1; i < numberOfHits; i++)
             {
                 if (defender.DidSubstituteBreakThisTurn() ||
-                    defender.Status == PokemonData.Status.FAINTED)
+                    defender.Status == PokemonData.Status.Fainted)
                 {
                     break;
                 }
@@ -30,8 +30,8 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.OneTurnMultiHit
 
             bool canPoison = defender.GetType1() != Type.Poison &&
                              defender.GetType2() != Type.Poison &&
-                             defender.Status != PokemonData.Status.POISON &&
-                             defender.Status != PokemonData.Status.BADLYPOISONED;
+                             defender.Status != PokemonData.Status.Poison &&
+                             defender.Status != PokemonData.Status.BadlyPoisoned;
 
             //attempt poison
             if (canPoison &&
@@ -44,7 +44,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.OneTurnMultiHit
             for (int i = 1; i < numberOfHits; i++)
             {
                 if (defender.DidSubstituteBreakThisTurn() ||
-                    defender.Status == PokemonData.Status.FAINTED)
+                    defender.Status == PokemonData.Status.Fainted)
                 {
                     break;
                 }

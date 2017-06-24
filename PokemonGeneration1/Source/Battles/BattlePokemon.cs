@@ -418,7 +418,7 @@ namespace PokemonGeneration1.Source.Battles
         private void BeginningOfTurnEffects(ref bool canMove, Move move)
         {
             // sleep
-            if (Pokemon.Status == Status.SLEEP)
+            if (Pokemon.Status == Status.Sleep)
             {
                 canMove = false;
                 if (SleepTurnsLeft > 0)
@@ -433,14 +433,14 @@ namespace PokemonGeneration1.Source.Battles
                 return;
             }
             // freeze
-            if (Pokemon.Status == Status.FREEZE)
+            if (Pokemon.Status == Status.Freeze)
             {
                 canMove = false;
                 OnFrozenSolid();
                 return;
             }
             // paralysis:
-            if (Pokemon.Status == Status.PARALYSIS &&
+            if (Pokemon.Status == Status.Paralysis &&
                 new Random().Next(0, 100) < 25)
             {
                 canMove = false;
@@ -510,18 +510,18 @@ namespace PokemonGeneration1.Source.Battles
             //leechseed
             IfSeededThenSapHP(opponent);
             //badly poisoned
-            if (Status == Status.BADLYPOISONED)
+            if (Status == Status.BadlyPoisoned)
             {
                 this.DamagePokemonOnlyNoEffects(GetStatusConditionDamage());
                 N += 1f;
             }
             //poisoned
-            else if (Status == Status.POISON)
+            else if (Status == Status.Poison)
             {
                 this.DamagePokemonOnlyNoEffects(GetStatusConditionDamage());
             }
             //burned
-            else if (Status == Status.BURN)
+            else if (Status == Status.Burn)
             {
                 this.DamagePokemonOnlyNoEffects(GetStatusConditionDamage());
             }
@@ -766,7 +766,7 @@ namespace PokemonGeneration1.Source.Battles
             this.MistActive = false;
             this.N = 1f;
 
-            if (Pokemon.Status == Status.PARALYSIS)
+            if (Pokemon.Status == Status.Paralysis)
             {
                 ParalysisDecreasingSpeed = true;
             }
@@ -774,7 +774,7 @@ namespace PokemonGeneration1.Source.Battles
             {
                 ParalysisDecreasingSpeed = false;
             }
-            if (Pokemon.Status == Status.BURN)
+            if (Pokemon.Status == Status.Burn)
             {
                 BurnDecreasingAttack = true;
             }
@@ -947,14 +947,14 @@ namespace PokemonGeneration1.Source.Battles
 
 
 
-        public bool IsBurned() { return this.Pokemon.Status == Status.BURN; }
-        public bool IsFrozen() { return this.Pokemon.Status == Status.FREEZE; }
-        public bool IsParalyzed() { return this.Pokemon.Status == Status.PARALYSIS; }
-        public bool IsPoisoned() { return this.Pokemon.Status == Status.POISON; }
-        public bool IsBadlyPoisoned() { return this.Pokemon.Status == Status.BADLYPOISONED; }
-        public bool IsSleeping() { return this.Pokemon.Status == Status.SLEEP; }
-        public bool IsFainted() { return this.Pokemon.Status == Status.FAINTED; }
-        public bool IsStatusClear() { return this.Pokemon.Status == Status.NONE; }
+        public bool IsBurned() { return this.Pokemon.Status == Status.Burn; }
+        public bool IsFrozen() { return this.Pokemon.Status == Status.Freeze; }
+        public bool IsParalyzed() { return this.Pokemon.Status == Status.Paralysis; }
+        public bool IsPoisoned() { return this.Pokemon.Status == Status.Poison; }
+        public bool IsBadlyPoisoned() { return this.Pokemon.Status == Status.BadlyPoisoned; }
+        public bool IsSleeping() { return this.Pokemon.Status == Status.Sleep; }
+        public bool IsFainted() { return this.Pokemon.Status == Status.Fainted; }
+        public bool IsStatusClear() { return this.Pokemon.Status == Status.Null; }
 
         public bool IsLeechSeedActive() { return this.Seeded; }
 
@@ -1314,7 +1314,7 @@ namespace PokemonGeneration1.Source.Battles
 
             //4) account for thawing
             if (damageType == Type.Fire &&
-                Pokemon.Status == Status.FREEZE)
+                Pokemon.Status == Status.Freeze)
             {
                 Pokemon.ClearStatus();
             }

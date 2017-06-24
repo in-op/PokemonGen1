@@ -81,7 +81,7 @@ namespace PokemonGeneration1.Source.Battles
             List<Pokemon> party = Trainer.GetParty();
             foreach (Pokemon poke in party)
             {
-                if (poke.Status != Status.FAINTED) return false;
+                if (poke.Status != Status.Fainted) return false;
             }
             return true;
         }

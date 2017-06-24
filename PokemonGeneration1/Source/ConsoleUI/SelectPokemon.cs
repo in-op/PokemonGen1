@@ -24,7 +24,7 @@ namespace PokemonGeneration1.Source.ConsoleUI
             }
 
             Console.Clear();
-            return PrimeCupRentalPokemonFactory.Generate(input);
+            return PrimeCupRentalPokemonFactory.Create(input);
         }
 
         private static void DisplayAllPokemon()

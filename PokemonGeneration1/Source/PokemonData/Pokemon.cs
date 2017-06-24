@@ -10,7 +10,10 @@ namespace PokemonGeneration1.Source.PokemonData
     public sealed class Pokemon
     {
         public int Number { get; private set; }
-        public string Species { get; private set; }
+
+        public string Species
+        { get { return SpeciesData.Names[Number]; }}
+
         public Type Type1 { get; private set; }
         public Type Type2 { get; private set; }
 
@@ -74,46 +77,46 @@ namespace PokemonGeneration1.Source.PokemonData
 
         public void Burn()
         {
-            Status = Status.BURN;
+            Status = Status.Burn;
             Burned?.Invoke(this, EventArgs);
         }
         public void Freeze()
         {
-            Status = Status.FREEZE;
+            Status = Status.Freeze;
             Frozen?.Invoke(this, EventArgs);
         }
         public void Paralyze()
         {
-            Status = Status.PARALYSIS;
+            Status = Status.Paralysis;
             Paralyzed?.Invoke(this, EventArgs);
         }
         public void Poison()
         {
-            Status = Status.POISON;
+            Status = Status.Poison;
             Poisoned?.Invoke(this, EventArgs);
         }
         public void BadlyPoison()
         {
-            Status = Status.BADLYPOISONED;
+            Status = Status.BadlyPoisoned;
             BadlyPoisoned?.Invoke(this, EventArgs);
         }
         public void ChangeBadlyPoisonToPoison()
         {
-            Status = Status.POISON;
+            Status = Status.Poison;
         }
         public void Sleep()
         {
-            Status = Status.SLEEP;
+            Status = Status.Sleep;
             FellAsleep?.Invoke(this, EventArgs);
         }
         public void ClearStatus()
         {
-            Status = Status.NONE;
+            Status = Status.Null;
             StatusCleared?.Invoke(this, EventArgs);
         }
         public void Faint()
         {
-            Status = Status.FAINTED;
+            Status = Status.Fainted;
             Fainted?.Invoke(this, EventArgs);
         }
 
@@ -167,14 +170,13 @@ namespace PokemonGeneration1.Source.PokemonData
         private Pokemon(int index)
         {
             Number = index;
-            Species = SpeciesData.Names[index];
             Type1 = SpeciesData.Type1(index);
             Type2 = SpeciesData.Type2(index);
             ExpGroup = SpeciesData.ExpGroup(index);
             StatExp = new StatExp();
             BaseStats = SpeciesData.BaseStats(index);
             DVs = DeterminantValues.CreateRandom();
-            Status = Status.NONE;
+            Status = Status.Null;
             EventArgs = new PokemonEventArgs() { pokemon = this };
         }
         private Pokemon(int index, int level) : this(index)

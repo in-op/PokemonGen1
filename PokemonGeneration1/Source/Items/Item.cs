@@ -51,8 +51,8 @@ namespace PokemonGeneration1.Source.Items
             float N = rng.Next(0, maxN + 1);
             float threshold = 0f;
             Status status = poke.Status;
-            if (status == SLEEP || status == FREEZE) threshold = 25f;
-            if (status == PARALYSIS || status == BURN || status == POISON || status == BADLYPOISONED) threshold = 15f;
+            if (status == Sleep || status == Freeze) threshold = 25f;
+            if (status == Paralysis || status == Burn || status == Poison || status == BadlyPoisoned) threshold = 15f;
 
             if (N < threshold) return CaptureData.Captured;
 
@@ -74,8 +74,8 @@ namespace PokemonGeneration1.Source.Items
             if (d >= 256f) return CaptureData.Free3Shake;
 
             float s = 0f;
-            if (status == SLEEP || status == FREEZE) s = 10f;
-            if (status == PARALYSIS || status == BURN || status == POISON || status == BADLYPOISONED) s = 5f;
+            if (status == Sleep || status == Freeze) s = 10f;
+            if (status == Paralysis || status == Burn || status == Poison || status == BadlyPoisoned) s = 5f;
             float x = (float)Math.Floor((d * f / 255f)) + s;
 
             if (x < 10f) return CaptureData.FreeMissed;
@@ -374,7 +374,7 @@ namespace PokemonGeneration1.Source.Items
         public sealed override bool CanUseOn(Pokemon p)
         {
             return p.HP < p.HPStat ||
-                   p.Status != Status.NONE;
+                   p.Status != Status.Null;
         }
 
         private FullRestore() : base("Full Restore") { }
@@ -398,8 +398,8 @@ namespace PokemonGeneration1.Source.Items
 
         public sealed override bool CanUseOn(Pokemon p)
         {
-            return p.Status == POISON ||
-                   p.Status == BADLYPOISONED;
+            return p.Status == Poison ||
+                   p.Status == BadlyPoisoned;
         }
 
         private Antidote() : base("Antidote") { }
@@ -411,7 +411,7 @@ namespace PokemonGeneration1.Source.Items
 
         public sealed override bool CanUseOn(Pokemon p)
         {
-            return p.Status == PARALYSIS;
+            return p.Status == Paralysis;
         }
 
         private ParalyzeHeal() : base("Paralyze Heal") { }
@@ -423,7 +423,7 @@ namespace PokemonGeneration1.Source.Items
 
         public sealed override bool CanUseOn(Pokemon p)
         {
-            return p.Status == SLEEP;
+            return p.Status == Sleep;
         }
 
         private Awakening() : base("Awakening") { }
@@ -435,7 +435,7 @@ namespace PokemonGeneration1.Source.Items
 
         public sealed override bool CanUseOn(Pokemon p)
         {
-            return p.Status == BURN;
+            return p.Status == Burn;
         }
 
         private BurnHeal() : base("Burn Heal") { }
@@ -447,7 +447,7 @@ namespace PokemonGeneration1.Source.Items
 
         public sealed override bool CanUseOn(Pokemon p)
         {
-            return p.Status == FREEZE;
+            return p.Status == Freeze;
         }
 
         private IceHeal() : base("Ice Heal") { }
@@ -459,7 +459,7 @@ namespace PokemonGeneration1.Source.Items
 
         public sealed override bool CanUseOn(Pokemon p)
         {
-            return p.Status != NONE;
+            return p.Status != Null;
         }
 
         private FullHeal() : base("Full Heal") { }

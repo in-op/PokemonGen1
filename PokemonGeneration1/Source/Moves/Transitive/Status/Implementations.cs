@@ -139,7 +139,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Status
             {
                 OnMissed();
             }
-            else if (defender.Status == PokemonData.Status.NONE)
+            else if (defender.Status == PokemonData.Status.Null)
             {
                 defender.Sleep();
             }
@@ -447,7 +447,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Status
             {
                 OnMissed();
             }
-            else if (defender.Status == PokemonData.Status.NONE &&
+            else if (defender.Status == PokemonData.Status.Null &&
                      !defender.IsSubstituteActive())
             {
                 defender.BadlyPoisonAsPrimaryEffect();

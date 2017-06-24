@@ -28,19 +28,19 @@ namespace PokemonGeneration1.Source.ConsoleUI
         {
             switch (status)
             {
-                case Status.BADLYPOISONED:
+                case Status.BadlyPoisoned:
                     return "PSN";
-                case Status.BURN:
+                case Status.Burn:
                     return "BRN";
-                case Status.FAINTED:
+                case Status.Fainted:
                     return "FNT";
-                case Status.FREEZE:
+                case Status.Freeze:
                     return "FRZ";
-                case Status.PARALYSIS:
+                case Status.Paralysis:
                     return "PAR";
-                case Status.POISON:
+                case Status.Poison:
                     return "PSN";
-                case Status.SLEEP:
+                case Status.Sleep:
                     return "SLP";
                 default:
                     return "";

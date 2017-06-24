@@ -2,13 +2,13 @@
 {
     public enum Status
     {
-        NONE,
-        BURN,
-        FREEZE,
-        PARALYSIS,
-        POISON,
-        BADLYPOISONED,
-        SLEEP,
-        FAINTED
+        Null,
+        Burn,
+        Freeze,
+        Paralysis,
+        Poison,
+        BadlyPoisoned,
+        Sleep,
+        Fainted
     }
 }
