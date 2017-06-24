@@ -175,7 +175,7 @@ namespace PokemonGeneration1.Source.PokemonData
         }
         private Pokemon(int index, int level) : this(index)
         {
-            Exp = ExpNeededForLevel(level);
+            Exp = ExpCalculator.ExpNeededForLevel(ExpGroup, level);
             Level = 1;
 
             //fill out moves by growing the Pokemon level by level
@@ -243,60 +243,47 @@ namespace PokemonGeneration1.Source.PokemonData
             }
         }
 
-        public bool AlreadyKnowsMove(int moveIndex)
+        private bool AlreadyKnowsMove(int moveIndex)
         {
-            return (Move1 != null && Move1.GetIndex() == moveIndex) ||
-                   (Move2 != null && Move2.GetIndex() == moveIndex) ||
-                   (Move3 != null && Move3.GetIndex() == moveIndex) ||
-                   (Move4 != null && Move4.GetIndex() == moveIndex);
+            return (Move1?.GetIndex() == moveIndex) ||
+                   (Move2?.GetIndex() == moveIndex) ||
+                   (Move3?.GetIndex() == moveIndex) ||
+                   (Move4?.GetIndex() == moveIndex);
         }
         
-        private float ExpNeededForLevel(float level)
-        {
-            switch (ExpGroup)
-            {
-                case ExperienceGroup.Fast:
-                    return ((4f * (level * level * level)) / 5f);
-                case ExperienceGroup.MediumFast:
-                    return (level * level * level);
-                case ExperienceGroup.MediumSlow:
-                    return (((6f * (level * level * level)) / 5f) - (15f * (level * level)) + (100f * level) - 140f);
-                case ExperienceGroup.Slow:
-                    return ((5f * (level * level * level)) / 4f);
-            }
-            throw new Exception("unreachable error");
-        }
+        
+
         private Stats CalculateStats()
         {
             return new Stats(
-                calculateHPStat(BaseStats.HP, DVs.HP, calculateStatPoint(StatExp.HP), Level),
-                calculateNonHPStat(BaseStats.Attack, DVs.Attack, calculateStatPoint(StatExp.Attack), Level),
-                calculateNonHPStat(BaseStats.Defense, DVs.Defense, calculateStatPoint(StatExp.Defense), Level),
-                calculateNonHPStat(BaseStats.Special, DVs.Special, calculateStatPoint(StatExp.Special), Level),
-                calculateNonHPStat(BaseStats.Speed, DVs.Speed, calculateStatPoint(StatExp.Speed), Level)
+                StatCalculator.HPStat(
+                    BaseStats.HP,
+                    DVs.HP,
+                    StatCalculator.StatPoint(StatExp.HP),
+                    Level),
+                StatCalculator.NonHPStat(
+                    BaseStats.Attack,
+                    DVs.Attack,
+                    StatCalculator.StatPoint(StatExp.Attack),
+                    Level),
+                StatCalculator.NonHPStat(
+                    BaseStats.Defense,
+                    DVs.Defense,
+                    StatCalculator.StatPoint(StatExp.Defense),
+                    Level),
+                StatCalculator.NonHPStat(
+                    BaseStats.Special,
+                    DVs.Special,
+                    StatCalculator.StatPoint(StatExp.Special),
+                    Level),
+                StatCalculator.NonHPStat(
+                    BaseStats.Speed,
+                    DVs.Speed,
+                    StatCalculator.StatPoint(StatExp.Speed),
+                    Level)
                 );
         }
-        private static float calculateNonHPStat(float baseStat,
-                                               float DV,
-                                               float statPoint,
-                                               float level)
-        {
-            return (float)Math.Floor(((((baseStat + DV) * 2) + statPoint) * level / 100) + 5);
-        }
-        private static float calculateHPStat(float baseStat,
-                                            float DV,
-                                            float statPoint,
-                                            float level)
-        {
-            return (float)Math.Floor(((((baseStat + DV) * 2) + statPoint) * level / 100) + level + 10);
-        }
-
-
-
-        private static float calculateStatPoint(float statExp)
-        {
-            return (float)Math.Floor( Math.Min(255f, Math.Floor(Math.Sqrt( Math.Max(0, statExp - 1f)) + 1f ) ) / 4f );
-        }
+        
 
     }
 }
