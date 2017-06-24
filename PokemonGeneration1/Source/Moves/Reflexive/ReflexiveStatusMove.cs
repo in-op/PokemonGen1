@@ -15,7 +15,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
         }
         protected abstract void Execute(BattlePokemon user);
 
-        protected ReflexiveStatusMove(int index, string name, Types type, int startingPP, int absoluteMaxPP)
+        protected ReflexiveStatusMove(int index, string name, Type type, int startingPP, int absoluteMaxPP)
             : base(index, name, type, startingPP, absoluteMaxPP, 0, Category.STATUS) { }
     }
 }

@@ -25,7 +25,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.OneTurnOneHit
             }
         }
 
-        protected OneTurnOneHitAttackMove(int index, string name, Types type, int startingPP, int absoluteMaxPP, float accuracyPercent, float power, int priority, bool isHighCritRatio, Battles.Category category)
+        protected OneTurnOneHitAttackMove(int index, string name, Type type, int startingPP, int absoluteMaxPP, float accuracyPercent, float power, int priority, bool isHighCritRatio, Battles.Category category)
             : base(index, name, type, startingPP, absoluteMaxPP, accuracyPercent, power, priority, isHighCritRatio, category) { }
     }
 }

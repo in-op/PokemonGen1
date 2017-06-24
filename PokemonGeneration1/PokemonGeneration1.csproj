@@ -100,7 +100,7 @@
     <Compile Include="Source\Trainers\Trainer.cs" />
     <Compile Include="Source\Moves\Move.cs" />
     <Compile Include="Source\PokemonData\Pokemon.cs" />
-    <Compile Include="Source\Types.cs" />
+    <Compile Include="Source\Type.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

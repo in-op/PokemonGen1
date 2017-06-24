@@ -43,7 +43,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.MultiTurn
             }
         }
 
-        public RazorWind() : base(13, "Razor Wind", Types.NORMAL, 10, 16, 75f, 80f, Category.PHYSICAL) { }
+        public RazorWind() : base(13, "Razor Wind", Type.Normal, 10, 16, 75f, 80f, Category.PHYSICAL) { }
     }
 
 
@@ -80,7 +80,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.MultiTurn
             }
         }
 
-        public Fly() : base(19, "Fly", Types.FLYING, 15, 24, 95f, 90f, Category.PHYSICAL) { }
+        public Fly() : base(19, "Fly", Type.Flying, 15, 24, 95f, 90f, Category.PHYSICAL) { }
     }
 
 
@@ -93,7 +93,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.MultiTurn
             ExecuteBindingMove(user, defender);
         }
 
-        public Bind() : base(20, "Bind", Types.NORMAL, 20, 32, 85f, 15f, Category.PHYSICAL) { }
+        public Bind() : base(20, "Bind", Type.Normal, 20, 32, 85f, 15f, Category.PHYSICAL) { }
     }
 
 
@@ -105,7 +105,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.MultiTurn
             ExecuteBindingMove(user, defender);
         }
 
-        public Wrap() : base(35, "Wrap", Types.NORMAL, 20, 32, 90f, 15f, Category.PHYSICAL) { }
+        public Wrap() : base(35, "Wrap", Type.Normal, 20, 32, 90f, 15f, Category.PHYSICAL) { }
     }
 
     //37
@@ -165,7 +165,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.MultiTurn
             user.DeactivateMultiTurnMove();
         }
 
-        public Thrash() : base(37, "Thrash", Types.NORMAL, 20, 32, 100f, 90f, Category.PHYSICAL) { }
+        public Thrash() : base(37, "Thrash", Type.Normal, 20, 32, 100f, 90f, Category.PHYSICAL) { }
     }
 
 
@@ -208,7 +208,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.MultiTurn
             }
         }
 
-        public HyperBeam() : base(63, "Hyper Beam", Types.NORMAL, 5, 8, 90f, 150f, Category.PHYSICAL) { }
+        public HyperBeam() : base(63, "Hyper Beam", Type.Normal, 5, 8, 90f, 150f, Category.PHYSICAL) { }
     }
 
 
@@ -243,7 +243,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.MultiTurn
             }
         }
 
-        public SolarBeam() : base(76, "Solar Beam", Types.GRASS, 10, 16, 100f, 120f, Category.SPECIAL) { }
+        public SolarBeam() : base(76, "Solar Beam", Type.Grass, 10, 16, 100f, 120f, Category.SPECIAL) { }
     }
 
     //80
@@ -295,7 +295,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.MultiTurn
             user.DeactivateMultiTurnMove();
         }
 
-        public PetalDance() : base(80, "Petal Dance", Types.GRASS, 20, 32, 100f, 70f, Category.SPECIAL) { }
+        public PetalDance() : base(80, "Petal Dance", Type.Grass, 20, 32, 100f, 70f, Category.SPECIAL) { }
     }
 
     //83
@@ -306,7 +306,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.MultiTurn
             ExecuteBindingMove(user, defender);
         }
 
-        public FireSpin() : base(83, "Fire Spin", Types.FIRE, 15, 24, 70f, 15f, Category.SPECIAL) { }
+        public FireSpin() : base(83, "Fire Spin", Type.Fire, 15, 24, 70f, 15f, Category.SPECIAL) { }
     }
 
     //91
@@ -345,7 +345,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.MultiTurn
             }
         }
 
-        public Dig() : base(91, "Dig", Types.GROUND, 10, 16, 100f, 80f, Category.PHYSICAL) { }
+        public Dig() : base(91, "Dig", Type.Ground, 10, 16, 100f, 80f, Category.PHYSICAL) { }
     }
 
     //99
@@ -396,7 +396,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.MultiTurn
             SetLastMoveAndMirrorMove(user, defender);
         }
 
-        public Rage() : base(99, "Rage", Types.NORMAL, 20, 32, 100f, 20f, Category.PHYSICAL) { }
+        public Rage() : base(99, "Rage", Type.Normal, 20, 32, 100f, 20f, Category.PHYSICAL) { }
     }
 
 
@@ -432,7 +432,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.MultiTurn
             SetLastMoveAndMirrorMove(user, defender);
         }
 
-        public Bide() : base(117, "Bide", Types.NORMAL, 10, 16, 100f, 0f, Category.PHYSICAL)  { }
+        public Bide() : base(117, "Bide", Type.Normal, 10, 16, 100f, 0f, Category.PHYSICAL)  { }
     }
 
 
@@ -444,7 +444,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.MultiTurn
             ExecuteBindingMove(user, defender);
         }
 
-        public Clamp() : base(128, "Clamp", Types.WATER, 15, 24, 85f, 35f, Category.SPECIAL) { }
+        public Clamp() : base(128, "Clamp", Type.Water, 15, 24, 85f, 35f, Category.SPECIAL) { }
     }
 
 
@@ -483,7 +483,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.MultiTurn
             }
         }
 
-        public SkullBash() : base(130, "Skull Bash", Types.NORMAL, 10, 16, 100f, 130f, Category.PHYSICAL) { }
+        public SkullBash() : base(130, "Skull Bash", Type.Normal, 10, 16, 100f, 130f, Category.PHYSICAL) { }
     }
 
 
@@ -518,7 +518,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.MultiTurn
             }
         }
 
-        public SkyAttack() : base(143, "Sky Attack", Types.FLYING, 5, 8, 90f, 140f, Category.PHYSICAL) { }
+        public SkyAttack() : base(143, "Sky Attack", Type.Flying, 5, 8, 90f, 140f, Category.PHYSICAL) { }
     }
 
 

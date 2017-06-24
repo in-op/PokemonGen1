@@ -146,7 +146,7 @@ namespace PokemonGeneration1.Source.Moves
 
 
 
-        protected AttackMove(int index, string name, Types type, int startingPP, int absoluteMaxPP, float accuracyPercent, float power, int priority, bool isHighCritRatio, Category category)
+        protected AttackMove(int index, string name, Type type, int startingPP, int absoluteMaxPP, float accuracyPercent, float power, int priority, bool isHighCritRatio, Category category)
             : base(index, name, type, startingPP, absoluteMaxPP, accuracyPercent, priority, category)
         {
             this.Power = power;

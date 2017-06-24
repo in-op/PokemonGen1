@@ -11,8 +11,8 @@ namespace PokemonGeneration1.Source.Battles
     public sealed class Transform
     {
         private bool Active;
-        private Types Type1;
-        private Types Type2;
+        private Type Type1;
+        private Type Type2;
         private Stats Stats;
         private Move Move1;
         private Move Move2;
@@ -20,8 +20,8 @@ namespace PokemonGeneration1.Source.Battles
         private Move Move4;
 
         public bool IsActive() { return this.Active; }
-        public Types GetType1() { return this.Type1; }
-        public Types GetType2() { return this.Type2; }
+        public Type GetType1() { return this.Type1; }
+        public Type GetType2() { return this.Type2; }
         public float GetAttack() { return this.Stats.Attack; }
         public float GetDefense() { return this.Stats.Defense; }
         public float GetSpecial() { return this.Stats.Special; }

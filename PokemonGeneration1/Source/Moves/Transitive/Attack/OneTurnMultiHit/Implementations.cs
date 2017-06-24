@@ -36,7 +36,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.OneTurnMultiHit
             SubtractPP(1);
         }
 
-        public DoubleSlap() : base(3, "Double Slap", Types.NORMAL, 10, 16, 85f, 15f, Category.PHYSICAL) { }
+        public DoubleSlap() : base(3, "Double Slap", Type.Normal, 10, 16, 85f, 15f, Category.PHYSICAL) { }
     }
 
     //4
@@ -67,7 +67,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.OneTurnMultiHit
             SubtractPP(1);
         }
 
-        public CometPunch() : base(4, "Comet Punch", Types.NORMAL, 15, 24, 85f, 18f, Category.PHYSICAL) { }
+        public CometPunch() : base(4, "Comet Punch", Type.Normal, 15, 24, 85f, 18f, Category.PHYSICAL) { }
     }
 
 
@@ -96,7 +96,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.OneTurnMultiHit
             SubtractPP(1);
         }
 
-        public DoubleKick() : base(24, "Double Kick", Types.FIGHTING, 30, 48, 100f, 30f, Category.PHYSICAL)
+        public DoubleKick() : base(24, "Double Kick", Type.Fighting, 30, 48, 100f, 30f, Category.PHYSICAL)
         {
             numberOfHits = 2;
         }
@@ -128,7 +128,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.OneTurnMultiHit
             SubtractPP(1);
         }
 
-        public FuryAttack() : base(31, "Fury Attack", Types.NORMAL, 20, 32, 85f, 15f, Category.PHYSICAL) { }
+        public FuryAttack() : base(31, "Fury Attack", Type.Normal, 20, 32, 85f, 15f, Category.PHYSICAL) { }
     }
 
     //41
@@ -156,7 +156,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.OneTurnMultiHit
             SubtractPP(1);
         }
 
-        public Twineedle() : base(41, "Twineedle", Types.POISON, 20, 32, 100f, 25f, Category.PHYSICAL)
+        public Twineedle() : base(41, "Twineedle", Type.Poison, 20, 32, 100f, 25f, Category.PHYSICAL)
         {
             numberOfHits = 2;
         }
@@ -184,7 +184,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.OneTurnMultiHit
             SubtractPP(1);
         }
 
-        public PinMissile() : base(42, "Pin Missile", Types.BUG, 20, 32, 85f, 14f, Category.PHYSICAL) { }
+        public PinMissile() : base(42, "Pin Missile", Type.Bug, 20, 32, 85f, 14f, Category.PHYSICAL) { }
     }
 
     //131
@@ -215,7 +215,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.OneTurnMultiHit
             SubtractPP(1);
         }
 
-        public SpikeCannon() : base(131, "Spike Cannon", Types.NORMAL, 15, 24, 100f, 20f, Category.PHYSICAL) { }
+        public SpikeCannon() : base(131, "Spike Cannon", Type.Normal, 15, 24, 100f, 20f, Category.PHYSICAL) { }
     }
 
     //140
@@ -246,7 +246,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.OneTurnMultiHit
             SubtractPP(1);
         }
 
-        public Barrage() : base(140, "Barrage", Types.NORMAL, 20, 32, 85f, 15f, Category.PHYSICAL) { }
+        public Barrage() : base(140, "Barrage", Type.Normal, 20, 32, 85f, 15f, Category.PHYSICAL) { }
     }
 
     //154
@@ -277,7 +277,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.OneTurnMultiHit
             SubtractPP(1);
         }
 
-        public FurySwipes() : base(154, "Fury Swipes", Types.NORMAL, 15, 24, 80f, 18f, Category.PHYSICAL) { }
+        public FurySwipes() : base(154, "Fury Swipes", Type.Normal, 15, 24, 80f, 18f, Category.PHYSICAL) { }
     }
 
 
@@ -306,7 +306,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.OneTurnMultiHit
             SubtractPP(1);
         }
 
-        public Bonemerang() : base(155, "Bonemerang", Types.GROUND, 10, 16, 90f, 50f, Category.PHYSICAL)
+        public Bonemerang() : base(155, "Bonemerang", Type.Ground, 10, 16, 90f, 50f, Category.PHYSICAL)
         {
             numberOfHits = 2;
         }

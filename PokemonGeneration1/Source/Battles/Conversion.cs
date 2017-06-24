@@ -9,16 +9,16 @@ namespace PokemonGeneration1.Source.Battles
     public sealed class Conversion
     {
         private bool Active;
-        private Types Type1;
-        private Types Type2;
+        private Type Type1;
+        private Type Type2;
 
         public bool IsActive() { return this.Active; }
-        public Types GetType1() { return this.Type1; }
-        public Types GetType2() { return this.Type2; }
+        public Type GetType1() { return this.Type1; }
+        public Type GetType2() { return this.Type2; }
 
         public static Conversion GenerateBlankConversion()
         {
-            return new Conversion(Types.NONE, Types.NONE);
+            return new Conversion(Type.None, Type.None);
         }
 
         public void Activate(BattlePokemon pokemonToConvertInto)
@@ -31,11 +31,11 @@ namespace PokemonGeneration1.Source.Battles
         public void Deactivate()
         {
             this.Active = false;
-            this.Type1 = Types.NONE;
-            this.Type2 = Types.NONE;
+            this.Type1 = Type.None;
+            this.Type2 = Type.None;
         }
 
-        private Conversion(Types type1, Types type2)
+        private Conversion(Type type1, Type type2)
         {
             this.Active = false;
             this.Type1 = type1;

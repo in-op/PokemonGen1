@@ -26,7 +26,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
             SubtractPP(1);
         }
 
-        public SwordsDance() : base(14, "Swords Dance", Types.NORMAL, 20, 32) { }
+        public SwordsDance() : base(14, "Swords Dance", Type.Normal, 20, 32) { }
     }
 
 
@@ -48,7 +48,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
             SubtractPP(1);
         }
 
-        public Mist() : base(54, "Mist", Types.ICE, 30, 48) { }
+        public Mist() : base(54, "Mist", Type.Ice, 30, 48) { }
     }
 
 
@@ -71,7 +71,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
             SubtractPP(1);
         }
 
-        public Growth() : base(74, "Growth", Types.NORMAL, 20, 32) { }
+        public Growth() : base(74, "Growth", Type.Normal, 20, 32) { }
     }
 
 
@@ -93,7 +93,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
             SubtractPP(1);
         }
 
-        public Meditate() : base(96, "Meditate", Types.PSYCHIC, 40, 64) { }
+        public Meditate() : base(96, "Meditate", Type.Psychic, 40, 64) { }
     }
 
     //97
@@ -114,7 +114,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
             SubtractPP(1);
         }
 
-        public Agility() : base(97, "Agility", Types.PSYCHIC, 30, 48) { }
+        public Agility() : base(97, "Agility", Type.Psychic, 30, 48) { }
     }
 
     //104
@@ -135,7 +135,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
             SubtractPP(1);
         }
 
-        public DoubleTeam() : base(104, "Double Team", Types.NORMAL, 15, 24) { }
+        public DoubleTeam() : base(104, "Double Team", Type.Normal, 15, 24) { }
     }
 
 
@@ -159,7 +159,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
             SubtractPP(1);
         }
 
-        public Recover() : base(105, "Recover", Types.NORMAL, 20, 32) { }
+        public Recover() : base(105, "Recover", Type.Normal, 20, 32) { }
     }
 
 
@@ -181,7 +181,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
             SubtractPP(1);
         }
 
-        public Harden() : base(106, "Harden", Types.NORMAL, 30, 48) { }
+        public Harden() : base(106, "Harden", Type.Normal, 30, 48) { }
     }
 
 
@@ -205,7 +205,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
             SubtractPP(1);
         }
 
-        public Minimize() : base(107, "Minimize", Types.NORMAL, 10, 16) { }
+        public Minimize() : base(107, "Minimize", Type.Normal, 10, 16) { }
     }
 
     //110
@@ -228,7 +228,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
             SubtractPP(1);
         }
 
-        public Withdraw() : base(110, "Withdraw", Types.WATER, 40, 64) { }
+        public Withdraw() : base(110, "Withdraw", Type.Water, 40, 64) { }
     }
 
     //111
@@ -251,7 +251,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
             SubtractPP(1);
         }
 
-        public DefenseCurl() : base(111, "Defense Curl", Types.NORMAL, 40, 64) { }
+        public DefenseCurl() : base(111, "Defense Curl", Type.Normal, 40, 64) { }
     }
 
 
@@ -275,7 +275,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
             SubtractPP(1);
         }
 
-        public Barrier() : base(112, "Barrier", Types.PSYCHIC, 20, 32) { }
+        public Barrier() : base(112, "Barrier", Type.Psychic, 20, 32) { }
     }
 
     //113
@@ -298,7 +298,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
             SubtractPP(1);
         }
 
-        public LightScreen() : base(113, "Light Screen", Types.PSYCHIC, 30, 48) { }
+        public LightScreen() : base(113, "Light Screen", Type.Psychic, 30, 48) { }
     }
 
     //115
@@ -321,7 +321,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
             SubtractPP(1);
         }
 
-        public Reflect() : base(115, "Reflect", Types.PSYCHIC, 20, 32) { }
+        public Reflect() : base(115, "Reflect", Type.Psychic, 20, 32) { }
     }
 
 
@@ -338,7 +338,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
             SubtractPP(1);
         }
 
-        public FocusEnergy() : base(116, "Focus Energy", Types.NORMAL, 30, 48) { }
+        public FocusEnergy() : base(116, "Focus Energy", Type.Normal, 30, 48) { }
     }
 
     //133
@@ -359,7 +359,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
             SubtractPP(1);
         }
 
-        public Amnesia() : base(133, "Amnesia", Types.PSYCHIC, 20, 32) { }
+        public Amnesia() : base(133, "Amnesia", Type.Psychic, 20, 32) { }
     }
 
     //135
@@ -382,7 +382,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
             SubtractPP(1);
         }
 
-        public SoftBoiled() : base(105, "Soft-Boiled", Types.NORMAL, 10, 16) { }
+        public SoftBoiled() : base(105, "Soft-Boiled", Type.Normal, 10, 16) { }
     }
 
     //150
@@ -396,7 +396,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
             SubtractPP(1);
         }
 
-        public Splash() : base(150, "Splash", Types.NORMAL, 40, 64) { }
+        public Splash() : base(150, "Splash", Type.Normal, 40, 64) { }
     }
 
     //151
@@ -417,7 +417,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
             SubtractPP(1);
         }
 
-        public AcidArmor() : base(151, "Acid Armor", Types.POISON, 40, 64) { }
+        public AcidArmor() : base(151, "Acid Armor", Type.Poison, 40, 64) { }
     }
 
     //164
@@ -444,7 +444,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
             SubtractPP(1);
         }
 
-        public Substitute() : base(164, "Substitute", Types.NORMAL, 10, 16) { }
+        public Substitute() : base(164, "Substitute", Type.Normal, 10, 16) { }
     }
 
     //156
@@ -459,7 +459,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
             SubtractPP(1);
         }
 
-        public Rest() : base(156, "Rest", Types.PSYCHIC, 10, 16) { }
+        public Rest() : base(156, "Rest", Type.Psychic, 10, 16) { }
     }
 
     //159
@@ -480,6 +480,6 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
             SubtractPP(1);
         }
 
-        public Sharpen() : base(159, "Sharpen", Types.NORMAL, 30, 48) { }
+        public Sharpen() : base(159, "Sharpen", Type.Normal, 30, 48) { }
     }
 }

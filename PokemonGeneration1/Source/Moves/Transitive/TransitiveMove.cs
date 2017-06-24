@@ -52,7 +52,7 @@ namespace PokemonGeneration1.Source.Moves
             return TypeEffectiveness(this.Type, defender.GetType1()) *
                    TypeEffectiveness(this.Type, defender.GetType2());
         }
-        private static float TypeEffectiveness(Types attackType, Types defenseType)
+        private static float TypeEffectiveness(Type attackType, Type defenseType)
         {
             return typeEffectiveness[(int)attackType][(int)defenseType];
         }
@@ -96,7 +96,7 @@ namespace PokemonGeneration1.Source.Moves
 
 
 
-        protected TransitiveMove(int index, string name, Types type, int startingPP, int absoluteMaxPP, float accuracyPercent, int priority, Category category)
+        protected TransitiveMove(int index, string name, Type type, int startingPP, int absoluteMaxPP, float accuracyPercent, int priority, Category category)
             : base(index, name, type, startingPP, absoluteMaxPP, priority, category)
         {
             this.AccuracyPercent = accuracyPercent;

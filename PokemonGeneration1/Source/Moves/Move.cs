@@ -17,7 +17,7 @@ namespace PokemonGeneration1.Source.Moves
     {
         public readonly int Index;
         public readonly string Name;
-        public readonly Types Type;
+        public readonly Type Type;
         public readonly Category Category;
         protected int CurrentPP;
         protected int MaxPP;
@@ -159,7 +159,7 @@ namespace PokemonGeneration1.Source.Moves
 
         public int GetIndex() { return this.Index; }
         public string GetName() { return this.Name; }
-        public Types GetMoveType() { return this.Type; }
+        public Type GetMoveType() { return this.Type; }
         public int GetCurrentPP() { return this.CurrentPP; }
         public int GetMaxPP() { return this.MaxPP; }
         public int GetPriority() { return this.Priority; }
@@ -179,7 +179,7 @@ namespace PokemonGeneration1.Source.Moves
 
         
 
-        protected Move(int index, string name, Types type, int startingPP, int absoluteMaxPP, int priority, Category category)
+        protected Move(int index, string name, Type type, int startingPP, int absoluteMaxPP, int priority, Category category)
         {
             this.Index = index;
             this.Name = name;

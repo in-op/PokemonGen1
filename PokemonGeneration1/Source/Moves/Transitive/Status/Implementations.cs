@@ -35,7 +35,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Status
             SubtractPP(1);
         }
 
-        public SandAttack() : base(28, "Sand-Attack", Types.NORMAL, 15, 24, 100f) { }
+        public SandAttack() : base(28, "Sand-Attack", Type.Normal, 15, 24, 100f) { }
     }
 
     //39
@@ -63,7 +63,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Status
             SubtractPP(1);
         }
 
-        public TailWhip() : base(39, "Tail Whip", Types.NORMAL, 30, 48, 100f) { }
+        public TailWhip() : base(39, "Tail Whip", Type.Normal, 30, 48, 100f) { }
     }
 
     //43
@@ -90,7 +90,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Status
             SubtractPP(1);
         }
 
-        public Leer() : base(43, "Leer", Types.NORMAL, 30, 48, 100f) { }
+        public Leer() : base(43, "Leer", Type.Normal, 30, 48, 100f) { }
     }
 
 
@@ -122,7 +122,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Status
             SubtractPP(1);
         }
 
-        public Growl() : base(45, "Growl", Types.NORMAL, 40, 64, 100f) { }
+        public Growl() : base(45, "Growl", Type.Normal, 40, 64, 100f) { }
     }
 
     //47
@@ -152,7 +152,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Status
             SubtractPP(1);
         }
 
-        public Sing() : base(47, "Sing", Types.NORMAL, 15, 24, 55f) { }
+        public Sing() : base(47, "Sing", Type.Normal, 15, 24, 55f) { }
     }
 
 
@@ -183,7 +183,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Status
             SubtractPP(1);
         }
 
-        public Supersonic() : base(48, "Supersonic", Types.NORMAL, 20, 32, 55f) { }
+        public Supersonic() : base(48, "Supersonic", Type.Normal, 20, 32, 55f) { }
     }
 
 
@@ -263,7 +263,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Status
             SubtractPP(1);
         }
 
-        public Disable() : base(50, "Disable", Types.NORMAL, 20, 32, 90f) { }
+        public Disable() : base(50, "Disable", Type.Normal, 20, 32, 90f) { }
     }
 
 
@@ -277,8 +277,8 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Status
             {
                 OnMissed();
             }
-            else if (defender.GetType1() == Types.GRASS ||
-                     defender.GetType2() == Types.GRASS)
+            else if (defender.GetType1() == Type.Grass ||
+                     defender.GetType2() == Type.Grass)
             {
                 OnNoEffect();
             }
@@ -294,7 +294,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Status
             SubtractPP(1);
         }
 
-        public LeechSeed() : base(73, "Leech Seed", Types.GRASS, 10, 16, 90f) { }
+        public LeechSeed() : base(73, "Leech Seed", Type.Grass, 10, 16, 90f) { }
     }
 
 
@@ -310,8 +310,8 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Status
             {
                 OnMissed();
             }
-            else if (defender.GetType1() == Types.POISON ||
-                     defender.GetType2() == Types.POISON)
+            else if (defender.GetType1() == Type.Poison ||
+                     defender.GetType2() == Type.Poison)
             {
                 OnNoEffect();
             }
@@ -328,7 +328,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Status
             SubtractPP(1);
         }
 
-        public PoisonPowder() : base(77, "PoisonPowder", Types.POISON, 35, 56, 75f) { }
+        public PoisonPowder() : base(77, "PoisonPowder", Type.Poison, 35, 56, 75f) { }
     }
 
     //78
@@ -353,7 +353,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Status
             SubtractPP(1);
         }
 
-        public StunSpore() : base(78, "Stun Spore", Types.GRASS, 30, 48, 75f) { }
+        public StunSpore() : base(78, "Stun Spore", Type.Grass, 30, 48, 75f) { }
     }
 
     //79
@@ -378,7 +378,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Status
             SubtractPP(1);
         }
 
-        public SleepPowder() : base(79, "Sleep Powder", Types.GRASS, 15, 24, 75f) { }
+        public SleepPowder() : base(79, "Sleep Powder", Type.Grass, 15, 24, 75f) { }
     }
 
     //81
@@ -405,7 +405,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Status
             SubtractPP(1);
         }
 
-        public StringShot(): base(81, "String Shot", Types.BUG, 40, 64, 95f) { }
+        public StringShot(): base(81, "String Shot", Type.Bug, 40, 64, 95f) { }
     }
 
     //86
@@ -434,7 +434,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Status
             SubtractPP(1);
         }
 
-        public ThunderWave() : base(86, "Thunder Wave", Types.ELECTRIC, 20, 32, 100f) { }
+        public ThunderWave() : base(86, "Thunder Wave", Type.Electric, 20, 32, 100f) { }
     }
 
     //92
@@ -461,7 +461,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Status
             SubtractPP(1);
         }
 
-        public Toxic() : base(92, "Toxic", Types.POISON, 10, 16, 85f) { }
+        public Toxic() : base(92, "Toxic", Type.Poison, 10, 16, 85f) { }
     }
 
 
@@ -487,7 +487,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Status
             SubtractPP(1);
         }
 
-        public Hypnosis() : base(95, "Hypnosis", Types.PSYCHIC, 20, 32, 60f) { }
+        public Hypnosis() : base(95, "Hypnosis", Type.Psychic, 20, 32, 60f) { }
     }
 
     //102
@@ -508,7 +508,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Status
             SubtractPP(1);
         }
 
-        public Mimic() : base(102, "Mimic", Types.NORMAL, 10, 16, 100f) { }
+        public Mimic() : base(102, "Mimic", Type.Normal, 10, 16, 100f) { }
     }
 
     //103
@@ -539,7 +539,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Status
             SubtractPP(1);
         }
 
-        public Screech() : base(103, "Screech", Types.NORMAL, 40, 64, 85f) { }
+        public Screech() : base(103, "Screech", Type.Normal, 40, 64, 85f) { }
     }
 
     //108
@@ -570,7 +570,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Status
             SubtractPP(1);
         }
 
-        public Smokescreen() : base(108, "Smokescreen", Types.NORMAL, 20, 32, 100f) { }
+        public Smokescreen() : base(108, "Smokescreen", Type.Normal, 20, 32, 100f) { }
     }
 
     //109
@@ -600,7 +600,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Status
             SubtractPP(1);
         }
 
-        public ConfuseRay() : base(109, "Confuse Ray", Types.GHOST, 10, 16, 100f) { }
+        public ConfuseRay() : base(109, "Confuse Ray", Type.Ghost, 10, 16, 100f) { }
     }
 
     //114
@@ -647,7 +647,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Status
             SubtractPP(1);
         }
 
-        public Haze() : base(114, "Haze", Types.ICE, 30, 48, 100f) { }
+        public Haze() : base(114, "Haze", Type.Ice, 30, 48, 100f) { }
     }
 
     //119
@@ -672,7 +672,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Status
             SubtractPP(1);
         }
 
-        public MirrorMove() : base(119, "Mirror Move", Types.FLYING, 20, 32, 100f) { }
+        public MirrorMove() : base(119, "Mirror Move", Type.Flying, 20, 32, 100f) { }
     }
 
     //134
@@ -695,7 +695,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Status
             SubtractPP(1);
         }
 
-        public Kinesis() : base(134, "Kinesis", Types.PSYCHIC, 15, 24, 80f) { }
+        public Kinesis() : base(134, "Kinesis", Type.Psychic, 15, 24, 80f) { }
     }
 
     //137
@@ -720,7 +720,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Status
             SubtractPP(1);
         }
 
-        public Glare() : base(137, "Glare", Types.NORMAL, 30, 48, 75f) { }
+        public Glare() : base(137, "Glare", Type.Normal, 30, 48, 75f) { }
     }
 
     //139
@@ -746,7 +746,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Status
             SubtractPP(1);
         }
 
-        public PoisonGas() : base(139, "Poison Gas", Types.POISON, 40, 64, 55f) { }
+        public PoisonGas() : base(139, "Poison Gas", Type.Poison, 40, 64, 55f) { }
     }
 
     //142
@@ -775,7 +775,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Status
             SubtractPP(1);
         }
 
-        public LovelyKiss() : base(142, "Lovely Kiss", Types.NORMAL, 10, 16, 75f) { }
+        public LovelyKiss() : base(142, "Lovely Kiss", Type.Normal, 10, 16, 75f) { }
     }
 
     //144
@@ -789,7 +789,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Status
             SubtractPP(1);
         }
 
-        public Transform() : base(144, "Transform", Types.NORMAL, 10, 16, 100f) { }
+        public Transform() : base(144, "Transform", Type.Normal, 10, 16, 100f) { }
     }
 
     //147
@@ -814,7 +814,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Status
             SubtractPP(1);
         }
 
-        public Spore() : base(147, "Spore", Types.GRASS, 15, 24, 100f) { }
+        public Spore() : base(147, "Spore", Type.Grass, 15, 24, 100f) { }
     }
 
     //148
@@ -841,7 +841,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Status
             SubtractPP(1);
         }
 
-        public Flash() : base(148, "Flash", Types.NORMAL, 29, 32, 70f) { }
+        public Flash() : base(148, "Flash", Type.Normal, 29, 32, 70f) { }
     }
 
     //160
@@ -855,7 +855,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Status
             SubtractPP(1);
         }
 
-        public Conversion() : base(160, "Conversion", Types.NORMAL, 30, 48, 100f) { }
+        public Conversion() : base(160, "Conversion", Type.Normal, 30, 48, 100f) { }
 
     }
 

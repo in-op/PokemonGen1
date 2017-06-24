@@ -84,7 +84,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.MultiTurn
             }
         }
 
-        protected MultiTurnAttackMove(int index, string name, Types type, int startingPP, int absoluteMaxPP, float accuracyPercent, float power, Category category)
+        protected MultiTurnAttackMove(int index, string name, Type type, int startingPP, int absoluteMaxPP, float accuracyPercent, float power, Category category)
             : base(index, name, type, startingPP, absoluteMaxPP, accuracyPercent, power, 0, false, category)
         {
             Damage = 0f;

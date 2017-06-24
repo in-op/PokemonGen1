@@ -22,6 +22,6 @@ namespace PokemonGeneration1.Source.Moves
             SubtractPP(1);
         }
 
-        public Metronome() : base(118, "Metronome", Types.NORMAL, 10, 16, 0, Category.PHYSICAL) { }
+        public Metronome() : base(118, "Metronome", Type.Normal, 10, 16, 0, Category.PHYSICAL) { }
     }
 }

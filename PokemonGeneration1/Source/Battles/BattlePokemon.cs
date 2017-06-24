@@ -1073,13 +1073,13 @@ namespace PokemonGeneration1.Source.Battles
             }
             return (float)Math.Floor(speed);
         }
-        public Types GetType1()
+        public Type GetType1()
         {
             if (this.Transform.IsActive()) { return this.Transform.GetType1(); }
             else if (this.Conversion.IsActive()) { return this.Conversion.GetType1(); }
             else return this.Pokemon.Type1;
         }
-        public Types GetType2()
+        public Type GetType2()
         {
             if (this.Transform.IsActive()) { return this.Transform.GetType2(); }
             else if (this.Conversion.IsActive()) { return this.Conversion.GetType2(); }
@@ -1287,7 +1287,7 @@ namespace PokemonGeneration1.Source.Battles
 
 
 
-        public void Damage(float amount, Types damageType)
+        public void Damage(float amount, Type damageType)
         {
             //1) account for substitute
             if (this.IsSubstituteActive())
@@ -1306,14 +1306,14 @@ namespace PokemonGeneration1.Source.Battles
             }
 
             //3) account for Counter
-            if (damageType == Types.NORMAL ||
-                damageType == Types.FIGHTING)
+            if (damageType == Type.Normal ||
+                damageType == Type.Fighting)
             {
                 this.DamageForCounter = amount;
             }
 
             //4) account for thawing
-            if (damageType == Types.FIRE &&
+            if (damageType == Type.Fire &&
                 Pokemon.Status == Status.FREEZE)
             {
                 Pokemon.ClearStatus();

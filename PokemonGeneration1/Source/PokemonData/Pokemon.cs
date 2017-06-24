@@ -11,8 +11,8 @@ namespace PokemonGeneration1.Source.PokemonData
     {
         public int Number { get; private set; }
         public string Species { get; private set; }
-        public Types Type1 { get; private set; }
-        public Types Type2 { get; private set; }
+        public Type Type1 { get; private set; }
+        public Type Type2 { get; private set; }
 
         public float Level { get; private set; }
         public Status Status { get; private set; }
