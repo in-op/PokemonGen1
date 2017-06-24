@@ -164,15 +164,8 @@
 
 
 
-        public static Type Type1(int pokemonNumber)
-        {
-            return AllTypes[pokemonNumber][0];
-        }
-        public static Type Type2(int pokemonNumber)
-        {
-            return AllTypes[pokemonNumber][1];
-        }
-        private static readonly Type[][] AllTypes = new Type[][]
+
+        public static readonly Type[][] Types = new Type[][]
         {
             //0 - No Pokemon
             new Type[] { Type.Null, Type.Null },
@@ -483,12 +476,8 @@
 
 
 
-
-        public static ExperienceGroup ExpGroup(int pokemonNumber)
-        {
-            return AllExpGroups[pokemonNumber];
-        }
-        private static readonly ExperienceGroup[] AllExpGroups = new ExperienceGroup[]
+        
+        public static readonly ExperienceGroup[] ExpGroup = new ExperienceGroup[]
         {
             //0 - No Pokemon
             ExperienceGroup.Fast,
@@ -799,11 +788,7 @@
 
 
         
-        public static BaseStats BaseStats(int index)
-        {
-            return AllBaseStats[index];
-        }
-        private static readonly BaseStats[] AllBaseStats = new BaseStats[]
+        public static readonly BaseStats[] BaseStats = new BaseStats[]
         {   // 0 - No Pokemon
             new BaseStats(0f, 0f, 0f, 0f, 0f),
             // 1 - Bulbasaur
@@ -1112,12 +1097,8 @@
 
 
 
-
-        public static float ExpYield(int index)
-        {
-            return AllExpYields[index];
-        }
-        private static readonly float[] AllExpYields = new float[]
+        
+        public static readonly float[] ExpYield = new float[]
         {
             0f,   //0 - NoPokemon
             64f,  //1 - Bulbasaur
@@ -1196,7 +1177,6 @@
             86f,  //74 - Geodude
             134f, //75 - Graveler
             177f, //76 - Golem
-
         };
     }
 }

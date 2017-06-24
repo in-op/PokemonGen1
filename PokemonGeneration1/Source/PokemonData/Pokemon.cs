@@ -11,11 +11,9 @@ namespace PokemonGeneration1.Source.PokemonData
     {
         public int Number { get; private set; }
 
-        public string Species
-        { get { return SpeciesData.Names[Number]; }}
-
-        public Type Type1 { get; private set; }
-        public Type Type2 { get; private set; }
+        public string Species { get => SpeciesData.Names[Number]; }
+        public Type Type1 { get => SpeciesData.Types[Number][0]; }
+        public Type Type2 { get => SpeciesData.Types[Number][1]; }
 
         public float Level { get; private set; }
         public Status Status { get; private set; }
@@ -27,8 +25,8 @@ namespace PokemonGeneration1.Source.PokemonData
         public Move Move4 { get; private set; }
 
         public float Exp { get; private set; }
-        public float ExpYield { get; private set; }
-        public ExperienceGroup ExpGroup { get; private set; }
+        public float ExpYield { get => SpeciesData.ExpYield[Number]; }
+        public ExperienceGroup ExpGroup { get => SpeciesData.ExpGroup[Number]; }
 
         private Stats Stats;
         public float HPStat { get => Stats.HP; }
@@ -37,7 +35,7 @@ namespace PokemonGeneration1.Source.PokemonData
         public float Special { get => Stats.Special; }
         public float Speed { get => Stats.Speed; }
 
-        private BaseStats BaseStats;
+        private BaseStats BaseStats { get => SpeciesData.BaseStats[Number]; }
         public float BaseSpeed { get => BaseStats.Speed; }
 
         private StatExp StatExp;
@@ -170,11 +168,7 @@ namespace PokemonGeneration1.Source.PokemonData
         private Pokemon(int index)
         {
             Number = index;
-            Type1 = SpeciesData.Type1(index);
-            Type2 = SpeciesData.Type2(index);
-            ExpGroup = SpeciesData.ExpGroup(index);
             StatExp = new StatExp();
-            BaseStats = SpeciesData.BaseStats(index);
             DVs = DeterminantValues.CreateRandom();
             Status = Status.Null;
             EventArgs = new PokemonEventArgs() { pokemon = this };
