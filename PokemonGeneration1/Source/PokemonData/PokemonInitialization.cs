@@ -506,309 +506,309 @@ namespace PokemonGeneration1.Source.PokemonData
         private static readonly ExperienceGroup[] AllExpGroups = new ExperienceGroup[]
         {
             //0 - No Pokemon
-            ExperienceGroup.FAST,
+            ExperienceGroup.Fast,
             //1 - Bulbasaur
-            ExperienceGroup.MEDIUMSLOW,
+            ExperienceGroup.MediumSlow,
             //2 - Ivysaur
-            ExperienceGroup.MEDIUMSLOW,
+            ExperienceGroup.MediumSlow,
             //3 - Venusaur
-            ExperienceGroup.MEDIUMSLOW,
+            ExperienceGroup.MediumSlow,
             //4 - Charmander
-            ExperienceGroup.MEDIUMSLOW,
+            ExperienceGroup.MediumSlow,
             //5 - Charmeleon
-            ExperienceGroup.MEDIUMSLOW,
+            ExperienceGroup.MediumSlow,
             //6 - Charizard
-            ExperienceGroup.MEDIUMSLOW,
+            ExperienceGroup.MediumSlow,
             //7 - Squirtle
-            ExperienceGroup.MEDIUMSLOW,
+            ExperienceGroup.MediumSlow,
             //8 - Wartortle
-            ExperienceGroup.MEDIUMSLOW,
+            ExperienceGroup.MediumSlow,
             //9 - Blastoise
-            ExperienceGroup.MEDIUMSLOW,
+            ExperienceGroup.MediumSlow,
             //10 - Caterpie
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //11 - Metapod
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //12 - Butterfree
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //13 - Weedle
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //14 - Kakuna
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //15 - Beedrill
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //16 - Pidgey
-            ExperienceGroup.MEDIUMSLOW,
+            ExperienceGroup.MediumSlow,
             //17 - Pidgeotto
-            ExperienceGroup.MEDIUMSLOW,
+            ExperienceGroup.MediumSlow,
             //18 - Pidgeot
-            ExperienceGroup.MEDIUMSLOW,
+            ExperienceGroup.MediumSlow,
             //19 - Rattata
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //20 - Raticate
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //21 - Spearow
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //22 - Fearow
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //23 - Ekans
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //24 - Arbok
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //25 - Pikachu
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //26 - Raichu
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //27 - Sandshrew
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //28 - Sandslash
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //29 - Nidoran Female
-            ExperienceGroup.MEDIUMSLOW,
+            ExperienceGroup.MediumSlow,
             //30 - Nidorina
-            ExperienceGroup.MEDIUMSLOW,
+            ExperienceGroup.MediumSlow,
             //31 - Nidoqueen
-            ExperienceGroup.MEDIUMSLOW,
+            ExperienceGroup.MediumSlow,
             //32 - Nidoran Male
-            ExperienceGroup.MEDIUMSLOW,
+            ExperienceGroup.MediumSlow,
             //33 - Nidorino
-            ExperienceGroup.MEDIUMSLOW,
+            ExperienceGroup.MediumSlow,
             //34 - Nidoking
-            ExperienceGroup.MEDIUMSLOW,
+            ExperienceGroup.MediumSlow,
             //35 - Clefairy
-            ExperienceGroup.FAST,
+            ExperienceGroup.Fast,
             //36 - Clefable
-            ExperienceGroup.FAST,
+            ExperienceGroup.Fast,
             //37 - Vulpix
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //38 - Ninetails
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //39 - Jigglypuff
-            ExperienceGroup.FAST,
+            ExperienceGroup.Fast,
             //40 - Wigglytuff
-            ExperienceGroup.FAST,
+            ExperienceGroup.Fast,
             //41 - Zubat
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //42 - Golbat
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //43 - Oddish
-            ExperienceGroup.MEDIUMSLOW,
+            ExperienceGroup.MediumSlow,
             //44 - Gloom
-            ExperienceGroup.MEDIUMSLOW,
+            ExperienceGroup.MediumSlow,
             //45 - Vileplume
-            ExperienceGroup.MEDIUMSLOW,
+            ExperienceGroup.MediumSlow,
             //46 - Paras
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //47 - Parasect
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //48 - Venonat
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //49 - Venomoth
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //50 - Diglett
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //51 - Dugtrio
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //52 - Meowth
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //53 - Persian
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //54 - Psyduck
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //55 - Golduck
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //56 - Mankey
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //57 - Primeape
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //58 - Growlithe
-            ExperienceGroup.SLOW,
+            ExperienceGroup.Slow,
             //59 - Arcanine
-            ExperienceGroup.SLOW,
+            ExperienceGroup.Slow,
             //60 - Poliwag
-            ExperienceGroup.MEDIUMSLOW,
+            ExperienceGroup.MediumSlow,
             //61 - Poliwhirl
-            ExperienceGroup.MEDIUMSLOW,
+            ExperienceGroup.MediumSlow,
             //62 - Poliwhirl
-            ExperienceGroup.MEDIUMSLOW,
+            ExperienceGroup.MediumSlow,
             //63 - Abra
-            ExperienceGroup.MEDIUMSLOW,
+            ExperienceGroup.MediumSlow,
             //64 - Kadabra
-            ExperienceGroup.MEDIUMSLOW,
+            ExperienceGroup.MediumSlow,
             //65 - Alakazam
-            ExperienceGroup.MEDIUMSLOW,
+            ExperienceGroup.MediumSlow,
             //66 - Machop
-            ExperienceGroup.MEDIUMSLOW,
+            ExperienceGroup.MediumSlow,
             //67 - Machoke
-            ExperienceGroup.MEDIUMSLOW,
+            ExperienceGroup.MediumSlow,
             //68 - Machamp
-            ExperienceGroup.MEDIUMSLOW,
+            ExperienceGroup.MediumSlow,
             //69 - Bellsprout
-            ExperienceGroup.MEDIUMSLOW,
+            ExperienceGroup.MediumSlow,
             //70 - Weepinbell
-            ExperienceGroup.MEDIUMSLOW,
+            ExperienceGroup.MediumSlow,
             //71 - Victreebel
-            ExperienceGroup.MEDIUMSLOW,
+            ExperienceGroup.MediumSlow,
             //72 - Tentacool
-            ExperienceGroup.SLOW,
+            ExperienceGroup.Slow,
             //73 - Tentacruel
-            ExperienceGroup.SLOW,
+            ExperienceGroup.Slow,
             //74 - Geodude
-            ExperienceGroup.MEDIUMSLOW,
+            ExperienceGroup.MediumSlow,
             //75 - Graveler
-            ExperienceGroup.MEDIUMSLOW,
+            ExperienceGroup.MediumSlow,
             //76 - Golem
-            ExperienceGroup.MEDIUMSLOW,
+            ExperienceGroup.MediumSlow,
             //77 - Ponyta
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //78 - Rapidash
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //79 - Slowpoke
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //80 Slowbrow
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //81 - Magnemite
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //82 - Magneton
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //83 - Farfetch'd
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //84 - Doduo
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //85 - Dodrio
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //86 - Seel
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //87 - Dewgong
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //88 - Grimer
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //89 - Muk
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //90 - Shellder
-            ExperienceGroup.SLOW,
+            ExperienceGroup.Slow,
             //91 - Cloyster
-            ExperienceGroup.SLOW,
+            ExperienceGroup.Slow,
             //92 - Gastly
-            ExperienceGroup.MEDIUMSLOW,
+            ExperienceGroup.MediumSlow,
             //93 - Haunter
-            ExperienceGroup.MEDIUMSLOW,
+            ExperienceGroup.MediumSlow,
             //94 - Gengar
-            ExperienceGroup.MEDIUMSLOW,
+            ExperienceGroup.MediumSlow,
             //95 - Onix
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //96 - Drowzee
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //97 - Hypno
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //98 - Krabby
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //99 - Kingler
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //100 - Voltorb
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //101 - Electrode
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //102 - Exeggcute
-            ExperienceGroup.SLOW,
+            ExperienceGroup.Slow,
             //103 - Exeggutor
-            ExperienceGroup.SLOW,
+            ExperienceGroup.Slow,
             //104 - Cubone
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //105 - Marowak
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //106 - Hitmonlee
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //107 - Hitmonchan
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //108 - Lickitung
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //109 - Koffing
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //110 - Weezing
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //111 - Rhyhorn
-            ExperienceGroup.SLOW,
+            ExperienceGroup.Slow,
             //112 - Rhydon
-            ExperienceGroup.SLOW,
+            ExperienceGroup.Slow,
             //113 - Chansey
-            ExperienceGroup.FAST,
+            ExperienceGroup.Fast,
             //114 - Tangela
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //115 - Kangaskhan
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //116 - Horsea
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //117 - Seadra
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //118 - Goldeen
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //119 - Seaking
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //120 - Staryu
-            ExperienceGroup.SLOW,
+            ExperienceGroup.Slow,
             //121 - Starmie
-            ExperienceGroup.SLOW,
+            ExperienceGroup.Slow,
             //122 - Mr. Mime
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //123 - Scyther
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //124 - Jynx
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //125 - Electabuzz
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //126 - Magmar
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //127 - Pinsir
-            ExperienceGroup.SLOW,
+            ExperienceGroup.Slow,
             //128 - Tauros
-            ExperienceGroup.SLOW,
+            ExperienceGroup.Slow,
             //129 - Magikarp
-            ExperienceGroup.SLOW,
+            ExperienceGroup.Slow,
             //130 - Gyarados
-            ExperienceGroup.SLOW,
+            ExperienceGroup.Slow,
             //131 - Lapras
-            ExperienceGroup.SLOW,
+            ExperienceGroup.Slow,
             //132 - Ditto
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //133 - Eevee
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //134 - Vaporeon
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //135 - Jolteon
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //136 - Flareon
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //137 - Porygon
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //138 - Omanyte
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //139 - Omastar
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //140 - Kabuto
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //141 - Kabutops
-            ExperienceGroup.MEDIUMFAST,
+            ExperienceGroup.MediumFast,
             //142 - Aerodactyl
-            ExperienceGroup.SLOW,
+            ExperienceGroup.Slow,
             //143 - Snorlax
-            ExperienceGroup.SLOW,
+            ExperienceGroup.Slow,
             //144 - Articuno
-            ExperienceGroup.SLOW,
+            ExperienceGroup.Slow,
             //145 - Zapdos
-            ExperienceGroup.SLOW,
+            ExperienceGroup.Slow,
             //146 - Moltres
-            ExperienceGroup.SLOW,
+            ExperienceGroup.Slow,
             //147 - Dratini
-            ExperienceGroup.SLOW,
+            ExperienceGroup.Slow,
             //148 - Dragonair
-            ExperienceGroup.SLOW,
+            ExperienceGroup.Slow,
             //149 - Dragonite
-            ExperienceGroup.SLOW,
+            ExperienceGroup.Slow,
             //150 - Mewtwo
-            ExperienceGroup.SLOW,
+            ExperienceGroup.Slow,
             //151 - Mew
-            ExperienceGroup.MEDIUMSLOW
+            ExperienceGroup.MediumSlow
         };
 
 

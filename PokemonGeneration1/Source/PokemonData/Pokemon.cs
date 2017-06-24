@@ -286,13 +286,13 @@ namespace PokemonGeneration1.Source.PokemonData
         {
             switch (ExpGroup)
             {
-                case ExperienceGroup.FAST:
+                case ExperienceGroup.Fast:
                     return ((4f * (level * level * level)) / 5f);
-                case ExperienceGroup.MEDIUMFAST:
+                case ExperienceGroup.MediumFast:
                     return (level * level * level);
-                case ExperienceGroup.MEDIUMSLOW:
+                case ExperienceGroup.MediumSlow:
                     return (((6f * (level * level * level)) / 5f) - (15f * (level * level)) + (100f * level) - 140f);
-                case ExperienceGroup.SLOW:
+                case ExperienceGroup.Slow:
                     return ((5f * (level * level * level)) / 4f);
             }
             throw new Exception("error in ExpNeededForLevel()");

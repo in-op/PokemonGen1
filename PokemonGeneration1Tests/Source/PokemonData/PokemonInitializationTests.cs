@@ -19,10 +19,10 @@ namespace PokemonGeneration1.Source.PokemonData.Tests
             ExperienceGroup mewtwo = PokemonInitialization.ExpGroup(150);
             ExperienceGroup mew = PokemonInitialization.ExpGroup(151);
 
-            Assert.AreEqual(ExperienceGroup.FAST, noPokemon);
-            Assert.AreEqual(ExperienceGroup.MEDIUMSLOW, bulbasaur);
-            Assert.AreEqual(ExperienceGroup.SLOW, mewtwo);
-            Assert.AreEqual(ExperienceGroup.MEDIUMSLOW, mew);
+            Assert.AreEqual(ExperienceGroup.Fast, noPokemon);
+            Assert.AreEqual(ExperienceGroup.MediumSlow, bulbasaur);
+            Assert.AreEqual(ExperienceGroup.Slow, mewtwo);
+            Assert.AreEqual(ExperienceGroup.MediumSlow, mew);
         }
     }
 }
