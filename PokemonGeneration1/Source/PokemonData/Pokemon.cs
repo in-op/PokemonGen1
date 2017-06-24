@@ -121,10 +121,8 @@ namespace PokemonGeneration1.Source.PokemonData
         public void Damage(float amount)
         {
             HP -= amount;
-            if (HP <= 0 ) {
-                HP = 0;
-                Faint();
-            }
+            if (HP < 0) HP = 0;
+            if (HP == 0) Faint();
         }
         public void RestoreHP(float amount)
         {
