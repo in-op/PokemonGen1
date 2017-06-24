@@ -59,7 +59,7 @@ namespace PokemonGeneration1.Source.Battles
 
         public sealed override int GetPriority()
         {
-            return moveUsed.GetPriority();
+            return moveUsed.Priority;
         }
     }
 

@@ -211,10 +211,10 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Status
             //success condition:
             else if (!defender.IsDisabled() &&
                      (
-                     (move1 != null && move1.GetCurrentPP() > 0) ||
-                     (move2 != null && move2.GetCurrentPP() > 0) ||
-                     (move3 != null && move3.GetCurrentPP() > 0) ||
-                     (move4 != null && move4.GetCurrentPP() > 0)
+                     (move1 != null && move1.CurrentPP > 0) ||
+                     (move2 != null && move2.CurrentPP > 0) ||
+                     (move3 != null && move3.CurrentPP > 0) ||
+                     (move4 != null && move4.CurrentPP > 0)
                      )
                     )
             {
@@ -225,28 +225,28 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Status
                     int rando = rng.Next(1, 5);
                     if (rando == 1 &&
                         move1 != null &&
-                        move1.GetCurrentPP() > 0)
+                        move1.CurrentPP > 0)
                     {
                         defender.ActivateDisable(move1, rng.Next(0, 7));
                         disabled = true;
                     }
                     else if (rando == 2 &&
                              move2 != null &&
-                             move2.GetCurrentPP() > 0)
+                             move2.CurrentPP > 0)
                     {
                         defender.ActivateDisable(move2, rng.Next(0, 7));
                         disabled = true;
                     }
                     else if (rando == 3 &&
                              move3 != null &&
-                             move3.GetCurrentPP() > 0)
+                             move3.CurrentPP > 0)
                     {
                         defender.ActivateDisable(move3, rng.Next(0, 7));
                         disabled = true;
                     }
                     else if (rando == 4 &&
                              move4 != null &&
-                             move4.GetCurrentPP() > 0)
+                             move4.CurrentPP > 0)
                     {
                         defender.ActivateDisable(move4, rng.Next(0, 7));
                         disabled = true;
@@ -660,7 +660,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Status
             if (defender.GetMirrorMove() != null &&
                 defender.GetMirrorMove().Index != 119)
             {
-                Move copy = MoveFactory.CreateMove(defender.GetMirrorMove().Index);
+                Move copy = MoveFactory.Create(defender.GetMirrorMove().Index);
                 copy.ExecuteAndUpdate(user, defender);
             }
             else

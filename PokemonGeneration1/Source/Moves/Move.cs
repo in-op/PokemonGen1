@@ -1,37 +1,30 @@
 ﻿using PokemonGeneration1.Source.Battles;
-using PokemonGeneration1.Source.PokemonData;
 using System;
-using System.Collections.Generic;
 
 namespace PokemonGeneration1.Source.Moves
 {
-    /*
-     *  Move is an abstract class with public ExecuteAndUpdate() called polymorphically from subclasses.
-     *  Moves are organized in an abstract parent class hierarchy:
-     *  All moves derive from the Move class and further abstract subclasses of Move such as ReflexiveStatusMove
-     *  and MultiTurnAttackMove.  Each abstract class contains fields and methods common to its derived classes.
-     *  Concrete implementations in derived, sealed classes consist of the actual moves, such as Pound and
-     *  SwordsDance.  
-     */
     public abstract class Move : IEquatable<Move>
     {
         public int Index { get; }
-        public readonly string Name;
-        public readonly Type Type;
-        public readonly Category Category;
-        protected int CurrentPP;
-        protected int MaxPP;
-        protected readonly int AbsoluteMaxPP;
-        protected readonly int Priority;
+        public string Name { get; }
+        public Type Type { get; }
+        public int Priority { get; }
+        public Category Category { get; }
+        public int AbsoluteMaxPP { get; }
+
+        public int CurrentPP { get; private set; }
+        public int MaxPP { get; private set; }
+        
         protected MoveEventArgs EventArgs;
 
 
 
 
-        //these virtual implementations should NEVER execute, only overridden versions
         public abstract void ExecuteAndUpdate(BattlePokemon user, BattlePokemon defender);
         public virtual void Abort() { }
         public virtual void IfActiveDisruptThrashingMove(BattlePokemon user) { }
+
+
 
 
         public event EventHandler<MoveEventArgs> Used;
@@ -157,29 +150,23 @@ namespace PokemonGeneration1.Source.Moves
 
 
 
-        public int GetIndex() { return Index; }
-        public string GetName() { return Name; }
-        public Type GetMoveType() { return Type; }
-        public int GetCurrentPP() { return CurrentPP; }
-        public int GetMaxPP() { return MaxPP; }
-        public int GetPriority() { return Priority; }
 
-
-
-
-        
         public void SubtractPP(int amount)
         {
             CurrentPP -= amount;
-            if (CurrentPP < 0)
-            {
-                CurrentPP = 0;
-            }
+            if (CurrentPP < 0) CurrentPP = 0;
         }
 
         
 
-        protected Move(int index, string name, Type type, int startingPP, int absoluteMaxPP, int priority, Category category)
+        protected Move(
+            int index,
+            string name,
+            Type type,
+            int startingPP,
+            int absoluteMaxPP,
+            int priority,
+            Category category)
         {
             Index = index;
             Name = name;
@@ -192,16 +179,6 @@ namespace PokemonGeneration1.Source.Moves
             EventArgs = new MoveEventArgs();
             EventArgs.move = this;
         }
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -224,20 +201,5 @@ namespace PokemonGeneration1.Source.Moves
         }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
-    
 }

@@ -338,7 +338,7 @@ namespace PokemonGeneration1.Source.Battles
             }
 
             OnMimic(moveToCopy, opponent);
-            Move newMove = MoveFactory.CreateMove(moveToCopy.Index);
+            Move newMove = MoveFactory.Create(moveToCopy.Index);
             if (move1 == mimicItself)
             {
                 move1 = newMove;

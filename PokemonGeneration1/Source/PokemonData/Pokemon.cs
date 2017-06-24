@@ -202,19 +202,19 @@ namespace PokemonGeneration1.Source.PokemonData
                 {
                     if (Move1 == null)
                     {
-                        Move1 = MoveFactory.CreateMove(moveIndex);
+                        Move1 = MoveFactory.Create(moveIndex);
                     }
                     else if (Move2 == null)
                     {
-                        Move2 = MoveFactory.CreateMove(moveIndex);
+                        Move2 = MoveFactory.Create(moveIndex);
                     }
                     else if (Move3 == null)
                     {
-                        Move3 = MoveFactory.CreateMove(moveIndex);
+                        Move3 = MoveFactory.Create(moveIndex);
                     }
                     else if (Move4 == null)
                     {
-                        Move4 = MoveFactory.CreateMove(moveIndex);
+                        Move4 = MoveFactory.Create(moveIndex);
                     }
                     else
                     {
@@ -225,16 +225,16 @@ namespace PokemonGeneration1.Source.PokemonData
                             switch (moveSlot)
                             {
                                 case 1:
-                                    Move1 = MoveFactory.CreateMove(moveIndex);
+                                    Move1 = MoveFactory.Create(moveIndex);
                                     break;
                                 case 2:
-                                    Move2 = MoveFactory.CreateMove(moveIndex);
+                                    Move2 = MoveFactory.Create(moveIndex);
                                     break;
                                 case 3:
-                                    Move3 = MoveFactory.CreateMove(moveIndex);
+                                    Move3 = MoveFactory.Create(moveIndex);
                                     break;
                                 case 4:
-                                    Move4 = MoveFactory.CreateMove(moveIndex);
+                                    Move4 = MoveFactory.Create(moveIndex);
                                     break;
                             }
                         }

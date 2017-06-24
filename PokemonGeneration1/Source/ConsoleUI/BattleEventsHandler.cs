@@ -271,13 +271,13 @@ namespace PokemonGeneration1.Source.ConsoleUI
         private static void MyMoveUsedEventHandler(object sender, Battles.MoveEventArgs args)
         {
             Console.WriteLine();
-            Console.WriteLine(args.pokemon.Nickname + " used " + args.move.GetName() + "!");
+            Console.WriteLine(args.pokemon.Nickname + " used " + args.move.Name + "!");
             Thread.Sleep(1500);
         }
         private static void EnemyMoveUsedEventHandler(object sender, Battles.MoveEventArgs args)
         {
             Console.WriteLine();
-            Console.WriteLine("Enemy " + args.pokemon.Nickname + " used " + args.move.GetName() + "!");
+            Console.WriteLine("Enemy " + args.pokemon.Nickname + " used " + args.move.Name + "!");
             Thread.Sleep(1500);
         }
         private static void MoveFailedEventHandler(object sender, Battles.MoveEventArgs args)
@@ -572,11 +572,11 @@ namespace PokemonGeneration1.Source.ConsoleUI
         }
         private static void MyDisabledEventHandler(object sender, Battles.MoveEventArgs args)
         {
-            Console.WriteLine(args.pokemon.Nickname + "'s " + args.move.GetName() + " was disabled!");
+            Console.WriteLine(args.pokemon.Nickname + "'s " + args.move.Name + " was disabled!");
         }
         private static void EnemyDisabledEventHandler(object sender, Battles.MoveEventArgs args)
         {
-            Console.WriteLine("Enemy " + args.pokemon.Nickname + "'s " + args.move.GetName() + " was disabled!");
+            Console.WriteLine("Enemy " + args.pokemon.Nickname + "'s " + args.move.Name + " was disabled!");
         }
         private static void MyMoveAttemptedButIsDisabledEventHandler(object sender, BattlePokemonEventArgs args)
         {
@@ -588,11 +588,11 @@ namespace PokemonGeneration1.Source.ConsoleUI
         }
         private static void MyMimicEventHandler(object sender, Battles.MimicMoveEventArgs args)
         {
-            Console.WriteLine(args.pokemon.Nickname + " copied enemy " + args.opponent.GetName() + "'s " + args.moveMimiced.GetName());
+            Console.WriteLine(args.pokemon.Nickname + " copied enemy " + args.opponent.GetName() + "'s " + args.moveMimiced.Name);
         }
         private static void EnemyMimicEventHandler(object sender, Battles.MimicMoveEventArgs args)
         {
-            Console.WriteLine("Enemy " + args.pokemon.Nickname + " copied " + args.opponent.GetName() + "'s " + args.moveMimiced.GetName());
+            Console.WriteLine("Enemy " + args.pokemon.Nickname + " copied " + args.opponent.GetName() + "'s " + args.moveMimiced.Name);
         }
         
 

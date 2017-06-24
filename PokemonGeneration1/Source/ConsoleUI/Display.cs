@@ -81,18 +81,18 @@ namespace PokemonGeneration1.Source.ConsoleUI
             Move move3 = actorSide.GetCurrentBattlePokemon().GetMove3();
             Move move4 = actorSide.GetCurrentBattlePokemon().GetMove4();
 
-            Console.WriteLine("(1) " + move1.GetName() + " " + move1.GetCurrentPP() + "/" + move1.GetMaxPP());
+            Console.WriteLine("(1) " + move1.Name + " " + move1.CurrentPP + "/" + move1.MaxPP);
             if (move2 != null)
             {
-                Console.WriteLine("(2) " + move2.GetName() + " " + move2.GetCurrentPP() + "/" + move2.GetMaxPP());
+                Console.WriteLine("(2) " + move2.Name + " " + move2.CurrentPP + "/" + move2.MaxPP);
             }
             if (move3 != null)
             {
-                Console.WriteLine("(3) " + move3.GetName() + " " + move3.GetCurrentPP() + "/" + move3.GetMaxPP());
+                Console.WriteLine("(3) " + move3.Name + " " + move3.CurrentPP + "/" + move3.MaxPP);
             }
             if (move4 != null)
             {
-                Console.WriteLine("(4) " + move4.GetName() + " " + move4.GetCurrentPP() + "/" + move4.GetMaxPP());
+                Console.WriteLine("(4) " + move4.Name + " " + move4.CurrentPP + "/" + move4.MaxPP);
             }
             Console.WriteLine("(0) - - - back - - -");
             Console.Write("Type number and press enter: ");

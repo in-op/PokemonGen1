@@ -17,23 +17,23 @@ namespace PokemonGeneration1.Source.Moves
 
         protected void UpdateEffectivenessUpdateCritFlagAndDoDamage(BattlePokemon user, BattlePokemon defender)
         {
-            this.UpdateEffectiveness(defender);
-            this.UpdateCritFlag(user);
+            UpdateEffectiveness(defender);
+            UpdateCritFlag(user);
             float damageAmount = calculateDamage(user, defender);
-            defender.Damage(damageAmount, this.Type);
+            defender.Damage(damageAmount, Type);
         }
 
         //Effectiveness & Crit must be updated immediately before calculateDamage()
         protected void UpdateEffectiveness(BattlePokemon defender)
         {
             float effectivenessMultiplier = GetTypeMatchupMultiplier(defender);
-            this.EffectivenessMultiplier = effectivenessMultiplier;
+            EffectivenessMultiplier = effectivenessMultiplier;
 
-            if (this.EffectivenessMultiplier > 1f)
+            if (EffectivenessMultiplier > 1f)
             {
                 OnSuperEffective();
             }
-            else if (this.EffectivenessMultiplier < 1f)
+            else if (EffectivenessMultiplier < 1f)
             {
                 OnNotVeryEffective();
             }
@@ -46,22 +46,22 @@ namespace PokemonGeneration1.Source.Moves
             {
                 t /= 4;
             }
-            if (this.IsHighCritRatioMove)
+            if (IsHighCritRatioMove)
             {
                 t *= 8;
             }
             if (t > 255) { t = 255; }
             if (new Random().Next(0, 256) < t)
             {
-                this.CritFlag = true;
+                CritFlag = true;
                 OnCriticalHit();
             }
-            else this.CritFlag = false;
+            else CritFlag = false;
         }
         protected float calculateDamage(BattlePokemon user, BattlePokemon defender)
         {
             float relativeLevel;
-            if (this.CritFlag == true)
+            if (CritFlag == true)
             {
                 relativeLevel = user.GetLevel() * 2f;
             }
@@ -88,40 +88,40 @@ namespace PokemonGeneration1.Source.Moves
             }
 
             //if crit on transformed pokemon, defender uses original stats in damage calculation
-            if (defender.IsTransformActive() && this.CritFlag == true)
+            if (defender.IsTransformActive() && CritFlag == true)
             {
-                if (this.Category == Category.PHYSICAL)
+                if (Category == Category.PHYSICAL)
                 {
                     return damageFormula(relativeLevel,
                                          user.GetAttack(),
                                          defender.GetPokemonsDefenseStatWithModifiers(),
-                                         this.Power,
+                                         Power,
                                          getStab(user),
-                                         this.EffectivenessMultiplier);
+                                         EffectivenessMultiplier);
                 }
                 else return damageFormula(relativeLevel,
                                           user.GetSpecial(),
                                           defender.GetPokemonsSpecialStatWithModifiers(),
-                                          this.Power,
+                                          Power,
                                           getStab(user),
-                                          this.EffectivenessMultiplier);
+                                          EffectivenessMultiplier);
             }
 
-            else if (this.Category == Category.PHYSICAL)
+            else if (Category == Category.PHYSICAL)
             {
                 return damageFormula(relativeLevel,
                                        user.GetAttack(),
                                        relativeDefenderDefense,
-                                       this.Power,
+                                       Power,
                                        getStab(user),
-                                       this.EffectivenessMultiplier);
+                                       EffectivenessMultiplier);
             }
             else return damageFormula(relativeLevel,
                                       user.GetSpecial(),
                                       relativeDefenderSpecial,
-                                      this.Power,
+                                      Power,
                                       getStab(user),
-                                      this.EffectivenessMultiplier);
+                                      EffectivenessMultiplier);
         }
         public static float damageFormula(float attackerLevel,
                                            float attackStat,
@@ -135,8 +135,8 @@ namespace PokemonGeneration1.Source.Moves
         private float getStab(BattlePokemon attackPokemon)
         {
             float stab;
-            if (attackPokemon.GetType1() == this.Type ||
-                attackPokemon.GetType2() == this.Type)
+            if (attackPokemon.GetType1() == Type ||
+                attackPokemon.GetType2() == Type)
             {
                 stab = 1.5f;
             }
@@ -149,8 +149,8 @@ namespace PokemonGeneration1.Source.Moves
         protected AttackMove(int index, string name, Type type, int startingPP, int absoluteMaxPP, float accuracyPercent, float power, int priority, bool isHighCritRatio, Category category)
             : base(index, name, type, startingPP, absoluteMaxPP, accuracyPercent, priority, category)
         {
-            this.Power = power;
-            this.CritFlag = false;
+            Power = power;
+            CritFlag = false;
         }
     }
 }

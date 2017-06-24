@@ -55,23 +55,23 @@ namespace PokemonGeneration1.Source.Battles
                 pokemonToTransformInto.GetPokemonsDefenseStat(),
                 pokemonToTransformInto.GetPokemonsSpecialStat(),
                 pokemonToTransformInto.GetPokemonsSpeedStat());
-            Move1 = MoveFactory.CreateMove(pokemonToTransformInto.GetMove1().Index);
-            Move2 = MoveFactory.CreateMove(pokemonToTransformInto.GetMove2().Index);
-            Move3 = MoveFactory.CreateMove(pokemonToTransformInto.GetMove3().Index);
-            Move4 = MoveFactory.CreateMove(pokemonToTransformInto.GetMove4().Index);
-            while (Move1.GetCurrentPP() > 5)
+            Move1 = MoveFactory.Create(pokemonToTransformInto.GetMove1().Index);
+            Move2 = MoveFactory.Create(pokemonToTransformInto.GetMove2().Index);
+            Move3 = MoveFactory.Create(pokemonToTransformInto.GetMove3().Index);
+            Move4 = MoveFactory.Create(pokemonToTransformInto.GetMove4().Index);
+            while (Move1.CurrentPP > 5)
             {
                 Move1.SubtractPP(1);
             }
-            while (Move2.GetCurrentPP() > 5)
+            while (Move2.CurrentPP > 5)
             {
                 Move2.SubtractPP(1);
             }
-            while (Move3.GetCurrentPP() > 5)
+            while (Move3.CurrentPP > 5)
             {
                 Move3.SubtractPP(1);
             }
-            while (Move4.GetCurrentPP() > 5)
+            while (Move4.CurrentPP > 5)
             {
                 Move4.SubtractPP(1);
             }
