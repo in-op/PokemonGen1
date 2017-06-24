@@ -10,10 +10,29 @@ namespace PokemonGeneration1.Source.PokemonData
         public readonly float Special;
         public readonly float Speed;
 
+        public static DeterminantValues CreateRandom()
+        {
+            Random rng = new Random();
+
+            float attack = rng.Next(0, 16);
+            float defense = rng.Next(0, 16);
+            float special = rng.Next(0, 16);
+            float speed = rng.Next(0, 16);
+
+            float hp = 0f;
+            if (attack % 2 == 1) hp += 8f;
+            if (defense % 2 == 1) hp += 4f;
+            if (special % 2 == 1) hp += 1f;
+            if (speed % 2 == 1) hp += 2f;
+
+            return new DeterminantValues(
+                hp, attack, defense, special, speed);
+        }
+
         /// <summary>
         /// Create a pre-determined set of DVs. Range 0-15.
         /// </summary>
-        public DeterminantValues(
+        private DeterminantValues(
             float hp,
             float attack,
             float defense,
@@ -25,25 +44,6 @@ namespace PokemonGeneration1.Source.PokemonData
             Defense = defense;
             Special = special;
             Speed = speed;
-        }
-
-        /// <summary>
-        /// Create a randomly-generated set of DVs.
-        /// </summary>
-        public DeterminantValues()
-        {
-            Random rng = new Random();
-            Attack = rng.Next(0, 16);
-            Defense = rng.Next(0, 16);
-            Special = rng.Next(0, 16);
-            Speed = rng.Next(0, 16);
-
-            float x = 0f;
-            if (Attack % 2 == 1) x += 8f;
-            if (Defense % 2 == 1) x += 4f;
-            if (Special % 2 == 1) x += 1f;
-            if (Speed % 2 == 1) x += 2f;
-            HP = x;
         }
     }
 }

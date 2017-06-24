@@ -200,7 +200,7 @@ namespace PokemonGeneration1.Source.PokemonData
             ExpGroup = PokemonInitialization.ExpGroup(index);
             StatExp = new StatExp();
             BaseStats = PokemonInitialization.BaseStats(index);
-            DVs = new DeterminantValues();
+            DVs = DeterminantValues.CreateRandom();
             Status = Status.NONE;
             EventArgs = new PokemonEventArgs() { pokemon = this };
         }
