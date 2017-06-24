@@ -18,7 +18,7 @@ namespace PokemonGeneration1.Source.Battles
 
         public static Conversion GenerateBlankConversion()
         {
-            return new Conversion(Type.None, Type.None);
+            return new Conversion(Type.Null, Type.Null);
         }
 
         public void Activate(BattlePokemon pokemonToConvertInto)
@@ -31,8 +31,8 @@ namespace PokemonGeneration1.Source.Battles
         public void Deactivate()
         {
             this.Active = false;
-            this.Type1 = Type.None;
-            this.Type2 = Type.None;
+            this.Type1 = Type.Null;
+            this.Type2 = Type.Null;
         }
 
         private Conversion(Type type1, Type type2)

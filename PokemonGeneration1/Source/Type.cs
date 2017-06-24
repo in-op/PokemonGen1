@@ -2,7 +2,7 @@
 {
     public enum Type
     {
-        None,
+        Null,
         Normal,
         Fire,
         Water,

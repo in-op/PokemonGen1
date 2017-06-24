@@ -88,7 +88,7 @@
     <Compile Include="Source\PokemonData\PokemonEventArgs.cs" />
     <Compile Include="Source\PokemonData\ExperienceGroup.cs" />
     <Compile Include="Source\PokemonData\PokemonLearnset.cs" />
-    <Compile Include="Source\PokemonData\PokemonInitialization.cs" />
+    <Compile Include="Source\PokemonData\SpeciesData.cs" />
     <Compile Include="Source\PokemonData\PrimeCupRentalPokemonFactory.cs" />
     <Compile Include="Source\PokemonData\StatExp.cs" />
     <Compile Include="Source\PokemonData\Stats.cs" />

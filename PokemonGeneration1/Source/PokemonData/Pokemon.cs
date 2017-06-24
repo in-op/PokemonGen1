@@ -40,6 +40,7 @@ namespace PokemonGeneration1.Source.PokemonData
         private StatExp StatExp;
         private DeterminantValues DVs;
         private PokemonEventArgs EventArgs;
+
         public float CatchRate { get; private set; }
 
         private string nickname;
@@ -124,6 +125,7 @@ namespace PokemonGeneration1.Source.PokemonData
             if (HP < 0) HP = 0;
             if (HP == 0) Faint();
         }
+
         public void RestoreHP(float amount)
         {
             float gained = 0f;
@@ -138,42 +140,13 @@ namespace PokemonGeneration1.Source.PokemonData
         }
 
 
-
-
-        public void GainExp(Pokemon fallenFoe, int numberOfPokemonParticipated)
-        {
-            //TODO finish
-            //  gain exp, and gain statexp
-            float expToGain = 0;
-            GainedExp?.Invoke(this, new GainedExpEventArgs(this, expToGain));
-
-            while (Exp > ExpNeededForLevel(Level + 1f))
-            {
-                LevelUp();
-            }
-        }
-        private void LevelUp()
-        {
-            Level++;
-            Stats = CalculateStats();
-            OnLeveledUp();
-        }
-        private void OnLeveledUp()
-        {
-            LeveledUp?.Invoke(this, EventArgs);
-        }
-
-
-        
-
-
-        
-        public static Pokemon GeneratePreMadePokemon(int index,
-                                                     int level,
-                                                     Move move1,
-                                                     Move move2,
-                                                     Move move3,
-                                                     Move move4)
+        public static Pokemon GeneratePreMadePokemon(
+            int index,
+            int level,
+            Move move1,
+            Move move2,
+            Move move3,
+            Move move4)
         {
             Pokemon poke = new Pokemon(index);
             poke.Move1 = move1;
@@ -185,19 +158,21 @@ namespace PokemonGeneration1.Source.PokemonData
             poke.HP = poke.Stats.HP;
             return poke;
         }
+
         public static Pokemon GenerateWildPokemon(int index, int level)
         {
             return new Pokemon(index, level);
         }
+
         private Pokemon(int index)
         {
             Number = index;
-            Species = PokemonInitialization.Species(index);
-            Type1 = PokemonInitialization.Type1(index);
-            Type2 = PokemonInitialization.Type2(index);
-            ExpGroup = PokemonInitialization.ExpGroup(index);
+            Species = SpeciesData.Names[index];
+            Type1 = SpeciesData.Type1(index);
+            Type2 = SpeciesData.Type2(index);
+            ExpGroup = SpeciesData.ExpGroup(index);
             StatExp = new StatExp();
-            BaseStats = PokemonInitialization.BaseStats(index);
+            BaseStats = SpeciesData.BaseStats(index);
             DVs = DeterminantValues.CreateRandom();
             Status = Status.NONE;
             EventArgs = new PokemonEventArgs() { pokemon = this };
@@ -293,7 +268,7 @@ namespace PokemonGeneration1.Source.PokemonData
                 case ExperienceGroup.Slow:
                     return ((5f * (level * level * level)) / 4f);
             }
-            throw new Exception("error in ExpNeededForLevel()");
+            throw new Exception("unreachable error");
         }
         private Stats CalculateStats()
         {

@@ -32,14 +32,14 @@ namespace PokemonGeneration1.Source.ConsoleUI
             string line;
             for (int i = 1; i < 52; i++)
             {
-                line = Display.LeftJustify(i + " | " + PokemonInitialization.Species(i), 24);
+                line = Display.LeftJustify(i + " | " + SpeciesData.Names[i], 24);
                 line +=
-                    Display.LeftJustify((i + 51) + " | " + PokemonInitialization.Species(i + 51),
+                    Display.LeftJustify((i + 51) + " | " + SpeciesData.Names[i + 51],
                                         24);
                 if (i < 50)
                 {
                     line +=
-                    Display.LeftJustify((i + 102) + " | " + PokemonInitialization.Species(i + 102),
+                    Display.LeftJustify((i + 102) + " | " + SpeciesData.Names[i + 102],
                                         24);
                 }
                 
@@ -53,15 +53,15 @@ namespace PokemonGeneration1.Source.ConsoleUI
             for (int i = 1; i < 51; i++)
             {
                 line =
-                    Display.LeftJustify(i + " | " + PokemonInitialization.Species(i),
+                    Display.LeftJustify(i + " | " + SpeciesData.Names[i],
                                         24);
                 line +=
-                    Display.LeftJustify((i + 50) + " | " + PokemonInitialization.Species(i + 50),
+                    Display.LeftJustify((i + 50) + " | " + SpeciesData.Names[i + 50],
                                         24);
                 if (i < 50)
                 {
                     line +=
-                Display.LeftJustify((i + 100) + " | " + PokemonInitialization.Species(i + 100),
+                Display.LeftJustify((i + 100) + " | " + SpeciesData.Names[i + 100],
                                         24);
                 }
 

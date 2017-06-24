@@ -1,28 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PokemonGeneration1.Source.PokemonData
+﻿namespace PokemonGeneration1.Source.PokemonData
 {
-    //====================================================
-    //  README:  All arrays are indexed by Pokemon number
-    //====================================================
-    public static class PokemonInitialization
+    public static class SpeciesData
     {
         /// <summary>
-        /// Returns the species of the Pokemon as a string
+        /// The name of each Pokemon species, indexed by Pokemon number.
         /// </summary>
-        /// <param name="pokemonIndex">The Pokedex number of the Pokemon in question</param>
-        /// <returns>A string representation of the name</returns>
-        public static string Species(int pokemonIndex)
+        public static readonly string[] Names = new string[]
         {
-            return AllNames[pokemonIndex];
-        }
-        private static readonly string[] AllNames = new string[]
-        {
-            "No Pokemon",
+            "Null",
             "Bulbasaur", // 1
             "Ivysaur",
             "Venusaur",
@@ -190,7 +175,7 @@ namespace PokemonGeneration1.Source.PokemonData
         private static readonly Type[][] AllTypes = new Type[][]
         {
             //0 - No Pokemon
-            new Type[] { Type.None, Type.None },
+            new Type[] { Type.Null, Type.Null },
             //1 - Bulbasaur                      
             new Type[] { Type.Grass, Type.Poison },
             //2 - Ivysaur
@@ -198,21 +183,21 @@ namespace PokemonGeneration1.Source.PokemonData
             //3 - Venusaur
             new Type[] { Type.Grass, Type.Poison },
             //4 - Charmander
-            new Type[] { Type.Fire, Type.None },
+            new Type[] { Type.Fire, Type.Null },
             //5 - Charmeleon
-            new Type[] { Type.Fire, Type.None },
+            new Type[] { Type.Fire, Type.Null },
             //6 - Charizard
             new Type[] { Type.Fire, Type.Flying },
             //7 - Squirtle
-            new Type[] { Type.Water, Type.None },
+            new Type[] { Type.Water, Type.Null },
             //8 - Wartortle
-            new Type[] { Type.Water, Type.None },
+            new Type[] { Type.Water, Type.Null },
             //9 - Blastoise
-            new Type[] { Type.Water, Type.None },
+            new Type[] { Type.Water, Type.Null },
             //10 - Caterpie
-            new Type[] { Type.Bug, Type.None },
+            new Type[] { Type.Bug, Type.Null },
             //11 - Metapod
-            new Type[] { Type.Bug, Type.None },
+            new Type[] { Type.Bug, Type.Null },
             //12 - Butterfree
             new Type[] { Type.Bug, Type.Flying },
             //13 - Weedle
@@ -228,49 +213,49 @@ namespace PokemonGeneration1.Source.PokemonData
             //18 - Pidgeot
             new Type[] { Type.Normal, Type.Flying },
             //19 - Rattata
-            new Type[] { Type.Normal, Type.None },
+            new Type[] { Type.Normal, Type.Null },
             //20 - Raticate
-            new Type[] { Type.Normal, Type.None },
+            new Type[] { Type.Normal, Type.Null },
             //21 - Spearow
             new Type[] { Type.Normal, Type.Flying },
             //22 - Fearow
             new Type[] { Type.Normal, Type.Flying },
             //23 - Ekans
-            new Type[] { Type.Poison, Type.None },
+            new Type[] { Type.Poison, Type.Null },
             //24 - Arbok
-            new Type[] { Type.Poison, Type.None },
+            new Type[] { Type.Poison, Type.Null },
             //25 - Pikachu
-            new Type[] { Type.Electric, Type.None },
+            new Type[] { Type.Electric, Type.Null },
             //26 - Raichu
-            new Type[] { Type.Electric, Type.None },
+            new Type[] { Type.Electric, Type.Null },
             //27 - Sandshrew
-            new Type[] { Type.Ground, Type.None },
+            new Type[] { Type.Ground, Type.Null },
             //28 - Sandslash
-            new Type[] { Type.Ground, Type.None },
+            new Type[] { Type.Ground, Type.Null },
             //29 - Nidoran Female
-            new Type[] { Type.Poison, Type.None },
+            new Type[] { Type.Poison, Type.Null },
             //30 - Nidorina
-            new Type[] { Type.Poison, Type.None },
+            new Type[] { Type.Poison, Type.Null },
             //31 - Nidoqueen
             new Type[] { Type.Poison, Type.Ground },
             //32 - Nidoran Male
-            new Type[] { Type.Poison, Type.None },
+            new Type[] { Type.Poison, Type.Null },
             //33 - Nidorino
-            new Type[] { Type.Poison, Type.None },
+            new Type[] { Type.Poison, Type.Null },
             //34 - Nidoking
             new Type[] { Type.Poison, Type.Ground },
             //35 - Clefairy
-            new Type[] { Type.Normal, Type.None },
+            new Type[] { Type.Normal, Type.Null },
             //36 - Clefable
-            new Type[] { Type.Normal, Type.None },
+            new Type[] { Type.Normal, Type.Null },
             //37 - Vulpix
-            new Type[] { Type.Fire, Type.None },
+            new Type[] { Type.Fire, Type.Null },
             //38 - Ninetails
-            new Type[] { Type.Fire, Type.None },
+            new Type[] { Type.Fire, Type.Null },
             //39 - Jigglypuff
-            new Type[] { Type.Normal, Type.None },
+            new Type[] { Type.Normal, Type.Null },
             //40 - Wigglytuff
-            new Type[] { Type.Normal, Type.None },
+            new Type[] { Type.Normal, Type.Null },
             //41 - Zubat
             new Type[] { Type.Poison, Type.Flying },
             //42 - Golbat
@@ -290,43 +275,43 @@ namespace PokemonGeneration1.Source.PokemonData
             //49 - Venomoth
             new Type[] { Type.Bug, Type.Poison },
             //50 - Diglett
-            new Type[] { Type.Ground, Type.None },
+            new Type[] { Type.Ground, Type.Null },
             //51 - Dugtrio
-            new Type[] { Type.Ground, Type.None },
+            new Type[] { Type.Ground, Type.Null },
             //52 - Meowth
-            new Type[] { Type.Normal, Type.None },
+            new Type[] { Type.Normal, Type.Null },
             //53 - Persian
-            new Type[] { Type.Normal, Type.None },
+            new Type[] { Type.Normal, Type.Null },
             //54 - Psyduck
-            new Type[] { Type.Water, Type.None },
+            new Type[] { Type.Water, Type.Null },
             //55 - Golduck
-            new Type[] { Type.Water, Type.None },
+            new Type[] { Type.Water, Type.Null },
             //56 - Mankey
-            new Type[] { Type.Fighting, Type.None },
+            new Type[] { Type.Fighting, Type.Null },
             //57 - Primeape
-            new Type[] { Type.Fighting, Type.None },
+            new Type[] { Type.Fighting, Type.Null },
             //58 - Growlithe
-            new Type[] { Type.Fire, Type.None },
+            new Type[] { Type.Fire, Type.Null },
             //59 - Arcanine
-            new Type[] { Type.Fire, Type.None },
+            new Type[] { Type.Fire, Type.Null },
             //60 - Poliwag
-            new Type[] { Type.Water, Type.None },
+            new Type[] { Type.Water, Type.Null },
             //61 - Poliwhirl
-            new Type[] { Type.Water, Type.None },
+            new Type[] { Type.Water, Type.Null },
             //62 - Poliwrath
             new Type[] { Type.Water, Type.Fighting },
             //63 - Abra
-            new Type[] { Type.Psychic, Type.None },
+            new Type[] { Type.Psychic, Type.Null },
             //64 - Kadabra
-            new Type[] { Type.Psychic, Type.None },
+            new Type[] { Type.Psychic, Type.Null },
             //65 - Alakazam
-            new Type[] { Type.Psychic, Type.None },
+            new Type[] { Type.Psychic, Type.Null },
             //66 - Machop
-            new Type[] { Type.Fighting, Type.None },
+            new Type[] { Type.Fighting, Type.Null },
             //67 - Machoke
-            new Type[] { Type.Fighting, Type.None },
+            new Type[] { Type.Fighting, Type.Null },
             //68 - Machamp
-            new Type[] { Type.Fighting, Type.None },
+            new Type[] { Type.Fighting, Type.Null },
             //69 - Bellsprout
             new Type[] { Type.Grass, Type.Poison },
             //70 - Weepinbell
@@ -344,17 +329,17 @@ namespace PokemonGeneration1.Source.PokemonData
             //76 - Golem
             new Type[] { Type.Rock, Type.Ground },
             //77 - Ponyta
-            new Type[] { Type.Fire, Type.None },
+            new Type[] { Type.Fire, Type.Null },
             //78 - Rapidash
-            new Type[] { Type.Fire, Type.None },
+            new Type[] { Type.Fire, Type.Null },
             //79 - Slowpoke
             new Type[] { Type.Water, Type.Psychic },
             //80 - Slowbrow
             new Type[] { Type.Water, Type.Psychic },
             //81 - Magnemite
-            new Type[] { Type.Electric, Type.None },
+            new Type[] { Type.Electric, Type.Null },
             //82 - Magneton
-            new Type[] { Type.Electric, Type.None },
+            new Type[] { Type.Electric, Type.Null },
             //83 - Farfetch'd
             new Type[] { Type.Normal, Type.Flying },
             //84 - Doduo
@@ -362,15 +347,15 @@ namespace PokemonGeneration1.Source.PokemonData
             //85 - Dodrio
             new Type[] { Type.Normal, Type.Flying },
             //86 - Seel
-            new Type[] { Type.Water, Type.None },
+            new Type[] { Type.Water, Type.Null },
             //87 - Dewgong
             new Type[] { Type.Water, Type.Ice },
             //88 - Grimer
-            new Type[] { Type.Poison, Type.None },
+            new Type[] { Type.Poison, Type.Null },
             //89 - Muk
-            new Type[] { Type.Poison, Type.None },
+            new Type[] { Type.Poison, Type.Null },
             //90 - Shellder
-            new Type[] { Type.Water, Type.None },
+            new Type[] { Type.Water, Type.Null },
             //91 - Cloyster
             new Type[] { Type.Water, Type.Ice },
             //92 - Gastly
@@ -382,89 +367,89 @@ namespace PokemonGeneration1.Source.PokemonData
             //95 - Onix
             new Type[] { Type.Rock, Type.Ground },
             //96 - Drowzee
-            new Type[] { Type.Psychic, Type.None },
+            new Type[] { Type.Psychic, Type.Null },
             //97 - Hypno
-            new Type[] { Type.Psychic, Type.None },
+            new Type[] { Type.Psychic, Type.Null },
             //98 - Krabby
-            new Type[] { Type.Water, Type.None },
+            new Type[] { Type.Water, Type.Null },
             //99 - Kingler
-            new Type[] { Type.Water, Type.None },
+            new Type[] { Type.Water, Type.Null },
             //100 - Voltorb
-            new Type[] { Type.Electric, Type.None },
+            new Type[] { Type.Electric, Type.Null },
             //101 - Electrode
-            new Type[] { Type.Electric, Type.None },
+            new Type[] { Type.Electric, Type.Null },
             //102 - Exeggcute
             new Type[] { Type.Grass, Type.Psychic },
             //103 - Exeggutor
             new Type[] { Type.Grass, Type.Psychic },
             //104 - Cubone
-            new Type[] { Type.Ground, Type.None },
+            new Type[] { Type.Ground, Type.Null },
             //105 - Marowak
-            new Type[] { Type.Ground, Type.None },
+            new Type[] { Type.Ground, Type.Null },
             //106 - Hitmonlee
-            new Type[] { Type.Fighting, Type.None },
+            new Type[] { Type.Fighting, Type.Null },
             //107 - Hitmonchan
-            new Type[] { Type.Fighting, Type.None },
+            new Type[] { Type.Fighting, Type.Null },
             //108 - Lickitung
-            new Type[] { Type.Normal, Type.None },
+            new Type[] { Type.Normal, Type.Null },
             //109 - Koffing
-            new Type[] { Type.Poison, Type.None },
+            new Type[] { Type.Poison, Type.Null },
             //110 - Weezing
-            new Type[] { Type.Poison, Type.None },
+            new Type[] { Type.Poison, Type.Null },
             //111 - Rhyhorn
             new Type[] { Type.Ground, Type.Rock },
             //112 - Rhydon
             new Type[] { Type.Ground, Type.Rock },
             //113 - Chansey
-            new Type[] { Type.Normal, Type.None },
+            new Type[] { Type.Normal, Type.Null },
             //114 - Tangela
-            new Type[] { Type.Grass, Type.None },
+            new Type[] { Type.Grass, Type.Null },
             //115 - Kangaskhan
-            new Type[] { Type.Normal, Type.None },
+            new Type[] { Type.Normal, Type.Null },
             //116 - Horsea
-            new Type[] { Type.Water, Type.None },
+            new Type[] { Type.Water, Type.Null },
             //117 - Seadra
-            new Type[] { Type.Water, Type.None },
+            new Type[] { Type.Water, Type.Null },
             //118 - Goldeen
-            new Type[] { Type.Water, Type.None },
+            new Type[] { Type.Water, Type.Null },
             //119 - Seaking
-            new Type[] { Type.Water, Type.None },
+            new Type[] { Type.Water, Type.Null },
             //120 - Staryu
-            new Type[] { Type.Water, Type.None },
+            new Type[] { Type.Water, Type.Null },
             //121 - Starmie
             new Type[] { Type.Water, Type.Psychic },
             //122 - Mr. Mime
-            new Type[] { Type.Psychic, Type.None },
+            new Type[] { Type.Psychic, Type.Null },
             //123 - Scyther
             new Type[] { Type.Bug, Type.Flying },
             //124 - Jynx
             new Type[] { Type.Ice, Type.Psychic },
             //125 - Electabuzz
-            new Type[] { Type.Electric, Type.None },
+            new Type[] { Type.Electric, Type.Null },
             //126 - Magmar
-            new Type[] { Type.Fire, Type.None },
+            new Type[] { Type.Fire, Type.Null },
             //127 - Pinsir
-            new Type[] { Type.Bug, Type.None },
+            new Type[] { Type.Bug, Type.Null },
             //128 - Tauros
-            new Type[] { Type.Normal, Type.None },
+            new Type[] { Type.Normal, Type.Null },
             //129 - Magikarp
-            new Type[] { Type.Water, Type.None },
+            new Type[] { Type.Water, Type.Null },
             //130 - Gyarados
             new Type[] { Type.Water, Type.Flying },
             //131 - Lapras
             new Type[] { Type.Water, Type.Ice },
             //132 - Ditto
-            new Type[] { Type.Normal, Type.None },
+            new Type[] { Type.Normal, Type.Null },
             //133 - Eevee
-            new Type[] { Type.Normal, Type.None },
+            new Type[] { Type.Normal, Type.Null },
             //134 - Vaporeon
-            new Type[] { Type.Water, Type.None },
+            new Type[] { Type.Water, Type.Null },
             //135 - Jolteon
-            new Type[] { Type.Electric, Type.None },
+            new Type[] { Type.Electric, Type.Null },
             //136 - Flareon
-            new Type[] { Type.Fire, Type.None },
+            new Type[] { Type.Fire, Type.Null },
             //137 - Porygon
-            new Type[] { Type.Normal, Type.None },
+            new Type[] { Type.Normal, Type.Null },
             //138 - Omanyte
             new Type[] { Type.Rock, Type.Water },
             //139 - Omastar
@@ -476,7 +461,7 @@ namespace PokemonGeneration1.Source.PokemonData
             //142 - Aerodactyl
             new Type[] { Type.Rock, Type.Flying },
             //143 - Snorlax
-            new Type[] { Type.Normal, Type.None },
+            new Type[] { Type.Normal, Type.Null },
             //144 - Articuno
             new Type[] { Type.Ice, Type.Flying },
             //145 - Zapdos
@@ -484,15 +469,15 @@ namespace PokemonGeneration1.Source.PokemonData
             //146 - Moltres
             new Type[] { Type.Fire, Type.Flying },
             //147 - Dratini
-            new Type[] { Type.Dragon, Type.None },
+            new Type[] { Type.Dragon, Type.Null },
             //148 - Dragonair
-            new Type[] { Type.Dragon, Type.None },
+            new Type[] { Type.Dragon, Type.Null },
             //149 - Dragonite
             new Type[] { Type.Dragon, Type.Flying },
             //150 - Mewtwo
-            new Type[] { Type.Psychic, Type.None },
+            new Type[] { Type.Psychic, Type.Null },
             //151 - Mew
-            new Type[] { Type.Psychic, Type.None }
+            new Type[] { Type.Psychic, Type.Null }
         };
         
 
