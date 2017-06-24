@@ -17,7 +17,7 @@ namespace PokemonGeneration1.Source.PokemonData
 
         public float Level { get; private set; }
         public Status Status { get; private set; }
-        public float HP { get; private set; }
+        public float CurrentHP { get; private set; }
 
         public Move Move1 { get; private set; }
         public Move Move2 { get; private set; }
@@ -29,17 +29,33 @@ namespace PokemonGeneration1.Source.PokemonData
         public ExperienceGroup ExpGroup { get => SpeciesData.ExpGroup[Number]; }
 
         private Stats Stats;
-        public float HPStat { get => Stats.HP; }
+        public float HP { get => Stats.HP; }
         public float Attack { get => Stats.Attack; }
         public float Defense { get => Stats.Defense; }
         public float Special { get => Stats.Special; }
         public float Speed { get => Stats.Speed; }
 
         private BaseStats BaseStats { get => SpeciesData.BaseStats[Number]; }
+        public float BaseHP { get => BaseStats.HP; }
+        public float BaseAttack { get => BaseStats.Attack; }
+        public float BaseDefense { get => BaseStats.Defense; }
+        public float BaseSpecial { get => BaseStats.Special; }
         public float BaseSpeed { get => BaseStats.Speed; }
+        
+        private readonly DeterminantValues DVs;
+        public float HPDV { get => DVs.HP; }
+        public float AttackDV { get => DVs.Attack; }
+        public float DefenseDV { get => DVs.Defense; }
+        public float SpecialDV { get => DVs.Special; }
+        public float SpeedDV { get => DVs.Speed; }
 
         private StatExp StatExp;
-        private DeterminantValues DVs;
+        public float HPExp { get => StatExp.HP; }
+        public float AttackExp { get => StatExp.Attack; }
+        public float DefenseExp { get => StatExp.Defense; }
+        public float SpecialExp { get => StatExp.Special; }
+        public float SpeedExp { get => StatExp.Speed; }
+        
         private PokemonEventArgs EventArgs;
 
         public float CatchRate { get; private set; }
@@ -122,18 +138,18 @@ namespace PokemonGeneration1.Source.PokemonData
 
         public void Damage(float amount)
         {
-            HP -= amount;
-            if (HP < 0) HP = 0;
-            if (HP == 0) Faint();
+            CurrentHP -= amount;
+            if (CurrentHP < 0) CurrentHP = 0;
+            if (CurrentHP == 0) Faint();
         }
 
         public void RestoreHP(float amount)
         {
             float gained = 0f;
-            while (HP < Stats.HP &&
+            while (CurrentHP < Stats.HP &&
                    gained < amount)
             {
-                HP++;
+                CurrentHP++;
                 gained++;
             }
 
@@ -155,8 +171,8 @@ namespace PokemonGeneration1.Source.PokemonData
             poke.Move3 = move3;
             poke.Move4 = move4;
             poke.Level = level;
-            poke.Stats = poke.CalculateStats();
-            poke.HP = poke.Stats.HP;
+            poke.Stats = StatCalculator.CreateStatsFor(poke);
+            poke.CurrentHP = poke.Stats.HP;
             return poke;
         }
 
@@ -188,8 +204,8 @@ namespace PokemonGeneration1.Source.PokemonData
                 Level++;
             }
 
-            Stats = CalculateStats();
-            HP = Stats.HP;
+            Stats = StatCalculator.CreateStatsFor(this);
+            CurrentHP = Stats.HP;
         }
 
         private void LearnMovesForLevel85PercentProb(int index)
@@ -249,39 +265,6 @@ namespace PokemonGeneration1.Source.PokemonData
                    (Move2?.Index == moveIndex) ||
                    (Move3?.Index == moveIndex) ||
                    (Move4?.Index == moveIndex);
-        }
-        
-        
-
-        private Stats CalculateStats()
-        {
-            return new Stats(
-                StatCalculator.HPStat(
-                    BaseStats.HP,
-                    DVs.HP,
-                    StatCalculator.StatPoint(StatExp.HP),
-                    Level),
-                StatCalculator.NonHPStat(
-                    BaseStats.Attack,
-                    DVs.Attack,
-                    StatCalculator.StatPoint(StatExp.Attack),
-                    Level),
-                StatCalculator.NonHPStat(
-                    BaseStats.Defense,
-                    DVs.Defense,
-                    StatCalculator.StatPoint(StatExp.Defense),
-                    Level),
-                StatCalculator.NonHPStat(
-                    BaseStats.Special,
-                    DVs.Special,
-                    StatCalculator.StatPoint(StatExp.Special),
-                    Level),
-                StatCalculator.NonHPStat(
-                    BaseStats.Speed,
-                    DVs.Speed,
-                    StatCalculator.StatPoint(StatExp.Speed),
-                    Level)
-                );
         }
         
 

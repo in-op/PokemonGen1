@@ -1113,13 +1113,13 @@ namespace PokemonGeneration1.Source.Battles
             get
             {
                 if (IsSubstituteActive()) return Substitute.GetCurrentHP();
-                else return Pokemon.HP;
+                else return Pokemon.CurrentHP;
             }
         }
         public float GetMaxHP()
         {
             if (this.IsSubstituteActive()) { return this.Substitute.GetMaxHP(); }
-            else return this.Pokemon.HPStat;
+            else return this.Pokemon.HP;
         }
 
 

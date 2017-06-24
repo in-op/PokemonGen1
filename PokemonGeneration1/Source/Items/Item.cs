@@ -57,8 +57,8 @@ namespace PokemonGeneration1.Source.Items
             if (N < threshold) return CaptureData.Captured;
 
             float f = (float)Math.Floor(
-                      (poke.HPStat * 255f * 4f) /
-                      (poke.HP * fModifier));
+                      (poke.HP * 255f * 4f) /
+                      (poke.CurrentHP * fModifier));
             if (f < 1f) f = 1f;
             if (f > 255f) f = 255f;
 
@@ -271,7 +271,7 @@ namespace PokemonGeneration1.Source.Items
     {
         public sealed override bool CanUseOn(Pokemon p)
         {
-            return p.HP < p.HPStat;
+            return p.CurrentHP < p.HP;
         }
 
         protected Healer(string name) : base(name) { }
@@ -373,7 +373,7 @@ namespace PokemonGeneration1.Source.Items
 
         public sealed override bool CanUseOn(Pokemon p)
         {
-            return p.HP < p.HPStat ||
+            return p.CurrentHP < p.HP ||
                    p.Status != Status.Null;
         }
 
