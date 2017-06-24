@@ -13,13 +13,18 @@ namespace PokemonGeneration1.Source.PokemonData
         /// <summary>
         /// Create a pre-determined set of DVs. Range 0-15.
         /// </summary>
-        public DeterminantValues(float hp, float atk, float def, float spc, float spd)
+        public DeterminantValues(
+            float hp,
+            float attack,
+            float defense,
+            float special,
+            float speed)
         {
             HP = hp;
-            Attack = atk;
-            Defense = def;
-            Special = spc;
-            Speed = spd;
+            Attack = attack;
+            Defense = defense;
+            Special = special;
+            Speed = speed;
         }
 
         /// <summary>
