@@ -140,6 +140,13 @@ namespace PokemonGeneration1.Source.PokemonData
 
         public void RestoreHP(float amount)
         {
+            float gained = GainHP(amount);
+
+            GainedHP?.Invoke(this, new GainedHPEventArgs(this, gained));
+        }
+
+        private float GainHP(float amount)
+        {
             float gained = 0f;
             while (CurrentHP < Stats.HP &&
                    gained < amount)
@@ -148,9 +155,8 @@ namespace PokemonGeneration1.Source.PokemonData
                 gained++;
             }
 
-            GainedHP?.Invoke(this, new GainedHPEventArgs(this, gained));
+            return gained;
         }
-
 
         public static Pokemon GeneratePreMadePokemon(
             int index,
