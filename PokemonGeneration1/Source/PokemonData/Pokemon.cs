@@ -63,12 +63,7 @@ namespace PokemonGeneration1.Source.PokemonData
         private string nickname;
         public string Nickname
         {
-            get
-            {
-                if (nickname == null)
-                    return Species;
-                else return nickname;
-            }
+            get => nickname ?? Species;
             set { nickname = value; }
         }
 
@@ -212,26 +207,15 @@ namespace PokemonGeneration1.Source.PokemonData
         {
             List<int> indicesOfMovesToLearn = PokemonLearnset.GetAllMoveIndicesOfMovesLearnedAtThisLevel(index, (int)Level);
             foreach (int moveIndex in indicesOfMovesToLearn)
-            {
-                //only add move if it doesn't already know it
                 if (!AlreadyKnowsMove(moveIndex))
-                {
                     if (Move1 == null)
-                    {
                         Move1 = MoveFactory.Create(moveIndex);
-                    }
                     else if (Move2 == null)
-                    {
                         Move2 = MoveFactory.Create(moveIndex);
-                    }
                     else if (Move3 == null)
-                    {
                         Move3 = MoveFactory.Create(moveIndex);
-                    }
                     else if (Move4 == null)
-                    {
                         Move4 = MoveFactory.Create(moveIndex);
-                    }
                     else
                     {
                         Random rng = new Random();
@@ -255,8 +239,6 @@ namespace PokemonGeneration1.Source.PokemonData
                             }
                         }
                     }
-                }
-            }
         }
 
         private bool AlreadyKnowsMove(int moveIndex)
