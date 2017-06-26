@@ -93,7 +93,6 @@
     <Compile Include="Source\PokemonData\Status.cs" />
     <Compile Include="Source\Trainers\Bag.cs" />
     <Compile Include="Source\Trainers\ItemQuantityTuple.cs" />
-    <Compile Include="Source\Trainers\Party.cs" />
     <Compile Include="Source\Trainers\Trainer.cs" />
     <Compile Include="Source\Moves\Move.cs" />
     <Compile Include="Source\PokemonData\Pokemon.cs" />

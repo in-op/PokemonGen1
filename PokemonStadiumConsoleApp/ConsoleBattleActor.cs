@@ -35,8 +35,8 @@ namespace PokemonStadiumConsoleApp
                     Console.Clear();
                     Display.Pokemon(actorSide.GetCurrentBattlePokemon(),
                                     battle.GetOpponentSide().GetCurrentBattlePokemon(),
-                                    actorSide.GetName(),
-                                    battle.GetOpponentSide().GetName());
+                                    actorSide.Name,
+                                    battle.GetOpponentSide().Name);
                     Display.MainPrompt();
                     string mainChoice = Console.ReadLine();
                     if (mainChoice == "1")
@@ -74,8 +74,8 @@ namespace PokemonStadiumConsoleApp
                     var opponentPoke = battle.GetOpponentSide().GetCurrentBattlePokemon();
                     Display.Pokemon(myPoke,
                                     opponentPoke,
-                                    actorSide.GetName(),
-                                    battle.GetOpponentSide().GetName());
+                                    actorSide.Name,
+                                    battle.GetOpponentSide().Name);
                     Display.MovePrompt(actorSide);
                     string moveChoice = Console.ReadLine();
 

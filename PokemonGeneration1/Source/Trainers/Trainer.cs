@@ -2,35 +2,50 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PokemonGeneration1.Source.Trainers
 {
     public class Trainer
     {
-        private string Name;
-        private Party Party;
-        private Bag Bag;
+        public string Name { get; private set; }
 
-        public string GetName() { return this.Name; }
-        public void SetName(string name) { this.Name = name; }
-
-        public List<Pokemon> GetParty()
+        private List<Pokemon> party;
+        private Bag bag;
+        
+        /// <summary>
+        /// Adds the given Pokemon to the party if it is not already full.
+        /// </summary>
+        /// <param name="pokemon">The Pokemon to add.</param>
+        public void AddToParty(Pokemon pokemon)
         {
-            return Party.GetFullParty();
-        }
-        public void AddToParty(Pokemon poke)
-        {
-            Party.Add(poke);
+            if (party.Count < 6) party.Add(pokemon);
         }
 
-        public Trainer(string name)
+        /// <summary>
+        /// Returns a list of the Trainer's party of Pokemon.
+        /// </summary>
+        /// <returns>A list of the Trainer's party of Pokemon.</returns>
+        public List<Pokemon> Party()
         {
-            this.Name = name;
-            this.Party = new Party();
-            this.Bag = new Bag();
+            return party.ToList();
         }
         
+
+        public static Trainer CreateNew(string name)
+        {
+            return new Trainer(name, new List<Pokemon>(6), new Bag());
+        }
+
+
+        private Trainer(
+            string name,
+            List<Pokemon> party,
+            Bag bag)
+        {
+            Name = name;
+            this.party = party;
+            this.bag = bag;
+        }
+
     }
 }

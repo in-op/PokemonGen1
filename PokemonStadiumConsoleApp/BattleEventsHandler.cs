@@ -183,8 +183,8 @@ namespace PokemonStadiumConsoleApp
         {
             Display.Pokemon(args.thisBattle.GetPlayerSide().GetCurrentBattlePokemon(),
                             args.thisBattle.GetOpponentSide().GetCurrentBattlePokemon(),
-                            args.thisBattle.GetPlayerSide().GetName(),
-                            args.thisBattle.GetOpponentSide().GetName());
+                            args.thisBattle.GetPlayerSide().Name,
+                            args.thisBattle.GetOpponentSide().Name);
         }
         
 

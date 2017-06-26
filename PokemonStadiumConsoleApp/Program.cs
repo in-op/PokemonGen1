@@ -27,7 +27,7 @@ namespace PokemonStadiumConsoleApp
 
 
 
-            Trainer Player = new Trainer(name);
+            Trainer Player = Trainer.CreateNew(name);
             Player.AddToParty(playersPokemon);
 
 

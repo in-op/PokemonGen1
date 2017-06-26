@@ -13,12 +13,13 @@ namespace PokemonGeneration1.Source.Battles
         protected Selection Selection;
         protected BattlePokemon CurrentBattlePokemon;
         protected int FleeAttempts;
+
+        public abstract string Name { get; }
         
 
-
-        public abstract string GetName();
+        
         public abstract bool IsDefeated();
-        public bool IsPokemonFainted() { return this.CurrentBattlePokemon.IsFainted(); }
+        public bool IsPokemonFainted() { return CurrentBattlePokemon.IsFainted(); }
 
         
         public BattlePokemon GetCurrentBattlePokemon() { return CurrentBattlePokemon; }
@@ -34,7 +35,7 @@ namespace PokemonGeneration1.Source.Battles
 
         public void SetSelection(Selection selection)
         {
-            this.Selection = selection;
+            Selection = selection;
         }
 
 
@@ -46,11 +47,14 @@ namespace PokemonGeneration1.Source.Battles
         
     }
 
+
+
+
     public sealed class WildPokemonSide : Side
     {
         public WildPokemonSide(Pokemon pokemon) : base()
         {
-            this.CurrentBattlePokemon = new BattlePokemon(pokemon);
+            CurrentBattlePokemon = new BattlePokemon(pokemon);
         }
 
 
@@ -59,11 +63,13 @@ namespace PokemonGeneration1.Source.Battles
             return CurrentBattlePokemon.IsFainted();
         }
 
-        public sealed override string GetName()
-        {
-            return "Wild Pokemon";
-        }
+
+        public sealed override string Name =>  "Wild Pokemon";
     }
+
+
+
+
 
     public class TrainerSide : Side
     {
@@ -71,24 +77,24 @@ namespace PokemonGeneration1.Source.Battles
 
         public TrainerSide(Trainer trainer) : base()
         {
-            this.Trainer = trainer;
-            this.CurrentBattlePokemon = new BattlePokemon(Trainer.GetParty()[0]);
+            Trainer = trainer;
+            CurrentBattlePokemon = new BattlePokemon(Trainer.Party()[0]);
         }
 
 
         public sealed override bool IsDefeated()
         {
-            List<Pokemon> party = Trainer.GetParty();
-            foreach (Pokemon poke in party)
-            {
-                if (poke.Status != Status.Fainted) return false;
-            }
+            foreach (Pokemon poke in Trainer.Party())
+                if (poke.Status != Status.Fainted)
+                    return false;
             return true;
         }
 
-        public sealed override string GetName()
-        {
-            return Trainer.GetName();
-        }
+
+        public sealed override string Name => Trainer.Name;
     }
+
+
+
+
 }
