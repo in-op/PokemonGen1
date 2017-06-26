@@ -55,6 +55,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.OneTurnMultiHit
                     new Random().Next(0, 100) < 20)
                 {
                     defender.PoisonAsSecondaryEffect();
+                    canPoison = false;
                 }
             }
         }
