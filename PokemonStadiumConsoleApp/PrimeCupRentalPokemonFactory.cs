@@ -4,9 +4,10 @@ using PokemonGeneration1.Source.Moves.Transitive.Attack.MultiTurn;
 using PokemonGeneration1.Source.Moves.Transitive.Attack.OneTurnMultiHit;
 using PokemonGeneration1.Source.Moves.Transitive.Attack.OneTurnOneHit;
 using PokemonGeneration1.Source.Moves.Transitive.Status;
+using PokemonGeneration1.Source.PokemonData;
 using System;
 
-namespace PokemonGeneration1.Source.PokemonData
+namespace PokemonStadiumConsoleApp
 {
     public static class PrimeCupRentalPokemonFactory
     {
