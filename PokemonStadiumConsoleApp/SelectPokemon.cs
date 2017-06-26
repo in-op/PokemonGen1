@@ -1,7 +1,7 @@
 ﻿using PokemonGeneration1.Source.PokemonData;
 using System;
 
-namespace PokemonGeneration1.Source.ConsoleUI
+namespace PokemonStadiumConsoleApp
 {
     public static class SelectPokemon
     {

@@ -29,9 +29,7 @@ namespace PokemonGeneration1.Source.PokemonData
                 hp, attack, defense, special, speed);
         }
 
-        /// <summary>
-        /// Create a pre-determined set of DVs. Range 0-15.
-        /// </summary>
+
         private DeterminantValues(
             float hp,
             float attack,

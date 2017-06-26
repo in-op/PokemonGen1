@@ -1,17 +1,10 @@
-﻿using System;
-using PokemonGeneration1.Source.Battles;
+﻿using PokemonGeneration1.Source.Battles;
 using PokemonGeneration1.Source.PokemonData;
-using PokemonGeneration1.Source.Moves;
 using PokemonGeneration1.Source.Trainers;
-using PokemonGeneration1.Source.Items;
-using PokemonGeneration1.Source.ConsoleUI;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System;
 using System.Threading;
 
-namespace PokemonGeneration1
+namespace PokemonStadiumConsoleApp
 {
     class Program
     {

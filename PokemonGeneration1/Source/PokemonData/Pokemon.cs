@@ -69,6 +69,7 @@ namespace PokemonGeneration1.Source.PokemonData
 
 
 
+
         public event EventHandler<PokemonEventArgs> Burned;
         public event EventHandler<PokemonEventArgs> Frozen;
         public event EventHandler<PokemonEventArgs> Paralyzed;
@@ -254,7 +255,55 @@ namespace PokemonGeneration1.Source.PokemonData
                    (Move3?.Index == moveIndex) ||
                    (Move4?.Index == moveIndex);
         }
-        
+
+
+
+
+
+
+
+
+
+
+        // dumb constructor for refactoring.
+        private Pokemon(
+            int number,
+            float level,
+            Status status,
+            float currentHP,
+            Move move1,
+            Move move2,
+            Move move3,
+            Move move4,
+            float exp,
+            Stats stats,
+            DeterminantValues dvs,
+            StatExp statExp,
+            PokemonEventArgs eventArgs,
+            float catchRate,
+            string nickname)
+        {
+            Number = number;
+            Level = level;
+            Status = status;
+            CurrentHP = currentHP;
+            Move1 = move1;
+            Move2 = move2;
+            Move3 = move3;
+            Move4 = move4;
+            Exp = exp;
+            Stats = stats;
+            DVs = dvs;
+            StatExp = statExp;
+            EventArgs = eventArgs;
+            CatchRate = catchRate;
+            Nickname = nickname;
+        }
+
+
+
+
+
 
     }
 }

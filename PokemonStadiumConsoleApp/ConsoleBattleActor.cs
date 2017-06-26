@@ -2,7 +2,7 @@
 using PokemonGeneration1.Source.Moves;
 using System;
 
-namespace PokemonGeneration1.Source.ConsoleUI
+namespace PokemonStadiumConsoleApp
 {
     public class ConsoleBattleActor : BattleActor
     {

@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26430.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokemonGeneration1", "PokemonGeneration1\PokemonGeneration1.csproj", "{DE2339A7-78F9-46EA-A025-2B39C2005AB0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokemonStadiumConsoleApp", "PokemonStadiumConsoleApp\PokemonStadiumConsoleApp.csproj", "{FF9D43D9-B120-4181-92ED-92E4149E0AC1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{DE2339A7-78F9-46EA-A025-2B39C2005AB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DE2339A7-78F9-46EA-A025-2B39C2005AB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DE2339A7-78F9-46EA-A025-2B39C2005AB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF9D43D9-B120-4181-92ED-92E4149E0AC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF9D43D9-B120-4181-92ED-92E4149E0AC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF9D43D9-B120-4181-92ED-92E4149E0AC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF9D43D9-B120-4181-92ED-92E4149E0AC1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

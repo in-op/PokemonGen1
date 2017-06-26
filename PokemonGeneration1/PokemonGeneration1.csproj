@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{DE2339A7-78F9-46EA-A025-2B39C2005AB0}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PokemonGeneration1</RootNamespace>
     <AssemblyName>PokemonGeneration1</AssemblyName>
@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -43,7 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Source\Battles\Battle.cs" />
     <Compile Include="Source\Battles\BattleEventArgs.cs" />
@@ -58,12 +60,6 @@
     <Compile Include="Source\Battles\Conversion.cs" />
     <Compile Include="Source\Battles\StatsEnum.cs" />
     <Compile Include="Source\Battles\Transform.cs" />
-    <Compile Include="Source\ConsoleUI\ConsoleBattleActor.cs" />
-    <Compile Include="Source\ConsoleUI\BattleEventsHandler.cs" />
-    <Compile Include="Source\ConsoleUI\ConsoleBattlePlayer.cs" />
-    <Compile Include="Source\ConsoleUI\Display.cs" />
-    <Compile Include="Source\ConsoleUI\MainMenuState.cs" />
-    <Compile Include="Source\ConsoleUI\SelectPokemon.cs" />
     <Compile Include="Source\Items\Item.cs" />
     <Compile Include="Source\Moves\Metronome.cs" />
     <Compile Include="Source\Moves\Reflexive\Implementations.cs" />
@@ -103,9 +99,6 @@
     <Compile Include="Source\Moves\Move.cs" />
     <Compile Include="Source\PokemonData\Pokemon.cs" />
     <Compile Include="Source\Type.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
