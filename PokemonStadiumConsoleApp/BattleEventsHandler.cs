@@ -436,6 +436,7 @@ namespace PokemonStadiumConsoleApp
         //===================================================================================//
         private static void MySwitchedOutEventHandler(object sender, SwitchedOutEventArgs args)
         {
+
             Console.WriteLine("Come back " + args.pokemon.Nickname + "!");
             Thread.Sleep(2200);
             Console.WriteLine("Go " + args.switchIn.Nickname + "!");
