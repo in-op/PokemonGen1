@@ -109,9 +109,7 @@ namespace PokemonStadiumConsoleApp
             Console.WriteLine("Select Pokemon:");
             Console.WriteLine("------------------");
             for (int i = 0; i < party.Count; i++)
-                Console.WriteLine((i + 1) + " " + party[i].Nickname);
-            Console.WriteLine();
-            Console.WriteLine("0 - - - back - - -");
+                Console.WriteLine((i + 1) + " " + party[i].Nickname + " " + StatusToString(party[i].Status));
             Console.WriteLine();
             Console.Write("Type number and press enter");
         }

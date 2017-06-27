@@ -16,7 +16,7 @@ namespace PokemonGeneration1.Source.Battles
     {
         private BattlePokemonEventArgs EventArgs;
 
-        private Pokemon Pokemon;
+        public Pokemon Pokemon { get; private set; }
         private StatStageModifiers StatStageModifiers;
 
         private Move move1;

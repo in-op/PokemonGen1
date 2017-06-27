@@ -1,5 +1,6 @@
 ﻿using PokemonGeneration1.Source.Battles;
 using PokemonGeneration1.Source.Moves;
+using PokemonGeneration1.Source.PokemonData;
 using System;
 using System.Threading;
 
@@ -121,6 +122,23 @@ namespace PokemonStadiumConsoleApp
             }
         }
 
+        public Selection MakeForcedSwitchSelection(Battle battle, Side actorSide)
+        {
+            return SwitchPokemonPrompt(battle, actorSide);
+        }
+
+        public Move PickMoveToMimic(Side opponentSide)
+        {
+            throw new NotImplementedException();
+        }
+
+
+
+
+
+
+
+
         private static Selection SwitchPokemonPrompt(Battle battle, Side actorSide)
         {
             Selection selection;
@@ -130,7 +148,9 @@ namespace PokemonStadiumConsoleApp
             int pokemonPick;
             while (!int.TryParse(Console.ReadLine(), out pokemonPick)
                   || pokemonPick < 1
-                  || pokemonPick > actorSide.Party.Count)
+                  || pokemonPick > actorSide.Party.Count
+                  || actorSide.Party[pokemonPick - 1].Status == Status.Fainted
+                  || actorSide.Party[pokemonPick - 1] == actorSide.CurrentBattlePokemon.Pokemon)
             {
                 Console.Clear();
                 Display.PokemonPrompt(actorSide);
@@ -149,20 +169,6 @@ namespace PokemonStadiumConsoleApp
                 battle.GetOpponentSide().Name);
 
             return selection;
-        }
-
-
-
-
-
-        public Selection MakeForcedSwitchSelection(Battle battle, Side actorSide)
-        {
-            return SwitchPokemonPrompt(battle, actorSide);
-        }
-
-        public Move PickMoveToMimic(Side opponentSide)
-        {
-            throw new NotImplementedException();
         }
     }
 }
