@@ -78,9 +78,9 @@ namespace PokemonGeneration1.Source.Battles
 
 
 
-        public bool IsGameOver() { return PlayerSide.IsDefeated() || OpponentSide.IsDefeated(); }
-        public bool IsPlayerDefeated() { return PlayerSide.IsDefeated(); }
-        public bool IsOpponentDefeated() { return OpponentSide.IsDefeated(); }
+        public bool IsGameOver() { return PlayerSide.IsDefeated || OpponentSide.IsDefeated; }
+        public bool IsPlayerDefeated() { return PlayerSide.IsDefeated; }
+        public bool IsOpponentDefeated() { return OpponentSide.IsDefeated; }
         public Side GetPlayerSide() { return PlayerSide; }
         public Side GetOpponentSide() { return OpponentSide; }
 
@@ -205,25 +205,25 @@ namespace PokemonGeneration1.Source.Battles
             Selection playerSelection;
             Selection opponentSelection;
             //check, for both players, if engaged in a two-turn move which will prevent choosing
-            if (!PlayerSide.GetCurrentBattlePokemon().IsTwoTurnMoveActive())
+            if (!PlayerSide.CurrentBattlePokemon.IsTwoTurnMoveActive())
             {
                 playerSelection = PlayerActor.MakeBeginningOfTurnSelection(this, PlayerSide);
             }
             else
             {
-                playerSelection = Selection.MakeFight(PlayerSide.GetCurrentBattlePokemon(),
-                                                      OpponentSide.GetCurrentBattlePokemon(),
-                                                      PlayerSide.GetCurrentBattlePokemon().GetTwoTurnMove());
+                playerSelection = Selection.MakeFight(PlayerSide.CurrentBattlePokemon,
+                                                      OpponentSide.CurrentBattlePokemon,
+                                                      PlayerSide.CurrentBattlePokemon.GetTwoTurnMove());
             }
-            if (!OpponentSide.GetCurrentBattlePokemon().IsTwoTurnMoveActive())
+            if (!OpponentSide.CurrentBattlePokemon.IsTwoTurnMoveActive())
             {
                 opponentSelection = OpponentActor.MakeBeginningOfTurnSelection(this, OpponentSide);
             }
             else
             {
-                opponentSelection = Selection.MakeFight(OpponentSide.GetCurrentBattlePokemon(),
-                                                        PlayerSide.GetCurrentBattlePokemon(),
-                                                        OpponentSide.GetCurrentBattlePokemon().GetTwoTurnMove());
+                opponentSelection = Selection.MakeFight(OpponentSide.CurrentBattlePokemon,
+                                                        PlayerSide.CurrentBattlePokemon,
+                                                        OpponentSide.CurrentBattlePokemon.GetTwoTurnMove());
             }
             PlayerSide.SetSelection(playerSelection);
             OpponentSide.SetSelection(opponentSelection);
@@ -231,24 +231,24 @@ namespace PokemonGeneration1.Source.Battles
         }
         private void UpdateForEndOfTurn()
         {
-            PlayerSide.GetCurrentBattlePokemon().UpdateForEndOfTurn();
-            OpponentSide.GetCurrentBattlePokemon().UpdateForEndOfTurn();
+            PlayerSide.CurrentBattlePokemon.UpdateForEndOfTurn();
+            OpponentSide.CurrentBattlePokemon.UpdateForEndOfTurn();
         }
         private void ExecuteSetFirstAndSecondState()
         {
             //CASE 1: player's priority higher than opponent's
-            if (PlayerSide.GetSelectionPriority() > OpponentSide.GetSelectionPriority())
+            if (PlayerSide.SelectionPriority > OpponentSide.SelectionPriority)
             {
                 SetPlayerFirst();
             }
             //CASE 2: opponent's priority higher than player's
-            else if (PlayerSide.GetSelectionPriority() < OpponentSide.GetSelectionPriority())
+            else if (PlayerSide.SelectionPriority < OpponentSide.SelectionPriority)
             {
                 SetOpponentFirst();
             }
             //CASE 3: priorities are equal, neither selected a Fight move
-            else if (PlayerSide.GetSelectionPriority() > 1 &&
-                     OpponentSide.GetSelectionPriority() > 1)
+            else if (PlayerSide.SelectionPriority > 1 &&
+                     OpponentSide.SelectionPriority > 1)
             {
                 SetPlayerFirst();
             }
@@ -256,7 +256,7 @@ namespace PokemonGeneration1.Source.Battles
             else
             {
                 //CASE 4.1: player's speed is greater than or equal to than opponents
-                if (PlayerSide.GetCurrentBattlePokemon().GetSpeed() >= OpponentSide.GetCurrentBattlePokemon().GetSpeed())
+                if (PlayerSide.CurrentBattlePokemon.GetSpeed() >= OpponentSide.CurrentBattlePokemon.GetSpeed())
                 {
                     SetPlayerFirst();
                 }

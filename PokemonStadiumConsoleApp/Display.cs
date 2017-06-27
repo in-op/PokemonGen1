@@ -78,10 +78,10 @@ namespace PokemonStadiumConsoleApp
         {
             Console.WriteLine();
 
-            Move move1 = actorSide.GetCurrentBattlePokemon().GetMove1();
-            Move move2 = actorSide.GetCurrentBattlePokemon().GetMove2();
-            Move move3 = actorSide.GetCurrentBattlePokemon().GetMove3();
-            Move move4 = actorSide.GetCurrentBattlePokemon().GetMove4();
+            Move move1 = actorSide.CurrentBattlePokemon.GetMove1();
+            Move move2 = actorSide.CurrentBattlePokemon.GetMove2();
+            Move move3 = actorSide.CurrentBattlePokemon.GetMove3();
+            Move move4 = actorSide.CurrentBattlePokemon.GetMove4();
 
             Console.WriteLine("(1) " + move1.Name + " " + move1.CurrentPP + "/" + move1.MaxPP);
             if (move2 != null)

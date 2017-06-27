@@ -35,22 +35,22 @@ namespace PokemonStadiumConsoleApp
                 case MainMenuState.MAIN:
                     Console.Clear();
                     Display.Pokemon(
-                        actorSide.GetCurrentBattlePokemon(),
-                        battle.GetOpponentSide().GetCurrentBattlePokemon(),
+                        actorSide.CurrentBattlePokemon,
+                        battle.GetOpponentSide().CurrentBattlePokemon,
                         actorSide.Name,
                         battle.GetOpponentSide().Name);
                     Display.MainPrompt();
                     string mainChoice = Console.ReadLine();
                     if (mainChoice == "1")
                     {
-                        if (actorSide.GetCurrentBattlePokemon().IsMultiTurnMoveActive())
+                        if (actorSide.CurrentBattlePokemon.IsMultiTurnMoveActive())
                         {
                             selection = Selection.MakeContinueMultiTurnMove(
-                                actorSide.GetCurrentBattlePokemon(),
-                                battle.GetOpponentSide().GetCurrentBattlePokemon());
+                                actorSide.CurrentBattlePokemon,
+                                battle.GetOpponentSide().CurrentBattlePokemon);
                             return;
                         }
-                        else if (actorSide.GetCurrentBattlePokemon().IsPartiallyTrapped())
+                        else if (actorSide.CurrentBattlePokemon.IsPartiallyTrapped())
                         {
                             selection = Selection.MakeEmptyFight();
                             return;
@@ -73,8 +73,8 @@ namespace PokemonStadiumConsoleApp
 
                 case MainMenuState.MOVE:
                     Console.Clear();
-                    var myPoke = actorSide.GetCurrentBattlePokemon();
-                    var opponentPoke = battle.GetOpponentSide().GetCurrentBattlePokemon();
+                    var myPoke = actorSide.CurrentBattlePokemon;
+                    var opponentPoke = battle.GetOpponentSide().CurrentBattlePokemon;
                     Display.Pokemon(
                         myPoke,
                         opponentPoke,
@@ -120,13 +120,19 @@ namespace PokemonStadiumConsoleApp
                     Console.Clear();
                     Display.PokemonPrompt(actorSide);
 
-                    while (!int.TryParse(Console.ReadLine(), out int pokemonPick)
-                          || pokemonPick > 0
-                          || pokemonPick < 7)
+                    int pokemonPick;
+                    while (!int.TryParse(Console.ReadLine(), out pokemonPick)
+                          || pokemonPick < 1
+                          || pokemonPick > actorSide.Party.Count)
                     {
                         Console.Clear();
                         Display.PokemonPrompt(actorSide);
                     }
+
+                    selection = Selection.MakeSwitchOut(
+                        actorSide.CurrentBattlePokemon,
+                        battle.GetOpponentSide().CurrentBattlePokemon,
+                        actorSide.Party[pokemonPick - 1]);
 
                     break;
             }

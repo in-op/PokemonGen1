@@ -5,8 +5,11 @@ namespace PokemonGeneration1.Source.Battles
 {
     public abstract class Selection
     {
+
         public abstract int Priority { get; }
         public abstract void Execute();
+
+
 
         public static Selection MakeFight(
             BattlePokemon user,
@@ -23,12 +26,10 @@ namespace PokemonGeneration1.Source.Battles
             return new ContinueMultiTurnMove(user, opponent);
         }
 
-
         public static Selection MakeEmptyFight()
         {
             return new EmptyFight();
         }
-
 
         public static Selection MakeSwitchOut(
             BattlePokemon myBattlePokemon,
@@ -40,11 +41,6 @@ namespace PokemonGeneration1.Source.Battles
                 opponentBattlePokemon,
                 pokemonToSwitchIn);
         }
-
-
-
-
-
 
 
 

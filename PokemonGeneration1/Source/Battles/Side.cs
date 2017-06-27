@@ -2,29 +2,22 @@
 using PokemonGeneration1.Source.Trainers;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PokemonGeneration1.Source.Battles
 {
     public abstract class Side
     {
         protected Selection Selection;
-        protected BattlePokemon CurrentBattlePokemon;
         protected int FleeAttempts;
 
         public abstract string Name { get; }
         public abstract List<Pokemon> Party { get; }
-        
+        public abstract bool IsDefeated { get; }
 
-        
-        public abstract bool IsDefeated();
-        public bool IsPokemonFainted() { return CurrentBattlePokemon.IsFainted(); }
+        public BattlePokemon CurrentBattlePokemon { get; }
 
-        
-        public BattlePokemon GetCurrentBattlePokemon() { return CurrentBattlePokemon; }
 
+        public int SelectionPriority => Selection.Priority;
 
 
         public void ExecuteSelection()
@@ -32,20 +25,20 @@ namespace PokemonGeneration1.Source.Battles
             Selection.Execute();
         }
 
-
-
         public void SetSelection(Selection selection)
         {
             Selection = selection;
         }
 
-
-
-        public int GetSelectionPriority()
+        public bool IsPokemonFainted()
         {
-            return Selection.Priority;
+            return CurrentBattlePokemon.IsFainted();
         }
-        
+
+        protected Side(BattlePokemon currentBattlePokemon)
+        {
+            CurrentBattlePokemon = currentBattlePokemon;
+        }
     }
 
 
@@ -55,24 +48,21 @@ namespace PokemonGeneration1.Source.Battles
     {
         private Pokemon pokemon;
 
-        public WildPokemonSide(Pokemon pokemon) : base()
+
+        public WildPokemonSide(Pokemon pokemon) :
+            base(new BattlePokemon(pokemon))
         {
-            CurrentBattlePokemon = new BattlePokemon(pokemon);
             this.pokemon = pokemon;
         }
 
-
-        public sealed override bool IsDefeated()
-        {
-            return CurrentBattlePokemon.IsFainted();
-        }
-
+        public sealed override bool IsDefeated
+            => CurrentBattlePokemon.IsFainted();
 
         public sealed override string Name
             =>  "Wild Pokemon";
 
         public sealed override List<Pokemon> Party
-            => new List<Pokemon>() { pokemon };
+            => new List<Pokemon>(1) { pokemon };
     }
 
 
@@ -83,21 +73,23 @@ namespace PokemonGeneration1.Source.Battles
     {
         Trainer Trainer;
 
-        public TrainerSide(Trainer trainer) : base()
+        public TrainerSide(Trainer trainer) :
+            base(new BattlePokemon(trainer.Party()[0]))
         {
             Trainer = trainer;
-            CurrentBattlePokemon = new BattlePokemon(Trainer.Party()[0]);
         }
 
-
-        public sealed override bool IsDefeated()
+        
+        public sealed override bool IsDefeated
         {
-            foreach (Pokemon poke in Trainer.Party())
-                if (poke.Status != Status.Fainted)
-                    return false;
-            return true;
+            get
+            {
+                foreach (Pokemon poke in Trainer.Party())
+                    if (poke.Status != Status.Fainted)
+                        return false;
+                return true;
+            }
         }
-
 
         public sealed override string Name
             => Trainer.Name;

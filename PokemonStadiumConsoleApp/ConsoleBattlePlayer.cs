@@ -13,8 +13,8 @@ namespace PokemonStadiumConsoleApp
         {
             Battle battle = new Battle(mySide, opponentSide, new ConsoleBattleActor(), opponentActor);
 
-            BattleEventsHandler.AttachMyBattlePokemonEventHandlers(mySide.GetCurrentBattlePokemon());
-            BattleEventsHandler.AttachOpponentBattlePokemonEventHandlers(opponentSide.GetCurrentBattlePokemon());
+            BattleEventsHandler.AttachMyBattlePokemonEventHandlers(mySide.CurrentBattlePokemon);
+            BattleEventsHandler.AttachOpponentBattlePokemonEventHandlers(opponentSide.CurrentBattlePokemon);
             BattleEventsHandler.AttachBattleEventHandlers(battle);
 
             battle.Play();

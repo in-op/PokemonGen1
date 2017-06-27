@@ -20,6 +20,12 @@ namespace PokemonStadiumConsoleApp
             Thread.Sleep(2000);
             Pokemon playersPokemon = SelectPokemon.Choose();
             Console.Clear();
+
+            Console.WriteLine("Select your 2nd pokemon: ");
+            Thread.Sleep(2000);
+            Pokemon players2ndPokemon = SelectPokemon.Choose();
+            Console.Clear();
+
             Console.WriteLine("Select opponent's pokemon: ");
             Thread.Sleep(2000);
             Pokemon enemyPokemon = SelectPokemon.Choose();
@@ -29,6 +35,7 @@ namespace PokemonStadiumConsoleApp
 
             Trainer Player = Trainer.CreateNew(name);
             Player.AddToParty(playersPokemon);
+            Player.AddToParty(players2ndPokemon);
 
 
             Side playerSide = new TrainerSide(Player);

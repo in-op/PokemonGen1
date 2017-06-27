@@ -739,18 +739,17 @@ namespace PokemonGeneration1.Source.Battles
         public void SwitchOut(Pokemon switchIn)
         {
             if (IsBadlyPoisoned())
-            {
                 Pokemon.ChangeBadlyPoisonToPoison();
-            }
             
             DetachPokemonEventHandlers();
             Pokemon = switchIn;
             AttachPokemonEventHandlers();
+            
             SetMovesToPokemonMoves();
 
-            TwoTurnMove.Abort();
+            TwoTurnMove?.Abort();
             TwoTurnMove = null;
-            MultiTurnMove.Abort();
+            MultiTurnMove?.Abort();
             MultiTurnMove = null;
 
             SwitchedPokemonThisTurn = true;
@@ -767,21 +766,12 @@ namespace PokemonGeneration1.Source.Battles
             N = 1f;
 
             if (Pokemon.Status == Status.Paralysis)
-            {
                 ParalysisDecreasingSpeed = true;
-            }
-            else
-            {
-                ParalysisDecreasingSpeed = false;
-            }
+            else ParalysisDecreasingSpeed = false;
+
             if (Pokemon.Status == Status.Burn)
-            {
                 BurnDecreasingAttack = true;
-            }
-            else
-            {
-                BurnDecreasingAttack = false;
-            }
+            else BurnDecreasingAttack = false;
         }
         private void SetMovesToPokemonMoves()
         {

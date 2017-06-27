@@ -11,12 +11,12 @@ namespace PokemonGeneration1.Source.Battles
     {
         public Selection MakeBeginningOfTurnSelection(Battle battle, Side actorSide)
         {
-            if (actorSide.GetCurrentBattlePokemon().IsMultiTurnMoveActive())
+            if (actorSide.CurrentBattlePokemon.IsMultiTurnMoveActive())
             {
-                return Selection.MakeContinueMultiTurnMove(actorSide.GetCurrentBattlePokemon(),
-                                                           battle.GetPlayerSide().GetCurrentBattlePokemon());
+                return Selection.MakeContinueMultiTurnMove(actorSide.CurrentBattlePokemon,
+                                                           battle.GetPlayerSide().CurrentBattlePokemon);
             }
-            else if (actorSide.GetCurrentBattlePokemon().IsPartiallyTrapped())
+            else if (actorSide.CurrentBattlePokemon.IsPartiallyTrapped())
             {
                 return Selection.MakeEmptyFight();
             }
@@ -27,13 +27,13 @@ namespace PokemonGeneration1.Source.Battles
         }
         private Selection MakeRandomFightSelection(Battle battle, Side actorSide)
         {
-            return Selection.MakeFight(actorSide.GetCurrentBattlePokemon(),
-                                       battle.GetPlayerSide().GetCurrentBattlePokemon(),
+            return Selection.MakeFight(actorSide.CurrentBattlePokemon,
+                                       battle.GetPlayerSide().CurrentBattlePokemon,
                                        PickRandomMove(actorSide));
         }
         private Move PickRandomMove(Side actorSide)
         {
-            var poke = actorSide.GetCurrentBattlePokemon();
+            var poke = actorSide.CurrentBattlePokemon;
             var rng = new Random();
             Move move = null;
             while (move == null)
