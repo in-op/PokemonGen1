@@ -2,6 +2,7 @@
 using PokemonGeneration1.Source.Moves;
 using PokemonGeneration1.Source.PokemonData;
 using System;
+using System.Collections.Generic;
 
 namespace PokemonStadiumConsoleApp
 {
@@ -76,6 +77,7 @@ namespace PokemonStadiumConsoleApp
         public static void MovePrompt(Side actorSide)
         {
             Console.WriteLine();
+
             Move move1 = actorSide.GetCurrentBattlePokemon().GetMove1();
             Move move2 = actorSide.GetCurrentBattlePokemon().GetMove2();
             Move move3 = actorSide.GetCurrentBattlePokemon().GetMove3();
@@ -96,6 +98,22 @@ namespace PokemonStadiumConsoleApp
             }
             Console.WriteLine("(0) - - - back - - -");
             Console.Write("Type number and press enter: ");
+        }
+
+        public static void PokemonPrompt(Side actorSide)
+        {
+            Console.WriteLine();
+
+            List<Pokemon> party = actorSide.Party;
+
+            Console.WriteLine("Select Pokemon:");
+            Console.WriteLine("------------------");
+            for (int i = 0; i < party.Count; i++)
+                Console.WriteLine((i + 1) + " " + party[i].Nickname);
+            Console.WriteLine();
+            Console.WriteLine("0 - - - back - - -");
+            Console.WriteLine();
+            Console.Write("Type number and press enter");
         }
     }
 }

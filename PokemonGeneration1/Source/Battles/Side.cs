@@ -15,6 +15,7 @@ namespace PokemonGeneration1.Source.Battles
         protected int FleeAttempts;
 
         public abstract string Name { get; }
+        public abstract List<Pokemon> Party { get; }
         
 
         
@@ -42,7 +43,7 @@ namespace PokemonGeneration1.Source.Battles
 
         public int GetSelectionPriority()
         {
-            return Selection.GetPriority();
+            return Selection.Priority;
         }
         
     }
@@ -52,9 +53,12 @@ namespace PokemonGeneration1.Source.Battles
 
     public sealed class WildPokemonSide : Side
     {
+        private Pokemon pokemon;
+
         public WildPokemonSide(Pokemon pokemon) : base()
         {
             CurrentBattlePokemon = new BattlePokemon(pokemon);
+            this.pokemon = pokemon;
         }
 
 
@@ -64,7 +68,11 @@ namespace PokemonGeneration1.Source.Battles
         }
 
 
-        public sealed override string Name =>  "Wild Pokemon";
+        public sealed override string Name
+            =>  "Wild Pokemon";
+
+        public sealed override List<Pokemon> Party
+            => new List<Pokemon>() { pokemon };
     }
 
 
@@ -91,7 +99,11 @@ namespace PokemonGeneration1.Source.Battles
         }
 
 
-        public sealed override string Name => Trainer.Name;
+        public sealed override string Name
+            => Trainer.Name;
+
+        public sealed override List<Pokemon> Party
+            => Trainer.Party();
     }
 
 
