@@ -101,6 +101,7 @@ namespace PokemonGeneration1.Source.Battles
 
 
         //events unique to BattlePokemon
+        public event EventHandler<SwitchedOutEventArgs> SwitchedOut;
         public event EventHandler<Battles.StatStageChangedEventArgs> StatStageChanged;
         public event EventHandler<BattlePokemonEventArgs> SubstituteActivated;
         public event EventHandler<BattlePokemonEventArgs> ConversionActivated;
@@ -118,6 +119,17 @@ namespace PokemonGeneration1.Source.Battles
         public event EventHandler<BattlePokemonEventArgs> MoveAttemptedButIsDisabled;
         public event EventHandler<Battles.MimicMoveEventArgs> Mimic;
 
+        protected virtual void OnSwitchedOut(Pokemon switchIn)
+        {
+            SwitchedOut?.Invoke(
+                this,
+                new SwitchedOutEventArgs()
+                {
+                    switchIn = switchIn,
+                    battlePokemon = this,
+                    pokemon = Pokemon
+                });
+        }
         protected virtual void OnStatStageChanged(StatsEnum stat, int amount)
         {
             Battles.StatStageChangedEventArgs args = new StatStageChangedEventArgs();
@@ -738,6 +750,8 @@ namespace PokemonGeneration1.Source.Battles
 
         public void SwitchOut(Pokemon switchIn)
         {
+            OnSwitchedOut(switchIn);
+
             if (IsBadlyPoisoned())
                 Pokemon.ChangeBadlyPoisonToPoison();
             

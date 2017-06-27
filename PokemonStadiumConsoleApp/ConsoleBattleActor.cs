@@ -116,36 +116,48 @@ namespace PokemonStadiumConsoleApp
                     break;
 
                 case MainMenuState.POKEMONFORSWITCH:
-
-                    Console.Clear();
-                    Display.PokemonPrompt(actorSide);
-
-                    int pokemonPick;
-                    while (!int.TryParse(Console.ReadLine(), out pokemonPick)
-                          || pokemonPick < 1
-                          || pokemonPick > actorSide.Party.Count)
-                    {
-                        Console.Clear();
-                        Display.PokemonPrompt(actorSide);
-                    }
-
-                    selection = Selection.MakeSwitchOut(
-                        actorSide.CurrentBattlePokemon,
-                        battle.GetOpponentSide().CurrentBattlePokemon,
-                        actorSide.Party[pokemonPick - 1]);
-
+                    selection = SwitchPokemonPrompt(battle, actorSide);
                     break;
             }
         }
-        
-        
+
+        private static Selection SwitchPokemonPrompt(Battle battle, Side actorSide)
+        {
+            Selection selection;
+            Console.Clear();
+            Display.PokemonPrompt(actorSide);
+
+            int pokemonPick;
+            while (!int.TryParse(Console.ReadLine(), out pokemonPick)
+                  || pokemonPick < 1
+                  || pokemonPick > actorSide.Party.Count)
+            {
+                Console.Clear();
+                Display.PokemonPrompt(actorSide);
+            }
+
+            selection = Selection.MakeSwitchOut(
+                actorSide.CurrentBattlePokemon,
+                battle.GetOpponentSide().CurrentBattlePokemon,
+                actorSide.Party[pokemonPick - 1]);
+
+            Console.Clear();
+            Display.Pokemon(
+                actorSide.CurrentBattlePokemon,
+                battle.GetOpponentSide().CurrentBattlePokemon,
+                actorSide.Name,
+                battle.GetOpponentSide().Name);
+
+            return selection;
+        }
+
 
 
 
 
         public Selection MakeForcedSwitchSelection(Battle battle, Side actorSide)
         {
-            throw new NotImplementedException();
+            return SwitchPokemonPrompt(battle, actorSide);
         }
 
         public Move PickMoveToMimic(Side opponentSide)

@@ -45,6 +45,7 @@ namespace PokemonStadiumConsoleApp
             myPoke.RegainedHealth += MyRegainedHealthEventHandler;
 
             //battlePokemon events
+            myPoke.SwitchedOut += MySwitchedOutEventHandler;
             myPoke.StatStageChanged += MyStatStageChangedEventHandler;
             myPoke.SubstituteActivated += MySubstituteActivatedEventHandler;
             myPoke.ConversionActivated += MyConversionActivatedEventHandler;
@@ -64,6 +65,7 @@ namespace PokemonStadiumConsoleApp
         public static void AttachOpponentBattlePokemonEventHandlers(BattlePokemon enemyPoke)
         {
             //pokemon events
+            enemyPoke.SwitchedOut += EnemySwitchedOutEventHandler;
             enemyPoke.Burned += EnemyBurnedEventHandler;
             enemyPoke.Frozen += EnemyFrozenEventHandler;
             enemyPoke.Paralyzed += EnemyParalyzedEventHandler;
@@ -432,6 +434,20 @@ namespace PokemonStadiumConsoleApp
         //===================================================================================//
         //                       BATTLE POKEMON EVENT HANDLERS                               //
         //===================================================================================//
+        private static void MySwitchedOutEventHandler(object sender, SwitchedOutEventArgs args)
+        {
+            Console.WriteLine("Come back " + args.pokemon.Nickname + "!");
+            Thread.Sleep(2200);
+            Console.WriteLine("Go " + args.switchIn.Nickname + "!");
+            Thread.Sleep(2200);
+        }
+        private static void EnemySwitchedOutEventHandler(object sender, SwitchedOutEventArgs args)
+        {
+            Console.WriteLine("Enemy " + args.pokemon.Nickname + " was withdrawn!");
+            Thread.Sleep(2200);
+            Console.WriteLine("Go " + args.switchIn.Nickname + "!");
+            Thread.Sleep(2200);
+        }
         private static void MyStatStageChangedEventHandler(object sender, PokemonGeneration1.Source.Battles.StatStageChangedEventArgs args)
         {
             string stat = args.statChanged.ToString();
