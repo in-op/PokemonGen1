@@ -145,9 +145,9 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
         protected sealed override void Execute(BattlePokemon user)
         {
             OnUsed();
-            if (user.HP < user.GetMaxHP())
+            if (user.HP < user.MaxHP)
             {
-                float amount = (float) Math.Floor(user.GetMaxHP() / 2f);
+                float amount = (float) Math.Floor(user.MaxHP / 2f);
                 user.RestoreHP(amount);
                 OnRegainedHealth();
             }
@@ -368,7 +368,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
         protected sealed override void Execute(BattlePokemon user)
         {
             OnUsed();
-            if (user.HP < user.GetMaxHP())
+            if (user.HP < user.MaxHP)
             {
                 float amount = (float)Math.Floor(user.HP / 2f);
                 user.RestoreHP(amount);
@@ -426,7 +426,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
         protected override sealed void Execute(BattlePokemon user)
         {
             OnUsed();
-            float quarterHP = (float)Math.Floor(user.GetMaxHP() / 4f);
+            float quarterHP = (float)Math.Floor(user.MaxHP / 4f);
             if ((user.HP < quarterHP) ||
                  user.IsSubstituteActive())
             {
@@ -454,7 +454,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
         {
             OnUsed();
             user.SleepFor(2);
-            user.RestoreHP(user.GetMaxHP());
+            user.RestoreHP(user.MaxHP);
             user.SetLastMoveUsed(this);
             SubtractPP(1);
         }

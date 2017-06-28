@@ -1164,19 +1164,15 @@ namespace PokemonGeneration1.Source.Battles
         
 
 
-        public float HP
-        {
-            get
-            {
-                if (IsSubstituteActive()) return Substitute.CurrentHP;
-                else return Pokemon.CurrentHP;
-            }
-        }
-        public float GetMaxHP()
-        {
-            if (IsSubstituteActive()) { return Substitute.MaxHP; }
-            else return Pokemon.HP;
-        }
+        public float HP =>
+            IsSubstituteActive() ?
+            Substitute.CurrentHP :
+            Pokemon.CurrentHP;
+
+        public float MaxHP =>
+            IsSubstituteActive() ?
+            Substitute.MaxHP :
+            Pokemon.HP;
 
 
 

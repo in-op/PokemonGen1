@@ -271,7 +271,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.OneTurnOneHit
             else
             {
                 OnOneHitKO();
-                defender.Damage(defender.GetMaxHP(), this.Type);
+                defender.Damage(defender.MaxHP, this.Type);
             }
             SetLastMoveAndMirrorMove(user, defender);
             SubtractPP(1);
@@ -591,7 +591,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.OneTurnOneHit
             else
             {
                 OnOneHitKO();
-                defender.Damage(defender.GetMaxHP(), this.Type);
+                defender.Damage(defender.MaxHP, this.Type);
             }
             SetLastMoveAndMirrorMove(user, defender);
             SubtractPP(1);
@@ -1545,7 +1545,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.OneTurnOneHit
             else if (user.GetSpeed() > defender.GetSpeed())
             {
                 OnOneHitKO();
-                defender.Damage(defender.GetMaxHP(), this.Type);
+                defender.Damage(defender.MaxHP, this.Type);
             }
             else
             {
@@ -1684,7 +1684,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.OneTurnOneHit
                 UpdateEffectivenessUpdateCritFlagAndDoDamage(user, defender);
             }
 
-            user.DamagePokemonOnlyNoEffects(user.GetMaxHP());
+            user.DamagePokemonOnlyNoEffects(user.MaxHP);
 
             SetLastMoveAndMirrorMove(user, defender);
             SubtractPP(1);
@@ -2147,7 +2147,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.OneTurnOneHit
                 UpdateEffectivenessUpdateCritFlagAndDoDamage(user, defender);
             }
 
-            user.DamagePokemonOnlyNoEffects(user.GetMaxHP());
+            user.DamagePokemonOnlyNoEffects(user.MaxHP);
 
             SetLastMoveAndMirrorMove(user, defender);
             SubtractPP(1);
