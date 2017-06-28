@@ -42,10 +42,10 @@ namespace PokemonGeneration1.Source.Battles
                 pokemonToTransformInto.PokemonsSpecialStat,
                 pokemonToTransformInto.PokemonsSpeedStat);
 
-            Move1 = MoveFactory.Create(pokemonToTransformInto.GetMove1().Index);
-            Move2 = MoveFactory.Create(pokemonToTransformInto.GetMove2().Index);
-            Move3 = MoveFactory.Create(pokemonToTransformInto.GetMove3().Index);
-            Move4 = MoveFactory.Create(pokemonToTransformInto.GetMove4().Index);
+            Move1 = MoveFactory.Create(pokemonToTransformInto.Move1.Index);
+            Move2 = MoveFactory.Create(pokemonToTransformInto.Move2.Index);
+            Move3 = MoveFactory.Create(pokemonToTransformInto.Move3.Index);
+            Move4 = MoveFactory.Create(pokemonToTransformInto.Move4.Index);
 
             while (Move1.CurrentPP > 5)
                 Move1.SubtractPP(1);

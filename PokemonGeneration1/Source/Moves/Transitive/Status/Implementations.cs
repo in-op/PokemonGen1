@@ -192,10 +192,10 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Status
     {
         public sealed override void ExecuteAndUpdate(BattlePokemon user, BattlePokemon defender)
         {
-            Move move1 = defender.GetMove1();
-            Move move2 = defender.GetMove2();
-            Move move3 = defender.GetMove3();
-            Move move4 = defender.GetMove4();
+            Move move1 = defender.Move1;
+            Move move2 = defender.Move2;
+            Move move3 = defender.Move3;
+            Move move4 = defender.Move4;
 
 
             OnUsed();

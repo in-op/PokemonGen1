@@ -15,10 +15,10 @@ namespace PokemonGeneration1.Source.Battles
         public Pokemon Pokemon { get; private set; }
         private StatStageModifiers StatStageModifiers;
 
-        private Move move1;
-        private Move move2;
-        private Move move3;
-        private Move move4;
+        public Move Move1 { get; private set; }
+        public Move Move2 { get; private set; }
+        public Move Move3 { get; private set; }
+        public Move Move4 { get; private set; }
 
         private Move LastMoveUsed;
         private Move TwoTurnMove;
@@ -244,35 +244,6 @@ namespace PokemonGeneration1.Source.Battles
         }
 
 
-        public Move GetMove1()
-        {
-            if (Transform.Active) return Transform.Move1;
-            else return move1;
-        }
-        public Move GetMove2()
-        {
-            if (Transform.Active) return Transform.Move2;
-            else return move2;
-        }
-        public Move GetMove3()
-        {
-            if (Transform.Active) return Transform.Move3;
-            else return move3;
-        }
-        public Move GetMove4()
-        {
-            if (Transform.Active) return Transform.Move4;
-            else return move4;
-        }
-
-
-
-
-
-
-
-
-
 
 
 
@@ -397,26 +368,26 @@ namespace PokemonGeneration1.Source.Battles
 
             if (moveToCopy == null) //failsafe for using mimic on first turn before a last move used is even initialized
             {
-                moveToCopy = opponent.GetMove1();
+                moveToCopy = opponent.Move1;
             }
 
             OnMimic(moveToCopy, opponent);
             Move newMove = MoveFactory.Create(moveToCopy.Index);
-            if (move1 == mimicItself)
+            if (Move1 == mimicItself)
             {
-                move1 = newMove;
+                Move1 = newMove;
             }
-            else if (move2 == mimicItself)
+            else if (Move2 == mimicItself)
             {
-                move2 = newMove;
+                Move2 = newMove;
             }
-            else if (move3 == mimicItself)
+            else if (Move3 == mimicItself)
             {
-                move3 = newMove;
+                Move3 = newMove;
             }
-            else if (move4 == mimicItself)
+            else if (Move4 == mimicItself)
             {
-                move4 = newMove;
+                Move4 = newMove;
             }
         }
 
@@ -837,10 +808,10 @@ namespace PokemonGeneration1.Source.Battles
         }
         private void SetMovesToPokemonMoves()
         {
-            move1 = Pokemon.Move1;
-            move2 = Pokemon.Move2;
-            move3 = Pokemon.Move3;
-            move4 = Pokemon.Move4;
+            Move1 = Pokemon.Move1;
+            Move2 = Pokemon.Move2;
+            Move3 = Pokemon.Move3;
+            Move4 = Pokemon.Move4;
         }
 
 
@@ -1433,6 +1404,12 @@ namespace PokemonGeneration1.Source.Battles
         public void ActivateTransform(BattlePokemon pokemonToTransformInto)
         {
             Transform.Activate(pokemonToTransformInto);
+
+            Move1 = Transform.Move1;
+            Move2 = Transform.Move2;
+            Move3 = Transform.Move3;
+            Move4 = Transform.Move4;
+
             StatStageModifiers = new StatStageModifiers(
                 pokemonToTransformInto.GetStatStageModifiers().Attack,
                 pokemonToTransformInto.GetStatStageModifiers().Defense,

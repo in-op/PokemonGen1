@@ -40,24 +40,24 @@ namespace PokemonGeneration1.Source.Battles
             {
                 int rando = rng.Next(1, 5);
                 if (rando == 1 &&
-                    poke.GetMove1() != null)
+                    poke.Move1 != null)
                 {
-                    move = poke.GetMove1();
+                    move = poke.Move1;
                 }
                 else if (rando == 2 &&
-                         poke.GetMove2() != null)
+                         poke.Move2 != null)
                 {
-                    move = poke.GetMove2();
+                    move = poke.Move2;
                 }
                 else if (rando == 3 &&
-                         poke.GetMove3() != null)
+                         poke.Move3 != null)
                 {
-                    move = poke.GetMove3();
+                    move = poke.Move3;
                 }
                 else if (rando == 4 &&
-                         poke.GetMove4() != null)
+                         poke.Move4 != null)
                 {
-                    move = poke.GetMove4();
+                    move = poke.Move4;
                 }
             }
             return move;

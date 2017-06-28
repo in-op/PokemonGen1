@@ -91,22 +91,22 @@ namespace PokemonStadiumConsoleApp
                     else if (moveChoice == "1")
                     {
                         selection = Selection.MakeFight(
-                            myPoke, opponentPoke, myPoke.GetMove1());
+                            myPoke, opponentPoke, myPoke.Move1);
                     }
                     else if (moveChoice == "2")
                     {
                         selection = Selection.MakeFight(
-                            myPoke, opponentPoke, myPoke.GetMove2());
+                            myPoke, opponentPoke, myPoke.Move2);
                     }
                     else if (moveChoice == "3")
                     {
                         selection = Selection.MakeFight(
-                            myPoke, opponentPoke, myPoke.GetMove3());
+                            myPoke, opponentPoke, myPoke.Move3);
                     }
                     else if (moveChoice == "4")
                     {
                         selection = Selection.MakeFight(
-                            myPoke, opponentPoke, myPoke.GetMove4());
+                            myPoke, opponentPoke, myPoke.Move4);
                     }
                     break;
 
