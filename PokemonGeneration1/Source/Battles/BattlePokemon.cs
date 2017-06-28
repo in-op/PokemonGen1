@@ -2,15 +2,11 @@
 using PokemonGeneration1.Source.PokemonData;
 using PokemonGeneration1.Source.Moves;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PokemonGeneration1.Source.Battles
 {
     /// <summary>
-    /// Wrapper class for Pokemon objects including all
-    /// satellite data for battling.
+    /// Wrapper class for Pokemon objects covering all data and logic for battling.
     /// </summary>
     public class BattlePokemon
     {
@@ -56,7 +52,7 @@ namespace PokemonGeneration1.Source.Battles
         private bool Reflect;
 
 
-        public Status Status { get => Pokemon.Status; }
+        public Status Status => Pokemon.Status;
 
 
 
@@ -222,6 +218,53 @@ namespace PokemonGeneration1.Source.Battles
 
             Mimic?.Invoke(this, args);
         }
+
+
+
+
+
+
+        public Type GetType1()
+        {
+            if (Transform.Active) return Transform.Type1;
+            else if (Conversion.IsActive) return Conversion.Type1;
+            else return Pokemon.Type1;
+        }
+        public Type GetType2()
+        {
+            if (Transform.Active) return Transform.Type2;
+            else if (Conversion.IsActive) return Conversion.Type2;
+            else return Pokemon.Type2;
+        }
+        public Move GetMove1()
+        {
+            if (Transform.Active) return Transform.Move1;
+            else return move1;
+        }
+        public Move GetMove2()
+        {
+            if (Transform.Active) return Transform.Move2;
+            else return move2;
+        }
+        public Move GetMove3()
+        {
+            if (Transform.Active) return Transform.Move3;
+            else return move3;
+        }
+        public Move GetMove4()
+        {
+            if (Transform.Active) return Transform.Move4;
+            else return move4;
+        }
+
+
+
+
+
+
+
+
+
 
 
 
@@ -429,7 +472,6 @@ namespace PokemonGeneration1.Source.Battles
         }
         private void BeginningOfTurnEffects(ref bool canMove, Move move)
         {
-            // sleep
             if (Pokemon.Status == Status.Sleep)
             {
                 canMove = false;
@@ -444,14 +486,12 @@ namespace PokemonGeneration1.Source.Battles
                 }
                 return;
             }
-            // freeze
             if (Pokemon.Status == Status.Freeze)
             {
                 canMove = false;
                 OnFrozenSolid();
                 return;
             }
-            // paralysis:
             if (Pokemon.Status == Status.Paralysis &&
                 new Random().Next(0, 100) < 25)
             {
@@ -479,7 +519,7 @@ namespace PokemonGeneration1.Source.Battles
                 }
                 return;
             }
-            // confusion:
+
             if (ConfusionTurnsLeft > 0)
             {
                 OnConfused();
@@ -501,14 +541,14 @@ namespace PokemonGeneration1.Source.Battles
                     return;
                 }
             }
-            // flinching:
+
             if (Flinching)
             {
                 canMove = false;
                 OnFlinched();
                 return;
             }
-            // move disabled: 
+
             if (IsDisabled() &&
                 Disable.GetDisabledMove() == move)
             {
@@ -519,20 +559,20 @@ namespace PokemonGeneration1.Source.Battles
         }
         private void EndOfTurnEffects(BattlePokemon opponent)
         {
-            //leechseed
+
             IfSeededThenSapHP(opponent);
-            //badly poisoned
+
             if (Status == Status.BadlyPoisoned)
             {
                 DamagePokemonOnlyNoEffects(GetStatusConditionDamage());
                 N += 1f;
             }
-            //poisoned
+
             else if (Status == Status.Poison)
             {
                 DamagePokemonOnlyNoEffects(GetStatusConditionDamage());
             }
-            //burned
+
             else if (Status == Status.Burn)
             {
                 DamagePokemonOnlyNoEffects(GetStatusConditionDamage());
@@ -806,7 +846,7 @@ namespace PokemonGeneration1.Source.Battles
             SetMovesToPokemonMoves();
 
             StatStageModifiers = new StatStageModifiers();
-            Conversion = Conversion.GenerateBlankConversion();
+            Conversion = new Conversion();
             Substitute = new Substitute();
             Transform = new Transform();
             Bide = new Bide();
@@ -820,9 +860,11 @@ namespace PokemonGeneration1.Source.Battles
         }
         private void InitializeEventArgs()
         {
-            EventArgs = new BattlePokemonEventArgs();
-            EventArgs.battlePokemon = this;
-            EventArgs.pokemon = Pokemon;
+            EventArgs = new BattlePokemonEventArgs()
+            {
+                battlePokemon = this,
+                pokemon = Pokemon
+            };
         }
         private void AttachPokemonEventHandlers()
         {
@@ -1076,38 +1118,6 @@ namespace PokemonGeneration1.Source.Battles
                 speed *= 0.25f;
             }
             return (float)Math.Floor(speed);
-        }
-        public Type GetType1()
-        {
-            if (Transform.Active) { return Transform.Type1; }
-            else if (Conversion.IsActive()) { return Conversion.GetType1(); }
-            else return Pokemon.Type1;
-        }
-        public Type GetType2()
-        {
-            if (Transform.Active) { return Transform.Type2; }
-            else if (Conversion.IsActive()) { return Conversion.GetType2(); }
-            else return Pokemon.Type2;
-        }
-        public Move GetMove1()
-        {
-            if (Transform.Active) { return Transform.Move1; }
-            else return move1;
-        }
-        public Move GetMove2()
-        {
-            if (Transform.Active) { return Transform.Move2; }
-            else return move2;
-        }
-        public Move GetMove3()
-        {
-            if (Transform.Active) { return Transform.Move3; }
-            else return move3;
-        }
-        public Move GetMove4()
-        {
-            if (Transform.Active) { return Transform.Move4; }
-            else return move4;
         }
         
 
