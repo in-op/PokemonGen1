@@ -23,7 +23,7 @@ namespace PokemonGeneration1.Source.Moves
 
         protected bool IsAMiss(BattlePokemon user, BattlePokemon defender)
         {
-            float accuracyPercent = this.AccuracyPercent *
+            float accuracyPercent = AccuracyPercent *
                                     user.GetAccuracyMultiplier() *
                                     defender.GetEvasionMultiplier();
             if (defender.IsSemiInvulnerable())
@@ -42,15 +42,15 @@ namespace PokemonGeneration1.Source.Moves
 
         protected bool HasNoEffect(BattlePokemon defender)
         {
-            return this.GetTypeMatchupMultiplier(defender) == 0f;
+            return GetTypeMatchupMultiplier(defender) == 0f;
         }
 
 
 
         protected float GetTypeMatchupMultiplier(BattlePokemon defender)
         {
-            return TypeEffectiveness(this.Type, defender.GetType1()) *
-                   TypeEffectiveness(this.Type, defender.GetType2());
+            return TypeEffectiveness(Type, defender.Type1) *
+                   TypeEffectiveness(Type, defender.Type2);
         }
         private static float TypeEffectiveness(Type attackType, Type defenseType)
         {
@@ -99,7 +99,7 @@ namespace PokemonGeneration1.Source.Moves
         protected TransitiveMove(int index, string name, Type type, int startingPP, int absoluteMaxPP, float accuracyPercent, int priority, Category category)
             : base(index, name, type, startingPP, absoluteMaxPP, priority, category)
         {
-            this.AccuracyPercent = accuracyPercent;
+            AccuracyPercent = accuracyPercent;
         }
     }
 }

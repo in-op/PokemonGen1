@@ -1,61 +1,38 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PokemonGeneration1.Source.Battles
+﻿namespace PokemonGeneration1.Source.Battles
 {
     public sealed class Substitute
     {
-        private bool Active;
-        private bool BrokeThisTurn;
-        private float CurrentHP;
-        private float MaxHP;
-
-        public bool IsActive() { return this.Active; }
-        public bool IsBrokeThisTurn() { return this.BrokeThisTurn; }
-        public float GetCurrentHP() { return this.CurrentHP; }
-        public float GetMaxHP() { return this.MaxHP; }
-
-        public Substitute()
-        {
-            this.Active = false;
-            this.BrokeThisTurn = false;
-            this.CurrentHP = 0f;
-            this.MaxHP = 0f;
-        }
+        public bool IsActive { get; private set; }
+        public bool BrokeThisTurn { get; private set; }
+        public float CurrentHP { get; private set; }
+        public float MaxHP { get; private set; }
+        
 
         public void Activate(float hp)
         {
-            this.Active = true;
-            this.CurrentHP = hp;
-            this.MaxHP = hp;
-        }
-        
-        public void UpdateBrokeThisTurnToFalse()
-        {
-            this.BrokeThisTurn = false;
+            IsActive = true;
+            CurrentHP = hp;
+            MaxHP = hp;
         }
 
         public void Damage(float amount)
         {
-            this.CurrentHP -= amount;
-            if (this.CurrentHP <= 0)
+            CurrentHP -= amount;
+            if (CurrentHP <= 0)
             {
-                this.CurrentHP = 0f;
-                this.BrokeThisTurn = true;
-                this.Active = false;
-                this.MaxHP = 0f;
+                CurrentHP = 0f;
+                BrokeThisTurn = true;
+                IsActive = false;
+                MaxHP = 0f;
             }
         }
 
         public void Deactivate()
         {
-            this.Active = false;
-            this.BrokeThisTurn = false;
-            this.CurrentHP = 0f;
-            this.MaxHP = 0f;
+            IsActive = false;
+            BrokeThisTurn = false;
+            CurrentHP = 0f;
+            MaxHP = 0f;
         }
 
     }

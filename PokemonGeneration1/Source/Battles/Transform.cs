@@ -32,8 +32,8 @@ namespace PokemonGeneration1.Source.Battles
         {
             Active = true;
 
-            Type1 = pokemonToTransformInto.GetType1();
-            Type2 = pokemonToTransformInto.GetType2();
+            Type1 = pokemonToTransformInto.Type1;
+            Type2 = pokemonToTransformInto.Type2;
 
             Stats = new Stats(
                 0f,

@@ -63,11 +63,11 @@ namespace PokemonGeneration1.Source.Moves
             float relativeLevel;
             if (CritFlag == true)
             {
-                relativeLevel = user.GetLevel() * 2f;
+                relativeLevel = user.Level * 2f;
             }
             else
             {
-                relativeLevel = user.GetLevel();
+                relativeLevel = user.Level;
             }
 
             //checks for light screen
@@ -135,8 +135,8 @@ namespace PokemonGeneration1.Source.Moves
         private float getStab(BattlePokemon attackPokemon)
         {
             float stab;
-            if (attackPokemon.GetType1() == Type ||
-                attackPokemon.GetType2() == Type)
+            if (attackPokemon.Type1 == Type ||
+                attackPokemon.Type2 == Type)
             {
                 stab = 1.5f;
             }

@@ -222,20 +222,27 @@ namespace PokemonGeneration1.Source.Battles
 
 
 
+        public Type Type1
+        {
+            get
+            {
+                if (Conversion.IsActive) return Conversion.Type1;
+                else if (Transform.Active) return Transform.Type1;
+                else return Pokemon.Type1;
+            }
+        }
+
+        public Type Type2
+        {
+            get
+            {
+                if (Conversion.IsActive) return Conversion.Type2;
+                else if (Transform.Active) return Transform.Type2;
+                else return Pokemon.Type2;
+            }
+        }
 
 
-        public Type GetType1()
-        {
-            if (Transform.Active) return Transform.Type1;
-            else if (Conversion.IsActive) return Conversion.Type1;
-            else return Pokemon.Type1;
-        }
-        public Type GetType2()
-        {
-            if (Transform.Active) return Transform.Type2;
-            else if (Conversion.IsActive) return Conversion.Type2;
-            else return Pokemon.Type2;
-        }
         public Move GetMove1()
         {
             if (Transform.Active) return Transform.Move1;
@@ -323,7 +330,7 @@ namespace PokemonGeneration1.Source.Battles
 
         public void Flinch()
         {
-            if (!Substitute.IsActive())
+            if (!Substitute.IsActive)
             {
                 Flinching = true;
             }
@@ -1034,7 +1041,7 @@ namespace PokemonGeneration1.Source.Battles
         }
         public void ModifyStatStageAsSecondaryEffect(StatsEnum statType, int delta)
         {
-            if (!Substitute.IsActive() &&
+            if (!Substitute.IsActive &&
                 !MistActive)
             {
                 ModifyStats(statType, delta);
@@ -1111,10 +1118,9 @@ namespace PokemonGeneration1.Source.Battles
         }
 
 
-        public string GetName()
-        {
-            return Pokemon.Nickname;
-        }
+        public string Name => Pokemon.Nickname;
+
+
         public float GetAttack()
         {
             float attack;
@@ -1162,13 +1168,13 @@ namespace PokemonGeneration1.Source.Battles
         {
             get
             {
-                if (IsSubstituteActive()) return Substitute.GetCurrentHP();
+                if (IsSubstituteActive()) return Substitute.CurrentHP;
                 else return Pokemon.CurrentHP;
             }
         }
         public float GetMaxHP()
         {
-            if (IsSubstituteActive()) { return Substitute.GetMaxHP(); }
+            if (IsSubstituteActive()) { return Substitute.MaxHP; }
             else return Pokemon.HP;
         }
 
@@ -1218,7 +1224,7 @@ namespace PokemonGeneration1.Source.Battles
 
 
         public float GetBaseSpeed() { return Pokemon.BaseSpeed; }
-        public float GetLevel() { return Pokemon.Level; }
+        public float Level => Pokemon.Level;
 
 
 
@@ -1232,8 +1238,8 @@ namespace PokemonGeneration1.Source.Battles
 
 
 
-        public bool IsSubstituteActive() { return Substitute.IsActive(); }
-        public bool DidSubstituteBreakThisTurn() { return Substitute.IsBrokeThisTurn(); }
+        public bool IsSubstituteActive() { return Substitute.IsActive; }
+        public bool DidSubstituteBreakThisTurn() { return Substitute.BrokeThisTurn; }
 
 
         public void DeactivateFocusEnergy()
@@ -1254,7 +1260,7 @@ namespace PokemonGeneration1.Source.Battles
         }
         public void ParalyzeAsSecondaryEffect()
         {
-            if (!Substitute.IsActive())
+            if (!Substitute.IsActive)
             {
                 ParalysisDecreasingSpeed = true;
                 Pokemon.Paralyze();
@@ -1271,7 +1277,7 @@ namespace PokemonGeneration1.Source.Battles
         }
         public void BurnAsSecondaryEffect()
         {
-            if (!Substitute.IsActive())
+            if (!Substitute.IsActive)
             {
                 BurnDecreasingAttack = true;
                 Pokemon.Burn();
@@ -1283,7 +1289,7 @@ namespace PokemonGeneration1.Source.Battles
         }
         public void FreezeAsSecondaryEffect()
         {
-            if (!Substitute.IsActive())
+            if (!Substitute.IsActive)
             {
                 Pokemon.Freeze();
             }
@@ -1294,7 +1300,7 @@ namespace PokemonGeneration1.Source.Battles
         }
         public void PoisonAsSecondaryEffect()
         {
-            if (!Substitute.IsActive())
+            if (!Substitute.IsActive)
             {
                 Pokemon.Poison();
             }
@@ -1306,7 +1312,7 @@ namespace PokemonGeneration1.Source.Battles
         }
         public void BadlyPoisonAsSecondaryEffect()
         {
-            if (!Substitute.IsActive())
+            if (!Substitute.IsActive)
             {
                 Pokemon.BadlyPoison();
                 N = 1f;

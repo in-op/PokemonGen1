@@ -11,8 +11,8 @@
             BattlePokemon pokemonToConvertInto)
         {
             IsActive = true;
-            Type1 = pokemonToConvertInto.GetType1();
-            Type2 = pokemonToConvertInto.GetType2();
+            Type1 = pokemonToConvertInto.Type1;
+            Type2 = pokemonToConvertInto.Type2;
         }
 
         public void Deactivate()

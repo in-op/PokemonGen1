@@ -28,8 +28,8 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.OneTurnMultiHit
             //only the first damage will execute with side effects, e.g. updating Bide
             defender.Damage(amount, this.Type);
 
-            bool canPoison = defender.GetType1() != Type.Poison &&
-                             defender.GetType2() != Type.Poison &&
+            bool canPoison = defender.Type1 != Type.Poison &&
+                             defender.Type2 != Type.Poison &&
                              defender.Status != PokemonData.Status.Poison &&
                              defender.Status != PokemonData.Status.BadlyPoisoned;
 

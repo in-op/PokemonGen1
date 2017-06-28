@@ -13,14 +13,14 @@ namespace PokemonStadiumConsoleApp
             //opponent
             Console.WriteLine();
             Console.WriteLine(opponentName);
-            Console.WriteLine(opponentPokemon.GetName());
-            Console.WriteLine(opponentPokemon.GetLevel() + " " + StatusToString(opponentPokemon.Status));
+            Console.WriteLine(opponentPokemon.Name);
+            Console.WriteLine(opponentPokemon.Level + " " + StatusToString(opponentPokemon.Status));
             Console.WriteLine("HP: " + opponentPokemon.HP + "/" + opponentPokemon.GetMaxHP());
             Console.WriteLine();
 
             //player
-            Console.WriteLine(RightJustify(myPokemon.GetName(), 32));
-            Console.WriteLine(RightJustify(StatusToString(myPokemon.Status) + " " + myPokemon.GetLevel(), 32));
+            Console.WriteLine(RightJustify(myPokemon.Name, 32));
+            Console.WriteLine(RightJustify(StatusToString(myPokemon.Status) + " " + myPokemon.Level, 32));
             Console.WriteLine(RightJustify("HP: " + myPokemon.HP + "/" + myPokemon.GetMaxHP(), 32));
             Console.WriteLine(RightJustify(myName, 32));
             Console.WriteLine();

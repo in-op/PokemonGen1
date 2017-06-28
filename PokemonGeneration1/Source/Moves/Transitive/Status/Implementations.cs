@@ -277,8 +277,8 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Status
             {
                 OnMissed();
             }
-            else if (defender.GetType1() == Type.Grass ||
-                     defender.GetType2() == Type.Grass)
+            else if (defender.Type1 == Type.Grass ||
+                     defender.Type2 == Type.Grass)
             {
                 OnNoEffect();
             }
@@ -310,8 +310,8 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Status
             {
                 OnMissed();
             }
-            else if (defender.GetType1() == Type.Poison ||
-                     defender.GetType2() == Type.Poison)
+            else if (defender.Type1 == Type.Poison ||
+                     defender.Type2 == Type.Poison)
             {
                 OnNoEffect();
             }
