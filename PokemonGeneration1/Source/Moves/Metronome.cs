@@ -17,8 +17,8 @@ namespace PokemonGeneration1.Source.Moves
             user.AttachMoveEventHandlers(newMove);
             newMove.ExecuteAndUpdate(user, defender);
             user.DetachMoveEventHandlers(newMove);
-            
-            user.SetLastMoveUsed(this);
+
+            user.LastMoveUsed = this;
             SubtractPP(1);
         }
 

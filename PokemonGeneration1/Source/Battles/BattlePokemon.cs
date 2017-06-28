@@ -20,10 +20,10 @@ namespace PokemonGeneration1.Source.Battles
         public Move Move3 { get; private set; }
         public Move Move4 { get; private set; }
 
-        public Move LastMoveUsed { get; private set; }
+        public Move LastMoveUsed { get; set; }
+        private Move MirrorMove;
         private Move TwoTurnMove;
         private Move MultiTurnMove;
-        private Move MirrorMove;
 
         private Conversion Conversion;
         private Substitute Substitute;
@@ -247,12 +247,7 @@ namespace PokemonGeneration1.Source.Battles
 
 
 
-
         
-        public void SetLastMoveUsed(Move move)
-        {
-            LastMoveUsed = move;
-        }
         public void SetMirrorMove(Move move)
         {
             MirrorMove = move;
@@ -1409,18 +1404,14 @@ namespace PokemonGeneration1.Source.Battles
             Move4 = Transform.Move4;
 
             StatStageModifiers = new StatStageModifiers(
-                pokemonToTransformInto.GetStatStageModifiers().Attack,
-                pokemonToTransformInto.GetStatStageModifiers().Defense,
-                pokemonToTransformInto.GetStatStageModifiers().Special,
-                pokemonToTransformInto.GetStatStageModifiers().Speed,
-                pokemonToTransformInto.GetStatStageModifiers().Accuracy,
-                pokemonToTransformInto.GetStatStageModifiers().Evasion);
+                pokemonToTransformInto.StatStageModifiers.Attack,
+                pokemonToTransformInto.StatStageModifiers.Defense,
+                pokemonToTransformInto.StatStageModifiers.Special,
+                pokemonToTransformInto.StatStageModifiers.Speed,
+                pokemonToTransformInto.StatStageModifiers.Accuracy,
+                pokemonToTransformInto.StatStageModifiers.Evasion);
 
             OnTransformActivated(pokemonToTransformInto);
-        }
-        private StatStageModifiers GetStatStageModifiers()
-        {
-            return StatStageModifiers;
         }
 
 

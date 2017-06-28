@@ -39,7 +39,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.MultiTurn
                     defender.ActivatePartialTrapping();
                 }
 
-                user.SetLastMoveUsed(this);
+                user.LastMoveUsed = this;
                 SubtractPP(1);
             }
             else

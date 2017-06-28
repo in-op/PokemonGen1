@@ -13,8 +13,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
             if (user.CanStatGoHigher(StatType.Attack))
                 user.ModifyStatStageAsPrimaryEffect(StatType.Attack, 2);
             else OnFailed();
-            user.SetLastMoveUsed(this);
-            SubtractPP(1);
+            SetLastMoveAndSubtractPP(user);
         }
 
         public SwordsDance() : base(14, "Swords Dance", Type.Normal, 20, 32) { }
@@ -29,8 +28,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
             OnUsed();
             if (!user.IsMistActive()) user.ActivateMist();
             else OnFailed();
-            user.SetLastMoveUsed(this);
-            SubtractPP(1);
+            SetLastMoveAndSubtractPP(user);
         }
 
         public Mist() : base(54, "Mist", Type.Ice, 30, 48) { }
@@ -46,8 +44,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
             OnUsed();
             if (!user.CanStatGoHigher(StatType.Special)) OnFailed();
             else user.ModifyStatStageAsPrimaryEffect(StatType.Special, 1);
-            user.SetLastMoveUsed(this);
-            SubtractPP(1);
+            SetLastMoveAndSubtractPP(user);
         }
 
         public Growth() : base(74, "Growth", Type.Normal, 20, 32) { }
@@ -62,8 +59,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
             OnUsed();
             if (!user.CanStatGoHigher(StatType.Attack)) OnFailed();
             else user.ModifyStatStageAsPrimaryEffect(StatType.Attack, 1);
-            user.SetLastMoveUsed(this);
-            SubtractPP(1);
+            SetLastMoveAndSubtractPP(user);
         }
 
         public Meditate() : base(96, "Meditate", Type.Psychic, 40, 64) { }
@@ -77,8 +73,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
             OnUsed();
             if (!user.CanStatGoHigher(StatType.Speed)) OnFailed();
             else user.ModifyStatStageAsPrimaryEffect(StatType.Speed, 2);
-            user.SetLastMoveUsed(this);
-            SubtractPP(1);
+            SetLastMoveAndSubtractPP(user);
         }
 
         public Agility() : base(97, "Agility", Type.Psychic, 30, 48) { }
@@ -93,8 +88,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
             if (user.CanStatGoHigher(StatType.Evasion))
                 user.ModifyStatStageAsPrimaryEffect(StatType.Evasion, 1);
             else OnFailed();
-            user.SetLastMoveUsed(this);
-            SubtractPP(1);
+            SetLastMoveAndSubtractPP(user);
         }
 
         public DoubleTeam() : base(104, "Double Team", Type.Normal, 15, 24) { }
@@ -114,8 +108,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
                 OnRegainedHealth();
             }
             else OnFailed();
-            user.SetLastMoveUsed(this);
-            SubtractPP(1);
+            SetLastMoveAndSubtractPP(user);
         }
 
         public Recover() : base(105, "Recover", Type.Normal, 20, 32) { }
@@ -131,8 +124,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
             if (user.CanStatGoHigher(StatType.Defense))
                 user.ModifyStatStageAsPrimaryEffect(StatType.Defense, 1);
             else OnFailed();
-            user.SetLastMoveUsed(this);
-            SubtractPP(1);
+            SetLastMoveAndSubtractPP(user);
         }
 
         public Harden() : base(106, "Harden", Type.Normal, 30, 48) { }
@@ -148,8 +140,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
             if (user.CanStatGoHigher(StatType.Evasion))
                 user.ModifyStatStageAsPrimaryEffect(StatType.Evasion, 1);
             else OnFailed();
-            user.SetLastMoveUsed(this);
-            SubtractPP(1);
+            SetLastMoveAndSubtractPP(user);
         }
 
         public Minimize() : base(107, "Minimize", Type.Normal, 10, 16) { }
@@ -164,8 +155,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
             if (user.CanStatGoHigher(StatType.Defense))
                 user.ModifyStatStageAsPrimaryEffect(StatType.Defense, 1);
             else OnFailed();
-            user.SetLastMoveUsed(this);
-            SubtractPP(1);
+            SetLastMoveAndSubtractPP(user);
         }
 
         public Withdraw() : base(110, "Withdraw", Type.Water, 40, 64) { }
@@ -180,8 +170,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
             if (user.CanStatGoHigher(StatType.Defense))
                 user.ModifyStatStageAsPrimaryEffect(StatType.Defense, 1);
             else OnFailed();
-            user.SetLastMoveUsed(this);
-            SubtractPP(1);
+            SetLastMoveAndSubtractPP(user);
         }
 
         public DefenseCurl() : base(111, "Defense Curl", Type.Normal, 40, 64) { }
@@ -197,8 +186,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
             if (user.CanStatGoHigher(StatType.Defense))
                 user.ModifyStatStageAsPrimaryEffect(StatType.Defense, 2);
             else OnFailed();
-            user.SetLastMoveUsed(this);
-            SubtractPP(1);
+            SetLastMoveAndSubtractPP(user);
         }
 
         public Barrier() : base(112, "Barrier", Type.Psychic, 20, 32) { }
@@ -212,8 +200,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
             OnUsed();
             if (!user.IsLightScreenActive()) user.ActivateLightScreen();
             else OnFailed();
-            user.SetLastMoveUsed(this);
-            SubtractPP(1);
+            SetLastMoveAndSubtractPP(user);
         }
 
         public LightScreen() : base(113, "Light Screen", Type.Psychic, 30, 48) { }
@@ -227,8 +214,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
             OnUsed();
             if (!user.IsReflectActive()) user.ActivateReflect();
             else OnFailed();
-            user.SetLastMoveUsed(this);
-            SubtractPP(1);
+            SetLastMoveAndSubtractPP(user);
         }
 
         public Reflect() : base(115, "Reflect", Type.Psychic, 20, 32) { }
@@ -242,8 +228,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
         {
             OnUsed();
             user.ActivateFocusEnergy();
-            user.SetLastMoveUsed(this);
-            SubtractPP(1);
+            SetLastMoveAndSubtractPP(user);
         }
 
         public FocusEnergy() : base(116, "Focus Energy", Type.Normal, 30, 48) { }
@@ -258,8 +243,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
             if (user.CanStatGoHigher(StatType.Special))
                 user.ModifyStatStageAsPrimaryEffect(StatType.Special, 2);
             else OnFailed();
-            user.SetLastMoveUsed(this);
-            SubtractPP(1);
+            SetLastMoveAndSubtractPP(user);
         }
 
         public Amnesia() : base(133, "Amnesia", Type.Psychic, 20, 32) { }
@@ -278,8 +262,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
                 OnRegainedHealth();
             }
             else OnFailed();
-            user.SetLastMoveUsed(this);
-            SubtractPP(1);
+            SetLastMoveAndSubtractPP(user);
         }
 
         public SoftBoiled() : base(105, "Soft-Boiled", Type.Normal, 10, 16) { }
@@ -292,8 +275,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
         {
             OnUsed();
             OnNoEffect();
-            user.SetLastMoveUsed(this);
-            SubtractPP(1);
+            SetLastMoveAndSubtractPP(user);
         }
 
         public Splash() : base(150, "Splash", Type.Normal, 40, 64) { }
@@ -308,8 +290,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
             if (user.CanStatGoHigher(StatType.Defense))
                 user.ModifyStatStageAsPrimaryEffect(StatType.Defense, 2);
             else OnFailed();
-            user.SetLastMoveUsed(this);
-            SubtractPP(1);
+            SetLastMoveAndSubtractPP(user);
         }
 
         public AcidArmor() : base(151, "Acid Armor", Type.Poison, 40, 64) { }
@@ -335,8 +316,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
             {
                 user.ActivateSubstitute(quarterHP + 1f);
             }
-            user.SetLastMoveUsed(this);
-            SubtractPP(1);
+            SetLastMoveAndSubtractPP(user);
         }
 
         public Substitute() : base(164, "Substitute", Type.Normal, 10, 16) { }
@@ -350,8 +330,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
             OnUsed();
             user.SleepFor(2);
             user.RestoreHP(user.MaxHP);
-            user.SetLastMoveUsed(this);
-            SubtractPP(1);
+            SetLastMoveAndSubtractPP(user);
         }
 
         public Rest() : base(156, "Rest", Type.Psychic, 10, 16) { }
@@ -366,8 +345,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
             if (user.CanStatGoHigher(StatType.Attack))
                 user.ModifyStatStageAsPrimaryEffect(StatType.Attack, 1);
             else OnFailed();
-            user.SetLastMoveUsed(this);
-            SubtractPP(1);
+            SetLastMoveAndSubtractPP(user);
         }
 
         public Sharpen() : base(159, "Sharpen", Type.Normal, 30, 48) { }
