@@ -41,7 +41,7 @@ namespace PokemonGeneration1.Source.Moves
         protected void UpdateCritFlag(BattlePokemon user)
         {
             int t = (int)Math.Floor(user.BaseSpeed / 2);
-            if (user.IsFocusEnergyActive() ||
+            if (user.IsFocusEnergyActive ||
                 user.IsDireHitActive())
             {
                 t /= 4;

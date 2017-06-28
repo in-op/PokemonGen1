@@ -1224,7 +1224,7 @@ namespace PokemonGeneration1.Source.Battles
 
 
 
-        public bool IsFocusEnergyActive() { return FocusEnergyActive; }
+        public bool IsFocusEnergyActive => FocusEnergyActive;
         public void ActivateFocusEnergy()
         {
             FocusEnergyActive = true;
