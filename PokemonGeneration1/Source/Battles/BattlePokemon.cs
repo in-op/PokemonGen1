@@ -20,7 +20,7 @@ namespace PokemonGeneration1.Source.Battles
         public Move Move3 { get; private set; }
         public Move Move4 { get; private set; }
 
-        private Move LastMoveUsed;
+        public Move LastMoveUsed { get; private set; }
         private Move TwoTurnMove;
         private Move MultiTurnMove;
         private Move MirrorMove;
@@ -118,97 +118,99 @@ namespace PokemonGeneration1.Source.Battles
 
         protected virtual void OnSwitchedOut(Pokemon switchIn)
         {
-            SwitchedOut?.Invoke(
-                this,
-                new SwitchedOutEventArgs()
-                {
-                    switchIn = switchIn,
-                    battlePokemon = this,
-                    pokemon = Pokemon
-                });
+            SwitchedOut?.Invoke(this, new SwitchedOutEventArgs()
+            {
+                switchIn = switchIn,
+                battlePokemon = this,
+                pokemon = Pokemon
+            });
         }
+
         protected virtual void OnStatStageChanged(StatType stat, int amount)
         {
-            Battles.StatStageChangedEventArgs args = new StatStageChangedEventArgs();
-            args.pokemon = Pokemon;
-            args.battlePokemon = this;
-            args.statChanged = stat;
-            args.change = amount;
-            StatStageChanged?.Invoke(this, args);
+            StatStageChanged?.Invoke(this, new StatStageChangedEventArgs()
+            {
+                pokemon = Pokemon,
+                battlePokemon = this,
+                statChanged = stat,
+                change = amount
+            });
         }
+
         protected virtual void OnSubstituteActivated()
         {
-            BattlePokemonEventArgs args = new BattlePokemonEventArgs();
-            args.pokemon = Pokemon;
-            args.battlePokemon = this;
-            SubstituteActivated?.Invoke(this, args);
+            SubstituteActivated?.Invoke(this, new BattlePokemonEventArgs()
+            {
+                pokemon = Pokemon,
+                battlePokemon = this
+            });
         }
+
         protected virtual void OnConversionActivated()
         {
-            BattlePokemonEventArgs args = new BattlePokemonEventArgs();
-            args.pokemon = Pokemon;
-            args.battlePokemon = this;
-            ConversionActivated?.Invoke(this, args);
+            ConversionActivated?.Invoke(this, new BattlePokemonEventArgs()
+            {
+                pokemon = Pokemon,
+                battlePokemon = this
+            });
         }
+
         protected virtual void OnTransformActivated(BattlePokemon transformInto)
         {
-            TransformedEventArgs args = new TransformedEventArgs();
-            args.pokemon = Pokemon;
-            args.battlePokemon = this;
-            args.transformInto = transformInto;
-            TransformActivated?.Invoke(this, args);
+            TransformActivated?.Invoke(this, new TransformedEventArgs()
+            {
+                pokemon = Pokemon,
+                battlePokemon = this,
+                transformInto = transformInto
+            });
         }
+
         protected virtual void OnLeechSeedActivated()
-        {
-            LeechSeedActivated?.Invoke(this, EventArgs);
-        }
+        { LeechSeedActivated?.Invoke(this, EventArgs); }
+
         protected virtual void OnLeechSeedSaps()
         {
-            BattlePokemonEventArgs args = new BattlePokemonEventArgs();
-            args.pokemon = Pokemon;
-            args.battlePokemon = this;
-            LeechSeedSaps?.Invoke(this, args);
+            LeechSeedSaps?.Invoke(this, new BattlePokemonEventArgs()
+            {
+                pokemon = Pokemon,
+                battlePokemon = this
+            });
         }
+
         protected virtual void OnConfused()
-        {
-            Confused?.Invoke(this, EventArgs);
-        }
+        { Confused?.Invoke(this, EventArgs); }
+
         protected virtual void OnHurtFromConfusion()
-        {
-            HurtFromConfusion?.Invoke(this, EventArgs);
-        }
+        { HurtFromConfusion?.Invoke(this, EventArgs); }
+
         protected virtual void OnFlinched()
-        {
-            Flinched?.Invoke(this, EventArgs);
-        }
+        { Flinched?.Invoke(this, EventArgs); }
+
         protected virtual void OnFullyParalyzed()
-        {
-            FullyParalyzed?.Invoke(this, EventArgs);
-        }
+        { FullyParalyzed?.Invoke(this, EventArgs); }
+
         protected virtual void OnFrozenSolid()
-        {
-            FrozenSolid?.Invoke(this, EventArgs);
-        }
+        { FrozenSolid?.Invoke(this, EventArgs); }
+
         protected virtual void OnFastAsleep()
-        {
-            FastAsleep?.Invoke(this, EventArgs);
-        }
+        { FastAsleep?.Invoke(this, EventArgs); }
+
         protected virtual void OnWokeUp()
-        {
-            WokeUp?.Invoke(this, EventArgs);
-        }
+        { WokeUp?.Invoke(this, EventArgs); }
+
         protected virtual void OnDisabled(Move move)
         {
-            var args = new Battles.MoveEventArgs();
-            args.battlePokemon = this;
-            args.pokemon = Pokemon;
-            args.move = move;
-            Disabled?.Invoke(this, args);
+            Disabled?.Invoke(this, new MoveEventArgs()
+            {
+                battlePokemon = this,
+                pokemon = Pokemon,
+                move = move
+            });
         }
+
         protected virtual void OnMoveAttemptedButIsDisabled()
-        {
-            MoveAttemptedButIsDisabled?.Invoke(this, EventArgs);
-        }
+        { MoveAttemptedButIsDisabled?.Invoke(this, EventArgs); }
+
         protected virtual void OnMimic(Move moveToCopy, BattlePokemon opponent)
         {
             Mimic?.Invoke(this, new MimicMoveEventArgs()
@@ -246,11 +248,7 @@ namespace PokemonGeneration1.Source.Battles
 
 
 
-
-        public Move GetLastMoveUsed()
-        {
-            return LastMoveUsed;
-        }
+        
         public void SetLastMoveUsed(Move move)
         {
             LastMoveUsed = move;

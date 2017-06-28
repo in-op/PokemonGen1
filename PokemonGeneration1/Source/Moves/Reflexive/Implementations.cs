@@ -1,9 +1,5 @@
 ﻿using System;
 using PokemonGeneration1.Source.Battles;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PokemonGeneration1.Source.Moves.Reflexive
 {
@@ -15,13 +11,8 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
         {
             OnUsed();
             if (user.CanStatGoHigher(StatType.Attack))
-            {
                 user.ModifyStatStageAsPrimaryEffect(StatType.Attack, 2);
-            }
-            else
-            {
-                OnFailed();
-            }
+            else OnFailed();
             user.SetLastMoveUsed(this);
             SubtractPP(1);
         }
@@ -36,14 +27,8 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
         protected sealed override void Execute(BattlePokemon user)
         {
             OnUsed();
-            if (!user.IsMistActive())
-            {
-                user.ActivateMist();
-            }
-            else
-            {
-                OnFailed();
-            }
+            if (!user.IsMistActive()) user.ActivateMist();
+            else OnFailed();
             user.SetLastMoveUsed(this);
             SubtractPP(1);
         }
@@ -59,14 +44,8 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
         protected override sealed void Execute(BattlePokemon user)
         {
             OnUsed();
-            if (!user.CanStatGoHigher(StatType.Special))
-            {
-                OnFailed();
-            }
-            else
-            {
-                user.ModifyStatStageAsPrimaryEffect(StatType.Special, 1);
-            }
+            if (!user.CanStatGoHigher(StatType.Special)) OnFailed();
+            else user.ModifyStatStageAsPrimaryEffect(StatType.Special, 1);
             user.SetLastMoveUsed(this);
             SubtractPP(1);
         }
@@ -81,14 +60,8 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
         protected sealed override void Execute(BattlePokemon user)
         {
             OnUsed();
-            if (!user.CanStatGoHigher(StatType.Attack))
-            {
-                OnFailed();
-            }
-            else
-            {
-                user.ModifyStatStageAsPrimaryEffect(StatType.Attack, 1);
-            }
+            if (!user.CanStatGoHigher(StatType.Attack)) OnFailed();
+            else user.ModifyStatStageAsPrimaryEffect(StatType.Attack, 1);
             user.SetLastMoveUsed(this);
             SubtractPP(1);
         }
@@ -102,14 +75,8 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
         protected sealed override void Execute(BattlePokemon user)
         {
             OnUsed();
-            if (!user.CanStatGoHigher(StatType.Speed))
-            {
-                OnFailed();
-            }
-            else
-            {
-                user.ModifyStatStageAsPrimaryEffect(StatType.Speed, 2);
-            }
+            if (!user.CanStatGoHigher(StatType.Speed)) OnFailed();
+            else user.ModifyStatStageAsPrimaryEffect(StatType.Speed, 2);
             user.SetLastMoveUsed(this);
             SubtractPP(1);
         }
@@ -124,13 +91,8 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
         {
             OnUsed();
             if (user.CanStatGoHigher(StatType.Evasion))
-            {
                 user.ModifyStatStageAsPrimaryEffect(StatType.Evasion, 1);
-            }
-            else
-            {
-                OnFailed();
-            }
+            else OnFailed();
             user.SetLastMoveUsed(this);
             SubtractPP(1);
         }
@@ -151,10 +113,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
                 user.RestoreHP(amount);
                 OnRegainedHealth();
             }
-            else
-            {
-                OnFailed();
-            }
+            else OnFailed();
             user.SetLastMoveUsed(this);
             SubtractPP(1);
         }
@@ -170,13 +129,8 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
         {
             OnUsed();
             if (user.CanStatGoHigher(StatType.Defense))
-            {
                 user.ModifyStatStageAsPrimaryEffect(StatType.Defense, 1);
-            }
-            else
-            {
-                OnFailed();
-            }
+            else OnFailed();
             user.SetLastMoveUsed(this);
             SubtractPP(1);
         }
@@ -191,16 +145,9 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
         protected sealed override void Execute(BattlePokemon user)
         {
             OnUsed();
-
             if (user.CanStatGoHigher(StatType.Evasion))
-            {
                 user.ModifyStatStageAsPrimaryEffect(StatType.Evasion, 1);
-            }
-            else
-            {
-                OnFailed();
-            }
-
+            else OnFailed();
             user.SetLastMoveUsed(this);
             SubtractPP(1);
         }
@@ -214,16 +161,9 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
         protected sealed override void Execute(BattlePokemon user)
         {
             OnUsed();
-
             if (user.CanStatGoHigher(StatType.Defense))
-            {
                 user.ModifyStatStageAsPrimaryEffect(StatType.Defense, 1);
-            }
-            else
-            {
-                OnFailed();
-            }
-
+            else OnFailed();
             user.SetLastMoveUsed(this);
             SubtractPP(1);
         }
@@ -237,16 +177,9 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
         protected sealed override void Execute(BattlePokemon user)
         {
             OnUsed();
-
             if (user.CanStatGoHigher(StatType.Defense))
-            {
                 user.ModifyStatStageAsPrimaryEffect(StatType.Defense, 1);
-            }
-            else
-            {
-                OnFailed();
-            }
-
+            else OnFailed();
             user.SetLastMoveUsed(this);
             SubtractPP(1);
         }
@@ -261,16 +194,9 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
         protected sealed override void Execute(BattlePokemon user)
         {
             OnUsed();
-
             if (user.CanStatGoHigher(StatType.Defense))
-            {
                 user.ModifyStatStageAsPrimaryEffect(StatType.Defense, 2);
-            }
-            else
-            {
-                OnFailed();
-            }
-
+            else OnFailed();
             user.SetLastMoveUsed(this);
             SubtractPP(1);
         }
@@ -284,16 +210,8 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
         protected sealed override void Execute(BattlePokemon user)
         {
             OnUsed();
-
-            if (!user.IsLightScreenActive())
-            {
-                user.ActivateLightScreen();
-            }
-            else
-            {
-                OnFailed();
-            }
-
+            if (!user.IsLightScreenActive()) user.ActivateLightScreen();
+            else OnFailed();
             user.SetLastMoveUsed(this);
             SubtractPP(1);
         }
@@ -307,16 +225,8 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
         protected sealed override void Execute(BattlePokemon user)
         {
             OnUsed();
-
-            if (!user.IsReflectActive())
-            {
-                user.ActivateReflect();
-            }
-            else
-            {
-                OnFailed();
-            }
-
+            if (!user.IsReflectActive()) user.ActivateReflect();
+            else OnFailed();
             user.SetLastMoveUsed(this);
             SubtractPP(1);
         }
@@ -331,9 +241,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
         protected sealed override void Execute(BattlePokemon user)
         {
             OnUsed();
-
             user.ActivateFocusEnergy();
-
             user.SetLastMoveUsed(this);
             SubtractPP(1);
         }
@@ -348,13 +256,8 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
         {
             OnUsed();
             if (user.CanStatGoHigher(StatType.Special))
-            {
                 user.ModifyStatStageAsPrimaryEffect(StatType.Special, 2);
-            }
-            else
-            {
-                OnFailed();
-            }
+            else OnFailed();
             user.SetLastMoveUsed(this);
             SubtractPP(1);
         }
@@ -374,10 +277,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
                 user.RestoreHP(amount);
                 OnRegainedHealth();
             }
-            else
-            {
-                OnFailed();
-            }
+            else OnFailed();
             user.SetLastMoveUsed(this);
             SubtractPP(1);
         }
@@ -406,13 +306,8 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
         {
             OnUsed();
             if (user.CanStatGoHigher(StatType.Defense))
-            {
                 user.ModifyStatStageAsPrimaryEffect(StatType.Defense, 2);
-            }
-            else
-            {
-                OnFailed();
-            }
+            else OnFailed();
             user.SetLastMoveUsed(this);
             SubtractPP(1);
         }
@@ -469,13 +364,8 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
         {
             OnUsed();
             if (user.CanStatGoHigher(StatType.Attack))
-            {
                 user.ModifyStatStageAsPrimaryEffect(StatType.Attack, 1);
-            }
-            else
-            {
-                OnFailed();
-            }
+            else OnFailed();
             user.SetLastMoveUsed(this);
             SubtractPP(1);
         }
