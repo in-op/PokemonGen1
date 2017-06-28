@@ -211,13 +211,13 @@ namespace PokemonGeneration1.Source.Battles
         }
         protected virtual void OnMimic(Move moveToCopy, BattlePokemon opponent)
         {
-            var args = new Battles.MimicMoveEventArgs();
-            args.pokemon = Pokemon;
-            args.battlePokemon = this;
-            args.opponent = opponent;
-            args.moveMimiced = moveToCopy;
-
-            Mimic?.Invoke(this, args);
+            Mimic?.Invoke(this, new MimicMoveEventArgs()
+            {
+                pokemon = Pokemon,
+                battlePokemon = this,
+                opponent = opponent,
+                moveMimiced = moveToCopy
+            });
         }
 
 
@@ -1023,13 +1023,13 @@ namespace PokemonGeneration1.Source.Battles
         public float GetPokemonsDefenseStatWithModifiers()
         {
             float defense = Pokemon.Defense;
-            defense *= StatStageMultipliers.Multiplier[StatStageModifiers.Defense];
+            defense *= StatStageData.Multiplier[StatStageModifiers.Defense];
             return (float)Math.Floor(defense);
         }
         public float GetPokemonsSpecialStatWithModifiers()
         {
             float special = Pokemon.Special;
-            special *= StatStageMultipliers.Multiplier[StatStageModifiers.Special];
+            special *= StatStageData.Multiplier[StatStageModifiers.Special];
             return (float)Math.Floor(special);
         }
 
@@ -1072,7 +1072,7 @@ namespace PokemonGeneration1.Source.Battles
             float attack;
             if (Transform.Active) { attack = Transform.Attack; }
             else { attack = Pokemon.Attack; }
-            attack *= StatStageMultipliers.Multiplier[StatStageModifiers.Attack];
+            attack *= StatStageData.Multiplier[StatStageModifiers.Attack];
             if (BurnDecreasingAttack)
             {
                 attack *= 0.5f;
@@ -1084,7 +1084,7 @@ namespace PokemonGeneration1.Source.Battles
             float defense;
             if (Transform.Active) { defense = Transform.Defense; }
             else { defense = Pokemon.Defense; }
-            defense *= StatStageMultipliers.Multiplier[StatStageModifiers.Defense];
+            defense *= StatStageData.Multiplier[StatStageModifiers.Defense];
             return (float)Math.Floor(defense);
         }
         public float GetSpecial()
@@ -1092,7 +1092,7 @@ namespace PokemonGeneration1.Source.Battles
             float special;
             if (Transform.Active) { special = Transform.Special; }
             else { special = Pokemon.Special; }
-            special *= StatStageMultipliers.Multiplier[StatStageModifiers.Special];
+            special *= StatStageData.Multiplier[StatStageModifiers.Special];
             return (float)Math.Floor(special);
         }
         public float GetSpeed()
@@ -1100,7 +1100,7 @@ namespace PokemonGeneration1.Source.Battles
             float speed;
             if (Transform.Active) { speed = Transform.Speed; }
             else { speed = Pokemon.Speed; }
-            speed *= StatStageMultipliers.Multiplier[StatStageModifiers.Speed];
+            speed *= StatStageData.Multiplier[StatStageModifiers.Speed];
             if (ParalysisDecreasingSpeed)
             {
                 speed *= 0.25f;
@@ -1123,10 +1123,10 @@ namespace PokemonGeneration1.Source.Battles
 
 
         public float AccuracyMultiplier =>
-            StatStageMultipliers.Multiplier[StatStageModifiers.Accuracy];
+            StatStageData.Multiplier[StatStageModifiers.Accuracy];
 
         public float EvasionMultiplier =>
-            StatStageMultipliers.Multiplier[-StatStageModifiers.Evasion];
+            StatStageData.Multiplier[-StatStageModifiers.Evasion];
 
 
 
