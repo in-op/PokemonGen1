@@ -830,7 +830,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.OneTurnOneHit
             {
                 UpdateEffectivenessUpdateCritFlagAndDoDamage(user, defender);
                 if (!defender.IsFainted &&
-                    defender.CanDefenseGoLower &&
+                    defender.CanStatGoLower(StatType.Defense) &&
                     new Random().Next(0, 100) < 10)
                 {
                     defender.ModifyStatStageAsSecondaryEffect(StatType.Defense, -1);
@@ -1060,7 +1060,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.OneTurnOneHit
             {
                 UpdateEffectivenessUpdateCritFlagAndDoDamage(user, defender);
                 if (!defender.IsFainted &&
-                    defender.CanSpeedGoLower &&
+                    defender.CanStatGoLower(StatType.Speed) &&
                     new Random().Next(0, 100) < 10)
                 {
                     defender.ModifyStatStageAsSecondaryEffect(StatType.Speed, -1);
@@ -1087,7 +1087,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.OneTurnOneHit
             {
                 UpdateEffectivenessUpdateCritFlagAndDoDamage(user, defender);
                 if (!defender.IsFainted &&
-                    defender.CanAttackGoLower &&
+                    defender.CanStatGoLower(StatType.Attack) &&
                     new Random().Next(0, 100) < 10)
                 {
                     defender.ModifyStatStageAsSecondaryEffect(StatType.Attack, -1);
@@ -1603,7 +1603,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.OneTurnOneHit
                 UpdateEffectivenessUpdateCritFlagAndDoDamage(user, defender);
 
                 if (!defender.IsFainted &&
-                    defender.CanSpecialGoLower &&
+                    defender.CanStatGoLower(StatType.Special) &&
                     new Random().Next(0, 1000) < 332)
                 {
                     defender.ModifyStatStageAsSecondaryEffect(StatType.Special, -1);
@@ -1931,7 +1931,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.OneTurnOneHit
             {
                 UpdateEffectivenessUpdateCritFlagAndDoDamage(user, defender);
                 if (!defender.IsFainted &&
-                    defender.CanSpeedGoLower &&
+                    defender.CanStatGoLower(StatType.Speed) &&
                     new Random().Next(0, 100) < 10)
                 {
                     defender.ModifyStatStageAsSecondaryEffect(StatType.Speed, -1);
@@ -2042,7 +2042,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.OneTurnOneHit
             {
                 UpdateEffectivenessUpdateCritFlagAndDoDamage(user, defender);
                 if (!defender.IsFainted &&
-                    defender.CanSpeedGoLower &&
+                    defender.CanStatGoLower(StatType.Speed) &&
                     new Random().Next(0, 100) < 10)
                 {
                     defender.ModifyStatStageAsSecondaryEffect(StatType.Speed, -1);

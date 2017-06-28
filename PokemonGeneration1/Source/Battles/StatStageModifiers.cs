@@ -2,76 +2,61 @@
 {
     public sealed class StatStageModifiers
     {
-        public int Attack { get; private set; }
-        public int Defense { get; private set; }
-        public int Special { get; private set; }
-        public int Speed { get; private set; }
-        public int Accuracy { get; private set; }
-        public int Evasion { get; private set; }
+        private int attack;
+        public int Attack
+        { get => attack; private set { attack = value; } }
+
+        private int defense;
+        public int Defense
+        { get => defense; private set { defense = value; } }
+
+        private int special;
+        public int Special
+        { get => special; private set { special = value; } }
+
+        private int speed;
+        public int Speed
+        { get => speed; private set { speed = value; } }
+
+        private int accuracy;
+        public int Accuracy
+        { get => accuracy; private set { accuracy = value; } }
+
+        private int evasion;
+        public int Evasion
+        { get => evasion; private set { evasion = value; } }
+        
+
+
+        public bool CanGoHigher(StatType type) =>
+            GetModifierForType(type) < 6;
+
+        public bool CanGoLower(StatType type) =>
+            GetModifierForType(type) > -6;
 
 
 
-        public bool CanAttackGoHigher => Attack < 6;
-        public bool CanDefenseGoHigher => Defense < 6;
-        public bool CanSpecialGoHigher => Special < 6;
-        public bool CanSpeedGoHigher => Speed < 6;
-        public bool CanAccuracyGoHigher => Accuracy < 6;
-        public bool CanEvasionGoHigher => Evasion < 6;
-        public bool CanAttackGoLower => Attack > -6;
-        public bool CanDefenseGoLower => Defense > -6;
-        public bool CanSpecialGoLower => Special > -6;
-        public bool CanSpeedGoLower => Speed > -6;
-        public bool CanAccuracyGoLower => Accuracy > -6;
-        public bool CanEvasionGoLower => Evasion > -6;
+        public void Modify(StatType type, int delta)
+        {
+            ref int stat = ref GetModifierForType(type);
+            stat += delta;
+            if (stat > 6) stat = 6;
+            if (stat < 0) stat = 0;
+        }
+        
 
-
-
-        public void ModifyAttack(int delta)
-        {
-            Attack += delta;
-            if (Attack > 6) Attack = 6;
-            if (Attack < -6) Attack = -6;
-        }
-        public void ModifyDefense(int delta)
-        {
-            Defense += delta;
-            if (Defense > 6) Defense = 6;
-            if (Defense < -6) Defense = -6;
-        }
-        public void ModifySpecial(int delta)
-        {
-            Special += delta;
-            if (Special > 6) Special = 6;
-            if (Special < -6) Special = -6;
-        }
-        public void ModifySpeed(int delta)
-        {
-            Speed += delta;
-            if (Speed > 6) Speed = 6;
-            if (Speed < -6) Speed = -6;
-        }
-        public void ModifyAccuracy(int delta)
-        {
-            Accuracy += delta;
-            if (Accuracy > 6) Accuracy = 6;
-            if (Accuracy < -6) Accuracy = -6;
-        }
-        public void ModifyEvasion(int delta)
-        {
-            Evasion += delta;
-            if (Evasion > 6) Evasion = 6;
-            if (Evasion < -6) Evasion = -6;
-        }
 
         public void Reset()
         {
-            Attack = 0;
-            Defense = 0;
-            Special = 0;
-            Speed = 0;
-            Accuracy = 0;
-            Evasion = 0;
+            attack = 0;
+            defense = 0;
+            special = 0;
+            speed = 0;
+            accuracy = 0;
+            evasion = 0;
         }
+
+
 
         public StatStageModifiers() { }
         
@@ -83,12 +68,28 @@
             int accuracy,
             int evasion)
         {
-            Attack = attack;
-            Defense = defense;
-            Special = special;
-            Speed = speed;
-            Accuracy = accuracy;
-            Evasion = evasion;
+            this.attack = attack;
+            this.defense = defense;
+            this.special = special;
+            this.speed = speed;
+            this.accuracy = accuracy;
+            this.evasion = evasion;
+        }
+
+
+
+        private ref int GetModifierForType(StatType type)
+        {
+            switch (type)
+            {
+                case StatType.Attack: return ref attack;
+                case StatType.Defense: return ref defense;
+                case StatType.Special: return ref special;
+                case StatType.Speed: return ref speed;
+                case StatType.Accuracy: return ref accuracy;
+                case StatType.Evasion: return ref evasion;
+                default: throw new System.Exception("You changed the StatType enum; update GetRefToModiferOfType");
+            }
         }
     }
 }
