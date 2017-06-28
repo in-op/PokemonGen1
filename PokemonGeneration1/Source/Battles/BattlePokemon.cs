@@ -1219,7 +1219,7 @@ namespace PokemonGeneration1.Source.Battles
 
 
 
-        public float GetBaseSpeed() { return Pokemon.BaseSpeed; }
+        public float BaseSpeed => Pokemon.BaseSpeed;
         public float Level => Pokemon.Level;
 
 
