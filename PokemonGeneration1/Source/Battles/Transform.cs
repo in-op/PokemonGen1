@@ -37,10 +37,10 @@ namespace PokemonGeneration1.Source.Battles
 
             Stats = new Stats(
                 0f,
-                pokemonToTransformInto.GetPokemonsAttackStat(),
-                pokemonToTransformInto.GetPokemonsDefenseStat(),
-                pokemonToTransformInto.GetPokemonsSpecialStat(),
-                pokemonToTransformInto.GetPokemonsSpeedStat());
+                pokemonToTransformInto.PokemonsAttackStat,
+                pokemonToTransformInto.PokemonsDefenseStat,
+                pokemonToTransformInto.PokemonsSpecialStat,
+                pokemonToTransformInto.PokemonsSpeedStat);
 
             Move1 = MoveFactory.Create(pokemonToTransformInto.GetMove1().Index);
             Move2 = MoveFactory.Create(pokemonToTransformInto.GetMove2().Index);

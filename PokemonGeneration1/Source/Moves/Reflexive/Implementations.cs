@@ -14,7 +14,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
         protected sealed override void Execute(BattlePokemon user)
         {
             OnUsed();
-            if (user.GetStatStageModifers().CanAttackGoHigher())
+            if (user.CanAttackGoHigher)
             {
                 user.ModifyStatStageAsPrimaryEffect(StatsEnum.ATTACK, 2);
             }
@@ -59,7 +59,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
         protected override sealed void Execute(BattlePokemon user)
         {
             OnUsed();
-            if (!user.GetStatStageModifers().CanSpecialGoHigher())
+            if (!user.CanSpecialGoHigher)
             {
                 OnFailed();
             }
@@ -81,7 +81,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
         protected sealed override void Execute(BattlePokemon user)
         {
             OnUsed();
-            if (!user.GetStatStageModifers().CanAttackGoHigher())
+            if (!user.CanAttackGoHigher)
             {
                 OnFailed();
             }
@@ -102,7 +102,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
         protected sealed override void Execute(BattlePokemon user)
         {
             OnUsed();
-            if (!user.GetStatStageModifers().CanSpeedGoHigher())
+            if (!user.CanSpeedGoHigher)
             {
                 OnFailed();
             }
@@ -123,7 +123,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
         protected sealed override void Execute(BattlePokemon user)
         {
             OnUsed();
-            if (user.GetStatStageModifers().CanEvasionGoHigher())
+            if (user.CanEvasionGoHigher)
             {
                 user.ModifyStatStageAsPrimaryEffect(StatsEnum.EVASION, 1);
             }
@@ -169,7 +169,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
         protected sealed override void Execute(BattlePokemon user)
         {
             OnUsed();
-            if (user.GetStatStageModifers().CanDefenseGoHigher())
+            if (user.CanDefenseGoHigher)
             {
                 user.ModifyStatStageAsPrimaryEffect(StatsEnum.DEFENSE, 1);
             }
@@ -192,7 +192,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
         {
             OnUsed();
 
-            if (user.GetStatStageModifers().CanEvasionGoHigher())
+            if (user.CanEvasionGoHigher)
             {
                 user.ModifyStatStageAsPrimaryEffect(StatsEnum.EVASION, 1);
             }
@@ -215,7 +215,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
         {
             OnUsed();
 
-            if (user.GetStatStageModifers().CanDefenseGoHigher())
+            if (user.CanDefenseGoHigher)
             {
                 user.ModifyStatStageAsPrimaryEffect(StatsEnum.DEFENSE, 1);
             }
@@ -238,7 +238,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
         {
             OnUsed();
 
-            if (user.GetStatStageModifers().CanDefenseGoHigher())
+            if (user.CanDefenseGoHigher)
             {
                 user.ModifyStatStageAsPrimaryEffect(StatsEnum.DEFENSE, 1);
             }
@@ -262,7 +262,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
         {
             OnUsed();
 
-            if (user.GetStatStageModifers().CanDefenseGoHigher())
+            if (user.CanDefenseGoHigher)
             {
                 user.ModifyStatStageAsPrimaryEffect(StatsEnum.DEFENSE, 2);
             }
@@ -347,7 +347,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
         protected sealed override void Execute(BattlePokemon user)
         {
             OnUsed();
-            if (user.GetStatStageModifers().CanSpecialGoHigher())
+            if (user.CanSpecialGoHigher)
             {
                 user.ModifyStatStageAsPrimaryEffect(StatsEnum.SPECIAL, 2);
             }
@@ -405,7 +405,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
         protected sealed override void Execute(BattlePokemon user)
         {
             OnUsed();
-            if (user.GetStatStageModifers().CanDefenseGoHigher())
+            if (user.CanDefenseGoHigher)
             {
                 user.ModifyStatStageAsPrimaryEffect(StatsEnum.DEFENSE, 2);
             }
@@ -468,7 +468,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
         protected sealed override void Execute(BattlePokemon user)
         {
             OnUsed();
-            if (user.GetStatStageModifers().CanAttackGoHigher())
+            if (user.CanAttackGoHigher)
             {
                 user.ModifyStatStageAsPrimaryEffect(StatsEnum.ATTACK, 1);
             }

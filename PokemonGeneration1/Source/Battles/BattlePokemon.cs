@@ -333,7 +333,7 @@ namespace PokemonGeneration1.Source.Battles
 
         public void AttemptChangeBadlyPoisonToPoison()
         {
-            if (IsBadlyPoisoned())
+            if (IsBadlyPoisoned)
             {
                 Pokemon.ChangeBadlyPoisonToPoison();
             }
@@ -580,7 +580,7 @@ namespace PokemonGeneration1.Source.Battles
         }
         private void IfSeededThenSapHP(BattlePokemon opponent)
         {
-            if (Seeded && !opponent.IsFainted())
+            if (Seeded && !opponent.IsFainted)
             {
                 OnLeechSeedSaps();
                 float sap;
@@ -792,7 +792,7 @@ namespace PokemonGeneration1.Source.Battles
         {
             OnSwitchedOut(switchIn);
 
-            if (IsBadlyPoisoned())
+            if (IsBadlyPoisoned)
                 Pokemon.ChangeBadlyPoisonToPoison();
             
             DetachPokemonEventHandlers();
@@ -993,35 +993,35 @@ namespace PokemonGeneration1.Source.Battles
 
 
 
-        public bool IsBurned() { return Pokemon.Status == Status.Burn; }
-        public bool IsFrozen() { return Pokemon.Status == Status.Freeze; }
-        public bool IsParalyzed() { return Pokemon.Status == Status.Paralysis; }
-        public bool IsPoisoned() { return Pokemon.Status == Status.Poison; }
-        public bool IsBadlyPoisoned() { return Pokemon.Status == Status.BadlyPoisoned; }
-        public bool IsSleeping() { return Pokemon.Status == Status.Sleep; }
-        public bool IsFainted() { return Pokemon.Status == Status.Fainted; }
-        public bool IsStatusClear() { return Pokemon.Status == Status.Null; }
+        public bool IsBurned => Pokemon.Status == Status.Burn;
+        public bool IsFrozen => Pokemon.Status == Status.Freeze;
+        public bool IsParalyzed => Pokemon.Status == Status.Paralysis;
+        public bool IsPoisoned => Pokemon.Status == Status.Poison;
+        public bool IsBadlyPoisoned => Pokemon.Status == Status.BadlyPoisoned;
+        public bool IsSleeping => Pokemon.Status == Status.Sleep;
+        public bool IsFainted => Pokemon.Status == Status.Fainted;
+        public bool IsStatusClear => Pokemon.Status == Status.Null;
 
-        public bool IsLeechSeedActive() { return Seeded; }
+        public bool IsLeechSeedActive => Seeded;
 
         //exclusively used to activate a transform
-        public float GetPokemonsAttackStat() { return Pokemon.Attack; }
-        public float GetPokemonsDefenseStat() { return Pokemon.Defense; }
-        public float GetPokemonsSpecialStat() { return Pokemon.Special; }
-        public float GetPokemonsSpeedStat() { return Pokemon.Speed; }
+        public float PokemonsAttackStat => Pokemon.Attack;
+        public float PokemonsDefenseStat => Pokemon.Defense;
+        public float PokemonsSpecialStat => Pokemon.Special;
+        public float PokemonsSpeedStat => Pokemon.Speed;
 
 
         //exclusively used when crit hit on transformed pokemon
         public float GetPokemonsDefenseStatWithModifiers()
         {
             float defense = Pokemon.Defense;
-            defense *= StatStageMultiplier[StatStageModifiers.GetDefense()];
+            defense *= StatStageMultiplier[StatStageModifiers.Defense];
             return (float)Math.Floor(defense);
         }
         public float GetPokemonsSpecialStatWithModifiers()
         {
             float special = Pokemon.Special;
-            special *= StatStageMultiplier[StatStageModifiers.GetSpecial()];
+            special *= StatStageMultiplier[StatStageModifiers.Special];
             return (float)Math.Floor(special);
         }
 
@@ -1069,12 +1069,48 @@ namespace PokemonGeneration1.Source.Battles
         }
 
 
+        public bool CanAttackGoHigher
+            => StatStageModifiers.CanAttackGoHigher;
 
+        public bool CanDefenseGoHigher
+            => StatStageModifiers.CanDefenseGoHigher;
 
-        public StatStageModifiers GetStatStageModifers()
+        public bool CanSpecialGoHigher
+            => StatStageModifiers.CanSpecialGoHigher;
+
+        public bool CanSpeedGoHigher
+            => StatStageModifiers.CanSpeedGoHigher;
+
+        public bool CanAccuracyGoHigher
+            => StatStageModifiers.CanAccuracyGoHigher;
+
+        public bool CanEvasionGoHigher
+            => StatStageModifiers.CanEvasionGoHigher;
+
+        public bool CanAttackGoLower
+            => StatStageModifiers.CanAttackGoLower;
+
+        public bool CanDefenseGoLower
+            => StatStageModifiers.CanDefenseGoLower;
+
+        public bool CanSpecialGoLower
+            => StatStageModifiers.CanSpecialGoLower;
+
+        public bool CanSpeedGoLower
+            => StatStageModifiers.CanSpeedGoLower;
+
+        public bool CanAccuracyGoLower
+            => StatStageModifiers.CanAccuracyGoLower;
+
+        public bool CanEvasionGoLower
+            => StatStageModifiers.CanEvasionGoLower;
+
+        public void ResetStatStageModifiers()
         {
-            return StatStageModifiers;
+            StatStageModifiers.Reset();
         }
+
+
         public string GetName()
         {
             return Pokemon.Nickname;
@@ -1084,7 +1120,7 @@ namespace PokemonGeneration1.Source.Battles
             float attack;
             if (Transform.Active) { attack = Transform.Attack; }
             else { attack = Pokemon.Attack; }
-            attack *= StatStageMultiplier[StatStageModifiers.GetAttack()];
+            attack *= StatStageMultiplier[StatStageModifiers.Attack];
             if (BurnDecreasingAttack)
             {
                 attack *= 0.5f;
@@ -1096,7 +1132,7 @@ namespace PokemonGeneration1.Source.Battles
             float defense;
             if (Transform.Active) { defense = Transform.Defense; }
             else { defense = Pokemon.Defense; }
-            defense *= StatStageMultiplier[StatStageModifiers.GetDefense()];
+            defense *= StatStageMultiplier[StatStageModifiers.Defense];
             return (float)Math.Floor(defense);
         }
         public float GetSpecial()
@@ -1104,7 +1140,7 @@ namespace PokemonGeneration1.Source.Battles
             float special;
             if (Transform.Active) { special = Transform.Special; }
             else { special = Pokemon.Special; }
-            special *= StatStageMultiplier[StatStageModifiers.GetSpecial()];
+            special *= StatStageMultiplier[StatStageModifiers.Special];
             return (float)Math.Floor(special);
         }
         public float GetSpeed()
@@ -1112,7 +1148,7 @@ namespace PokemonGeneration1.Source.Battles
             float speed;
             if (Transform.Active) { speed = Transform.Speed; }
             else { speed = Pokemon.Speed; }
-            speed *= StatStageMultiplier[StatStageModifiers.GetSpeed()];
+            speed *= StatStageMultiplier[StatStageModifiers.Speed];
             if (ParalysisDecreasingSpeed)
             {
                 speed *= 0.25f;
@@ -1140,11 +1176,11 @@ namespace PokemonGeneration1.Source.Battles
 
         public float GetAccuracyMultiplier()
         {
-            return AccuracyStageToMultiplier[StatStageModifiers.GetAccuracy()];
+            return AccuracyStageToMultiplier[StatStageModifiers.Accuracy];
         }
         public float GetEvasionMultiplier()
         {
-            return EvasionStageToMultiplier[StatStageModifiers.GetEvasion()];
+            return EvasionStageToMultiplier[StatStageModifiers.Evasion];
         }
         private static readonly Dictionary<int, float> AccuracyStageToMultiplier = new Dictionary<int, float>()
         {
@@ -1379,7 +1415,7 @@ namespace PokemonGeneration1.Source.Battles
             if (MultiTurnMove != null &&
                 MultiTurnMove.Index == 99)
             {
-                if (StatStageModifiers.CanAttackGoHigher())
+                if (StatStageModifiers.CanAttackGoHigher)
                 {
                     ModifyStatStageAsPrimaryEffect(StatsEnum.ATTACK, 1);
                 }
@@ -1484,12 +1520,12 @@ namespace PokemonGeneration1.Source.Battles
         public void ActivateTransform(BattlePokemon pokemonToTransformInto)
         {
             Transform.Activate(pokemonToTransformInto);
-            StatStageModifiers = new StatStageModifiers(pokemonToTransformInto.GetStatStageModifiers().GetAttack(),
-                                                             pokemonToTransformInto.GetStatStageModifiers().GetDefense(),
-                                                             pokemonToTransformInto.GetStatStageModifiers().GetSpecial(),
-                                                             pokemonToTransformInto.GetStatStageModifiers().GetSpeed(),
-                                                             pokemonToTransformInto.GetStatStageModifiers().GetAccuracy(),
-                                                             pokemonToTransformInto.GetStatStageModifiers().GetEvasion());
+            StatStageModifiers = new StatStageModifiers(pokemonToTransformInto.GetStatStageModifiers().Attack,
+                                                             pokemonToTransformInto.GetStatStageModifiers().Defense,
+                                                             pokemonToTransformInto.GetStatStageModifiers().Special,
+                                                             pokemonToTransformInto.GetStatStageModifiers().Speed,
+                                                             pokemonToTransformInto.GetStatStageModifiers().Accuracy,
+                                                             pokemonToTransformInto.GetStatStageModifiers().Evasion);
 
             OnTransformActivated(pokemonToTransformInto);
         }

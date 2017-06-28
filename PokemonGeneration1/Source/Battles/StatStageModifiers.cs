@@ -1,112 +1,94 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PokemonGeneration1.Source.Battles
+﻿namespace PokemonGeneration1.Source.Battles
 {
     public sealed class StatStageModifiers
     {
-        private int Attack;
-        private int Defense;
-        private int Special;
-        private int Speed;
-        private int Accuracy;
-        private int Evasion;
+        public int Attack { get; private set; }
+        public int Defense { get; private set; }
+        public int Special { get; private set; }
+        public int Speed { get; private set; }
+        public int Accuracy { get; private set; }
+        public int Evasion { get; private set; }
 
 
 
-        public int GetAttack() { return this.Attack; }
-        public int GetDefense() { return this.Defense; }
-        public int GetSpecial() { return this.Special; }
-        public int GetSpeed() { return this.Speed; }
-        public int GetAccuracy() { return this.Accuracy; }
-        public int GetEvasion() { return this.Evasion; }
-
-
-
-        public bool CanAttackGoHigher() { return (this.Attack < 6); }
-        public bool CanDefenseGoHigher() { return (this.Defense < 6); }
-        public bool CanSpecialGoHigher() { return (this.Special < 6); }
-        public bool CanSpeedGoHigher() { return (this.Speed < 6); }
-        public bool CanAccuracyGoHigher() { return (this.Accuracy < 6); }
-        public bool CanEvasionGoHigher() { return (this.Evasion < 6); }
-        public bool CanAttackGoLower() { return (this.Attack > -6); }
-        public bool CanDefenseGoLower() { return (this.Defense > -6); }
-        public bool CanSpecialGoLower() { return (this.Special > -6); }
-        public bool CanSpeedGoLower() { return (this.Speed > -6); }
-        public bool CanAccuracyGoLower() { return (this.Accuracy > -6); }
-        public bool CanEvasionGoLower() { return (this.Evasion > -6); }
+        public bool CanAttackGoHigher => Attack < 6;
+        public bool CanDefenseGoHigher => Defense < 6;
+        public bool CanSpecialGoHigher => Special < 6;
+        public bool CanSpeedGoHigher => Speed < 6;
+        public bool CanAccuracyGoHigher => Accuracy < 6;
+        public bool CanEvasionGoHigher => Evasion < 6;
+        public bool CanAttackGoLower => Attack > -6;
+        public bool CanDefenseGoLower => Defense > -6;
+        public bool CanSpecialGoLower => Special > -6;
+        public bool CanSpeedGoLower => Speed > -6;
+        public bool CanAccuracyGoLower => Accuracy > -6;
+        public bool CanEvasionGoLower => Evasion > -6;
 
 
 
         public void ModifyAttack(int delta)
         {
-            this.Attack += delta;
-            if (this.Attack > 6) { this.Attack = 6; }
-            if (this.Attack < -6) { this.Attack = -6; }
+            Attack += delta;
+            if (Attack > 6) Attack = 6;
+            if (Attack < -6) Attack = -6;
         }
         public void ModifyDefense(int delta)
         {
-            this.Defense += delta;
-            if (this.Defense > 6) { this.Defense = 6; }
-            if (this.Defense < -6) { this.Defense = -6; }
+            Defense += delta;
+            if (Defense > 6) Defense = 6;
+            if (Defense < -6) Defense = -6;
         }
         public void ModifySpecial(int delta)
         {
-            this.Special += delta;
-            if (this.Special > 6) { this.Special = 6; }
-            if (this.Special < -6) { this.Special = -6; }
+            Special += delta;
+            if (Special > 6) Special = 6;
+            if (Special < -6) Special = -6;
         }
         public void ModifySpeed(int delta)
         {
-            this.Speed += delta;
-            if (this.Speed > 6) { this.Speed = 6; }
-            if (this.Speed < -6) { this.Speed = -6; }
+            Speed += delta;
+            if (Speed > 6) Speed = 6;
+            if (Speed < -6) Speed = -6;
         }
         public void ModifyAccuracy(int delta)
         {
-            this.Accuracy += delta;
-            if (this.Accuracy > 6) { this.Accuracy = 6; }
-            if (this.Accuracy < -6) { this.Accuracy = -6; }
+            Accuracy += delta;
+            if (Accuracy > 6) Accuracy = 6;
+            if (Accuracy < -6) Accuracy = -6;
         }
         public void ModifyEvasion(int delta)
         {
-            this.Evasion += delta;
-            if (this.Evasion > 6) { this.Evasion = 6; }
-            if (this.Evasion < -6) { this.Evasion = -6; }
+            Evasion += delta;
+            if (Evasion > 6) Evasion = 6;
+            if (Evasion < -6) Evasion = -6;
         }
 
         public void Reset()
         {
-            this.Attack = 0;
-            this.Defense = 0;
-            this.Special = 0;
-            this.Speed = 0;
-            this.Accuracy = 0;
-            this.Evasion = 0;
+            Attack = 0;
+            Defense = 0;
+            Special = 0;
+            Speed = 0;
+            Accuracy = 0;
+            Evasion = 0;
         }
 
-
-
-        public StatStageModifiers()
+        public StatStageModifiers() { }
+        
+        public StatStageModifiers(
+            int attack,
+            int defense,
+            int special,
+            int speed,
+            int accuracy,
+            int evasion)
         {
-            this.Attack = 0;
-            this.Defense = 0;
-            this.Special = 0;
-            this.Speed = 0;
-            this.Accuracy = 0;
-            this.Evasion = 0;
-        }
-        public StatStageModifiers(int attack, int defense, int special, int speed, int accuracy, int evasion)
-        {
-            this.Attack = attack;
-            this.Defense = defense;
-            this.Special = special;
-            this.Speed = speed;
-            this.Accuracy = accuracy;
-            this.Evasion = evasion;
+            Attack = attack;
+            Defense = defense;
+            Special = special;
+            Speed = speed;
+            Accuracy = accuracy;
+            Evasion = evasion;
         }
     }
 }

@@ -191,7 +191,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.MultiTurn
                         UpdateEffectivenessUpdateCritFlagAndDoDamage(user, defender);
 
                         if (!defender.DidSubstituteBreakThisTurn() &&
-                            !defender.IsFainted())
+                            !defender.IsFainted)
                         {
                             user.ActivateTwoTurnMove(this);
                             this.TurnsLeft = 1;

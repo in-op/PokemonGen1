@@ -32,7 +32,7 @@ namespace PokemonGeneration1.Source.Battles
 
         public bool IsPokemonFainted()
         {
-            return CurrentBattlePokemon.IsFainted();
+            return CurrentBattlePokemon.IsFainted;
         }
 
         protected Side(BattlePokemon currentBattlePokemon)
@@ -56,7 +56,7 @@ namespace PokemonGeneration1.Source.Battles
         }
 
         public sealed override bool IsDefeated
-            => CurrentBattlePokemon.IsFainted();
+            => CurrentBattlePokemon.IsFainted;
 
         public sealed override string Name
             =>  "Wild Pokemon";
