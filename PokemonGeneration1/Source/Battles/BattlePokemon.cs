@@ -56,6 +56,27 @@ namespace PokemonGeneration1.Source.Battles
         public Status Status => Pokemon.Status;
 
 
+        public Type Type1
+        {
+            get
+            {
+                if (Conversion.IsActive) return Conversion.Type1;
+                else if (Transform.Active) return Transform.Type1;
+                else return Pokemon.Type1;
+            }
+        }
+
+        public Type Type2
+        {
+            get
+            {
+                if (Conversion.IsActive) return Conversion.Type2;
+                else if (Transform.Active) return Transform.Type2;
+                else return Pokemon.Type2;
+            }
+        }
+
+
 
         //events from Pokemon
         public event EventHandler<BattlePokemonEventArgs> Burned;
@@ -225,25 +246,7 @@ namespace PokemonGeneration1.Source.Battles
 
 
 
-        public Type Type1
-        {
-            get
-            {
-                if (Conversion.IsActive) return Conversion.Type1;
-                else if (Transform.Active) return Transform.Type1;
-                else return Pokemon.Type1;
-            }
-        }
-
-        public Type Type2
-        {
-            get
-            {
-                if (Conversion.IsActive) return Conversion.Type2;
-                else if (Transform.Active) return Transform.Type2;
-                else return Pokemon.Type2;
-            }
-        }
+        
 
 
 
@@ -629,131 +632,108 @@ namespace PokemonGeneration1.Source.Battles
         }
         protected virtual void MoveUsedHandler(object sender, Moves.MoveEventArgs e)
         {
-            Battles.MoveEventArgs args = GenerateMoveEventArgs(e);
-            MoveUsed?.Invoke(this, args);
+            MoveUsed?.Invoke(this, CreateMoveEventArgs(e));
         }
         protected virtual void MoveFailedHandler(object sender, Moves.MoveEventArgs e)
         {
-            Battles.MoveEventArgs args = GenerateMoveEventArgs(e);
-            MoveFailed?.Invoke(this, args);
+            MoveFailed?.Invoke(this, CreateMoveEventArgs(e));
         }
         protected virtual void MoveMissedHandler(object sender, Moves.MoveEventArgs e)
         {
-            Battles.MoveEventArgs args = GenerateMoveEventArgs(e);
-            MoveMissed?.Invoke(this, args);
+            MoveMissed?.Invoke(this, CreateMoveEventArgs(e));
         }
         protected virtual void MoveHadNoEffectHandler(object sender, Moves.MoveEventArgs e)
         {
-            Battles.MoveEventArgs args = GenerateMoveEventArgs(e);
-            MoveHadNoEffect?.Invoke(this, args);
+            MoveHadNoEffect?.Invoke(this, CreateMoveEventArgs(e));
         }
         protected virtual void MoveSuperEffectiveHandler(object sender, Moves.MoveEventArgs e)
         {
-            Battles.MoveEventArgs args = GenerateMoveEventArgs(e);
-            MoveSuperEffective?.Invoke(this, args);
+            MoveSuperEffective?.Invoke(this, CreateMoveEventArgs(e));
         }
         protected virtual void MoveNotVeryEffectiveHandler(object sender, Moves.MoveEventArgs e)
         {
-            Battles.MoveEventArgs args = GenerateMoveEventArgs(e);
-            MoveNotVeryEffective?.Invoke(this, args);
+            MoveNotVeryEffective?.Invoke(this, CreateMoveEventArgs(e));
         }
         protected virtual void MoveCriticalHitHandler(object sender, Moves.MoveEventArgs e)
         {
-            Battles.MoveEventArgs args = GenerateMoveEventArgs(e);
-            MoveCriticalHit?.Invoke(this, args);
+            MoveCriticalHit?.Invoke(this, CreateMoveEventArgs(e));
         }
         protected virtual void MoveOneHitKOHandler(object sender, Moves.MoveEventArgs e)
         {
-            Battles.MoveEventArgs args = GenerateMoveEventArgs(e);
-            MoveOneHitKO?.Invoke(this, args);
+            MoveOneHitKO?.Invoke(this, CreateMoveEventArgs(e));
         }
         protected virtual void PayDayTriggeredHandler(object sender, Moves.MoveEventArgs e)
         {
-            Battles.MoveEventArgs args = GenerateMoveEventArgs(e);
-            PayDayTriggered?.Invoke(this, args);
+            PayDayTriggered?.Invoke(this, CreateMoveEventArgs(e));
         }
         protected virtual void SolarBeamFirstTurnHandler(object sender, Moves.MoveEventArgs e)
         {
-            Battles.MoveEventArgs args = GenerateMoveEventArgs(e);
-            SolarBeamFirstTurn?.Invoke(this, args);
+            SolarBeamFirstTurn?.Invoke(this, CreateMoveEventArgs(e));
         }
         protected virtual void RazorWindFirstTurnHandler(object sender, Moves.MoveEventArgs e)
         {
-            Battles.MoveEventArgs args = GenerateMoveEventArgs(e);
-            RazorWindFirstTurn?.Invoke(this, args);
+            RazorWindFirstTurn?.Invoke(this, CreateMoveEventArgs(e));
         }
         protected virtual void BidingTimeHandler(object sender, Moves.MoveEventArgs e)
         {
-            Battles.MoveEventArgs args = GenerateMoveEventArgs(e);
-            BidingTime?.Invoke(this, args);
+            BidingTime?.Invoke(this, CreateMoveEventArgs(e));
         }
         protected virtual void BideUnleashedHandler(object sender, Moves.MoveEventArgs e)
         {
-            Battles.MoveEventArgs args = GenerateMoveEventArgs(e);
-            BideUnleased?.Invoke(this, args);
+            BideUnleased?.Invoke(this, CreateMoveEventArgs(e));
         }
         protected virtual void FlyFirstTurnHandler(object sender, Moves.MoveEventArgs e)
         {
-            Battles.MoveEventArgs args = GenerateMoveEventArgs(e);
-            FlyFirstTurn?.Invoke(this, args);
+            FlyFirstTurn?.Invoke(this, CreateMoveEventArgs(e));
         }
         protected virtual void AttackContinuesHandler(object sender, Moves.MoveEventArgs e)
         {
-            Battles.MoveEventArgs args = GenerateMoveEventArgs(e);
-            AttackContinues?.Invoke(this, args);
+            AttackContinues?.Invoke(this, CreateMoveEventArgs(e));
         }
         protected virtual void CrashDamageHandler(object sender, Moves.MoveEventArgs e)
         {
-            Battles.MoveEventArgs args = GenerateMoveEventArgs(e);
-            CrashDamage?.Invoke(this, args);
+            CrashDamage?.Invoke(this, CreateMoveEventArgs(e));
         }
         protected virtual void HurtByRecoilDamageHandler(object sender, Moves.MoveEventArgs e)
         {
-            Battles.MoveEventArgs args = GenerateMoveEventArgs(e);
-            HurtByRecoilDamage?.Invoke(this, args);
+            HurtByRecoilDamage?.Invoke(this, CreateMoveEventArgs(e));
         }
         protected virtual void ThrashingAboutHandler(object sender, Moves.MoveEventArgs e)
         {
-            Battles.MoveEventArgs args = GenerateMoveEventArgs(e);
-            ThrashingAbout?.Invoke(this, args);
+            ThrashingAbout?.Invoke(this, CreateMoveEventArgs(e));
         }
         protected virtual void HyperBeamRechargingHandler(object sender, Moves.MoveEventArgs e)
         {
-            Battles.MoveEventArgs args = GenerateMoveEventArgs(e);
-            HyperBeamRecharging?.Invoke(this, args);
+            HyperBeamRecharging?.Invoke(this, CreateMoveEventArgs(e));
         }
         protected virtual void SuckedHealthHandler(object sender, Moves.MoveEventArgs e)
         {
-            Battles.MoveEventArgs args = GenerateMoveEventArgs(e);
-            SuckedHealth?.Invoke(this, args);
+            SuckedHealth?.Invoke(this, CreateMoveEventArgs(e));
         }
         protected virtual void DugAHoleHandler(object sender, Moves.MoveEventArgs e)
         {
-            Battles.MoveEventArgs args = GenerateMoveEventArgs(e);
-            DugAHole?.Invoke(this, args);
+            DugAHole?.Invoke(this, CreateMoveEventArgs(e));
         }
         protected virtual void SkullBashFirstTurnHandler(object sender, Moves.MoveEventArgs e)
         {
-            Battles.MoveEventArgs args = GenerateMoveEventArgs(e);
-            SkullBashFirstTurn?.Invoke(this, args);
+            SkullBashFirstTurn?.Invoke(this, CreateMoveEventArgs(e));
         }
         protected virtual void SkyAttackFirstTurnHandler(object sender, Moves.MoveEventArgs e)
         {
-            Battles.MoveEventArgs args = GenerateMoveEventArgs(e);
-            SkyAttackFirstTurn?.Invoke(this, args);
+            SkyAttackFirstTurn?.Invoke(this, CreateMoveEventArgs(e));
         }
         protected virtual void RegainedHealthHandler(object sender, Moves.MoveEventArgs e)
         {
-            Battles.MoveEventArgs args = GenerateMoveEventArgs(e);
-            RegainedHealth?.Invoke(this, args);
+            RegainedHealth?.Invoke(this, CreateMoveEventArgs(e));
         }
-        private Battles.MoveEventArgs GenerateMoveEventArgs(Moves.MoveEventArgs e)
+        private MoveEventArgs CreateMoveEventArgs(Moves.MoveEventArgs e)
         {
-            Battles.MoveEventArgs args = new MoveEventArgs();
-            args.pokemon = Pokemon;
-            args.battlePokemon = this;
-            args.move = e.move;
-            return args;
+            return new MoveEventArgs()
+            {
+                pokemon = Pokemon,
+                battlePokemon = this,
+                move = e.move
+            };
         }
 
 
