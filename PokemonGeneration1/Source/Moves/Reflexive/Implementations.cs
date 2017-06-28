@@ -16,7 +16,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
             OnUsed();
             if (user.CanAttackGoHigher)
             {
-                user.ModifyStatStageAsPrimaryEffect(StatsEnum.ATTACK, 2);
+                user.ModifyStatStageAsPrimaryEffect(StatType.Attack, 2);
             }
             else
             {
@@ -65,7 +65,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
             }
             else
             {
-                user.ModifyStatStageAsPrimaryEffect(StatsEnum.SPECIAL, 1);
+                user.ModifyStatStageAsPrimaryEffect(StatType.Special, 1);
             }
             user.SetLastMoveUsed(this);
             SubtractPP(1);
@@ -87,7 +87,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
             }
             else
             {
-                user.ModifyStatStageAsPrimaryEffect(StatsEnum.ATTACK, 1);
+                user.ModifyStatStageAsPrimaryEffect(StatType.Attack, 1);
             }
             user.SetLastMoveUsed(this);
             SubtractPP(1);
@@ -108,7 +108,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
             }
             else
             {
-                user.ModifyStatStageAsPrimaryEffect(StatsEnum.SPEED, 2);
+                user.ModifyStatStageAsPrimaryEffect(StatType.Speed, 2);
             }
             user.SetLastMoveUsed(this);
             SubtractPP(1);
@@ -125,7 +125,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
             OnUsed();
             if (user.CanEvasionGoHigher)
             {
-                user.ModifyStatStageAsPrimaryEffect(StatsEnum.EVASION, 1);
+                user.ModifyStatStageAsPrimaryEffect(StatType.Evasion, 1);
             }
             else
             {
@@ -171,7 +171,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
             OnUsed();
             if (user.CanDefenseGoHigher)
             {
-                user.ModifyStatStageAsPrimaryEffect(StatsEnum.DEFENSE, 1);
+                user.ModifyStatStageAsPrimaryEffect(StatType.Defense, 1);
             }
             else
             {
@@ -194,7 +194,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
 
             if (user.CanEvasionGoHigher)
             {
-                user.ModifyStatStageAsPrimaryEffect(StatsEnum.EVASION, 1);
+                user.ModifyStatStageAsPrimaryEffect(StatType.Evasion, 1);
             }
             else
             {
@@ -217,7 +217,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
 
             if (user.CanDefenseGoHigher)
             {
-                user.ModifyStatStageAsPrimaryEffect(StatsEnum.DEFENSE, 1);
+                user.ModifyStatStageAsPrimaryEffect(StatType.Defense, 1);
             }
             else
             {
@@ -240,7 +240,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
 
             if (user.CanDefenseGoHigher)
             {
-                user.ModifyStatStageAsPrimaryEffect(StatsEnum.DEFENSE, 1);
+                user.ModifyStatStageAsPrimaryEffect(StatType.Defense, 1);
             }
             else
             {
@@ -264,7 +264,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
 
             if (user.CanDefenseGoHigher)
             {
-                user.ModifyStatStageAsPrimaryEffect(StatsEnum.DEFENSE, 2);
+                user.ModifyStatStageAsPrimaryEffect(StatType.Defense, 2);
             }
             else
             {
@@ -349,7 +349,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
             OnUsed();
             if (user.CanSpecialGoHigher)
             {
-                user.ModifyStatStageAsPrimaryEffect(StatsEnum.SPECIAL, 2);
+                user.ModifyStatStageAsPrimaryEffect(StatType.Special, 2);
             }
             else
             {
@@ -407,7 +407,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
             OnUsed();
             if (user.CanDefenseGoHigher)
             {
-                user.ModifyStatStageAsPrimaryEffect(StatsEnum.DEFENSE, 2);
+                user.ModifyStatStageAsPrimaryEffect(StatType.Defense, 2);
             }
             else
             {
@@ -470,7 +470,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
             OnUsed();
             if (user.CanAttackGoHigher)
             {
-                user.ModifyStatStageAsPrimaryEffect(StatsEnum.ATTACK, 1);
+                user.ModifyStatStageAsPrimaryEffect(StatType.Attack, 1);
             }
             else
             {

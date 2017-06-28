@@ -32,7 +32,7 @@ namespace PokemonGeneration1.Source.Battles
 
     public class StatStageChangedEventArgs : BattlePokemonEventArgs
     {
-        public StatsEnum statChanged;
+        public StatType statChanged;
         public int change;
     }
 

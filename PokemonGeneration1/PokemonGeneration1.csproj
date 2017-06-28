@@ -58,7 +58,8 @@
     <Compile Include="Source\Battles\Selection.cs" />
     <Compile Include="Source\Battles\Side.cs" />
     <Compile Include="Source\Battles\Conversion.cs" />
-    <Compile Include="Source\Battles\StatsEnum.cs" />
+    <Compile Include="Source\Battles\StatType.cs" />
+    <Compile Include="Source\Battles\StatStageMultipliers.cs" />
     <Compile Include="Source\Battles\Transform.cs" />
     <Compile Include="Source\Items\Item.cs" />
     <Compile Include="Source\Moves\Metronome.cs" />

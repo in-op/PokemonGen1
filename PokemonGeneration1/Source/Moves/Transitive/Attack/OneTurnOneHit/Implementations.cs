@@ -833,7 +833,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.OneTurnOneHit
                     defender.CanDefenseGoLower &&
                     new Random().Next(0, 100) < 10)
                 {
-                    defender.ModifyStatStageAsSecondaryEffect(StatsEnum.DEFENSE, -1);
+                    defender.ModifyStatStageAsSecondaryEffect(StatType.Defense, -1);
                 }
             }
         }
@@ -1063,7 +1063,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.OneTurnOneHit
                     defender.CanSpeedGoLower &&
                     new Random().Next(0, 100) < 10)
                 {
-                    defender.ModifyStatStageAsSecondaryEffect(StatsEnum.SPEED, -1);
+                    defender.ModifyStatStageAsSecondaryEffect(StatType.Speed, -1);
                 }
             }
             SetLastMoveAndMirrorMove(user, defender);
@@ -1090,7 +1090,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.OneTurnOneHit
                     defender.CanAttackGoLower &&
                     new Random().Next(0, 100) < 10)
                 {
-                    defender.ModifyStatStageAsSecondaryEffect(StatsEnum.ATTACK, -1);
+                    defender.ModifyStatStageAsSecondaryEffect(StatType.Attack, -1);
                 }
             }
             SetLastMoveAndMirrorMove(user, defender);
@@ -1606,7 +1606,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.OneTurnOneHit
                     defender.CanSpecialGoLower &&
                     new Random().Next(0, 1000) < 332)
                 {
-                    defender.ModifyStatStageAsSecondaryEffect(StatsEnum.SPECIAL, -1);
+                    defender.ModifyStatStageAsSecondaryEffect(StatType.Special, -1);
                 }
             }
 
@@ -1934,7 +1934,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.OneTurnOneHit
                     defender.CanSpeedGoLower &&
                     new Random().Next(0, 100) < 10)
                 {
-                    defender.ModifyStatStageAsSecondaryEffect(StatsEnum.SPEED, -1);
+                    defender.ModifyStatStageAsSecondaryEffect(StatType.Speed, -1);
                 }
             }
             SetLastMoveAndMirrorMove(user, defender);
@@ -2045,7 +2045,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.OneTurnOneHit
                     defender.CanSpeedGoLower &&
                     new Random().Next(0, 100) < 10)
                 {
-                    defender.ModifyStatStageAsSecondaryEffect(StatsEnum.SPEED, -1);
+                    defender.ModifyStatStageAsSecondaryEffect(StatType.Speed, -1);
                 }
             }
             SetLastMoveAndMirrorMove(user, defender);

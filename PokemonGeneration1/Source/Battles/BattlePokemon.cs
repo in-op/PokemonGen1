@@ -126,7 +126,7 @@ namespace PokemonGeneration1.Source.Battles
                     pokemon = Pokemon
                 });
         }
-        protected virtual void OnStatStageChanged(StatsEnum stat, int amount)
+        protected virtual void OnStatStageChanged(StatType stat, int amount)
         {
             Battles.StatStageChangedEventArgs args = new StatStageChangedEventArgs();
             args.pokemon = Pokemon;
@@ -1022,24 +1022,24 @@ namespace PokemonGeneration1.Source.Battles
         public float GetPokemonsDefenseStatWithModifiers()
         {
             float defense = Pokemon.Defense;
-            defense *= StatStageMultiplier[StatStageModifiers.Defense];
+            defense *= StatStageMultipliers.Multiplier[StatStageModifiers.Defense];
             return (float)Math.Floor(defense);
         }
         public float GetPokemonsSpecialStatWithModifiers()
         {
             float special = Pokemon.Special;
-            special *= StatStageMultiplier[StatStageModifiers.Special];
+            special *= StatStageMultipliers.Multiplier[StatStageModifiers.Special];
             return (float)Math.Floor(special);
         }
 
 
 
 
-        public void ModifyStatStageAsPrimaryEffect(StatsEnum statType, int delta)
+        public void ModifyStatStageAsPrimaryEffect(StatType statType, int delta)
         {
             ModifyStats(statType, delta);
         }
-        public void ModifyStatStageAsSecondaryEffect(StatsEnum statType, int delta)
+        public void ModifyStatStageAsSecondaryEffect(StatType statType, int delta)
         {
             if (!Substitute.IsActive &&
                 !MistActive)
@@ -1047,28 +1047,28 @@ namespace PokemonGeneration1.Source.Battles
                 ModifyStats(statType, delta);
             }
         }
-        private void ModifyStats(StatsEnum statType, int delta)
+        private void ModifyStats(StatType statType, int delta)
         {
             OnStatStageChanged(statType, delta);
             switch (statType)
             {
-                case StatsEnum.ACCURACY:
+                case StatType.Accuracy:
                     StatStageModifiers.ModifyAccuracy(delta);
                     break;
-                case StatsEnum.EVASION:
+                case StatType.Evasion:
                     StatStageModifiers.ModifyEvasion(delta);
                     break;
-                case StatsEnum.ATTACK:
+                case StatType.Attack:
                     BurnDecreasingAttack = false;
                     StatStageModifiers.ModifyAttack(delta);
                     break;
-                case StatsEnum.DEFENSE:
+                case StatType.Defense:
                     StatStageModifiers.ModifyDefense(delta);
                     break;
-                case StatsEnum.SPECIAL:
+                case StatType.Special:
                     StatStageModifiers.ModifySpecial(delta);
                     break;
-                case StatsEnum.SPEED:
+                case StatType.Speed:
                     ParalysisDecreasingSpeed = false;
                     StatStageModifiers.ModifySpecial(delta);
                     break;
@@ -1126,7 +1126,7 @@ namespace PokemonGeneration1.Source.Battles
             float attack;
             if (Transform.Active) { attack = Transform.Attack; }
             else { attack = Pokemon.Attack; }
-            attack *= StatStageMultiplier[StatStageModifiers.Attack];
+            attack *= StatStageMultipliers.Multiplier[StatStageModifiers.Attack];
             if (BurnDecreasingAttack)
             {
                 attack *= 0.5f;
@@ -1138,7 +1138,7 @@ namespace PokemonGeneration1.Source.Battles
             float defense;
             if (Transform.Active) { defense = Transform.Defense; }
             else { defense = Pokemon.Defense; }
-            defense *= StatStageMultiplier[StatStageModifiers.Defense];
+            defense *= StatStageMultipliers.Multiplier[StatStageModifiers.Defense];
             return (float)Math.Floor(defense);
         }
         public float GetSpecial()
@@ -1146,7 +1146,7 @@ namespace PokemonGeneration1.Source.Battles
             float special;
             if (Transform.Active) { special = Transform.Special; }
             else { special = Pokemon.Special; }
-            special *= StatStageMultiplier[StatStageModifiers.Special];
+            special *= StatStageMultipliers.Multiplier[StatStageModifiers.Special];
             return (float)Math.Floor(special);
         }
         public float GetSpeed()
@@ -1154,7 +1154,7 @@ namespace PokemonGeneration1.Source.Battles
             float speed;
             if (Transform.Active) { speed = Transform.Speed; }
             else { speed = Pokemon.Speed; }
-            speed *= StatStageMultiplier[StatStageModifiers.Speed];
+            speed *= StatStageMultipliers.Multiplier[StatStageModifiers.Speed];
             if (ParalysisDecreasingSpeed)
             {
                 speed *= 0.25f;
@@ -1176,46 +1176,11 @@ namespace PokemonGeneration1.Source.Battles
 
 
 
-        public float GetAccuracyMultiplier()
-        {
-            return AccuracyStageToMultiplier[StatStageModifiers.Accuracy];
-        }
-        public float GetEvasionMultiplier()
-        {
-            return EvasionStageToMultiplier[StatStageModifiers.Evasion];
-        }
-        private static readonly Dictionary<int, float> AccuracyStageToMultiplier = new Dictionary<int, float>()
-        {
-            {-6, (25f/100f) },
-            {-5, (28f/100f) },
-            {-4, (33f/100f) },
-            {-3, (40f/100f) },
-            {-2, (50f/100f) },
-            {-1, (66f/100f) },
-            {0, 1f },
-            {1, 1.5f },
-            {2, 2f },
-            {3, 2.5f },
-            {4, 3f },
-            {5, 3.5f },
-            {6, 4f }
-        };
-        private static readonly Dictionary<int, float> EvasionStageToMultiplier = new Dictionary<int, float>
-        {
-            {6, (25f/100f) },
-            {5, (28f/100f) },
-            {4, (33f/100f) },
-            {3, (40f/100f) },
-            {2, (50f/100f) },
-            {1, (66f/100f) },
-            {0, 1f },
-            {-1, 1.5f },
-            {-2, 2f },
-            {-3, 2.5f },
-            {-4, 3f },
-            {-5, 3.5f },
-            {-6, 4f }
-        };
+        public float AccuracyMultiplier =>
+            StatStageMultipliers.Multiplier[StatStageModifiers.Accuracy];
+
+        public float EvasionMultiplier =>
+            StatStageMultipliers.Multiplier[-StatStageModifiers.Evasion];
 
 
 
@@ -1419,7 +1384,7 @@ namespace PokemonGeneration1.Source.Battles
             {
                 if (StatStageModifiers.CanAttackGoHigher)
                 {
-                    ModifyStatStageAsPrimaryEffect(StatsEnum.ATTACK, 1);
+                    ModifyStatStageAsPrimaryEffect(StatType.Attack, 1);
                 }
             }
         }
@@ -1535,22 +1500,6 @@ namespace PokemonGeneration1.Source.Battles
         {
             return StatStageModifiers;
         }
-        private static readonly Dictionary<int, float> StatStageMultiplier = new Dictionary<int, float>()
-        {
-            {-6, (25f/100f) },
-            {-5, (28f/100f) },
-            {-4, (33f/100f) },
-            {-3, (40f/100f) },
-            {-2, (50f/100f) },
-            {-1, (66f/100f) },
-            {0, 1f },
-            {1, 1.5f },
-            {2, 2f },
-            {3, 2.5f },
-            {4, 3f },
-            {5, 3.5f },
-            {6, 4f }
-        };
 
 
     }

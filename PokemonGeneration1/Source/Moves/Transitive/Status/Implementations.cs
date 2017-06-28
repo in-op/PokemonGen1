@@ -25,7 +25,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Status
                      !defender.IsSubstituteActive() &&
                      !defender.IsMistActive())
             {
-                defender.ModifyStatStageAsPrimaryEffect(StatsEnum.ACCURACY, -1);
+                defender.ModifyStatStageAsPrimaryEffect(StatType.Accuracy, -1);
             }
             else
             {
@@ -53,7 +53,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Status
                      !defender.IsSubstituteActive() &&
                      !defender.IsMistActive())
             {
-                defender.ModifyStatStageAsPrimaryEffect(StatsEnum.DEFENSE, -1);
+                defender.ModifyStatStageAsPrimaryEffect(StatType.Defense, -1);
             }
             else
             {
@@ -80,7 +80,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Status
                      !defender.IsSubstituteActive() &&
                      !defender.IsMistActive())
             {
-                defender.ModifyStatStageAsPrimaryEffect(StatsEnum.DEFENSE, -1);
+                defender.ModifyStatStageAsPrimaryEffect(StatType.Defense, -1);
             }
             else
             {
@@ -112,7 +112,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Status
                      !defender.IsSubstituteActive() &&
                      !defender.IsMistActive())
             {
-                defender.ModifyStatStageAsPrimaryEffect(StatsEnum.ATTACK, -1);
+                defender.ModifyStatStageAsPrimaryEffect(StatType.Attack, -1);
             }
             else
             {
@@ -395,7 +395,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Status
                      !defender.IsSubstituteActive() &&
                      !defender.IsMistActive())
             {
-                defender.ModifyStatStageAsPrimaryEffect(StatsEnum.SPEED, -1);
+                defender.ModifyStatStageAsPrimaryEffect(StatType.Speed, -1);
             }
             else
             {
@@ -529,7 +529,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Status
                      !defender.IsSubstituteActive() &&
                      !defender.IsMistActive())
             {
-                defender.ModifyStatStageAsPrimaryEffect(StatsEnum.DEFENSE, -2);
+                defender.ModifyStatStageAsPrimaryEffect(StatType.Defense, -2);
             }
             else
             {
@@ -560,7 +560,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Status
                      !defender.IsSubstituteActive() &&
                      !defender.IsMistActive())
             {
-                defender.ModifyStatStageAsPrimaryEffect(StatsEnum.ACCURACY, -1);
+                defender.ModifyStatStageAsPrimaryEffect(StatType.Accuracy, -1);
             }
             else
             {
@@ -689,7 +689,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Status
                      !defender.IsSubstituteActive() &&
                      !defender.IsMistActive())
             {
-                defender.ModifyStatStageAsPrimaryEffect(StatsEnum.ACCURACY, -1);
+                defender.ModifyStatStageAsPrimaryEffect(StatType.Accuracy, -1);
             }
             SetLastMoveAndMirrorMove(user, defender);
             SubtractPP(1);
@@ -835,7 +835,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Status
                      !defender.IsSubstituteActive() &&
                      !defender.IsMistActive())
             {
-                defender.ModifyStatStageAsPrimaryEffect(StatsEnum.ACCURACY, -1);
+                defender.ModifyStatStageAsPrimaryEffect(StatType.Accuracy, -1);
             }
             SetLastMoveAndMirrorMove(user, defender);
             SubtractPP(1);

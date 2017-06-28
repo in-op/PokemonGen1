@@ -24,8 +24,8 @@ namespace PokemonGeneration1.Source.Moves
         protected bool IsAMiss(BattlePokemon user, BattlePokemon defender)
         {
             float accuracyPercent = AccuracyPercent *
-                                    user.GetAccuracyMultiplier() *
-                                    defender.GetEvasionMultiplier();
+                                    user.AccuracyMultiplier *
+                                    defender.EvasionMultiplier;
             if (defender.IsSemiInvulnerable())
             {
                 return true;
