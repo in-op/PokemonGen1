@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using PokemonGeneration1.Source.Battles;
+﻿using PokemonGeneration1.Source.Battles;
 
 namespace PokemonGeneration1.Source.Moves
 {
