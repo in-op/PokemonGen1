@@ -25,16 +25,14 @@ namespace PokemonGeneration1.Source.Trainers
         /// Returns a list of the Trainer's party of Pokemon.
         /// </summary>
         /// <returns>A list of the Trainer's party of Pokemon.</returns>
-        public List<Pokemon> Party()
-        {
-            return party.ToList();
-        }
+        public List<Pokemon> Party() => party.ToList();
         
-
-        public static Trainer CreateNew(string name)
-        {
-            return new Trainer(name, new List<Pokemon>(6), new Bag());
-        }
+        /// <summary>
+        /// Returns a new Trainer with the given name, an empty Pokemon party, and an empty Bag.
+        /// </summary>
+        /// <param name="name">The name of the Trainer.</param>
+        public static Trainer CreateNew(string name) =>
+            new Trainer(name, new List<Pokemon>(6), new Bag());
 
 
         private Trainer(
