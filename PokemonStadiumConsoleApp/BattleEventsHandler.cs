@@ -264,19 +264,19 @@ namespace PokemonStadiumConsoleApp
         //===================================================================================//
         //                           MOVE EVENT HANDLERS                                     //
         //===================================================================================//
-        private static void MyMoveUsedEventHandler(object sender, MoveEventArgs args)
+        private static void MyMoveUsedEventHandler(MoveEventArgs args)
         {
             Console.WriteLine();
             Console.WriteLine(args.pokemon.Nickname + " used " + args.move.Name + "!");
             Thread.Sleep(1500);
         }
-        private static void EnemyMoveUsedEventHandler(object sender, MoveEventArgs args)
+        private static void EnemyMoveUsedEventHandler(MoveEventArgs args)
         {
             Console.WriteLine();
             Console.WriteLine("Enemy " + args.pokemon.Nickname + " used " + args.move.Name + "!");
             Thread.Sleep(1500);
         }
-        private static void MoveFailedEventHandler(object sender, MoveEventArgs args)
+        private static void MoveFailedEventHandler(MoveEventArgs args)
         {
             Console.WriteLine("... but it failed!");
         }

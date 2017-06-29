@@ -92,8 +92,8 @@ namespace PokemonGeneration1.Source.Battles
         public event EventHandler<Battles.GainedHPEventArgs> GainedHP;
 
         //events from Move
-        public event EventHandler<Battles.MoveEventArgs> MoveUsed;
-        public event EventHandler<Battles.MoveEventArgs> MoveFailed;
+        public Action<MoveEventArgs> MoveUsed;
+        public Action<MoveEventArgs> MoveFailed;
         public event EventHandler<Battles.MoveEventArgs> MoveMissed;
         public event EventHandler<Battles.MoveEventArgs> MoveHadNoEffect;
         public event EventHandler<Battles.MoveEventArgs> MoveSuperEffective;
@@ -582,13 +582,13 @@ namespace PokemonGeneration1.Source.Battles
             move.SkyAttackFirstTurn -= SkyAttackFirstTurnHandler;
             move.RegainedHealth -= RegainedHealthHandler;
         }
-        protected virtual void MoveUsedHandler(object sender, Moves.MoveEventArgs e)
+        protected virtual void MoveUsedHandler(Move m)
         {
-            MoveUsed?.Invoke(this, CreateMoveEventArgs(e));
+            MoveUsed?.Invoke(CreateMoveEventArgs(m));
         }
-        protected virtual void MoveFailedHandler(object sender, Moves.MoveEventArgs e)
+        protected virtual void MoveFailedHandler(Move m)
         {
-            MoveFailed?.Invoke(this, CreateMoveEventArgs(e));
+            MoveFailed?.Invoke(CreateMoveEventArgs(m));
         }
         protected virtual void MoveMissedHandler(object sender, Moves.MoveEventArgs e)
         {
@@ -685,6 +685,15 @@ namespace PokemonGeneration1.Source.Battles
                 pokemon = Pokemon,
                 battlePokemon = this,
                 move = e.move
+            };
+        }
+        private MoveEventArgs CreateMoveEventArgs(Move m)
+        {
+            return new MoveEventArgs()
+            {
+                pokemon = Pokemon,
+                battlePokemon = this,
+                move = m
             };
         }
 
