@@ -54,8 +54,7 @@ namespace PokemonGeneration1.Source.PokemonData
         }
 
 
-        private static float StatPoint(
-            float statExp)
+        private static float StatPoint(float statExp)
         {
             return (float)Math.Floor(Math.Min(255f, Math.Floor(Math.Sqrt(Math.Max(0, statExp - 1f)) + 1f)) / 4f);
         }
