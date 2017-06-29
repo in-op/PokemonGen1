@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PokemonGeneration1.Source.Battles
 {
@@ -12,8 +8,8 @@ namespace PokemonGeneration1.Source.Battles
     /// </summary>
     public class Battle
     {
-        private Side PlayerSide;
-        private Side OpponentSide;
+        public Side PlayerSide { get; }
+        public Side OpponentSide { get; }
         private BattleActor PlayerActor;
         private BattleActor OpponentActor;
         private BattleState State;
@@ -23,6 +19,12 @@ namespace PokemonGeneration1.Source.Battles
         private Side SecondSide;
         private BattleActor FirstActor;
         private BattleActor SecondActor;
+
+
+
+        public bool IsGameOver => PlayerSide.IsDefeated || OpponentSide.IsDefeated;
+        public bool IsPlayerDefeated => PlayerSide.IsDefeated;
+        public bool IsOpponentDefeated => OpponentSide.IsDefeated;
 
 
 
@@ -76,13 +78,6 @@ namespace PokemonGeneration1.Source.Battles
             SecondExecutionOver?.Invoke(this, args);
         }
 
-
-
-        public bool IsGameOver() { return PlayerSide.IsDefeated || OpponentSide.IsDefeated; }
-        public bool IsPlayerDefeated() { return PlayerSide.IsDefeated; }
-        public bool IsOpponentDefeated() { return OpponentSide.IsDefeated; }
-        public Side GetPlayerSide() { return PlayerSide; }
-        public Side GetOpponentSide() { return OpponentSide; }
 
 
 
@@ -158,7 +153,7 @@ namespace PokemonGeneration1.Source.Battles
                     break;
 
                 case BattleState.FirstFaintsEarly:
-                    if (IsGameOver()) State = BattleState.GameOver;
+                    if (IsGameOver) State = BattleState.GameOver;
                     else State = BattleState.FirstFaintsEarlySwitch;
                     break;
 
@@ -168,17 +163,17 @@ namespace PokemonGeneration1.Source.Battles
                     break;
 
                 case BattleState.BothFaint:
-                    if (IsGameOver()) State = BattleState.GameOver;
+                    if (IsGameOver) State = BattleState.GameOver;
                     else State = BattleState.BothPokemonSwitch;
                     break;
 
                 case BattleState.SecondFaints:
-                    if (IsGameOver()) State = BattleState.GameOver;
+                    if (IsGameOver) State = BattleState.GameOver;
                     else State = BattleState.SecondSwitchesPokemon;
                     break;
 
                 case BattleState.FirstFaintsLate:
-                    if (IsGameOver()) State = BattleState.GameOver;
+                    if (IsGameOver) State = BattleState.GameOver;
                     else State = BattleState.FirstFaintsLateSwitch;
                     break;
 

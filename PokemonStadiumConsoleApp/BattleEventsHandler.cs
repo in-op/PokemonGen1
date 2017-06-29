@@ -148,7 +148,7 @@ namespace PokemonStadiumConsoleApp
             Console.WriteLine();
             Console.WriteLine("Battle over!");
             Thread.Sleep(2500);
-            if (args.thisBattle.IsPlayerDefeated())
+            if (args.thisBattle.IsPlayerDefeated)
             {
                 Console.WriteLine("Player lost!");
                 Console.WriteLine();
@@ -183,10 +183,10 @@ namespace PokemonStadiumConsoleApp
         }
         private static void DisplayPokemon(BattleEventArgs args)
         {
-            Display.Pokemon(args.thisBattle.GetPlayerSide().CurrentBattlePokemon,
-                            args.thisBattle.GetOpponentSide().CurrentBattlePokemon,
-                            args.thisBattle.GetPlayerSide().Name,
-                            args.thisBattle.GetOpponentSide().Name);
+            Display.Pokemon(args.thisBattle.PlayerSide.CurrentBattlePokemon,
+                            args.thisBattle.OpponentSide.CurrentBattlePokemon,
+                            args.thisBattle.PlayerSide.Name,
+                            args.thisBattle.OpponentSide.Name);
         }
         
 

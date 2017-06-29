@@ -14,7 +14,7 @@ namespace PokemonGeneration1.Source.Battles
             if (actorSide.CurrentBattlePokemon.IsMultiTurnMoveActive())
             {
                 return Selection.MakeContinueMultiTurnMove(actorSide.CurrentBattlePokemon,
-                                                           battle.GetPlayerSide().CurrentBattlePokemon);
+                                                           battle.PlayerSide.CurrentBattlePokemon);
             }
             else if (actorSide.CurrentBattlePokemon.PartiallyTrapped)
             {
@@ -28,7 +28,7 @@ namespace PokemonGeneration1.Source.Battles
         private Selection MakeRandomFightSelection(Battle battle, Side actorSide)
         {
             return Selection.MakeFight(actorSide.CurrentBattlePokemon,
-                                       battle.GetPlayerSide().CurrentBattlePokemon,
+                                       battle.PlayerSide.CurrentBattlePokemon,
                                        PickRandomMove(actorSide));
         }
         private Move PickRandomMove(Side actorSide)
