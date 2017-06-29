@@ -11,9 +11,9 @@ namespace PokemonGeneration1.Source.PokemonData
     {
         public int Number { get; private set; }
 
-        public string Species { get => SpeciesData.Names[Number]; }
-        public Type Type1 { get => SpeciesData.Types[Number][0]; }
-        public Type Type2 { get => SpeciesData.Types[Number][1]; }
+        public string Species => SpeciesData.Names[Number];
+        public Type Type1 => SpeciesData.Types[Number][0];
+        public Type Type2 => SpeciesData.Types[Number][1];
 
         public float Level { get; private set; }
         public Status Status { get; private set; }
@@ -25,36 +25,36 @@ namespace PokemonGeneration1.Source.PokemonData
         public Move Move4 { get; private set; }
 
         public float Exp { get; private set; }
-        public float ExpYield { get => SpeciesData.ExpYield[Number]; }
-        public ExperienceGroup ExpGroup { get => SpeciesData.ExpGroup[Number]; }
+        public float ExpYield => SpeciesData.ExpYield[Number]; 
+        public ExperienceGroup ExpGroup => SpeciesData.ExpGroup[Number]; 
 
         private Stats Stats;
-        public float HP { get => Stats.HP; }
-        public float Attack { get => Stats.Attack; }
-        public float Defense { get => Stats.Defense; }
-        public float Special { get => Stats.Special; }
-        public float Speed { get => Stats.Speed; }
+        public float HP => Stats.HP; 
+        public float Attack => Stats.Attack; 
+        public float Defense => Stats.Defense; 
+        public float Special => Stats.Special; 
+        public float Speed => Stats.Speed; 
 
-        private BaseStats BaseStats { get => SpeciesData.BaseStats[Number]; }
-        public float BaseHP { get => BaseStats.HP; }
-        public float BaseAttack { get => BaseStats.Attack; }
-        public float BaseDefense { get => BaseStats.Defense; }
-        public float BaseSpecial { get => BaseStats.Special; }
-        public float BaseSpeed { get => BaseStats.Speed; }
+        private BaseStats BaseStats => SpeciesData.BaseStats[Number];
+        public float BaseHP => BaseStats.HP;
+        public float BaseAttack => BaseStats.Attack;
+        public float BaseDefense => BaseStats.Defense;
+        public float BaseSpecial => BaseStats.Special;
+        public float BaseSpeed => BaseStats.Speed;
         
         private readonly DeterminantValues DVs;
-        public float HPDV { get => DVs.HP; }
-        public float AttackDV { get => DVs.Attack; }
-        public float DefenseDV { get => DVs.Defense; }
-        public float SpecialDV { get => DVs.Special; }
-        public float SpeedDV { get => DVs.Speed; }
+        public float HPDV => DVs.HP;
+        public float AttackDV => DVs.Attack;
+        public float DefenseDV => DVs.Defense;
+        public float SpecialDV => DVs.Special;
+        public float SpeedDV => DVs.Speed;
 
         private StatExp StatExp;
-        public float HPExp { get => StatExp.HP; }
-        public float AttackExp { get => StatExp.Attack; }
-        public float DefenseExp { get => StatExp.Defense; }
-        public float SpecialExp { get => StatExp.Special; }
-        public float SpeedExp { get => StatExp.Speed; }
+        public float HPExp => StatExp.HP;
+        public float AttackExp => StatExp.Attack;
+        public float DefenseExp => StatExp.Defense;
+        public float SpecialExp => StatExp.Special;
+        public float SpeedExp => StatExp.Speed;
         
         private PokemonEventArgs EventArgs;
 
