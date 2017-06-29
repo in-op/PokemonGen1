@@ -280,151 +280,151 @@ namespace PokemonStadiumConsoleApp
         {
             Console.WriteLine("... but it failed!");
         }
-        private static void MoveMissedEventHandler(object sender, MoveEventArgs args)
+        private static void MoveMissedEventHandler(MoveEventArgs args)
         {
             Console.WriteLine("but it missed!");
         }
-        private static void MoveHadNoEffectEventHandler(object sender, MoveEventArgs args)
+        private static void MoveHadNoEffectEventHandler(MoveEventArgs args)
         {
             Console.WriteLine("but it had no effect!");
         }
-        private static void MoveSuperEffectiveEventHandler(object sender, MoveEventArgs args)
+        private static void MoveSuperEffectiveEventHandler(MoveEventArgs args)
         {
             Console.WriteLine("It's super effective!");
         }
-        private static void MoveNotVeryEffectiveEventHandler(object sender, MoveEventArgs args)
+        private static void MoveNotVeryEffectiveEventHandler(MoveEventArgs args)
         {
             Console.WriteLine("It's not very effective!");
         }
-        private static void MoveCriticalHitEventHandler(object sender, MoveEventArgs args)
+        private static void MoveCriticalHitEventHandler(MoveEventArgs args)
         {
             Console.WriteLine("Critical hit!");
         }
-        private static void MoveOneHitKOEventHandler(object sender, MoveEventArgs args)
+        private static void MoveOneHitKOEventHandler(MoveEventArgs args)
         {
             Console.WriteLine("One-hit KO!");
         }
-        private static void PayDayTriggeredEventHandler(object sender, MoveEventArgs args)
+        private static void PayDayTriggeredEventHandler(MoveEventArgs args)
         {
             Console.WriteLine("Coins scattered everywhere!");
         }
-        private static void MySolarBeamFirstTurnEventHandler(object sender, MoveEventArgs args)
+        private static void MySolarBeamFirstTurnEventHandler(MoveEventArgs args)
         {
             Console.WriteLine(args.pokemon.Nickname + " took in sunlight!");
         }
-        private static void EnemySolarBeamFirstTurnEventHandler(object sender, MoveEventArgs args)
+        private static void EnemySolarBeamFirstTurnEventHandler(MoveEventArgs args)
         {
             Console.WriteLine("Enemy " + args.pokemon.Nickname + " took in sunlight!");
         }
-        private static void MyRazorWindFirstTurnEventHandler(object sender, MoveEventArgs args)
+        private static void MyRazorWindFirstTurnEventHandler(MoveEventArgs args)
         {
             Console.WriteLine(args.battlePokemon.Name + " made a whirlwind!");
         }
-        private static void EnemyRazorWindFirstTurnEventHandler(object sender, MoveEventArgs args)
+        private static void EnemyRazorWindFirstTurnEventHandler(MoveEventArgs args)
         {
             Console.WriteLine("Enemy " + args.battlePokemon.Name + " made a whirlwind!");
         }
-        private static void MyBidingTimeEventHandler(object sender, MoveEventArgs args)
+        private static void MyBidingTimeEventHandler(MoveEventArgs args)
         {
             Console.WriteLine(args.battlePokemon.Name + " is biding its time!");
         }
-        private static void EnemyBidingTimeEventHandler(object sender, MoveEventArgs args)
+        private static void EnemyBidingTimeEventHandler(MoveEventArgs args)
         {
             Console.WriteLine("Enemy " + args.battlePokemon.Name + " is biding its time!");
         }
-        private static void MyBideUnleashedEventHandler(object sender, MoveEventArgs args)
+        private static void MyBideUnleashedEventHandler(MoveEventArgs args)
         {
             Console.WriteLine(args.battlePokemon.Name + " unleased bide!");
         }
-        private static void EnemyBideUnleashedEventHandler(object sender, MoveEventArgs args)
+        private static void EnemyBideUnleashedEventHandler(MoveEventArgs args)
         {
             Console.WriteLine("Enemy " + args.battlePokemon.Name + " unleased bide!");
         }
-        private static void MyFlyFirstTurnEventHandler(object sender, MoveEventArgs args)
+        private static void MyFlyFirstTurnEventHandler(MoveEventArgs args)
         {
             Console.WriteLine(args.battlePokemon.Name + " flew up high!");
         }
-        private static void EnemyFlyFirstTurnEventHandler(object sender, MoveEventArgs args)
+        private static void EnemyFlyFirstTurnEventHandler(MoveEventArgs args)
         {
             Console.WriteLine("Enemy " + args.battlePokemon.Name + " flew up high!");
         }
-        private static void MyAttackContinuesEventHandler(object sender, MoveEventArgs args)
+        private static void MyAttackContinuesEventHandler(MoveEventArgs args)
         {
             Console.WriteLine(args.battlePokemon.Name + "'s attack continues!");
         }
-        private static void EnemyAttackContinuesEventHandler(object sender, MoveEventArgs args)
+        private static void EnemyAttackContinuesEventHandler(MoveEventArgs args)
         {
             Console.WriteLine("Enemy " + args.battlePokemon.Name + "'s attack continues!");
         }
-        private static void MyCrashDamageEventHandler(object sender, MoveEventArgs args)
+        private static void MyCrashDamageEventHandler(MoveEventArgs args)
         {
             Console.WriteLine(args.battlePokemon.Name + " was hurt by crash damage!");
         }
-        private static void EnemyCrashDamageEventHandler(object sender, MoveEventArgs args)
+        private static void EnemyCrashDamageEventHandler(MoveEventArgs args)
         {
             Console.WriteLine("Enemy " + args.battlePokemon.Name + " was hurt by crash damage!");
         }
-        private static void MyHurtByRecoilDamageEventHandler(object sender, MoveEventArgs args)
+        private static void MyHurtByRecoilDamageEventHandler(MoveEventArgs args)
         {
             Console.WriteLine(args.battlePokemon.Name + " was hurt by recoil damage!");
         }
-        private static void EnemyHurtByRecoilDamageEventHandler(object sender, MoveEventArgs args)
+        private static void EnemyHurtByRecoilDamageEventHandler(MoveEventArgs args)
         {
             Console.WriteLine("Enemy " + args.battlePokemon.Name + " was hurt by recoil damage!");
         }
-        private static void MyThrashingAboutEventHandler(object sender, MoveEventArgs args)
+        private static void MyThrashingAboutEventHandler(MoveEventArgs args)
         {
             Console.WriteLine(args.battlePokemon.Name + " is thrashing about!");
         }
-        private static void EnemyThrashingAboutEventHandler(object sender, MoveEventArgs args)
+        private static void EnemyThrashingAboutEventHandler(MoveEventArgs args)
         {
             Console.WriteLine("Enemy " + args.battlePokemon.Name + " is thrashing about!");
         }
-        private static void MyHyperBeamRechargingEventHandler(object sender, MoveEventArgs args)
+        private static void MyHyperBeamRechargingEventHandler(MoveEventArgs args)
         {
             Console.WriteLine(args.battlePokemon.Name + " is recharging!");
         }
-        private static void EnemyHyperBeamRechargingEventHandler(object sender, MoveEventArgs args)
+        private static void EnemyHyperBeamRechargingEventHandler(MoveEventArgs args)
         {
             Console.WriteLine("Enemy " + args.battlePokemon.Name + " is recharging!");
         }
-        private static void MySuckedHealthEventHandler(object sender, MoveEventArgs args)
+        private static void MySuckedHealthEventHandler(MoveEventArgs args)
         {
             Console.WriteLine(args.battlePokemon.Name + " sucked health!");
         }
-        private static void EnemySuckedHealthEventHandler(object sender, MoveEventArgs args)
+        private static void EnemySuckedHealthEventHandler(MoveEventArgs args)
         {
             Console.WriteLine("Enemy " + args.battlePokemon.Name + " sucked health!");
         }
-        private static void MyDugAHoleEventHandler(object sender, MoveEventArgs args)
+        private static void MyDugAHoleEventHandler(MoveEventArgs args)
         {
             Console.WriteLine(args.battlePokemon.Name + " dug a hole!");
         }
-        private static void EnemyDugAHoleEventHandler(object sender, MoveEventArgs args)
+        private static void EnemyDugAHoleEventHandler(MoveEventArgs args)
         {
             Console.WriteLine("Enemy " + args.battlePokemon.Name + " dug a hole!");
         }
-        private static void MySkullBashFirstTurnEventHandler(object sender, MoveEventArgs args)
+        private static void MySkullBashFirstTurnEventHandler(MoveEventArgs args)
         {
             Console.WriteLine(args.battlePokemon.Name + " withdrew its head!");
         }
-        private static void EnemySkullBashFirstTurnEventHandler(object sender, MoveEventArgs args)
+        private static void EnemySkullBashFirstTurnEventHandler(MoveEventArgs args)
         {
             Console.WriteLine("Enemy " + args.battlePokemon.Name + " withdrew its head!");
         }
-        private static void MySkyAttackFirstTurnEventHandler(object sender, MoveEventArgs args)
+        private static void MySkyAttackFirstTurnEventHandler(MoveEventArgs args)
         {
             Console.WriteLine(args.battlePokemon.Name + " is glowing!");
         }
-        private static void EnemySkyAttackFirstTurnEventHandler(object sender, MoveEventArgs args)
+        private static void EnemySkyAttackFirstTurnEventHandler(MoveEventArgs args)
         {
             Console.WriteLine("Enemy " + args.battlePokemon.Name + " is glowing!");
         }
-        private static void MyRegainedHealthEventHandler(object sender, MoveEventArgs args)
+        private static void MyRegainedHealthEventHandler(MoveEventArgs args)
         {
             Console.WriteLine(args.battlePokemon.Name + " regained health!");
         }
-        private static void EnemyRegainedHealthEventHandler(object sender, MoveEventArgs args)
+        private static void EnemyRegainedHealthEventHandler(MoveEventArgs args)
         {
             Console.WriteLine("Enemy " + args.battlePokemon.Name + " regained health!");
         }

@@ -94,28 +94,28 @@ namespace PokemonGeneration1.Source.Battles
         //events from Move
         public Action<MoveEventArgs> MoveUsed;
         public Action<MoveEventArgs> MoveFailed;
-        public event EventHandler<Battles.MoveEventArgs> MoveMissed;
-        public event EventHandler<Battles.MoveEventArgs> MoveHadNoEffect;
-        public event EventHandler<Battles.MoveEventArgs> MoveSuperEffective;
-        public event EventHandler<Battles.MoveEventArgs> MoveNotVeryEffective;
-        public event EventHandler<Battles.MoveEventArgs> MoveCriticalHit;
-        public event EventHandler<Battles.MoveEventArgs> MoveOneHitKO;
-        public event EventHandler<Battles.MoveEventArgs> PayDayTriggered;
-        public event EventHandler<Battles.MoveEventArgs> SolarBeamFirstTurn;
-        public event EventHandler<Battles.MoveEventArgs> RazorWindFirstTurn;
-        public event EventHandler<Battles.MoveEventArgs> BidingTime;
-        public event EventHandler<Battles.MoveEventArgs> BideUnleased;
-        public event EventHandler<Battles.MoveEventArgs> FlyFirstTurn;
-        public event EventHandler<Battles.MoveEventArgs> AttackContinues;
-        public event EventHandler<Battles.MoveEventArgs> CrashDamage;
-        public event EventHandler<Battles.MoveEventArgs> HurtByRecoilDamage;
-        public event EventHandler<Battles.MoveEventArgs> ThrashingAbout;
-        public event EventHandler<Battles.MoveEventArgs> HyperBeamRecharging;
-        public event EventHandler<Battles.MoveEventArgs> SuckedHealth;
-        public event EventHandler<Battles.MoveEventArgs> DugAHole;
-        public event EventHandler<Battles.MoveEventArgs> SkullBashFirstTurn;
-        public event EventHandler<Battles.MoveEventArgs> SkyAttackFirstTurn;
-        public event EventHandler<Battles.MoveEventArgs> RegainedHealth;
+        public Action<MoveEventArgs> MoveMissed;
+        public Action<MoveEventArgs> MoveHadNoEffect;
+        public Action<MoveEventArgs> MoveSuperEffective;
+        public Action<MoveEventArgs> MoveNotVeryEffective;
+        public Action<MoveEventArgs> MoveCriticalHit;
+        public Action<MoveEventArgs> MoveOneHitKO;
+        public Action<MoveEventArgs> PayDayTriggered;
+        public Action<MoveEventArgs> SolarBeamFirstTurn;
+        public Action<MoveEventArgs> RazorWindFirstTurn;
+        public Action<MoveEventArgs> BidingTime;
+        public Action<MoveEventArgs> BideUnleased;
+        public Action<MoveEventArgs> FlyFirstTurn;
+        public Action<MoveEventArgs> AttackContinues;
+        public Action<MoveEventArgs> CrashDamage;
+        public Action<MoveEventArgs> HurtByRecoilDamage;
+        public Action<MoveEventArgs> ThrashingAbout;
+        public Action<MoveEventArgs> HyperBeamRecharging;
+        public Action<MoveEventArgs> SuckedHealth;
+        public Action<MoveEventArgs> DugAHole;
+        public Action<MoveEventArgs> SkullBashFirstTurn;
+        public Action<MoveEventArgs> SkyAttackFirstTurn;
+        public Action<MoveEventArgs> RegainedHealth;
 
 
         //events unique to BattlePokemon
@@ -590,93 +590,93 @@ namespace PokemonGeneration1.Source.Battles
         {
             MoveFailed?.Invoke(CreateMoveEventArgs(m));
         }
-        protected virtual void MoveMissedHandler(object sender, Moves.MoveEventArgs e)
+        protected virtual void MoveMissedHandler(Move m)
         {
-            MoveMissed?.Invoke(this, CreateMoveEventArgs(e));
+            MoveMissed?.Invoke(CreateMoveEventArgs(m));
         }
-        protected virtual void MoveHadNoEffectHandler(object sender, Moves.MoveEventArgs e)
+        protected virtual void MoveHadNoEffectHandler(Move m)
         {
-            MoveHadNoEffect?.Invoke(this, CreateMoveEventArgs(e));
+            MoveHadNoEffect?.Invoke(CreateMoveEventArgs(m));
         }
-        protected virtual void MoveSuperEffectiveHandler(object sender, Moves.MoveEventArgs e)
+        protected virtual void MoveSuperEffectiveHandler(Move m)
         {
-            MoveSuperEffective?.Invoke(this, CreateMoveEventArgs(e));
+            MoveSuperEffective?.Invoke(CreateMoveEventArgs(m));
         }
-        protected virtual void MoveNotVeryEffectiveHandler(object sender, Moves.MoveEventArgs e)
+        protected virtual void MoveNotVeryEffectiveHandler(Move m)
         {
-            MoveNotVeryEffective?.Invoke(this, CreateMoveEventArgs(e));
+            MoveNotVeryEffective?.Invoke(CreateMoveEventArgs(m));
         }
-        protected virtual void MoveCriticalHitHandler(object sender, Moves.MoveEventArgs e)
+        protected virtual void MoveCriticalHitHandler(Move m)
         {
-            MoveCriticalHit?.Invoke(this, CreateMoveEventArgs(e));
+            MoveCriticalHit?.Invoke(CreateMoveEventArgs(m));
         }
-        protected virtual void MoveOneHitKOHandler(object sender, Moves.MoveEventArgs e)
+        protected virtual void MoveOneHitKOHandler(Move m)
         {
-            MoveOneHitKO?.Invoke(this, CreateMoveEventArgs(e));
+            MoveOneHitKO?.Invoke(CreateMoveEventArgs(m));
         }
-        protected virtual void PayDayTriggeredHandler(object sender, Moves.MoveEventArgs e)
+        protected virtual void PayDayTriggeredHandler(Move m)
         {
-            PayDayTriggered?.Invoke(this, CreateMoveEventArgs(e));
+            PayDayTriggered?.Invoke(CreateMoveEventArgs(m));
         }
-        protected virtual void SolarBeamFirstTurnHandler(object sender, Moves.MoveEventArgs e)
+        protected virtual void SolarBeamFirstTurnHandler(Move m)
         {
-            SolarBeamFirstTurn?.Invoke(this, CreateMoveEventArgs(e));
+            SolarBeamFirstTurn?.Invoke(CreateMoveEventArgs(m));
         }
-        protected virtual void RazorWindFirstTurnHandler(object sender, Moves.MoveEventArgs e)
+        protected virtual void RazorWindFirstTurnHandler(Move m)
         {
-            RazorWindFirstTurn?.Invoke(this, CreateMoveEventArgs(e));
+            RazorWindFirstTurn?.Invoke(CreateMoveEventArgs(m));
         }
-        protected virtual void BidingTimeHandler(object sender, Moves.MoveEventArgs e)
+        protected virtual void BidingTimeHandler(Move m)
         {
-            BidingTime?.Invoke(this, CreateMoveEventArgs(e));
+            BidingTime?.Invoke(CreateMoveEventArgs(m));
         }
-        protected virtual void BideUnleashedHandler(object sender, Moves.MoveEventArgs e)
+        protected virtual void BideUnleashedHandler(Move m)
         {
-            BideUnleased?.Invoke(this, CreateMoveEventArgs(e));
+            BideUnleased?.Invoke(CreateMoveEventArgs(m));
         }
-        protected virtual void FlyFirstTurnHandler(object sender, Moves.MoveEventArgs e)
+        protected virtual void FlyFirstTurnHandler(Move m)
         {
-            FlyFirstTurn?.Invoke(this, CreateMoveEventArgs(e));
+            FlyFirstTurn?.Invoke(CreateMoveEventArgs(m));
         }
-        protected virtual void AttackContinuesHandler(object sender, Moves.MoveEventArgs e)
+        protected virtual void AttackContinuesHandler(Move m)
         {
-            AttackContinues?.Invoke(this, CreateMoveEventArgs(e));
+            AttackContinues?.Invoke(CreateMoveEventArgs(m));
         }
-        protected virtual void CrashDamageHandler(object sender, Moves.MoveEventArgs e)
+        protected virtual void CrashDamageHandler(Move m)
         {
-            CrashDamage?.Invoke(this, CreateMoveEventArgs(e));
+            CrashDamage?.Invoke(CreateMoveEventArgs(m));
         }
-        protected virtual void HurtByRecoilDamageHandler(object sender, Moves.MoveEventArgs e)
+        protected virtual void HurtByRecoilDamageHandler(Move m)
         {
-            HurtByRecoilDamage?.Invoke(this, CreateMoveEventArgs(e));
+            HurtByRecoilDamage?.Invoke(CreateMoveEventArgs(m));
         }
-        protected virtual void ThrashingAboutHandler(object sender, Moves.MoveEventArgs e)
+        protected virtual void ThrashingAboutHandler(Move m)
         {
-            ThrashingAbout?.Invoke(this, CreateMoveEventArgs(e));
+            ThrashingAbout?.Invoke(CreateMoveEventArgs(m));
         }
-        protected virtual void HyperBeamRechargingHandler(object sender, Moves.MoveEventArgs e)
+        protected virtual void HyperBeamRechargingHandler(Move m)
         {
-            HyperBeamRecharging?.Invoke(this, CreateMoveEventArgs(e));
+            HyperBeamRecharging?.Invoke(CreateMoveEventArgs(m));
         }
-        protected virtual void SuckedHealthHandler(object sender, Moves.MoveEventArgs e)
+        protected virtual void SuckedHealthHandler(Move m)
         {
-            SuckedHealth?.Invoke(this, CreateMoveEventArgs(e));
+            SuckedHealth?.Invoke(CreateMoveEventArgs(m));
         }
-        protected virtual void DugAHoleHandler(object sender, Moves.MoveEventArgs e)
+        protected virtual void DugAHoleHandler(Move m)
         {
-            DugAHole?.Invoke(this, CreateMoveEventArgs(e));
+            DugAHole?.Invoke(CreateMoveEventArgs(m));
         }
-        protected virtual void SkullBashFirstTurnHandler(object sender, Moves.MoveEventArgs e)
+        protected virtual void SkullBashFirstTurnHandler(Move m)
         {
-            SkullBashFirstTurn?.Invoke(this, CreateMoveEventArgs(e));
+            SkullBashFirstTurn?.Invoke(CreateMoveEventArgs(m));
         }
-        protected virtual void SkyAttackFirstTurnHandler(object sender, Moves.MoveEventArgs e)
+        protected virtual void SkyAttackFirstTurnHandler(Move m)
         {
-            SkyAttackFirstTurn?.Invoke(this, CreateMoveEventArgs(e));
+            SkyAttackFirstTurn?.Invoke(CreateMoveEventArgs(m));
         }
-        protected virtual void RegainedHealthHandler(object sender, Moves.MoveEventArgs e)
+        protected virtual void RegainedHealthHandler(Move m)
         {
-            RegainedHealth?.Invoke(this, CreateMoveEventArgs(e));
+            RegainedHealth?.Invoke(CreateMoveEventArgs(m));
         }
         private MoveEventArgs CreateMoveEventArgs(Moves.MoveEventArgs e)
         {
