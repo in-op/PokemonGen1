@@ -21,7 +21,7 @@ namespace PokemonGeneration1.Source.Battles
         public Move Move4 { get; private set; }
 
         public Move LastMoveUsed { get; set; }
-        private Move MirrorMove;
+        public Move MirrorMove { get; set; }
         private Move TwoTurnMove;
         private Move MultiTurnMove;
 
@@ -42,7 +42,7 @@ namespace PokemonGeneration1.Source.Battles
         private bool DireHitActive;
         private bool Seeded;
         private bool SemiInvulnerable;
-        private bool PartiallyTrapped;
+        public bool PartiallyTrapped { get; private set; }
         private bool PartiallyTrappedEndingThisTurn;
         private bool Flinching;
         private bool ParalysisDecreasingSpeed;
@@ -246,23 +246,6 @@ namespace PokemonGeneration1.Source.Battles
 
 
 
-        
-
-
-
-        
-        public void SetMirrorMove(Move move)
-        {
-            MirrorMove = move;
-        }
-        public Move GetMirrorMove()
-        {
-            return MirrorMove;
-        }
-
-
-
-
         public bool DidPokemonSwitchThisTurn()
         {
             return SwitchedPokemonThisTurn;
@@ -298,20 +281,14 @@ namespace PokemonGeneration1.Source.Battles
 
         public void Flinch()
         {
-            if (!Substitute.IsActive)
-            {
-                Flinching = true;
-            }
+            if (!Substitute.IsActive) Flinching = true;
         }
 
 
 
         public void AttemptChangeBadlyPoisonToPoison()
         {
-            if (IsBadlyPoisoned)
-            {
-                Pokemon.ChangeBadlyPoisonToPoison();
-            }
+            if (IsBadlyPoisoned) Pokemon.ChangeBadlyPoisonToPoison();
         }
 
 
@@ -363,28 +340,15 @@ namespace PokemonGeneration1.Source.Battles
             Move moveToCopy = opponent.LastMoveUsed;
 
             if (moveToCopy == null) //failsafe for using mimic on first turn before a last move used is even initialized
-            {
                 moveToCopy = opponent.Move1;
-            }
 
             OnMimic(moveToCopy, opponent);
             Move newMove = MoveFactory.Create(moveToCopy.Index);
-            if (Move1 == mimicItself)
-            {
-                Move1 = newMove;
-            }
-            else if (Move2 == mimicItself)
-            {
-                Move2 = newMove;
-            }
-            else if (Move3 == mimicItself)
-            {
-                Move3 = newMove;
-            }
-            else if (Move4 == mimicItself)
-            {
-                Move4 = newMove;
-            }
+
+            if (Move1 == mimicItself) Move1 = newMove;
+            else if (Move2 == mimicItself) Move2 = newMove;
+            else if (Move3 == mimicItself) Move3 = newMove;
+            else if (Move4 == mimicItself) Move4 = newMove;
         }
 
 
@@ -400,10 +364,7 @@ namespace PokemonGeneration1.Source.Battles
             SwitchedPokemonThisTurn = false;
             Flinching = false;
 
-            if (SleepTurnsLeft > 0)
-            {
-                --SleepTurnsLeft;
-            }
+            if (SleepTurnsLeft > 0) --SleepTurnsLeft;
 
             if (PartiallyTrappedEndingThisTurn)
             {
@@ -432,15 +393,9 @@ namespace PokemonGeneration1.Source.Battles
                 move.ExecuteAndUpdate(this, opponent);
                 DetachMoveEventHandlers(move);
 
-                if (ConfusionTurnsLeft > 0)
-                {
-                    --ConfusionTurnsLeft;
-                }
+                if (ConfusionTurnsLeft > 0) --ConfusionTurnsLeft;
 
-                if (IsDisabled())
-                {
-                    Disable.Tick();
-                }
+                if (IsDisabled()) Disable.Tick();
             }
 
             EndOfTurnEffects(opponent);
@@ -450,10 +405,7 @@ namespace PokemonGeneration1.Source.Battles
             if (Pokemon.Status == Status.Sleep)
             {
                 canMove = false;
-                if (SleepTurnsLeft > 0)
-                {
-                    OnFastAsleep();
-                }
+                if (SleepTurnsLeft > 0) OnFastAsleep();
                 else
                 {
                     OnWokeUp();
@@ -847,65 +799,52 @@ namespace PokemonGeneration1.Source.Battles
             Pokemon.GainedHP -= GainedHPHandler;
         }
         private void BurnedHandler(object sender, PokemonEventArgs e)
-        {
-            Burned?.Invoke(this, EventArgs);
-        }
+        { Burned?.Invoke(this, EventArgs); }
+
         private void FreezeHandler(object sender, PokemonEventArgs e)
-        {
-            Frozen?.Invoke(this, EventArgs);
-        }
+        { Frozen?.Invoke(this, EventArgs); }
+
         private void ParalyzedHandler(object sender, PokemonEventArgs e)
-        {
-            Paralyzed?.Invoke(this, EventArgs);
-        }
+        { Paralyzed?.Invoke(this, EventArgs); }
+
         private void PoisonedHandler(object sender, PokemonEventArgs e)
-        {
-            Poisoned?.Invoke(this, EventArgs);
-        }
+        { Poisoned?.Invoke(this, EventArgs); }
+
         private void BadlyPoisonedHandler(object sender, PokemonEventArgs e)
-        {
-            BadlyPoisoned?.Invoke(this, EventArgs);
-        }
+        { BadlyPoisoned?.Invoke(this, EventArgs); }
+
         private void FellAsleepHandler(object sender, PokemonEventArgs e)
-        {
-            FellAsleep?.Invoke(this, EventArgs);
-        }
+        { FellAsleep?.Invoke(this, EventArgs); }
+
         private void StatusClearedHandler(object sender, PokemonEventArgs e)
-        {
-            StatusCleared?.Invoke(this, EventArgs);
-        }
+        { StatusCleared?.Invoke(this, EventArgs); }
+
         private void FaintedHandler(object sender, PokemonEventArgs e)
-        {
-            Fainted?.Invoke(this, EventArgs);
-        }
+        { Fainted?.Invoke(this, EventArgs); }
+
         private void GainedExpHandler(object sender, PokemonData.GainedExpEventArgs e)
         {
-            Battles.GainedExpEventArgs args = new Battles.GainedExpEventArgs();
-            args.pokemon = Pokemon;
-            args.battlePokemon = this;
-            args.gainedExp = e.exp;
+            GainedExp?.Invoke(this, new GainedExpEventArgs()
+            {
+                pokemon = Pokemon,
+                battlePokemon = this,
+                gainedExp = e.exp
+            });
+        }
 
-            GainedExp?.Invoke(this, args);
-        }
         private void LeveledUpHandler(object sender, PokemonEventArgs e)
-        {
-            LeveledUp?.Invoke(this, EventArgs);
+        { LeveledUp?.Invoke(this, EventArgs);
         }
+
         private void GainedHPHandler(object sender, PokemonData.GainedHPEventArgs e)
         {
-            Battles.GainedHPEventArgs args = new Battles.GainedHPEventArgs();
-            args.pokemon = Pokemon;
-            args.battlePokemon = this;
-            args.gainedHP = e.gainedHP;
-            GainedHP?.Invoke(this, args);
+            GainedHP?.Invoke(this, new GainedHPEventArgs()
+            {
+                pokemon = Pokemon,
+                battlePokemon = this,
+                gainedHP = e.gainedHP
+            });
         }
-
-
-
-
-
-
-        public bool IsPartiallyTrapped() { return PartiallyTrapped; }
 
 
 

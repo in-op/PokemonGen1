@@ -51,7 +51,7 @@ namespace PokemonStadiumConsoleApp
                                 battle.GetOpponentSide().CurrentBattlePokemon);
                             return;
                         }
-                        else if (actorSide.CurrentBattlePokemon.IsPartiallyTrapped())
+                        else if (actorSide.CurrentBattlePokemon.PartiallyTrapped)
                         {
                             selection = Selection.MakeEmptyFight();
                             return;

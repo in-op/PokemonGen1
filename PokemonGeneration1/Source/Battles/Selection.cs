@@ -64,7 +64,7 @@ namespace PokemonGeneration1.Source.Battles
 
             public sealed override void Execute()
             {
-                if (!user.IsPartiallyTrapped())
+                if (!user.PartiallyTrapped)
                     user.AttemptMoveExecution(moveUsed, opponent);
             }
 
@@ -117,7 +117,7 @@ namespace PokemonGeneration1.Source.Battles
             public sealed override void Execute()
             {
                 myBattlePokemon.SwitchOut(pokemonToSwitchIn);
-                opponentBattlePokemon.SetMirrorMove(null);
+                opponentBattlePokemon.MirrorMove = null;
             }
 
             public sealed override int Priority => 2;

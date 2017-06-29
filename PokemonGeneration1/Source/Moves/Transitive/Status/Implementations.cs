@@ -657,10 +657,10 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Status
         {
             OnUsed();
 
-            if (defender.GetMirrorMove() != null &&
-                defender.GetMirrorMove().Index != 119)
+            if (defender.MirrorMove != null &&
+                defender.MirrorMove.Index != 119)
             {
-                Move copy = MoveFactory.Create(defender.GetMirrorMove().Index);
+                Move copy = MoveFactory.Create(defender.MirrorMove.Index);
                 copy.ExecuteAndUpdate(user, defender);
             }
             else

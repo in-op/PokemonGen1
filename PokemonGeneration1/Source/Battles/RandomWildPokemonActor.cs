@@ -16,7 +16,7 @@ namespace PokemonGeneration1.Source.Battles
                 return Selection.MakeContinueMultiTurnMove(actorSide.CurrentBattlePokemon,
                                                            battle.GetPlayerSide().CurrentBattlePokemon);
             }
-            else if (actorSide.CurrentBattlePokemon.IsPartiallyTrapped())
+            else if (actorSide.CurrentBattlePokemon.PartiallyTrapped)
             {
                 return Selection.MakeEmptyFight();
             }

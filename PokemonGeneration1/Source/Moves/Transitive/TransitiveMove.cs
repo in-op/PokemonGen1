@@ -16,7 +16,7 @@ namespace PokemonGeneration1.Source.Moves
         protected void SetLastMoveAndMirrorMove(BattlePokemon user, BattlePokemon defender)
         {
             user.LastMoveUsed = this;
-            defender.SetMirrorMove(this);
+            defender.MirrorMove = this;
         }
 
 
