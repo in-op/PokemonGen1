@@ -26,7 +26,7 @@ namespace PokemonGeneration1.Source.PokemonData
 
         public float Exp { get; private set; }
         public float ExpYield => SpeciesData.ExpYield[Number]; 
-        public ExperienceGroup ExpGroup => SpeciesData.ExpGroup[Number]; 
+        public ExperienceGroup ExpGroup => SpeciesData.ExpGroup[Number];
 
         private Stats Stats;
         public float HP => Stats.HP; 
@@ -145,8 +145,7 @@ namespace PokemonGeneration1.Source.PokemonData
         private float GainHP(float amount)
         {
             float gained = 0f;
-            while (CurrentHP < Stats.HP &&
-                   gained < amount)
+            while (CurrentHP < Stats.HP && gained < amount)
             {
                 CurrentHP++;
                 gained++;
@@ -175,10 +174,8 @@ namespace PokemonGeneration1.Source.PokemonData
             return poke;
         }
 
-        public static Pokemon GenerateWildPokemon(int index, int level)
-        {
-            return new Pokemon(index, level);
-        }
+        public static Pokemon GenerateWildPokemon(int index, int level) =>
+            new Pokemon(index, level);
 
         private Pokemon(int index)
         {
@@ -245,13 +242,12 @@ namespace PokemonGeneration1.Source.PokemonData
                     }
         }
 
-        private bool AlreadyKnowsMove(int moveIndex)
-        {
-            return (Move1?.Index == moveIndex) ||
-                   (Move2?.Index == moveIndex) ||
-                   (Move3?.Index == moveIndex) ||
-                   (Move4?.Index == moveIndex);
-        }
+
+        private bool AlreadyKnowsMove(int moveIndex) =>
+            (Move1?.Index == moveIndex) ||
+            (Move2?.Index == moveIndex) ||
+            (Move3?.Index == moveIndex) ||
+            (Move4?.Index == moveIndex);
 
 
 
