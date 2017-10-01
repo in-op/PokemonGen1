@@ -304,7 +304,7 @@ namespace PokemonGeneration1.Source.Moves.Reflexive
             OnUsed();
             float quarterHP = (float)Math.Floor(user.MaxHP / 4f);
             if ((user.HP < quarterHP) ||
-                 user.IsSubstituteActive())
+                 user.IsSubstituteActive)
             {
                 OnFailed();
             }

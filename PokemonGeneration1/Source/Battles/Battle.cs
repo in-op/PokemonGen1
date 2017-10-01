@@ -251,7 +251,7 @@ namespace PokemonGeneration1.Source.Battles
             else
             {
                 //CASE 4.1: player's speed is greater than or equal to than opponents
-                if (PlayerSide.CurrentBattlePokemon.GetSpeed() >= OpponentSide.CurrentBattlePokemon.GetSpeed())
+                if (PlayerSide.CurrentBattlePokemon.Speed >= OpponentSide.CurrentBattlePokemon.Speed)
                 {
                     SetPlayerFirst();
                 }

@@ -29,7 +29,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.OneTurnMultiHit
                 this.UpdateEffectiveness(defender);
                 this.UpdateCritFlag(user);
 
-                float damageAmount = calculateDamage(user, defender);
+                float damageAmount = CalcDamage(user, defender);
                 this.ExecuteMultiHitDamage(defender, damageAmount);
             }
             SetLastMoveAndMirrorMove(user, defender);
@@ -60,7 +60,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.OneTurnMultiHit
                 this.UpdateEffectiveness(defender);
                 this.UpdateCritFlag(user);
 
-                float damageAmount = calculateDamage(user, defender);
+                float damageAmount = CalcDamage(user, defender);
                 this.ExecuteMultiHitDamage(defender, damageAmount);
             }
             SetLastMoveAndMirrorMove(user, defender);
@@ -89,7 +89,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.OneTurnMultiHit
             {
                 UpdateEffectiveness(defender);
                 UpdateCritFlag(user);
-                float damageAmount = calculateDamage(user, defender);
+                float damageAmount = CalcDamage(user, defender);
                 this.ExecuteMultiHitDamage(defender, damageAmount);
             }
             SetLastMoveAndMirrorMove(user, defender);
@@ -121,7 +121,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.OneTurnMultiHit
                 SetRandomNumberOfHits();
                 UpdateEffectiveness(defender);
                 UpdateCritFlag(user);
-                float damageAmount = calculateDamage(user, defender);
+                float damageAmount = CalcDamage(user, defender);
                 this.ExecuteMultiHitDamage(defender, damageAmount);
             }
             SetLastMoveAndMirrorMove(user, defender);
@@ -149,7 +149,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.OneTurnMultiHit
             {
                 UpdateEffectiveness(defender);
                 UpdateCritFlag(user);
-                float damageAmount = calculateDamage(user, defender);
+                float damageAmount = CalcDamage(user, defender);
                 ExecuteMultiHitDamageAndAttemptPoison(defender, damageAmount);
             }
             SetLastMoveAndMirrorMove(user, defender);
@@ -177,7 +177,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.OneTurnMultiHit
                 SetRandomNumberOfHits();
                 UpdateEffectiveness(defender);
                 UpdateCritFlag(user);
-                float damageAmount = calculateDamage(user, defender);
+                float damageAmount = CalcDamage(user, defender);
                 this.ExecuteMultiHitDamage(defender, damageAmount);
             }
             SetLastMoveAndMirrorMove(user, defender);
@@ -208,7 +208,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.OneTurnMultiHit
                 this.UpdateEffectiveness(defender);
                 this.UpdateCritFlag(user);
 
-                float damageAmount = calculateDamage(user, defender);
+                float damageAmount = CalcDamage(user, defender);
                 this.ExecuteMultiHitDamage(defender, damageAmount);
             }
             SetLastMoveAndMirrorMove(user, defender);
@@ -239,7 +239,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.OneTurnMultiHit
                 this.UpdateEffectiveness(defender);
                 this.UpdateCritFlag(user);
 
-                float damageAmount = calculateDamage(user, defender);
+                float damageAmount = CalcDamage(user, defender);
                 this.ExecuteMultiHitDamage(defender, damageAmount);
             }
             SetLastMoveAndMirrorMove(user, defender);
@@ -270,7 +270,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.OneTurnMultiHit
                 this.UpdateEffectiveness(defender);
                 this.UpdateCritFlag(user);
 
-                float damageAmount = calculateDamage(user, defender);
+                float damageAmount = CalcDamage(user, defender);
                 this.ExecuteMultiHitDamage(defender, damageAmount);
             }
             SetLastMoveAndMirrorMove(user, defender);
@@ -299,7 +299,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.OneTurnMultiHit
             {
                 UpdateEffectiveness(defender);
                 UpdateCritFlag(user);
-                float damageAmount = calculateDamage(user, defender);
+                float damageAmount = CalcDamage(user, defender);
                 ExecuteMultiHitDamageAndAttemptPoison(defender, damageAmount);
             }
             SetLastMoveAndMirrorMove(user, defender);

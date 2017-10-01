@@ -1,9 +1,4 @@
 ﻿using PokemonGeneration1.Source.Moves;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PokemonGeneration1.Source.Battles
 {
@@ -20,8 +15,8 @@ namespace PokemonGeneration1.Source.Battles
 
         public void Activate(Move move, int turnsLeft)
         {
-            this.DisabledMove = move;
-            this.TurnsLeft = turnsLeft;
+            DisabledMove = move;
+            TurnsLeft = turnsLeft;
 
             if (TurnsLeft == 0)
             {
@@ -42,7 +37,7 @@ namespace PokemonGeneration1.Source.Battles
 
         public Move GetDisabledMove()
         {
-            return this.DisabledMove;
+            return DisabledMove;
         }
 
         public void Tick()

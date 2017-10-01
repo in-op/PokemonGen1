@@ -503,7 +503,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.OneTurnOneHit
             {
                 UpdateEffectivenessUpdateCritFlagAndDoDamage(user, defender);
                 if (!defender.IsFainted &&
-                    !defender.IsSubstituteActive() &&
+                    !defender.IsSubstituteActive &&
                     new Random().Next(0, 100) < 30)
                 {
                     defender.Flinch();
@@ -580,7 +580,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.OneTurnOneHit
         {
             OnUsed();
             if (this.HasNoEffect(defender) ||
-                defender.GetSpeed() > user.GetSpeed())
+                defender.Speed > user.Speed)
             {
                 OnNoEffect();
             }
@@ -677,7 +677,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.OneTurnOneHit
             {
                 UpdateEffectiveness(defender);
                 UpdateCritFlag(user);
-                float damage = calculateDamage(user, defender);
+                float damage = CalcDamage(user, defender);
                 defender.Damage(damage, this.Type);
 
                 if (!defender.DidSubstituteBreakThisTurn())
@@ -713,7 +713,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.OneTurnOneHit
             {
                 UpdateEffectiveness(defender);
                 UpdateCritFlag(user);
-                float damage = calculateDamage(user, defender);
+                float damage = CalcDamage(user, defender);
                 defender.Damage(damage, this.Type);
 
                 if (!defender.DidSubstituteBreakThisTurn())
@@ -1161,7 +1161,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.OneTurnOneHit
             {
                 UpdateEffectiveness(defender);
                 UpdateCritFlag(user);
-                float damage = calculateDamage(user, defender);
+                float damage = CalcDamage(user, defender);
                 defender.Damage(damage, this.Type);
 
                 if (!defender.DidSubstituteBreakThisTurn())
@@ -1197,7 +1197,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.OneTurnOneHit
             {
                 UpdateEffectivenessUpdateCritFlagAndDoDamage(user, defender);
                 if (!defender.IsFainted &&
-                    !defender.IsSubstituteActive() &&
+                    !defender.IsSubstituteActive &&
                     new Random().Next(0, 100) < 30)
                 {
                     defender.Flinch();
@@ -1542,7 +1542,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.OneTurnOneHit
             {
                 OnMissed();
             }
-            else if (user.GetSpeed() > defender.GetSpeed())
+            else if (user.Speed > defender.Speed)
             {
                 OnOneHitKO();
                 defender.Damage(defender.MaxHP, this.Type);
@@ -2011,7 +2011,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.OneTurnOneHit
             {
                 UpdateEffectiveness(defender);
                 UpdateCritFlag(user);
-                float damage = calculateDamage(user, defender);
+                float damage = CalcDamage(user, defender);
                 float remainingHP = defender.HP;
                 defender.Damage(damage, this.Type);
                 if (!defender.DidSubstituteBreakThisTurn())
@@ -2305,7 +2305,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.OneTurnOneHit
             {
                 UpdateEffectiveness(defender);
                 UpdateCritFlag(user);
-                float damage = calculateDamage(user, defender);
+                float damage = CalcDamage(user, defender);
                 float remainingHP = defender.HP;
                 defender.Damage(damage, Type);
 

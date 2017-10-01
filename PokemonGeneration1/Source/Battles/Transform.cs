@@ -23,10 +23,7 @@ namespace PokemonGeneration1.Source.Battles
         
 
 
-        public void Deactivate()
-        {
-            Active = false;
-        }
+        public void Deactivate() { Active = false; }
 
         public void Activate(BattlePokemon pokemonToTransformInto)
         {

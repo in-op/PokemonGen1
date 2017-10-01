@@ -56,25 +56,15 @@ namespace PokemonGeneration1.Source.Battles
         public Status Status => Pokemon.Status;
 
 
-        public Type Type1
-        {
-            get
-            {
-                if (Conversion.IsActive) return Conversion.Type1;
-                else if (Transform.Active) return Transform.Type1;
-                else return Pokemon.Type1;
-            }
-        }
+        public Type Type1 =>
+            Conversion.IsActive ? Conversion.Type1 :
+            Transform.Active ? Transform.Type1 :
+            Pokemon.Type1;
 
-        public Type Type2
-        {
-            get
-            {
-                if (Conversion.IsActive) return Conversion.Type2;
-                else if (Transform.Active) return Transform.Type2;
-                else return Pokemon.Type2;
-            }
-        }
+        public Type Type2 =>
+            Conversion.IsActive ? Conversion.Type2 :
+            Transform.Active ? Transform.Type2 :
+            Pokemon.Type2;
 
 
 
@@ -912,18 +902,15 @@ namespace PokemonGeneration1.Source.Battles
 
 
         //exclusively used when crit hit on transformed pokemon
-        public float GetPokemonsDefenseStatWithModifiers()
-        {
-            float defense = Pokemon.Defense;
-            defense *= StatStageData.Multiplier[StatStageModifiers.Defense];
-            return (float)Math.Floor(defense);
-        }
-        public float GetPokemonsSpecialStatWithModifiers()
-        {
-            float special = Pokemon.Special;
-            special *= StatStageData.Multiplier[StatStageModifiers.Special];
-            return (float)Math.Floor(special);
-        }
+        public float PokemonsDefenseStatWithModifiers =>
+            (float)Math.Floor(
+                Pokemon.Defense *
+                StatStageData.Multiplier[StatStageModifiers.Defense]);
+
+        public float PokemonsSpecialStatWithModifiers => 
+            (float)Math.Floor(
+                Pokemon.Special *
+                StatStageData.Multiplier[StatStageModifiers.Special]);
 
 
 
@@ -947,6 +934,7 @@ namespace PokemonGeneration1.Source.Battles
 
         public bool CanStatGoHigher(StatType type) =>
             StatStageModifiers.CanGoHigher(type);
+        
 
         public bool CanStatGoLower(StatType type) =>
             StatStageModifiers.CanGoLower(type);
@@ -959,58 +947,53 @@ namespace PokemonGeneration1.Source.Battles
 
 
 
-        public float GetAttack()
+        public float Attack
         {
-            float attack;
-            if (Transform.Active) { attack = Transform.Attack; }
-            else { attack = Pokemon.Attack; }
-            attack *= StatStageData.Multiplier[StatStageModifiers.Attack];
-            if (BurnDecreasingAttack)
+            get
             {
-                attack *= 0.5f;
+                float attack = Transform.Active ? Transform.Attack : Pokemon.Attack;
+                attack *= StatStageData.Multiplier[StatStageModifiers.Attack];
+                if (BurnDecreasingAttack) attack *= 0.5f;
+                return (float)Math.Floor(attack);
             }
-            return (float)Math.Floor(attack);
         }
-        public float GetDefense()
+
+
+        public float Defense
         {
-            float defense;
-            if (Transform.Active) { defense = Transform.Defense; }
-            else { defense = Pokemon.Defense; }
-            defense *= StatStageData.Multiplier[StatStageModifiers.Defense];
-            return (float)Math.Floor(defense);
-        }
-        public float GetSpecial()
-        {
-            float special;
-            if (Transform.Active) { special = Transform.Special; }
-            else { special = Pokemon.Special; }
-            special *= StatStageData.Multiplier[StatStageModifiers.Special];
-            return (float)Math.Floor(special);
-        }
-        public float GetSpeed()
-        {
-            float speed;
-            if (Transform.Active) { speed = Transform.Speed; }
-            else { speed = Pokemon.Speed; }
-            speed *= StatStageData.Multiplier[StatStageModifiers.Speed];
-            if (ParalysisDecreasingSpeed)
+            get
             {
-                speed *= 0.25f;
+                float defense = Transform.Active ? Transform.Defense : Pokemon.Defense;
+                defense *= StatStageData.Multiplier[StatStageModifiers.Defense];
+                return (float)Math.Floor(defense);
             }
-            return (float)Math.Floor(speed);
+        }
+
+        public float Special
+        {
+            get
+            {
+                float special = Transform.Active ? Transform.Special : Pokemon.Special;
+                special *= StatStageData.Multiplier[StatStageModifiers.Special];
+                return (float)Math.Floor(special);
+            }
+        }
+        
+        public float Speed
+        {
+            get
+            {
+                float speed = Transform.Active ? Transform.Speed : Pokemon.Speed;
+                speed *= StatStageData.Multiplier[StatStageModifiers.Speed];
+                if (ParalysisDecreasingSpeed) speed *= 0.25f;
+                return (float)Math.Floor(speed);
+            }
         }
         
 
 
-        public float HP =>
-            IsSubstituteActive() ?
-            Substitute.CurrentHP :
-            Pokemon.CurrentHP;
-
-        public float MaxHP =>
-            IsSubstituteActive() ?
-            Substitute.MaxHP :
-            Pokemon.HP;
+        public float HP => Pokemon.CurrentHP;
+        public float MaxHP => Pokemon.HP;
 
 
 
@@ -1036,8 +1019,7 @@ namespace PokemonGeneration1.Source.Battles
         public bool IsTransformActive() { return Transform.Active; }
 
 
-
-        public bool IsSubstituteActive() { return Substitute.IsActive; }
+        public bool IsSubstituteActive => Substitute.IsActive;
         public bool DidSubstituteBreakThisTurn() { return Substitute.BrokeThisTurn; }
 
 
@@ -1145,66 +1127,36 @@ namespace PokemonGeneration1.Source.Battles
         public void Damage(float amount, Type damageType)
         {
             //1) account for substitute
-            if (IsSubstituteActive())
-            {
-                Substitute.Damage(amount);
-            }
-            else
-            {
-                Pokemon.Damage(amount);
-            }
+            if (Substitute.IsActive) Substitute.Damage(amount);
+            else Pokemon.Damage(amount);
 
             //2) account for Bide
-            if (Bide.Active)
-            {
-                Bide.Damage(amount);
-            }
+            if (Bide.Active) Bide.Damage(amount);
 
             //3) account for Counter
-            if (damageType == Type.Normal ||
-                damageType == Type.Fighting)
-            {
+            if (damageType == Type.Normal || damageType == Type.Fighting)
                 DamageForCounter = amount;
-            }
 
             //4) account for thawing
-            if (damageType == Type.Fire &&
-                Pokemon.Status == Status.Freeze)
-            {
+            if (Pokemon.Status == Status.Freeze && damageType == Type.Fire)
                 Pokemon.ClearStatus();
-            }
 
             CheckForRageAndUpdateAttackStatStageIfNecessary();
         }
         //this should be referenced exclusively by OneTurnMultiHitAttackMove
         public void DamageWithoutBideOrCounterSideEffects(float amount)
         {
-            if (IsSubstituteActive())
-            {
-                Substitute.Damage(amount);
-            }
-            else
-            {
-                Pokemon.Damage(amount);
-            }
+            if (Substitute.IsActive) Substitute.Damage(amount);
+            else Pokemon.Damage(amount);
         }
         //this should only be referenced by the move Counter.
         public void DamageMethodForCounterOnly(float amount)
         {
             DamageForCounter = 0f;
-            if (IsSubstituteActive())
-            {
-                Substitute.Damage(amount);
-            }
-            else
-            {
-                Pokemon.Damage(amount);
-            }
+            if (Substitute.IsActive) Substitute.Damage(amount);
+            else Pokemon.Damage(amount);
 
-            if (Bide.Active)
-            {
-                Bide.Damage(amount);
-            }
+            if (Bide.Active) Bide.Damage(amount);
         }
         public void DamagePokemonOnlyNoEffects(float amount)
         {
@@ -1218,22 +1170,21 @@ namespace PokemonGeneration1.Source.Battles
         public void CheckForRageAndUpdateAttackStatStageIfNecessary()
         {
             if (MultiTurnMove != null &&
-                MultiTurnMove.Index == 99)
+                MultiTurnMove.Index == 99 &&
+                StatStageModifiers.CanGoHigher(StatType.Attack))
             {
-                if (StatStageModifiers.CanGoHigher(StatType.Attack))
-                {
-                    ModifyStatStageAsPrimaryEffect(StatType.Attack, 1);
-                }
+                ModifyStatStageAsPrimaryEffect(StatType.Attack, 1);
             }
         }
         private void DamageFromConfusion()
         {
-            float damage = AttackMove.damageFormula(Pokemon.Level,
-                                                    Pokemon.Attack,
-                                                    Pokemon.Defense,
-                                                    40f,
-                                                    1f,
-                                                    1f);
+            float damage = AttackMove.DamageFormula(
+                Pokemon.Level,
+                Pokemon.Attack,
+                Pokemon.Defense,
+                40f,
+                1f,
+                1f);
             Pokemon.Damage(damage);
         }
 

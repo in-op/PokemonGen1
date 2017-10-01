@@ -31,7 +31,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.MultiTurn
                     {
                         UpdateEffectiveness(defender);
                         UpdateCritFlag(user);
-                        Damage = calculateDamage(user, defender);
+                        Damage = CalcDamage(user, defender);
                         defender.Damage(Damage, Type);
                     }
                     SetTurnsLeftForBindingMoves();

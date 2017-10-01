@@ -14,7 +14,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Attack.OneTurnOneHit
         {
             UpdateEffectiveness(defender);
             UpdateCritFlag(user);
-            float damage = calculateDamage(user, defender);
+            float damage = CalcDamage(user, defender);
             float remainingHP = defender.HP;
             defender.Damage(damage, this.Type);
             if (!defender.DidSubstituteBreakThisTurn())

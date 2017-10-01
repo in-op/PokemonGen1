@@ -1,9 +1,5 @@
 ﻿using PokemonGeneration1.Source.Battles;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PokemonGeneration1.Source.Moves
 {
@@ -19,7 +15,7 @@ namespace PokemonGeneration1.Source.Moves
         {
             UpdateEffectiveness(defender);
             UpdateCritFlag(user);
-            float damageAmount = calculateDamage(user, defender);
+            float damageAmount = CalcDamage(user, defender);
             defender.Damage(damageAmount, Type);
         }
 
@@ -41,16 +37,9 @@ namespace PokemonGeneration1.Source.Moves
         protected void UpdateCritFlag(BattlePokemon user)
         {
             int t = (int)Math.Floor(user.BaseSpeed / 2);
-            if (user.IsFocusEnergyActive ||
-                user.IsDireHitActive())
-            {
-                t /= 4;
-            }
-            if (IsHighCritRatioMove)
-            {
-                t *= 8;
-            }
-            if (t > 255) { t = 255; }
+            if (user.IsFocusEnergyActive || user.IsDireHitActive()) t /= 4;
+            if (IsHighCritRatioMove) t *= 8;
+            if (t > 255) t = 255;
             if (new Random().Next(0, 256) < t)
             {
                 CritFlag = true;
@@ -58,20 +47,16 @@ namespace PokemonGeneration1.Source.Moves
             }
             else CritFlag = false;
         }
-        protected float calculateDamage(BattlePokemon user, BattlePokemon defender)
+        protected float CalcDamage(
+            BattlePokemon user, BattlePokemon defender)
         {
-            float relativeLevel;
-            if (CritFlag == true)
-            {
-                relativeLevel = user.Level * 2f;
-            }
-            else
-            {
-                relativeLevel = user.Level;
-            }
+            float relativeLevel =
+                CritFlag == true ?
+                user.Level * 2f :
+                user.Level;
 
             //checks for light screen
-            float relativeDefenderSpecial = defender.GetSpecial();
+            float relativeDefenderSpecial = defender.Special;
             if (defender.IsLightScreenActive() &&
                 CritFlag == false)
             {
@@ -79,7 +64,7 @@ namespace PokemonGeneration1.Source.Moves
                 if (relativeDefenderSpecial > 1024f) { relativeDefenderSpecial = 1024f; }
             }
             //checks for reflect
-            float relativeDefenderDefense = defender.GetDefense();
+            float relativeDefenderDefense = defender.Defense;
             if (defender.IsReflectActive() &&
                 CritFlag == false)
             {
@@ -92,16 +77,16 @@ namespace PokemonGeneration1.Source.Moves
             {
                 if (Category == Category.PHYSICAL)
                 {
-                    return damageFormula(relativeLevel,
-                                         user.GetAttack(),
-                                         defender.GetPokemonsDefenseStatWithModifiers(),
+                    return DamageFormula(relativeLevel,
+                                         user.Attack,
+                                         defender.PokemonsDefenseStatWithModifiers,
                                          Power,
                                          getStab(user),
                                          EffectivenessMultiplier);
                 }
-                else return damageFormula(relativeLevel,
-                                          user.GetSpecial(),
-                                          defender.GetPokemonsSpecialStatWithModifiers(),
+                else return DamageFormula(relativeLevel,
+                                          user.Special,
+                                          defender.PokemonsSpecialStatWithModifiers,
                                           Power,
                                           getStab(user),
                                           EffectivenessMultiplier);
@@ -109,26 +94,27 @@ namespace PokemonGeneration1.Source.Moves
 
             else if (Category == Category.PHYSICAL)
             {
-                return damageFormula(relativeLevel,
-                                       user.GetAttack(),
+                return DamageFormula(relativeLevel,
+                                       user.Attack,
                                        relativeDefenderDefense,
                                        Power,
                                        getStab(user),
                                        EffectivenessMultiplier);
             }
-            else return damageFormula(relativeLevel,
-                                      user.GetSpecial(),
+            else return DamageFormula(relativeLevel,
+                                      user.Special,
                                       relativeDefenderSpecial,
                                       Power,
                                       getStab(user),
                                       EffectivenessMultiplier);
         }
-        public static float damageFormula(float attackerLevel,
-                                           float attackStat,
-                                           float defenseStat,
-                                           float power,
-                                           float stab,
-                                           float typeModifier)
+        public static float DamageFormula(
+            float attackerLevel,
+            float attackStat,
+            float defenseStat,
+            float power,
+            float stab,
+            float typeModifier)
         {
             return (float)Math.Floor(((((((2f * attackerLevel / 5f) + 2f) * attackStat * power / defenseStat / 50f) + 2f) * stab * typeModifier * (float)new Random().Next(217, 256)) / 255f));
         }

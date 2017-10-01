@@ -22,7 +22,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Status
                 OnMissed();
             }
             else if (defender.CanStatGoLower(StatType.Accuracy) &&
-                     !defender.IsSubstituteActive() &&
+                     !defender.IsSubstituteActive &&
                      !defender.IsMistActive())
             {
                 defender.ModifyStatStageAsPrimaryEffect(StatType.Accuracy, -1);
@@ -50,7 +50,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Status
                 OnMissed();
             }
             else if (defender.CanStatGoLower(StatType.Defense) &&
-                     !defender.IsSubstituteActive() &&
+                     !defender.IsSubstituteActive &&
                      !defender.IsMistActive())
             {
                 defender.ModifyStatStageAsPrimaryEffect(StatType.Defense, -1);
@@ -77,7 +77,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Status
                 OnMissed();
             }
             else if (defender.CanStatGoLower(StatType.Defense) &&
-                     !defender.IsSubstituteActive() &&
+                     !defender.IsSubstituteActive &&
                      !defender.IsMistActive())
             {
                 defender.ModifyStatStageAsPrimaryEffect(StatType.Defense, -1);
@@ -109,7 +109,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Status
                 OnMissed();
             }
             else if (defender.CanStatGoLower(StatType.Attack) &&
-                     !defender.IsSubstituteActive() &&
+                     !defender.IsSubstituteActive &&
                      !defender.IsMistActive())
             {
                 defender.ModifyStatStageAsPrimaryEffect(StatType.Attack, -1);
@@ -169,7 +169,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Status
             {
                 OnMissed();
             }
-            else if (!defender.IsSubstituteActive() &&
+            else if (!defender.IsSubstituteActive &&
                      !defender.IsConfused())
             {
                 defender.Confuse();
@@ -316,7 +316,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Status
                 OnNoEffect();
             }
             else if (defender.IsStatusClear &&
-                     !defender.IsSubstituteActive())
+                     !defender.IsSubstituteActive)
             {
                 defender.PoisonAsPrimaryEffect();
             }
@@ -392,7 +392,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Status
                 OnMissed();
             }
             else if (defender.CanStatGoLower(StatType.Speed) &&
-                     !defender.IsSubstituteActive() &&
+                     !defender.IsSubstituteActive &&
                      !defender.IsMistActive())
             {
                 defender.ModifyStatStageAsPrimaryEffect(StatType.Speed, -1);
@@ -448,7 +448,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Status
                 OnMissed();
             }
             else if (defender.Status == PokemonData.Status.Null &&
-                     !defender.IsSubstituteActive())
+                     !defender.IsSubstituteActive)
             {
                 defender.BadlyPoisonAsPrimaryEffect();
             }
@@ -526,7 +526,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Status
                 OnMissed();
             }
             else if (defender.CanStatGoLower(StatType.Defense) &&
-                     !defender.IsSubstituteActive() &&
+                     !defender.IsSubstituteActive &&
                      !defender.IsMistActive())
             {
                 defender.ModifyStatStageAsPrimaryEffect(StatType.Defense, -2);
@@ -557,7 +557,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Status
                 OnMissed();
             }
             else if (defender.CanStatGoLower(StatType.Accuracy) &&
-                     !defender.IsSubstituteActive() &&
+                     !defender.IsSubstituteActive &&
                      !defender.IsMistActive())
             {
                 defender.ModifyStatStageAsPrimaryEffect(StatType.Accuracy, -1);
@@ -586,7 +586,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Status
             {
                 OnMissed();
             }
-            else if (!defender.IsSubstituteActive() &&
+            else if (!defender.IsSubstituteActive &&
                      !defender.IsConfused())
             {
                 defender.Confuse();
@@ -686,7 +686,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Status
                 OnMissed();
             }
             else if (defender.CanStatGoLower(StatType.Accuracy) &&
-                     !defender.IsSubstituteActive() &&
+                     !defender.IsSubstituteActive &&
                      !defender.IsMistActive())
             {
                 defender.ModifyStatStageAsPrimaryEffect(StatType.Accuracy, -1);
@@ -734,7 +734,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Status
                 OnMissed();
             }
             else if (defender.IsStatusClear &&
-                     !defender.IsSubstituteActive())
+                     !defender.IsSubstituteActive)
             {
                 defender.PoisonAsPrimaryEffect();
             }
@@ -832,7 +832,7 @@ namespace PokemonGeneration1.Source.Moves.Transitive.Status
                 OnMissed();
             }
             else if (defender.CanStatGoLower(StatType.Accuracy) &&
-                     !defender.IsSubstituteActive() &&
+                     !defender.IsSubstituteActive &&
                      !defender.IsMistActive())
             {
                 defender.ModifyStatStageAsPrimaryEffect(StatType.Accuracy, -1);
