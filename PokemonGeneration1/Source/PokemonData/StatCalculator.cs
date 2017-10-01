@@ -34,7 +34,7 @@ namespace PokemonGeneration1.Source.PokemonData
                     pokemon.Level));
         }
 
-        private static float NonHPStat(
+        public static float NonHPStat(
             float baseStat,
             float DV,
             float statPoint,
@@ -44,7 +44,7 @@ namespace PokemonGeneration1.Source.PokemonData
         }
 
 
-        private static float HPStat(
+        public static float HPStat(
             float baseStat,
             float DV,
             float statPoint,
@@ -54,7 +54,7 @@ namespace PokemonGeneration1.Source.PokemonData
         }
 
 
-        private static float StatPoint(float statExp)
+        public static float StatPoint(float statExp)
         {
             return (float)Math.Floor(Math.Min(255f, Math.Floor(Math.Sqrt(Math.Max(0, statExp - 1f)) + 1f)) / 4f);
         }

@@ -1093,6 +1093,90 @@
         };
 
 
+        public static readonly float[] CatchRate = new float[]
+        {
+            0f,   //0 - NoPokemon
+            45f,  //1 - Bulbasaur
+            45f,  //2 - Ivysaur
+            45f,  //3 - Venusaur
+            45f,  //4 - Charmander
+            45f,  //5 - Charmeleon
+            45f,  //6 - Charizard
+            45f,  //7 - Squirtle
+            45f,  //8 - Wartortle
+            45f,  //9 - Blastoise
+            255f, //10 - Caterpie
+            120f, //11 - Metapod
+            45f,  //12 - Butterfree
+
+            //FINISH (numbers wrong below)
+
+            52f,  //13 - Weedle
+            71f,  //14 - Kakuna
+            159f, //15 - Beedrill
+            55f,  //16 - Pidgey
+            113f, //17 - Pidgeotto
+            172f, //18 - Pidgeot
+            57f,  //19 - Rattata
+            116f, //20 - Raticate
+            58f,  //21 - Spearow
+            163f, //22 - Fearow
+            62f,  //23 - Ekans
+            147f, //24 - Arbok
+            82f,  //25 - Pikachu
+            122f, //26 - Raichu
+            93f,  //27 - Sandshrew
+            163f, //28 - Sandslash
+            59f,  //29 - Nidoran Female
+            117f, //30 - Nidorina
+            194f, //31 - Nidoqueen
+            60f,  //32 - Nidoran Male
+            118f, //33 - Nidorino
+            195f, //34 - Nidoking
+            68f,  //35 - Clefairy
+            129f, //36 - Clefable
+            63f,  //37 - Vulpix
+            178f, //38 - Ninetails
+            76f,  //39 - Jigglypuff
+            109f, //40 - Wigglytuff
+            54f,  //41 - Zubat
+            171f, //42 - Golbat
+            78f,  //43 - Oddish
+            132f, //44 - Gloom
+            184f, //45 - Vileplume
+            70f,  //46 - Paras
+            128f, //47 - Parasect
+            75f,  //48 - Venonat
+            138f, //49 - Venomoth
+            81f,  //50 - Diglett
+            153f, //51 - Dugtrio
+            69f,  //52 - Meowth
+            148f, //53 - Persian
+            80f,  //54 - Psyduck
+            174f, //55 - Golduck
+            74f,  //56 - Mankey
+            149f, //57 - Primeape
+            91f,  //58 - Growlithe
+            213f, //59 - Arcanine
+            77f,  //60 - Poliwag
+            131f, //61 - Poliwhirl
+            185f, //62 - Poliwrath
+            73f,  //63 - Abra
+            145f, //64 - Kadabra
+            186f, //65 - Alakazam
+            88f,  //66 - Machop
+            146f, //67 - Machoke
+            193f, //68 - Machamp
+            84f,  //69 - Bellsprout
+            151f, //70 - Weepinbell
+            191f, //71 - Victreebel
+            105f, //72 - Tentacool
+            205f, //73 - Tentacruel
+            86f,  //74 - Geodude
+            134f, //75 - Graveler
+            177f, //76 - Golem
+        };
+
 
         
         public static readonly float[] ExpYield = new float[]

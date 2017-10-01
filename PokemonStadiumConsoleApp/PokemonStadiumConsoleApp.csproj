@@ -46,6 +46,7 @@
     <Compile Include="ConsoleBattleActor.cs" />
     <Compile Include="ConsoleBattlePlayer.cs" />
     <Compile Include="Display.cs" />
+    <Compile Include="DVs.cs" />
     <Compile Include="MainMenuState.cs" />
     <Compile Include="PrimeCupRentalPokemonFactory.cs" />
     <Compile Include="Program.cs" />

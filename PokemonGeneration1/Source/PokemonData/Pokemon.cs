@@ -58,7 +58,7 @@ namespace PokemonGeneration1.Source.PokemonData
         
         private PokemonEventArgs EventArgs;
 
-        public float CatchRate { get; private set; }
+        public float CatchRate => SpeciesData.CatchRate[Number];
 
         private string nickname;
         public string Nickname
@@ -166,9 +166,7 @@ namespace PokemonGeneration1.Source.PokemonData
             Stats stats,
             DeterminantValues dvs,
             StatExp statExp,
-            PokemonEventArgs eventArgs,
-            float catchRate,
-            string nickname = null)
+            string nickname)
         {
             Number = number;
             Level = level;
@@ -182,44 +180,56 @@ namespace PokemonGeneration1.Source.PokemonData
             Stats = stats;
             DVs = dvs;
             StatExp = statExp;
-            EventArgs = eventArgs;
-            CatchRate = catchRate;
+            EventArgs = new PokemonEventArgs() { pokemon = this };
             Nickname = nickname;
         }
 
 
-
-        public static Pokemon GeneratePreMadePokemon(
-            int index,
-            int level,
+        public static Pokemon GenPreMade(
+            int number,
+            float level,
             Move move1,
             Move move2,
             Move move3,
-            Move move4)
+            Move move4,
+            DeterminantValues dvs,
+            string nickname = null)
         {
-            Pokemon poke = new Pokemon(index);
-            poke.Move1 = move1;
-            poke.Move2 = move2;
-            poke.Move3 = move3;
-            poke.Move4 = move4;
-            poke.Level = level;
-            poke.Stats = StatCalculator.CreateStatsFor(poke);
-            poke.CurrentHP = poke.Stats.HP;
-            return poke;
+            BaseStats baseStats = SpeciesData.BaseStats[number];
+            Stats stats = new Stats(
+                StatCalculator.HPStat(baseStats.HP, dvs.HP, 0f, level),
+                StatCalculator.NonHPStat(baseStats.Attack, dvs.Attack, 0, level),
+                StatCalculator.NonHPStat(baseStats.Defense, dvs.Defense, 0, level),
+                StatCalculator.NonHPStat(baseStats.Special, dvs.Special, 0, level),
+                StatCalculator.NonHPStat(baseStats.Speed, dvs.Speed, 0, level));
+            return new Pokemon(
+                number,
+                level,
+                Status.Null,
+                stats.HP,
+                move1,
+                move2,
+                move3,
+                move4,
+                ExpCalculator.ExpNeededForLevel(SpeciesData.ExpGroup[number], level),
+                stats,
+                dvs,
+                new StatExp(),
+                nickname);
         }
 
-        public static Pokemon GenerateWildPokemon(int index, int level) =>
-            new Pokemon(index, level);
+        public static Pokemon GenerateWildPokemon(int number, int level) =>
+            new Pokemon(number, level);
 
-        private Pokemon(int index)
+        private Pokemon(int number)
         {
-            Number = index;
+            Number = number;
             StatExp = new StatExp();
             DVs = DeterminantValues.CreateRandom();
             Status = Status.Null;
             EventArgs = new PokemonEventArgs() { pokemon = this };
         }
-        private Pokemon(int index, int level) : this(index)
+        private Pokemon(int number, int level) : this(number)
         {
             Exp = ExpCalculator.ExpNeededForLevel(ExpGroup, level);
             Level = 1;
@@ -227,9 +237,9 @@ namespace PokemonGeneration1.Source.PokemonData
             //fill out moves by growing the Pokemon level by level
             for (int i = 1; i < level + 1; i++)
             {
-                if (PokemonLearnset.CanLearnMoveAtThisLevel(index, i))
+                if (PokemonLearnset.CanLearnMoveAtThisLevel(number, i))
                 {
-                    LearnMovesForLevel85PercentProb(index);
+                    LearnMovesForLevel85PercentProb(number);
                 }
                 Level++;
             }
@@ -238,9 +248,9 @@ namespace PokemonGeneration1.Source.PokemonData
             CurrentHP = Stats.HP;
         }
 
-        private void LearnMovesForLevel85PercentProb(int index)
+        private void LearnMovesForLevel85PercentProb(int number)
         {
-            List<int> indicesOfMovesToLearn = PokemonLearnset.GetAllMoveIndicesOfMovesLearnedAtThisLevel(index, (int)Level);
+            List<int> indicesOfMovesToLearn = PokemonLearnset.GetAllMoveIndicesOfMovesLearnedAtThisLevel(number, (int)Level);
             foreach (int moveIndex in indicesOfMovesToLearn)
                 if (!AlreadyKnowsMove(moveIndex))
                     if (Move1 == null)
