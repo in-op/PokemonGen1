@@ -30,10 +30,10 @@ namespace PokemonGeneration1.Source.PokemonData
             float speed = rng.Next(0, 16);
 
             float hp = 0f;
-            if (attack % 2 == 1) hp += 8f;
-            if (defense % 2 == 1) hp += 4f;
-            if (special % 2 == 1) hp += 1f;
-            if (speed % 2 == 1) hp += 2f;
+            if (attack % 2f == 1f) hp += 8f;
+            if (defense % 2f == 1f) hp += 4f;
+            if (special % 2f == 1f) hp += 1f;
+            if (speed % 2f == 1f) hp += 2f;
 
             return new DeterminantValues(
                 hp, attack, defense, special, speed);
