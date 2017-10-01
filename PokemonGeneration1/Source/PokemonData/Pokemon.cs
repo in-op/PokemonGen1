@@ -153,6 +153,40 @@ namespace PokemonGeneration1.Source.PokemonData
             return gained;
         }
 
+        private Pokemon(
+            int number,
+            float level,
+            Status status,
+            float currentHp,
+            Move move1,
+            Move move2,
+            Move move3,
+            Move move4,
+            float exp,
+            Stats stats,
+            DeterminantValues dvs,
+            StatExp statExp,
+            PokemonEventArgs eventArgs,
+            float catchRate,
+            string nickname = null)
+        {
+            Number = number;
+            Level = level;
+            Status = status;
+            CurrentHP = currentHp;
+            Move1 = move1;
+            Move2 = move2;
+            Move3 = move3;
+            Move4 = move4;
+            Exp = exp;
+            Stats = stats;
+            DVs = dvs;
+            StatExp = statExp;
+            EventArgs = eventArgs;
+            CatchRate = catchRate;
+            Nickname = nickname;
+        }
+
 
 
         public static Pokemon GeneratePreMadePokemon(
