@@ -10,6 +10,16 @@ namespace PokemonGeneration1.Source.PokemonData
         public readonly float Special;
         public readonly float Speed;
 
+        public static DeterminantValues CreatePremade(
+            float hp,
+            float attack,
+            float defense,
+            float special,
+            float speed)
+        {
+            return new DeterminantValues(hp, attack, defense, special, speed);
+        }
+
         public static DeterminantValues CreateRandom()
         {
             Random rng = new Random();
