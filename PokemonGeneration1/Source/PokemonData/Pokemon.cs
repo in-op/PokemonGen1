@@ -198,10 +198,10 @@ namespace PokemonGeneration1.Source.PokemonData
             BaseStats baseStats = SpeciesData.BaseStats[number];
             Stats stats = new Stats(
                 StatCalculator.HPStat(baseStats.HP, dvs.HP, 0f, level),
-                StatCalculator.NonHPStat(baseStats.Attack, dvs.Attack, 0, level),
-                StatCalculator.NonHPStat(baseStats.Defense, dvs.Defense, 0, level),
-                StatCalculator.NonHPStat(baseStats.Special, dvs.Special, 0, level),
-                StatCalculator.NonHPStat(baseStats.Speed, dvs.Speed, 0, level));
+                StatCalculator.NonHPStat(baseStats.Attack, dvs.Attack, 0f, level),
+                StatCalculator.NonHPStat(baseStats.Defense, dvs.Defense, 0f, level),
+                StatCalculator.NonHPStat(baseStats.Special, dvs.Special, 0f, level),
+                StatCalculator.NonHPStat(baseStats.Speed, dvs.Speed, 0f, level));
             return new Pokemon(
                 number,
                 level,

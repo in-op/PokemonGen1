@@ -24,7 +24,7 @@ namespace PokemonStadiumConsoleApp
             }
 
             Console.Clear();
-            return PrimeCupRentalPokemonFactory.Create(input);
+            return RentalPokemonFactory.PrimeCup(input);
         }
 
         private static void DisplayAllPokemon()

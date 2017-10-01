@@ -9,16 +9,16 @@ using System;
 
 namespace PokemonStadiumConsoleApp
 {
-    public static class PrimeCupRentalPokemonFactory
+    public static class RentalPokemonFactory
     {
         private static Pokemon Create(int number, float level, Move move1, Move move2, Move move3, Move move4)
         {
             return Pokemon.GenPreMade(number, level, move1, move2, move3, move4, DVs.Rental);
         }
 
-        public static Pokemon Create(int index)
+        public static Pokemon PrimeCup(int number)
         {
-            switch (index)
+            switch (number)
             {
                 case 1: // Bulbasaur
                     return Create(1, 100, new RazorLeaf(), new LeechSeed(), new BodySlam(), new Growth());
@@ -474,7 +474,7 @@ namespace PokemonStadiumConsoleApp
                 case 151: // Mew
                     return Create(151, 100, new Psychic(), new Metronome(), new MegaPunch(), new Flash());
 
-                default: throw new ArgumentException("The given index " + index + " is an invalid pokemon number");
+                default: throw new ArgumentException("The given index " + number + " is an invalid pokemon number");
             }
         }
     }
