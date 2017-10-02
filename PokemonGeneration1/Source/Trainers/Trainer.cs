@@ -35,6 +35,12 @@ namespace PokemonGeneration1.Source.Trainers
             new Trainer(name, new List<Pokemon>(6), new Bag());
 
 
+        public static Trainer Create(string name, List<Pokemon> party)
+        {
+            return new Trainer(name, party, new Bag());
+        }
+
+
         private Trainer(
             string name,
             List<Pokemon> party,

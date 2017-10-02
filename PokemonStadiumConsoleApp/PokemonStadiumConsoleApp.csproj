@@ -42,15 +42,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BallTrophy.cs" />
     <Compile Include="BattleEventsHandler.cs" />
     <Compile Include="ConsoleBattleActor.cs" />
     <Compile Include="ConsoleBattlePlayer.cs" />
     <Compile Include="Display.cs" />
     <Compile Include="DVs.cs" />
     <Compile Include="MainMenuState.cs" />
+    <Compile Include="PrimeCupEnemies.cs" />
     <Compile Include="PrimeCupRentalPokemonFactory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoundBattle.cs" />
     <Compile Include="SelectPokemon.cs" />
   </ItemGroup>
   <ItemGroup>
