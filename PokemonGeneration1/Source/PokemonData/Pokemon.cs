@@ -153,6 +153,8 @@ namespace PokemonGeneration1.Source.PokemonData
             return gained;
         }
 
+        
+
         private Pokemon(
             int number,
             float level,
@@ -202,6 +204,8 @@ namespace PokemonGeneration1.Source.PokemonData
                 StatCalculator.NonHPStat(baseStats.Defense, dvs.Defense, 0f, level),
                 StatCalculator.NonHPStat(baseStats.Special, dvs.Special, 0f, level),
                 StatCalculator.NonHPStat(baseStats.Speed, dvs.Speed, 0f, level));
+            float exp = ExpCalculator.ExpNeededForLevel(SpeciesData.ExpGroup[number], level);
+
             return new Pokemon(
                 number,
                 level,
@@ -211,7 +215,7 @@ namespace PokemonGeneration1.Source.PokemonData
                 move2,
                 move3,
                 move4,
-                ExpCalculator.ExpNeededForLevel(SpeciesData.ExpGroup[number], level),
+                exp,
                 stats,
                 dvs,
                 new StatExp(),
@@ -293,6 +297,152 @@ namespace PokemonGeneration1.Source.PokemonData
             (Move3?.Index == moveIndex) ||
             (Move4?.Index == moveIndex);
 
+
+
+
+
+
+        public class Builder
+        {
+            //must be specified:
+            int number;
+            float level;
+            //optional:
+            Status status;
+
+            float currentHP;
+            bool currentHpPreset;
+
+            Move move1;
+            Move move2;
+            Move move3;
+            Move move4;
+
+            float exp;
+            bool expPreset;
+
+            Stats stats;
+            DeterminantValues dvs;
+            StatExp statExp;
+            string nickname;
+
+            private Builder() { }
+
+            public Builder Init(int number, float level)
+            {
+                return new Builder() { number = number, level = level };
+            }
+
+            public Builder Status(Status status)
+            {
+                this.status = status;
+                return this;
+            }
+
+            public Builder CurrentHP(float currentHP)
+            {
+                this.currentHP = currentHP;
+                currentHpPreset = true;
+                return this;
+            }
+
+            public Builder Move1(Move move1)
+            {
+                this.move1 = move1;
+                return this;
+            }
+
+            public Builder Move2(Move move2)
+            {
+                this.move2 = move2;
+                return this;
+            }
+
+            public Builder Move3(Move move3)
+            {
+                this.move3 = move3;
+                return this;
+            }
+
+            public Builder Move4(Move move4)
+            {
+                this.move4 = move4;
+                return this;
+            }
+
+            public Builder Exp(float exp)
+            {
+                this.exp = exp;
+                expPreset = true;
+                return this;
+            }
+
+            public Builder Stats(Stats stats)
+            {
+                this.stats = stats;
+                return this;
+            }
+
+            public Builder DVs(DeterminantValues dvs)
+            {
+                this.dvs = dvs;
+                return this;
+            }
+
+            public Builder StatExp(StatExp statExp)
+            {
+                this.statExp = statExp;
+                return this;
+            }
+
+            public Builder Nickname(string nickname)
+            {
+                this.nickname = nickname;
+                return this;
+            }
+
+
+            public Pokemon Create()
+            {
+                if (statExp == null) statExp = new StatExp();
+                if (dvs == null) dvs = DeterminantValues.CreateRandom();
+                BaseStats baseStats = SpeciesData.BaseStats[number];
+                if (stats == null) stats = new Stats(
+                    StatCalculator.HPStat(baseStats.HP, dvs.HP, StatCalculator.StatPoint(statExp.HP), level),
+                    StatCalculator.NonHPStat(baseStats.Attack, dvs.Attack, StatCalculator.StatPoint(statExp.Attack), level),
+                    StatCalculator.NonHPStat(baseStats.Defense, dvs.Defense, StatCalculator.StatPoint(statExp.Defense), level),
+                    StatCalculator.NonHPStat(baseStats.Special, dvs.Special, StatCalculator.StatPoint(statExp.Special), level),
+                    StatCalculator.NonHPStat(baseStats.Speed, dvs.Speed, StatCalculator.StatPoint(statExp.Speed), level));
+                if (!expPreset) exp = ExpCalculator.ExpNeededForLevel(SpeciesData.ExpGroup[number], level);
+
+                bool movesPreset = false;
+                if (move1 != null) movesPreset = true;
+                if (move2 != null) movesPreset = true;
+                if (move3 != null) movesPreset = true;
+                if (move4 != null) movesPreset = true;
+                if (!movesPreset)
+                {
+                    //grow
+                }
+
+                if (!currentHpPreset) currentHP = stats.HP;
+
+                return new Pokemon(
+                    number,
+                    level,
+                    status,
+                    currentHP,
+                    move1,
+                    move2,
+                    move3,
+                    move4,
+                    exp,
+                    stats,
+                    dvs,
+                    statExp,
+                    nickname);
+            }
+        }
 
 
     }
