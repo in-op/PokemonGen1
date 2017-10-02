@@ -25,7 +25,7 @@ namespace PokemonStadiumConsoleApp
                             switch (roundBattle)
                             {
                                 case RoundBattle.Match1:
-                                    return Trainer.Create("Cueball", new List<Pokemon>()
+                                    return new Trainer("Cueball", new List<Pokemon>()
                                     {
                                         Pokemon.Builder.Init(46, 100)
                                             .Nickname("paras")
