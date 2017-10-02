@@ -13,7 +13,13 @@ namespace PokemonStadiumConsoleApp
     {
         private static Pokemon Create(int number, float level, Move move1, Move move2, Move move3, Move move4)
         {
-            return Pokemon.GenPreMade(number, level, move1, move2, move3, move4, DVs.Rental);
+            return Pokemon.Builder.Init(number, level)
+                .Move1(move1)
+                .Move2(move2)
+                .Move3(move3)
+                .Move4(move4)
+                .DVs(DVs.Rental)
+                .Create();
         }
 
         public static Pokemon PrimeCup(int number)

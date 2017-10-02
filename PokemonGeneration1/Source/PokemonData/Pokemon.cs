@@ -186,42 +186,6 @@ namespace PokemonGeneration1.Source.PokemonData
             Nickname = nickname;
         }
 
-
-        public static Pokemon GenPreMade(
-            int number,
-            float level,
-            Move move1,
-            Move move2,
-            Move move3,
-            Move move4,
-            DeterminantValues dvs,
-            string nickname = null)
-        {
-            BaseStats baseStats = SpeciesData.BaseStats[number];
-            Stats stats = new Stats(
-                StatCalculator.HPStat(baseStats.HP, dvs.HP, 0f, level),
-                StatCalculator.NonHPStat(baseStats.Attack, dvs.Attack, 0f, level),
-                StatCalculator.NonHPStat(baseStats.Defense, dvs.Defense, 0f, level),
-                StatCalculator.NonHPStat(baseStats.Special, dvs.Special, 0f, level),
-                StatCalculator.NonHPStat(baseStats.Speed, dvs.Speed, 0f, level));
-            float exp = ExpCalculator.ExpNeededForLevel(SpeciesData.ExpGroup[number], level);
-
-            return new Pokemon(
-                number,
-                level,
-                Status.Null,
-                stats.HP,
-                move1,
-                move2,
-                move3,
-                move4,
-                exp,
-                stats,
-                dvs,
-                new StatExp(),
-                nickname);
-        }
-
         public static Pokemon GenerateWildPokemon(int number, int level) =>
             new Pokemon(number, level);
 
@@ -328,7 +292,7 @@ namespace PokemonGeneration1.Source.PokemonData
 
             private Builder() { }
 
-            public Builder Init(int number, float level)
+            public static Builder Init(int number, float level)
             {
                 return new Builder() { number = number, level = level };
             }
