@@ -56,7 +56,3 @@ The abstract Side class keeps track of the player's move selection,
 the current Pokemon out in battle, the remaining team, and has an abstract
 method IsDefeated() which callers may query to see if the game is over
 because one side lost.
-
-# Future Features
-1. Selecting 6-Pokemon party
-2. Items
