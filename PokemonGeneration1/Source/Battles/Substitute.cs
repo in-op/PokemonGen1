@@ -1,6 +1,6 @@
 ﻿namespace PokemonGeneration1.Source.Battles
 {
-    public sealed class Substitute
+    public struct Substitute
     {
         public bool IsActive { get; private set; }
         public bool BrokeThisTurn { get; private set; }
