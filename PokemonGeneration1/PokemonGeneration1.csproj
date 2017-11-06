@@ -76,7 +76,6 @@
     <Compile Include="Source\Moves\Transitive\Status\Implementations.cs" />
     <Compile Include="Source\Moves\Transitive\TransitiveMove.cs" />
     <Compile Include="Source\Moves\Transitive\Status\TransitiveStatusMove.cs" />
-    <Compile Include="Source\PokemonData\BaseStats.cs" />
     <Compile Include="Source\Battles\BattlePokemon.cs" />
     <Compile Include="Source\Battles\Substitute.cs" />
     <Compile Include="Source\Battles\StatStageModifiers.cs" />

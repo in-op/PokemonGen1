@@ -35,7 +35,7 @@ namespace PokemonGeneration1.Source.PokemonData
         public float Special => Stats.Special; 
         public float Speed => Stats.Speed; 
 
-        private BaseStats BaseStats => SpeciesData.BaseStats[Number];
+        private Stats BaseStats => SpeciesData.BaseStats[Number];
         public float BaseHP => BaseStats.HP;
         public float BaseAttack => BaseStats.Attack;
         public float BaseDefense => BaseStats.Defense;
@@ -370,7 +370,7 @@ namespace PokemonGeneration1.Source.PokemonData
             {
                 if (statExp == null) statExp = new StatExp();
                 if (dvs == null) dvs = DeterminantValues.CreateRandom();
-                BaseStats baseStats = SpeciesData.BaseStats[number];
+                Stats baseStats = SpeciesData.BaseStats[number];
                 if (stats == null) stats = new Stats(
                     StatCalculator.HPStat(baseStats.HP, dvs.HP, StatCalculator.StatPoint(statExp.HP), level),
                     StatCalculator.NonHPStat(baseStats.Attack, dvs.Attack, StatCalculator.StatPoint(statExp.Attack), level),
