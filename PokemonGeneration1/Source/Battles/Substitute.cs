@@ -28,5 +28,10 @@
             IsActive = false;
         }
 
+        public void SetBrokeThisTurnFalse()
+        {
+            BrokeThisTurn = false;
+        }
+
     }
 }
