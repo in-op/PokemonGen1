@@ -354,6 +354,9 @@ namespace PokemonGeneration1.Source.Battles
             SwitchedPokemonThisTurn = false;
             Flinching = false;
 
+            if (DidSubstituteBreakThisTurn())
+                Substitute.SetBrokeThisTurnFalse();
+
             if (SleepTurnsLeft > 0) --SleepTurnsLeft;
 
             if (PartiallyTrappedEndingThisTurn)
