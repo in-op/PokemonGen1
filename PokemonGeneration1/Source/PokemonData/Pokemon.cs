@@ -42,7 +42,7 @@ namespace PokemonGeneration1.Source.PokemonData
         public float BaseSpecial => BaseStats.Special;
         public float BaseSpeed => BaseStats.Speed;
         
-        private readonly DeterminantValues DVs;
+        private readonly Stats DVs;
         public float HPDV => DVs.HP;
         public float AttackDV => DVs.Attack;
         public float DefenseDV => DVs.Defense;
@@ -166,7 +166,7 @@ namespace PokemonGeneration1.Source.PokemonData
             Move move4,
             float exp,
             Stats stats,
-            DeterminantValues dvs,
+            Stats dvs,
             StatExp statExp,
             string nickname)
         {
@@ -189,11 +189,30 @@ namespace PokemonGeneration1.Source.PokemonData
         public static Pokemon GenerateWildPokemon(int number, int level) =>
             new Pokemon(number, level);
 
+        public static Stats CreateRandomDVs()
+        {
+            Random rng = new Random();
+
+            float attack = rng.Next(0, 16);
+            float defense = rng.Next(0, 16);
+            float special = rng.Next(0, 16);
+            float speed = rng.Next(0, 16);
+
+            float hp = 0f;
+            if (attack % 2f == 1f) hp += 8f;
+            if (defense % 2f == 1f) hp += 4f;
+            if (special % 2f == 1f) hp += 1f;
+            if (speed % 2f == 1f) hp += 2f;
+
+            return new Stats(
+                hp, attack, defense, special, speed);
+        }
+
         private Pokemon(int number)
         {
             Number = number;
             StatExp = new StatExp();
-            DVs = DeterminantValues.CreateRandom();
+            DVs = CreateRandomDVs();
             Status = Status.Null;
             EventArgs = new PokemonEventArgs() { pokemon = this };
         }
@@ -286,7 +305,7 @@ namespace PokemonGeneration1.Source.PokemonData
             bool expPreset;
 
             Stats stats;
-            DeterminantValues dvs;
+            Stats dvs;
             StatExp statExp;
             string nickname;
 
@@ -347,7 +366,7 @@ namespace PokemonGeneration1.Source.PokemonData
                 return this;
             }
 
-            public Builder DVs(DeterminantValues dvs)
+            public Builder DVs(Stats dvs)
             {
                 this.dvs = dvs;
                 return this;
@@ -369,7 +388,7 @@ namespace PokemonGeneration1.Source.PokemonData
             public Pokemon Create()
             {
                 if (statExp == null) statExp = new StatExp();
-                if (dvs == null) dvs = DeterminantValues.CreateRandom();
+                if (dvs == null) dvs = CreateRandomDVs();
                 Stats baseStats = SpeciesData.BaseStats[number];
                 if (stats == null) stats = new Stats(
                     StatCalculator.HPStat(baseStats.HP, dvs.HP, StatCalculator.StatPoint(statExp.HP), level),
