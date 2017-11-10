@@ -1,6 +1,8 @@
-﻿namespace PokemonGeneration1.Source.Battles
+﻿using MonteCarloPlayer;
+
+namespace PokemonGeneration1.Source.Battles
 {
-    public struct Substitute
+    public class Substitute : Copyable<Substitute>
     {
         public bool IsActive { get; private set; }
         public bool BrokeThisTurn { get; private set; }
@@ -33,5 +35,28 @@
             BrokeThisTurn = false;
         }
 
+
+
+        public void CopyTo(Substitute other)
+        {
+            other.IsActive = IsActive;
+            other.BrokeThisTurn = BrokeThisTurn;
+            other.CurrentHP = CurrentHP;
+        }
+        public Substitute DeepCopy()
+        {
+            return new Substitute(IsActive, BrokeThisTurn, CurrentHP);
+        }
+
+
+
+        public Substitute() { }
+
+        private Substitute(bool isActive, bool brokeThisTurn, float currentHP)
+        {
+            IsActive = isActive;
+            BrokeThisTurn = brokeThisTurn;
+            CurrentHP = currentHP;
+        }
     }
 }

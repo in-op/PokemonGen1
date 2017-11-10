@@ -96,7 +96,12 @@
     <Compile Include="Source\PokemonData\Pokemon.cs" />
     <Compile Include="Source\Type.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\MonteCarloPlayer\MonteCarloPlayer.csproj">
+      <Project>{c2b4cd51-2e98-4a89-bedb-d0b2b597f810}</Project>
+      <Name>MonteCarloPlayer</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
