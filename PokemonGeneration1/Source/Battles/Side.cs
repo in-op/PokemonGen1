@@ -1,6 +1,7 @@
 ﻿using PokemonGeneration1.Source.PokemonData;
 using PokemonGeneration1.Source.Trainers;
 using System;
+using System.Linq;
 using System.Collections.Generic;
 
 namespace PokemonGeneration1.Source.Battles
@@ -81,15 +82,7 @@ namespace PokemonGeneration1.Source.Battles
 
         
         public sealed override bool IsDefeated
-        {
-            get
-            {
-                foreach (Pokemon poke in Trainer.Party())
-                    if (poke.Status != Status.Fainted)
-                        return false;
-                return true;
-            }
-        }
+            => Trainer.Party().All(p => p.Status == Status.Fainted);
 
         public sealed override string Name
             => Trainer.Name;
