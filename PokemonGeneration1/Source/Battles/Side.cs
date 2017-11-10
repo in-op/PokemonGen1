@@ -15,7 +15,7 @@ namespace PokemonGeneration1.Source.Battles
         public abstract List<Pokemon> Party { get; }
         public abstract bool IsDefeated { get; }
 
-        public BattlePokemon CurrentBattlePokemon { get; }
+        public BattlePokemon BattlePokemon { get; }
 
 
         public int SelectionPriority => Selection.Priority;
@@ -33,12 +33,12 @@ namespace PokemonGeneration1.Source.Battles
 
         public bool IsPokemonFainted()
         {
-            return CurrentBattlePokemon.IsFainted;
+            return BattlePokemon.IsFainted;
         }
 
-        protected Side(BattlePokemon currentBattlePokemon)
+        protected Side(BattlePokemon battlePokemon)
         {
-            CurrentBattlePokemon = currentBattlePokemon;
+            BattlePokemon = battlePokemon;
         }
     }
 
@@ -57,7 +57,7 @@ namespace PokemonGeneration1.Source.Battles
         }
 
         public sealed override bool IsDefeated
-            => CurrentBattlePokemon.IsFainted;
+            => BattlePokemon.IsFainted;
 
         public sealed override string Name
             =>  "Wild Pokemon";

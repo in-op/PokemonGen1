@@ -183,8 +183,8 @@ namespace PokemonStadiumConsoleApp
         }
         private static void DisplayPokemon(BattleEventArgs args)
         {
-            Display.Pokemon(args.thisBattle.PlayerSide.CurrentBattlePokemon,
-                            args.thisBattle.OpponentSide.CurrentBattlePokemon,
+            Display.Pokemon(args.thisBattle.PlayerSide.BattlePokemon,
+                            args.thisBattle.OpponentSide.BattlePokemon,
                             args.thisBattle.PlayerSide.Name,
                             args.thisBattle.OpponentSide.Name);
         }

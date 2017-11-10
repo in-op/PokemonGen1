@@ -1,9 +1,10 @@
 ﻿using PokemonGeneration1.Source.Battles;
+using MonteCarloPlayer;
 using System;
 
 namespace PokemonGeneration1.Source.Moves
 {
-    public abstract class Move : IEquatable<Move>
+    public abstract class Move : IEquatable<Move>, Copyable<Move>
     {
         public int Index { get; }
         public string Name { get; }
@@ -12,7 +13,7 @@ namespace PokemonGeneration1.Source.Moves
         public Category Category { get; }
         public int AbsoluteMaxPP { get; }
 
-        public int CurrentPP { get; private set; }
+        public int CurrentPP;
         public int MaxPP { get; private set; }
         
         protected MoveEventArgs EventArgs;
@@ -50,30 +51,30 @@ namespace PokemonGeneration1.Source.Moves
         public Action<Move> SkullBashFirstTurn;
         public Action<Move> SkyAttackFirstTurn;
         public Action<Move> RegainedHealth;
-        protected void OnUsed() { Used?.Invoke(this); }
-        protected void OnFailed() { Failed?.Invoke(this); }
-        protected void OnMissed() { Missed?.Invoke(this); }
-        protected void OnNoEffect() { NoEffect?.Invoke(this); }
-        protected void OnSuperEffective() { SuperEffective?.Invoke(this); }
-        protected void OnNotVeryEffective() { NotVeryEffective?.Invoke(this); }
-        protected void OnCriticalHit() { CriticalHit?.Invoke(this); }
-        protected void OnOneHitKO() { OneHitKO?.Invoke(this); }
-        protected void OnPayDayTriggered() { PayDayTriggered?.Invoke(this); }
-        protected void OnSolarBeamFirstTurn() { SolarBeamFirstTurn?.Invoke(this); }
-        protected void OnRazorWindFirstTurn() { RazorWindFirstTurn?.Invoke(this); }
-        protected void OnBidingTime() { BidingTime?.Invoke(this); }
-        protected void OnBideUnleased() { BideUnleased?.Invoke(this); }
-        protected void OnFlyFirstTurn() { FlyFirstTurn?.Invoke(this); }
-        protected void OnAttackContinues() { AttackContinues?.Invoke(this); }
-        protected void OnCrashDamage() { CrashDamage?.Invoke(this); }
-        protected void OnHurtByRecoilDamage() { HurtByRecoilDamage?.Invoke(this); }
-        protected void OnThrashingAbout() { ThrashingAbout?.Invoke(this); }
-        protected void OnHyperBeamRecharging() { HyperBeamRecharging?.Invoke(this); }
-        protected void OnSuckedHealth() { SuckedHealth?.Invoke(this); }
-        protected void OnDugAHole() { DugAHole?.Invoke(this); }
-        protected void OnSkullBashFirstTurn() { SkullBashFirstTurn?.Invoke(this); }
-        protected void OnSkyAttackFirstTurn() { SkyAttackFirstTurn?.Invoke(this); }
-        protected void OnRegainedHealth() { RegainedHealth?.Invoke(this); }
+        protected void OnUsed() => Used?.Invoke(this);
+        protected void OnFailed() => Failed?.Invoke(this);
+        protected void OnMissed() => Missed?.Invoke(this);
+        protected void OnNoEffect() => NoEffect?.Invoke(this);
+        protected void OnSuperEffective() => SuperEffective?.Invoke(this);
+        protected void OnNotVeryEffective() => NotVeryEffective?.Invoke(this);
+        protected void OnCriticalHit() => CriticalHit?.Invoke(this);
+        protected void OnOneHitKO() => OneHitKO?.Invoke(this);
+        protected void OnPayDayTriggered() => PayDayTriggered?.Invoke(this);
+        protected void OnSolarBeamFirstTurn() => SolarBeamFirstTurn?.Invoke(this);
+        protected void OnRazorWindFirstTurn() => RazorWindFirstTurn?.Invoke(this);
+        protected void OnBidingTime() => BidingTime?.Invoke(this);
+        protected void OnBideUnleased() => BideUnleased?.Invoke(this);
+        protected void OnFlyFirstTurn() => FlyFirstTurn?.Invoke(this);
+        protected void OnAttackContinues() => AttackContinues?.Invoke(this);
+        protected void OnCrashDamage() => CrashDamage?.Invoke(this);
+        protected void OnHurtByRecoilDamage() => HurtByRecoilDamage?.Invoke(this);
+        protected void OnThrashingAbout() => ThrashingAbout?.Invoke(this);
+        protected void OnHyperBeamRecharging() => HyperBeamRecharging?.Invoke(this);
+        protected void OnSuckedHealth() => SuckedHealth?.Invoke(this);
+        protected void OnDugAHole() => DugAHole?.Invoke(this);
+        protected void OnSkullBashFirstTurn() => SkullBashFirstTurn?.Invoke(this);
+        protected void OnSkyAttackFirstTurn() => SkyAttackFirstTurn?.Invoke(this);
+        protected void OnRegainedHealth() => RegainedHealth?.Invoke(this);
 
 
 
@@ -118,5 +119,19 @@ namespace PokemonGeneration1.Source.Moves
         public sealed override int GetHashCode() => Index;
 
 
+
+
+        public Move DeepCopy()
+        {
+            Move copy = MoveFactory.Create(Index);
+            CopyTo(copy);
+            return copy;
+        }
+
+        public void CopyTo(Move other)
+        {
+            other.CurrentPP = CurrentPP;
+            //other.MaxPP = MaxPP; // strictly necessary to be correct, but irrelevant for app
+        }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace PokemonGeneration1.Source.Battles
 {
-    public class Substitute : Copyable<Substitute>
+    public sealed class Substitute : Copyable<Substitute>
     {
         public bool IsActive { get; private set; }
         public bool BrokeThisTurn { get; private set; }
@@ -39,10 +39,14 @@ namespace PokemonGeneration1.Source.Battles
 
         public void CopyTo(Substitute other)
         {
+            if (IsActive)
+            {
+                other.BrokeThisTurn = BrokeThisTurn;
+                other.CurrentHP = CurrentHP;
+            }
             other.IsActive = IsActive;
-            other.BrokeThisTurn = BrokeThisTurn;
-            other.CurrentHP = CurrentHP;
         }
+
         public Substitute DeepCopy()
         {
             return new Substitute(IsActive, BrokeThisTurn, CurrentHP);

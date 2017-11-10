@@ -200,25 +200,25 @@ namespace PokemonGeneration1.Source.Battles
             Selection playerSelection;
             Selection opponentSelection;
             //check, for both players, if engaged in a two-turn move which will prevent choosing
-            if (!PlayerSide.CurrentBattlePokemon.IsTwoTurnMoveActive())
+            if (!PlayerSide.BattlePokemon.IsTwoTurnMoveActive())
             {
                 playerSelection = PlayerActor.MakeBeginningOfTurnSelection(this, PlayerSide);
             }
             else
             {
-                playerSelection = Selection.MakeFight(PlayerSide.CurrentBattlePokemon,
-                                                      OpponentSide.CurrentBattlePokemon,
-                                                      PlayerSide.CurrentBattlePokemon.GetTwoTurnMove());
+                playerSelection = Selection.MakeFight(PlayerSide.BattlePokemon,
+                                                      OpponentSide.BattlePokemon,
+                                                      PlayerSide.BattlePokemon.GetTwoTurnMove());
             }
-            if (!OpponentSide.CurrentBattlePokemon.IsTwoTurnMoveActive())
+            if (!OpponentSide.BattlePokemon.IsTwoTurnMoveActive())
             {
                 opponentSelection = OpponentActor.MakeBeginningOfTurnSelection(this, OpponentSide);
             }
             else
             {
-                opponentSelection = Selection.MakeFight(OpponentSide.CurrentBattlePokemon,
-                                                        PlayerSide.CurrentBattlePokemon,
-                                                        OpponentSide.CurrentBattlePokemon.GetTwoTurnMove());
+                opponentSelection = Selection.MakeFight(OpponentSide.BattlePokemon,
+                                                        PlayerSide.BattlePokemon,
+                                                        OpponentSide.BattlePokemon.GetTwoTurnMove());
             }
             PlayerSide.SetSelection(playerSelection);
             OpponentSide.SetSelection(opponentSelection);
@@ -226,8 +226,8 @@ namespace PokemonGeneration1.Source.Battles
         }
         private void UpdateForEndOfTurn()
         {
-            PlayerSide.CurrentBattlePokemon.UpdateForEndOfTurn();
-            OpponentSide.CurrentBattlePokemon.UpdateForEndOfTurn();
+            PlayerSide.BattlePokemon.UpdateForEndOfTurn();
+            OpponentSide.BattlePokemon.UpdateForEndOfTurn();
         }
         private void ExecuteSetFirstAndSecondState()
         {
@@ -251,7 +251,7 @@ namespace PokemonGeneration1.Source.Battles
             else
             {
                 //CASE 4.1: player's speed is greater than or equal to than opponents
-                if (PlayerSide.CurrentBattlePokemon.Speed >= OpponentSide.CurrentBattlePokemon.Speed)
+                if (PlayerSide.BattlePokemon.Speed >= OpponentSide.BattlePokemon.Speed)
                 {
                     SetPlayerFirst();
                 }
