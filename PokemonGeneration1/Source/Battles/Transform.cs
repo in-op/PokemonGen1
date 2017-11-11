@@ -65,19 +65,19 @@ namespace PokemonGeneration1.Source.Battles
             else return new Transform();
         }
 
-        public void CopyTo(Transform other)
+        public void CopyFrom(Transform other)
         {
-            other.Active = Active;
-            if (Active)
+            if (other.Active)
             {
-                other.Type1 = Type1;
-                other.Type2 = Type2;
-                other.Stats = Stats;
-                Move1.CopyTo(other.Move1);
-                Move2.CopyTo(other.Move2);
-                Move3.CopyTo(other.Move3);
-                Move4.CopyTo(other.Move4);
+                Type1 = other.Type1;
+                Type2 = other.Type2;
+                Stats = other.Stats;
+                Move1.CopyFrom(other.Move1);
+                Move2.CopyFrom(other.Move2);
+                Move3.CopyFrom(other.Move3);
+                Move4.CopyFrom(other.Move4);
             }
+            Active = other.Active;
         }
 
 

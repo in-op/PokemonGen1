@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using PokemonGeneration1.Source.Moves;
+using MonteCarloPlayer;
 
 namespace PokemonGeneration1.Source.PokemonData
 {
     /// <summary>
     /// Represents a Pokemon with all core data and legal tranformation functions.
     /// </summary>
-    public sealed class Pokemon
+    public sealed class Pokemon : Copyable<Pokemon>
     {
         public int Number { get; private set; }
 
@@ -65,6 +66,41 @@ namespace PokemonGeneration1.Source.PokemonData
         {
             get => nickname ?? Species;
             set { nickname = value; }
+        }
+
+
+
+
+        public Pokemon DeepCopy()
+        {
+            return new Pokemon(
+                Number, Level, Status, CurrentHP,
+                Move1, Move2, Move3, Move4,
+                Stats, DVs, StatExp);
+        }
+
+        /// <param name="other">A modified copy of the caller needing a reset</param>
+        public void CopyFrom(Pokemon other)
+        {
+            
+        }
+
+        private Pokemon(
+            int number, float level, Status status, float currentHP,
+            Move move1, Move move2, Move move3, Move move4,
+            Stats stats, Stats dvs, StatExp statExp)
+        {
+            Number = number;
+            Level = level;
+            Status = status;
+            CurrentHP = currentHP;
+            Move1 = move1;
+            Move2 = move2;
+            Move3 = move3;
+            Move4 = move4;
+            Stats = stats;
+            DVs = dvs;
+            StatExp = statExp;
         }
 
 
@@ -279,11 +315,6 @@ namespace PokemonGeneration1.Source.PokemonData
             (Move2?.Index == moveIndex) ||
             (Move3?.Index == moveIndex) ||
             (Move4?.Index == moveIndex);
-
-
-
-
-
 
         public class Builder
         {

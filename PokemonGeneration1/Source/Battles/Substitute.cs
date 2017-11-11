@@ -37,14 +37,14 @@ namespace PokemonGeneration1.Source.Battles
 
 
 
-        public void CopyTo(Substitute other)
+        public void CopyFrom(Substitute other)
         {
-            if (IsActive)
+            if (other.IsActive)
             {
-                other.BrokeThisTurn = BrokeThisTurn;
-                other.CurrentHP = CurrentHP;
+                BrokeThisTurn = other.BrokeThisTurn;
+                CurrentHP = other.CurrentHP;
             }
-            other.IsActive = IsActive;
+            IsActive = IsActive;
         }
 
         public Substitute DeepCopy()

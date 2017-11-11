@@ -124,13 +124,13 @@ namespace PokemonGeneration1.Source.Moves
         public Move DeepCopy()
         {
             Move copy = MoveFactory.Create(Index);
-            CopyTo(copy);
+            CopyFrom(copy);
             return copy;
         }
 
-        public void CopyTo(Move other)
+        public void CopyFrom(Move other)
         {
-            other.CurrentPP = CurrentPP;
+            CurrentPP = other.CurrentPP;
             //other.MaxPP = MaxPP; // strictly necessary to be correct, but irrelevant for app
         }
     }
