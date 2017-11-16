@@ -9,22 +9,8 @@ namespace PokemonGeneration1.Source.Battles
     /// </summary>
     public class Battle : MonteCarlo<Battle, Selection, Side>.Game
     {
-        private Battle(
-            Side playerSide,
-            Side opponentSide,
-            BattleState state,
-            Side firstSide,
-            Side secondSide)
-        {
-            PlayerSide = playerSide;
-            OpponentSide = opponentSide;
-            State = state;
-            FirstSide = firstSide;
-            SecondSide = secondSide;
-        }
-
-        public Side PlayerSide { get; }
-        public Side OpponentSide { get; }
+        public readonly Side PlayerSide;
+        public readonly Side OpponentSide;
         private BattleActor PlayerActor;
         private BattleActor OpponentActor;
         private BattleState State;
