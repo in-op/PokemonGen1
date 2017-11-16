@@ -20,8 +20,8 @@ namespace PokemonGeneration1.Source.Battles
         public Move Move3 { get; private set; }
         public Move Move4 { get; private set; }
 
-        public Move LastMoveUsed { get; set; }
-        public Move MirrorMove { get; set; }
+        public Move LastMoveUsed;
+        public Move MirrorMove;
         private Move TwoTurnMove;
         private Move MultiTurnMove;
 
