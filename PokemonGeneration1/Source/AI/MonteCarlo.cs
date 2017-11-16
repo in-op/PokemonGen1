@@ -59,10 +59,14 @@ namespace PokemonGeneration1.Source.AI
             return moves.player[bestIndex];
         }
 
-        public interface Game
+        public interface Copyable
         {
             TGame DeepCopy();
             void CopyFrom(TGame game);
+        }
+
+        public interface Game : Copyable
+        {
             LegalMoves LegalMoves(TPlayer player);
             void DoMove(TPlayer player, TMove playerMove, TMove enemyMove);
             void Playout();
