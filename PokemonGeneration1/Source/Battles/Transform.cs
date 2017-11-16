@@ -1,11 +1,10 @@
 ﻿using System;
 using PokemonGeneration1.Source.Moves;
 using PokemonGeneration1.Source.PokemonData;
-using MonteCarloPlayer;
 
 namespace PokemonGeneration1.Source.Battles
 {
-    public sealed class Transform : Copyable<Transform>
+    public sealed class Transform
     {
         public bool Active { get; private set; }
 

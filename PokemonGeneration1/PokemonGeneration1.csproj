@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Source\AI\MonteCarlo.cs" />
     <Compile Include="Source\Battles\Battle.cs" />
     <Compile Include="Source\Battles\BattleEventArgs.cs" />
     <Compile Include="Source\Battles\Bide.cs" />
@@ -94,12 +95,6 @@
     <Compile Include="Source\Moves\Move.cs" />
     <Compile Include="Source\PokemonData\Pokemon.cs" />
     <Compile Include="Source\Type.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MonteCarloPlayer\MonteCarloPlayer.csproj">
-      <Project>{c2b4cd51-2e98-4a89-bedb-d0b2b597f810}</Project>
-      <Name>MonteCarloPlayer</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

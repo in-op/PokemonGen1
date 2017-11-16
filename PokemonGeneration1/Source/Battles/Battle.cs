@@ -1,4 +1,5 @@
 ﻿using System;
+using PokemonGeneration1.Source.AI;
 
 namespace PokemonGeneration1.Source.Battles
 {
@@ -6,8 +7,22 @@ namespace PokemonGeneration1.Source.Battles
     /// Representation of a Pokemon battle as a 
     /// Finite State Machine
     /// </summary>
-    public class Battle
+    public class Battle : MonteCarlo<Battle, Selection, Side>.Game
     {
+        private Battle(
+            Side playerSide,
+            Side opponentSide,
+            BattleState state,
+            Side firstSide,
+            Side secondSide)
+        {
+            PlayerSide = playerSide;
+            OpponentSide = opponentSide;
+            State = state;
+            FirstSide = firstSide;
+            SecondSide = secondSide;
+        }
+
         public Side PlayerSide { get; }
         public Side OpponentSide { get; }
         private BattleActor PlayerActor;
@@ -291,6 +306,36 @@ namespace PokemonGeneration1.Source.Battles
 
 
 
+
+        public Battle DeepCopy()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void CopyFrom(Battle game)
+        {
+            throw new NotImplementedException();
+        }
+
+        public MonteCarlo<Battle, Selection, Side>.LegalMoves LegalMoves(Side player)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DoMove(Side player, Selection playerMove, Selection enemyMove)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Playout()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool IsVictor(Side player)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 

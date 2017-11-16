@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using PokemonGeneration1.Source.Moves;
-using MonteCarloPlayer;
 
 namespace PokemonGeneration1.Source.PokemonData
 {
     /// <summary>
     /// Represents a Pokemon with all core data and legal tranformation functions.
     /// </summary>
-    public sealed class Pokemon : Copyable<Pokemon>
+    public sealed class Pokemon
     {
         public int Number { get; private set; }
 
@@ -82,7 +81,12 @@ namespace PokemonGeneration1.Source.PokemonData
         /// <param name="other">A modified copy of the caller needing a reset</param>
         public void CopyFrom(Pokemon other)
         {
-            
+            Status = other.Status;
+            CurrentHP = other.CurrentHP;
+            Move1.CopyFrom(other.Move1);
+            Move2.CopyFrom(other.Move2);
+            Move3.CopyFrom(other.Move3);
+            Move4.CopyFrom(other.Move4);
         }
 
         private Pokemon(

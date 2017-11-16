@@ -1,8 +1,6 @@
-﻿using MonteCarloPlayer;
-
-namespace PokemonGeneration1.Source.Battles
+﻿namespace PokemonGeneration1.Source.Battles
 {
-    public sealed class Substitute : Copyable<Substitute>
+    public sealed class Substitute
     {
         public bool IsActive { get; private set; }
         public bool BrokeThisTurn { get; private set; }

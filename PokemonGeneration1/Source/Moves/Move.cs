@@ -1,10 +1,9 @@
 ﻿using PokemonGeneration1.Source.Battles;
-using MonteCarloPlayer;
 using System;
 
 namespace PokemonGeneration1.Source.Moves
 {
-    public abstract class Move : IEquatable<Move>, Copyable<Move>
+    public abstract class Move : IEquatable<Move>
     {
         public int Index { get; }
         public string Name { get; }
