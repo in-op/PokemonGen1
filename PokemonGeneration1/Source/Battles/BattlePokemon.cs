@@ -15,16 +15,57 @@ namespace PokemonGeneration1.Source.Battles
         public Pokemon Pokemon { get; private set; }
         private StatStageModifiers StatStageModifiers;
 
-        public Move Move1 { get; private set; }
-        public Move Move2 { get; private set; }
-        public Move Move3 { get; private set; }
-        public Move Move4 { get; private set; }
+        public Move Move1
+        {
+            get
+            {
+                if (mimic.Active && mimic.MoveIndex == 1)
+                    return mimic.Move;
+                if (Transform.Active)
+                    return Transform.Move1;
+                return Pokemon.Move1;
+            }
+        }
+        public Move Move2
+        {
+            get
+            {
+                if (mimic.Active && mimic.MoveIndex == 2)
+                    return mimic.Move;
+                if (Transform.Active)
+                    return Transform.Move2;
+                return Pokemon.Move2;
+            }
+        }
+        public Move Move3
+        {
+            get
+            {
+                if (mimic.Active && mimic.MoveIndex == 3)
+                    return mimic.Move;
+                if (Transform.Active)
+                    return Transform.Move3;
+                return Pokemon.Move3;
+            }
+        }
+        public Move Move4
+        {
+            get
+            {
+                if (mimic.Active && mimic.MoveIndex == 4)
+                    return mimic.Move;
+                if (Transform.Active)
+                    return Transform.Move4;
+                return Pokemon.Move4;
+            }
+        }
 
         public Move LastMoveUsed { get; set; }
         public Move MirrorMove { get; set; }
         private Move TwoTurnMove;
         private Move MultiTurnMove;
 
+        private Mimic mimic;
         private Conversion Conversion;
         private Substitute Substitute;
         private Transform Transform;
@@ -333,12 +374,15 @@ namespace PokemonGeneration1.Source.Battles
                 moveToCopy = opponent.Move1;
 
             OnMimic(moveToCopy, opponent);
-            Move newMove = MoveFactory.Create(moveToCopy.Index);
+            Move mimicedMove = MoveFactory.Create(moveToCopy.Index);
 
-            if (Move1 == mimicItself) Move1 = newMove;
-            else if (Move2 == mimicItself) Move2 = newMove;
-            else if (Move3 == mimicItself) Move3 = newMove;
-            else if (Move4 == mimicItself) Move4 = newMove;
+            int moveIndex = 0;
+            if (Move1 == mimicItself) moveIndex = 1;
+            else if (Move2 == mimicItself) moveIndex = 2;
+            else if (Move3 == mimicItself) moveIndex = 3;
+            else if (Move4 == mimicItself) moveIndex = 4;
+
+            mimic.Activate(mimicedMove, moveIndex);
         }
 
 
@@ -704,8 +748,6 @@ namespace PokemonGeneration1.Source.Battles
             DetachPokemonEventHandlers();
             Pokemon = switchIn;
             AttachPokemonEventHandlers();
-            
-            SetMovesToPokemonMoves();
 
             TwoTurnMove?.Abort();
             TwoTurnMove = null;
@@ -714,6 +756,7 @@ namespace PokemonGeneration1.Source.Battles
 
             SwitchedPokemonThisTurn = true;
             Seeded = false;
+            mimic.Deactivate();
             Conversion.Deactivate();
             Substitute.Deactivate();
             Transform.Deactivate();
@@ -733,13 +776,6 @@ namespace PokemonGeneration1.Source.Battles
                 BurnDecreasingAttack = true;
             else BurnDecreasingAttack = false;
         }
-        private void SetMovesToPokemonMoves()
-        {
-            Move1 = Pokemon.Move1;
-            Move2 = Pokemon.Move2;
-            Move3 = Pokemon.Move3;
-            Move4 = Pokemon.Move4;
-        }
 
 
 
@@ -749,9 +785,9 @@ namespace PokemonGeneration1.Source.Battles
         {
             Pokemon = pokemon;
             AttachPokemonEventHandlers();
-            SetMovesToPokemonMoves();
 
             StatStageModifiers = new StatStageModifiers();
+            mimic = new Mimic();
             Conversion = new Conversion();
             Substitute = new Substitute();
             Transform = new Transform();
@@ -1279,12 +1315,7 @@ namespace PokemonGeneration1.Source.Battles
         public void ActivateTransform(BattlePokemon pokemonToTransformInto)
         {
             Transform.Activate(pokemonToTransformInto);
-
-            Move1 = Transform.Move1;
-            Move2 = Transform.Move2;
-            Move3 = Transform.Move3;
-            Move4 = Transform.Move4;
-
+            
             StatStageModifiers = new StatStageModifiers(
                 pokemonToTransformInto.StatStageModifiers.Attack,
                 pokemonToTransformInto.StatStageModifiers.Defense,

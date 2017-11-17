@@ -54,6 +54,7 @@
     <Compile Include="Source\Battles\BattlePokemonEventArgs.cs" />
     <Compile Include="Source\Battles\BattleState.cs" />
     <Compile Include="Source\Battles\Disable.cs" />
+    <Compile Include="Source\Battles\Mimic.cs" />
     <Compile Include="Source\Battles\RandomWildPokemonActor.cs" />
     <Compile Include="Source\Battles\Selection.cs" />
     <Compile Include="Source\Battles\Side.cs" />
