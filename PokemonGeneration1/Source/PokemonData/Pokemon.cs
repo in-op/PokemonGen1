@@ -49,7 +49,7 @@ namespace PokemonGeneration1.Source.PokemonData
         public float SpecialDV => DVs.Special;
         public float SpeedDV => DVs.Speed;
 
-        private StatExp StatExp;
+        private Stats StatExp;
         public float HPExp => StatExp.HP;
         public float AttackExp => StatExp.Attack;
         public float DefenseExp => StatExp.Defense;
@@ -167,7 +167,7 @@ namespace PokemonGeneration1.Source.PokemonData
             float exp,
             Stats stats,
             Stats dvs,
-            StatExp statExp,
+            Stats statExp,
             string nickname)
         {
             Number = number;
@@ -211,7 +211,7 @@ namespace PokemonGeneration1.Source.PokemonData
         private Pokemon(int number)
         {
             Number = number;
-            StatExp = new StatExp();
+            StatExp = new Stats(0f, 0f, 0f, 0f, 0f);
             DVs = CreateRandomDVs();
             Status = Status.Null;
             EventArgs = new PokemonEventArgs() { pokemon = this };
@@ -306,7 +306,7 @@ namespace PokemonGeneration1.Source.PokemonData
 
             Stats stats;
             Stats dvs;
-            StatExp statExp;
+            Stats statExp;
             string nickname;
 
             private Builder() { }
@@ -372,7 +372,7 @@ namespace PokemonGeneration1.Source.PokemonData
                 return this;
             }
 
-            public Builder StatExp(StatExp statExp)
+            public Builder StatExp(Stats statExp)
             {
                 this.statExp = statExp;
                 return this;
@@ -387,7 +387,7 @@ namespace PokemonGeneration1.Source.PokemonData
 
             public Pokemon Create()
             {
-                if (statExp == null) statExp = new StatExp();
+                if (statExp == null) statExp = new Stats(0f, 0f, 0f, 0f, 0f);
                 if (dvs == null) dvs = CreateRandomDVs();
                 Stats baseStats = SpeciesData.BaseStats[number];
                 if (stats == null) stats = new Stats(
