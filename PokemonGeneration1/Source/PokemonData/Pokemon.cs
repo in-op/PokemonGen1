@@ -144,13 +144,7 @@ namespace PokemonGeneration1.Source.PokemonData
         }
         private float GainHP(float amount)
         {
-            float gained = 0f;
-            while (CurrentHP < Stats.HP && gained < amount)
-            {
-                CurrentHP++;
-                gained++;
-            }
-            return gained;
+            return Math.Min(amount, HP - CurrentHP);
         }
 
         
