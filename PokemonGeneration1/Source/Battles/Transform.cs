@@ -11,10 +11,10 @@ namespace PokemonGeneration1.Source.Battles
         public Type Type2 { get; private set; }
 
         private Stats Stats;
-        public float Attack { get => Stats.Attack; }
-        public float Defense { get => Stats.Defense; }
-        public float Special { get => Stats.Special; }
-        public float Speed { get => Stats.Speed; }
+        public float Attack => Stats.Attack;
+        public float Defense => Stats.Defense;
+        public float Special => Stats.Special;
+        public float Speed => Stats.Speed;
 
         public Move Move1 { get; private set; }
         public Move Move2 { get; private set; }
