@@ -81,7 +81,6 @@
     <Compile Include="Source\Battles\StatStageModifiers.cs" />
     <Compile Include="Source\Battles\Category.cs" />
     <Compile Include="Source\Moves\MoveFactory.cs" />
-    <Compile Include="Source\PokemonData\ExpCalculator.cs" />
     <Compile Include="Source\PokemonData\PokemonEventArgs.cs" />
     <Compile Include="Source\PokemonData\ExperienceGroup.cs" />
     <Compile Include="Source\PokemonData\PokemonLearnset.cs" />

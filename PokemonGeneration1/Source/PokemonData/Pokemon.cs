@@ -212,7 +212,7 @@ namespace PokemonGeneration1.Source.PokemonData
         }
         private Pokemon(int number, int level) : this(number)
         {
-            Exp = ExpCalculator.ExpNeededForLevel(ExpGroup, level);
+            Exp = ExpGroup.ExpAt(level);
             Level = 1;
 
             //fill out moves by growing the Pokemon level by level
@@ -390,7 +390,7 @@ namespace PokemonGeneration1.Source.PokemonData
                     StatCalculator.NonHPStat(baseStats.Defense, dvs.Defense, StatCalculator.StatPoint(statExp.Defense), level),
                     StatCalculator.NonHPStat(baseStats.Special, dvs.Special, StatCalculator.StatPoint(statExp.Special), level),
                     StatCalculator.NonHPStat(baseStats.Speed, dvs.Speed, StatCalculator.StatPoint(statExp.Speed), level));
-                if (!expPreset) exp = ExpCalculator.ExpNeededForLevel(SpeciesData.ExpGroup[number], level);
+                if (!expPreset) exp = SpeciesData.ExpGroup[number].ExpAt(level);
 
                 bool movesPreset = false;
                 if (move1 != null) movesPreset = true;
