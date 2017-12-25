@@ -391,13 +391,8 @@ namespace PokemonGeneration1.Source.PokemonData
                     StatCalculator.NonHPStat(baseStats.Special, dvs.Special, StatCalculator.StatPoint(statExp.Special), level),
                     StatCalculator.NonHPStat(baseStats.Speed, dvs.Speed, StatCalculator.StatPoint(statExp.Speed), level));
                 if (!expPreset) exp = SpeciesData.ExpGroup[number].ExpAt(level);
-
-                bool movesPreset = false;
-                if (move1 != null) movesPreset = true;
-                if (move2 != null) movesPreset = true;
-                if (move3 != null) movesPreset = true;
-                if (move4 != null) movesPreset = true;
-                if (!movesPreset)
+                
+                if (move1 == null && move2 == null && move3 == null && move4 == null)
                 {
                     //grow
                 }
