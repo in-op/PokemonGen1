@@ -35,13 +35,13 @@ dotnet upgrade-assistant upgrade
 ```
 This will open up an interactive interface that will guide you through a few options:
 
--For the `Source project` step, choose `PokemonGeneration1`.  This is where all the method and classes are.
+- For the `Source project` step, choose `PokemonGeneration1`.  This is where all the method and classes are.
 
--For `Upgrade Type`, choose `In-place project upgrade`.  This will overwrite the existing project, which is why you might want to make a new branch.  In any case, you can use `git checkout master` to get the original files back.
+- For `Upgrade Type`, choose `In-place project upgrade`.  This will overwrite the existing project, which is why you might want to make a new branch.  In any case, you can use `git checkout master` to get the original files back.
 
--For `Target Framework`, choose the one corresponding to the .NET version you have installed.
+- For `Target Framework`, choose the one corresponding to the .NET version you have installed.
 
--For the confirmation step (`Upgrade`), input `y` or hit `Enter`.  (Unless you made a mistake, in which case you should input `n` and try again from the beginning.)
+- For the confirmation step (`Upgrade`), input `y` or hit `Enter`.  (Unless you made a mistake, in which case you should input `n` and try again from the beginning.)
 
 A whole bunch of stuff will be printed in the console.  If the process concludes with no errors, you're ready to go!
 
